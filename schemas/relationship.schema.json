@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://homeo-x.org/schemas/relationship.schema.json",
+  "title": "Relationship",
+  "description": "A typed edge. Untyped edges are inadmissible (FR-REL-001).",
+  "type": "object",
+  "required": ["id", "source", "type", "target", "provenance_claim"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {"type": "string", "pattern": "^REL:[a-z0-9-]+$"},
+    "source": {"type": "string"},
+    "target": {"type": "string"},
+    "type": {"enum": ["part_of","member_of","located_in","adjacent_to","connected_to",
+      "composed_of","innervated_by","vascularized_by","drained_by","produces","consumes",
+      "transports","converts","responds_to","regulated_by","activates","inhibits",
+      "differentiates_into","originates_from","realizes","participates_in",
+      "causes","contributes_to","associated_with"]},
+    "skip_justification": {"type": "string", "minLength": 1,
+      "description": "Required when the edge spans more than one level (INV-05)"},
+    "prose_justification": {"type": "string", "minLength": 1,
+      "description": "Required for associated_with; carried from the source (D-007)"},
+    "provenance_claim": {"type": "string",
+      "description": "Edges carry their own evidence; they do not inherit endpoints' (FR-REL-008)"},
+    "compilation_status": {"enum": ["narrative", "structured", "mechanistic", "parameterized"]},
+    "provenance_source": {"type": "string"}
+  },
+  "allOf": [
+    {"if": {"properties": {"type": {"const": "associated_with"}}},
+     "then": {"required": ["prose_justification"]}}
+  ]
+}

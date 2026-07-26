@@ -1,0 +1,15 @@
+{
+ "cardiovascular": 10,
+ "respiratory": 5,
+ "nervous": 5,
+ "urinary": 5,
+ "musculoskeletal": 4,
+ "digestive": 3,
+ "endocrine": 3,
+ "immune": 3,
+ "lymphatic": 3,
+ "integumentary": 3,
+ "reproductive": 3,
+ "whole-organism": 0,
+ "foundational": 2
+}

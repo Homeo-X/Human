@@ -1,0 +1,158 @@
+[
+ {
+  "id": "REL:cvs-part-of-organism",
+  "source": "UBERON:0004535",
+  "target": "UBERON:0000468",
+  "type": "part_of",
+  "provenance_claim": "CLM:heart-function-pump",
+  "compilation_status": "structured"
+ },
+ {
+  "id": "REL:heart-part-of-cvs",
+  "source": "UBERON:0000948",
+  "target": "UBERON:0004535",
+  "type": "part_of",
+  "provenance_claim": "CLM:heart-function-pump",
+  "compilation_status": "structured"
+ },
+ {
+  "id": "REL:lv-part-of-heart",
+  "source": "UBERON:0002084",
+  "target": "UBERON:0000948",
+  "type": "part_of",
+  "provenance_claim": "CLM:heart-function-pump",
+  "compilation_status": "structured"
+ },
+ {
+  "id": "REL:myocardium-part-of-lv",
+  "source": "UBERON:0002349",
+  "target": "UBERON:0002084",
+  "type": "part_of",
+  "provenance_claim": "CLM:heart-function-pump",
+  "compilation_status": "structured"
+ },
+ {
+  "id": "REL:lv-composed-of-myocardium",
+  "source": "UBERON:0002084",
+  "target": "UBERON:0002349",
+  "type": "composed_of",
+  "provenance_claim": "CLM:heart-function-pump",
+  "compilation_status": "structured"
+ },
+ {
+  "id": "REL:myocardium-populated-by-cmpop",
+  "source": "UBERON:0002349",
+  "target": "HOX:cellpopulation:ventricular-cardiomyocyte-population",
+  "type": "composed_of",
+  "provenance_claim": "CLM:heart-function-pump",
+  "compilation_status": "structured"
+ },
+ {
+  "id": "REL:cmpop-part-of-myocardium",
+  "source": "HOX:cellpopulation:ventricular-cardiomyocyte-population",
+  "target": "UBERON:0002349",
+  "type": "part_of",
+  "provenance_claim": "CLM:heart-function-pump",
+  "compilation_status": "structured"
+ },
+ {
+  "id": "REL:cm-part-of-cmpop",
+  "source": "CL:0000746",
+  "target": "HOX:cellpopulation:ventricular-cardiomyocyte-population",
+  "type": "part_of",
+  "provenance_claim": "CLM:heart-function-pump",
+  "compilation_status": "structured"
+ },
+ {
+  "id": "REL:sarcomere-part-of-cm",
+  "source": "GO:0030017",
+  "target": "CL:0000746",
+  "type": "part_of",
+  "provenance_claim": "CLM:sarcomere-resting-length",
+  "compilation_status": "structured"
+ },
+ {
+  "id": "REL:sr-part-of-cm",
+  "source": "GO:0016529",
+  "target": "CL:0000746",
+  "type": "part_of",
+  "provenance_claim": "CLM:cytosolic-ca-diastolic",
+  "compilation_status": "structured"
+ },
+ {
+  "id": "REL:ttubule-part-of-cm",
+  "source": "GO:0030315",
+  "target": "CL:0000746",
+  "type": "part_of",
+  "provenance_claim": "CLM:cytosolic-ca-diastolic",
+  "compilation_status": "structured"
+ },
+ {
+  "id": "REL:sarcomere-hosts-crossbridge",
+  "source": "GO:0030017",
+  "target": "HOX:mechanism:cross-bridge-cycle",
+  "type": "participates_in",
+  "provenance_claim": "CLM:cross-bridge-atp-stoichiometry",
+  "compilation_status": "structured"
+ },
+ {
+  "id": "REL:crossbridge-consumes-atp",
+  "source": "HOX:mechanism:cross-bridge-cycle",
+  "target": "CHEBI:15422",
+  "type": "consumes",
+  "provenance_claim": "CLM:cross-bridge-atp-stoichiometry",
+  "compilation_status": "mechanistic"
+ },
+ {
+  "id": "REL:crossbridge-participant-myosin",
+  "source": "HOX:mechanism:cross-bridge-cycle",
+  "target": "UniProt:P12883",
+  "type": "participates_in",
+  "provenance_claim": "CLM:cross-bridge-atp-stoichiometry",
+  "compilation_status": "mechanistic"
+ },
+ {
+  "id": "REL:crossbridge-participant-actin",
+  "source": "HOX:mechanism:cross-bridge-cycle",
+  "target": "UniProt:P68032",
+  "type": "participates_in",
+  "provenance_claim": "CLM:cross-bridge-atp-stoichiometry",
+  "compilation_status": "mechanistic"
+ },
+ {
+  "id": "REL:sr-transports-ca",
+  "source": "GO:0016529",
+  "target": "CHEBI:29108",
+  "type": "transports",
+  "provenance_claim": "CLM:cytosolic-ca-systolic",
+  "compilation_status": "mechanistic"
+ },
+ {
+  "id": "REL:cm-responds-to-ca",
+  "source": "CL:0000746",
+  "target": "CHEBI:29108",
+  "type": "responds_to",
+  "provenance_claim": "CLM:cytosolic-ca-systolic",
+  "compilation_status": "mechanistic",
+  "skip_justification": "Skips L8: the cell responds to cytosolic calcium through channel and receptor proteins housed in subcellular structures (sarcoplasmic reticulum, T-tubule), both of which are present in this substrate and traversable. The edge is a compression of that chain, stated at cell level because the cell-level response is what the sources characterise."
+ },
+ {
+  "id": "REL:crossbridge-contributes-heart-function",
+  "source": "HOX:mechanism:cross-bridge-cycle",
+  "target": "UBERON:0000948",
+  "type": "contributes_to",
+  "provenance_claim": "CLM:heart-function-pump",
+  "compilation_status": "structured",
+  "skip_justification": "Skips L8 (sarcomere), L7 (cardiomyocyte), L6 (population), L5 (myocardium) and L4 (ventricle). Admitted as a compression of the full chain, every link of which is present in this substrate and traversable; it is not asserted as a direct mechanism, and the relation type is contributes_to rather than causes."
+ },
+ {
+  "id": "REL:assoc-autonomic-cardiaccycle",
+  "source": "HOX:mechanism:cross-bridge-cycle",
+  "target": "UBERON:0000948",
+  "type": "associated_with",
+  "provenance_claim": "CLM:heart-two-pumps-series",
+  "compilation_status": "narrative",
+  "prose_justification": "Seed corpus cross-link: 'Sympathetic and parasympathetic input continuously fine-tune the heart's own intrinsic pacemaker rate.' The corpus states that a relationship exists; it does not state its type. Typing this requires a curator decision with a source (FR-REL-007).",
+  "skip_justification": "The corpus asserts that a relationship exists without stating its type or its intermediate steps. That is precisely why this edge is associated_with rather than regulates: the skipped levels are unknown because the relationship is uncompiled, not because they were judged unnecessary."
+ }
+]

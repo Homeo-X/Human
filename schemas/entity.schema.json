@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://homeo-x.org/schemas/entity.schema.json",
+  "title": "Entity",
+  "description": "A biological thing with identity, class, and level. Names match PRD_Data_Overview exactly.",
+  "type": "object",
+  "required": ["id", "minted", "entity_class", "subsystem", "preferred_term", "compilation_status"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "External ontology term (UBERON:0000948) or minted HOX:<class>:<slug>",
+      "pattern": "^([A-Za-z][A-Za-z0-9]*:[A-Za-z0-9_.-]+|HOX:[a-z_]+:[a-z0-9-]+)$"
+    },
+    "minted": {"type": "boolean"},
+    "minted_reason": {"type": "string", "minLength": 1,
+      "description": "Required when minted is true (INV-10)"},
+    "entity_class": {"enum": ["Organism","Region","System","Organ","Structure","TissueType",
+      "CellPopulation","CellType","Organelle","Biomolecule","Mechanism","Process","Function"]},
+    "level": {"type": "integer", "minimum": 0, "maximum": 10,
+      "description": "Single level for located structures. Mutually exclusive with spatial_scale."},
+    "spatial_scale": {"type": "array", "items": {"type": "integer", "minimum": 0, "maximum": 10},
+      "minItems": 2, "description": "Ordered levels for a spanning process (FR-SCAL-005)"},
+    "level_contributions": {"type": "object",
+      "description": "Per-level contribution for a spanning entity; keys are level numbers as strings",
+      "additionalProperties": {"type": "string", "minLength": 1}},
+    "subsystem": {"type": "string", "minLength": 1,
+      "description": "Governs the declared-depth check (INV-05)"},
+    "preferred_term": {"type": "string", "minLength": 1},
+    "synonyms": {"type": "array", "items": {
+      "type": "object", "required": ["term", "source", "register"], "additionalProperties": false,
+      "properties": {"term": {"type": "string"}, "source": {"type": "string"},
+        "register": {"enum": ["clinical", "historical", "eponym", "colloquial", "abbreviation", "latin"]}}}},
+    "xrefs": {"type": "array", "items": {
+      "type": "object", "required": ["authority", "id", "pinned_version"], "additionalProperties": false,
+      "properties": {"authority": {"enum": ["UBERON","FMA","CL","GO","CHEBI","HGNC","UniProt","TA"]},
+        "id": {"type": "string"}, "pinned_version": {"type": "string"}}}},
+    "compilation_status": {"enum": ["narrative", "structured", "mechanistic", "parameterized"],
+      "description": "D-007 ladder; promotion requires reviewed work, never reformatting"},
+    "representation_mode": {"enum": ["enumerated","typed","statistical","exemplar","referenced","absent"],
+      "description": "Must be offered by this level's SCL row (INV-13)"},
+    "promotion_blocked": {"type": "boolean", "default": false},
+    "promotion_blocked_reason": {"type": "string"},
+    "part_of": {"type": "string", "description": "Single containment parent (INV-02)"},
+    "variant_of": {"type": "string"},
+    "provenance_source": {"type": "string",
+      "description": "For seed-derived entities: the corpus and its ingest date (D-007)"},
+    "retired_at": {"type": "string", "format": "date"},
+    "successor_id": {"type": "string"}
+  },
+  "oneOf": [
+    {"required": ["level"], "not": {"required": ["spatial_scale"]}},
+    {"required": ["spatial_scale", "level_contributions"], "not": {"required": ["level"]}}
+  ]
+}

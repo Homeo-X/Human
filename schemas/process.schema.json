@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://homeo-x.org/schemas/process.schema.json",
+  "title": "Process",
+  "description": "A BPR specification. A process without inputs, outputs, state variables and timescale is a label (BRB-17).",
+  "type": "object",
+  "required": ["id","label","subsystem","spatial_scale","timescale_domain",
+               "representation_status","evidence_class"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {"type": "string", "pattern": "^BPR-[0-9]{2}$"},
+    "label": {"type": "string", "minLength": 1},
+    "subsystem": {"type": "string"},
+    "spatial_scale": {"type": "array", "items": {"type": "integer", "minimum": 0, "maximum": 10},
+      "minItems": 1},
+    "level_contributions": {"type": "object", "additionalProperties": {"type": "string"},
+      "description": "What the process contributes at each listed level (FR-SCAL-005)"},
+    "timescale_domain": {"enum": ["molecular","cellular_electrical","organ_mechanical",
+      "organism_regulatory","endocrine","immune","remodelling","developmental"],
+      "description": "No global clock; domains compose by declared rule only (D-005, INV-06)"},
+    "characteristic_duration": {"type": "object", "required": ["value", "unit"],
+      "additionalProperties": false,
+      "properties": {"value": {"type": "number"}, "unit": {"type": "string"},
+        "range": {"type": "string"}}},
+    "representation_status": {"enum": ["narrative","structured","parameterized","executable"]},
+    "evidence_class": {"enum": ["EVC-1","EVC-2","EVC-3","EVC-4","EVC-5","EVC-6","EVC-7","EVC-8"]},
+    "inputs": {"type": "array", "items": {"type": "string"},
+      "description": "Each must resolve to a defined entity (INV-03)"},
+    "outputs": {"type": "array", "items": {"type": "string"}},
+    "participants": {"type": "array", "items": {"type": "string"}},
+    "state_variables": {"type": "array", "items": {
+      "type": "object", "required": ["name", "unit", "evidence_class"], "additionalProperties": false,
+      "properties": {"name": {"type": "string"}, "unit": {"type": "string"},
+        "normal_range": {"type": "string"}, "evidence_class": {"type": "string"},
+        "note": {"type": "string"}}},
+      "description": "Every variable carries a unit and its own class (FR-PHYS-006)"},
+    "mechanism": {"type": "array", "items": {"type": "string"},
+      "description": "Ordered causal chain"},
+    "depends_on": {"type": "array", "items": {"type": "string"}},
+    "feedback_loops": {"type": "array", "items": {
+      "type": "object", "required": ["description", "damping"], "additionalProperties": false,
+      "properties": {"description": {"type": "string"}, "damping": {"type": "string",
+        "description": "A loop without named damping is a diagram, not a model (FR-PHYS-007)"}}}},
+    "failure_states": {"type": "array", "items": {
+      "type": "object", "required": ["failure", "consequence"], "additionalProperties": false,
+      "properties": {"failure": {"type": "string"}, "consequence": {"type": "string"},
+        "downstream": {"type": "string"}}},
+      "description": "Mechanism failures, never diagnoses (FR-PHYS-008)"},
+    "limitations": {"type": "string", "minLength": 1},
+    "provenance_source": {"type": "string"}
+  },
+  "allOf": [
+    {"if": {"properties": {"representation_status": {"enum": ["structured","parameterized","executable"]}}},
+     "then": {"required": ["inputs","outputs","state_variables","mechanism","limitations",
+                           "failure_states","characteristic_duration"]}}
+  ]
+}

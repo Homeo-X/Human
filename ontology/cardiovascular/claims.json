@@ -1,0 +1,224 @@
+[
+ {
+  "id": "CLM:heart-function-pump",
+  "subject": "UBERON:0000948",
+  "predicate": "has_function",
+  "object": "Propels blood through the pulmonary and systemic circulations by rhythmic contraction",
+  "evidence_class": "EVC-1",
+  "source_type": "reference textbook",
+  "species": "Homo sapiens",
+  "population": "adult, healthy",
+  "date_asserted": "2026-07-26",
+  "limitations": "Describes the organ-level function only; regional wall-motion heterogeneity is not represented.",
+  "assigned_by": "human:reviewer-cardio-01",
+  "sources": [
+   {
+    "citation": "Standring S (ed.), Gray's Anatomy, 42nd ed.",
+    "identifier": "ISBN:9780702077050",
+    "licence_tier": "T2"
+   },
+   {
+    "citation": "Hall JE & Hall ME, Guyton and Hall Textbook of Medical Physiology, 14th ed.",
+    "identifier": "ISBN:9780323597128",
+    "licence_tier": "T2"
+   }
+  ],
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:heart-two-pumps-series",
+  "subject": "UBERON:0000948",
+  "predicate": "has_property",
+  "object": "The right and left sides function as two pumps in series, not in parallel",
+  "evidence_class": "EVC-1",
+  "source_type": "reference textbook",
+  "species": "Homo sapiens",
+  "population": "adult, healthy",
+  "date_asserted": "2026-07-26",
+  "limitations": "A functional description; it does not capture ventricular interdependence through the shared septum.",
+  "assigned_by": "human:reviewer-cardio-01",
+  "sources": [
+   {
+    "citation": "Standring S (ed.), Gray's Anatomy, 42nd ed.",
+    "identifier": "ISBN:9780702077050",
+    "licence_tier": "T2"
+   },
+   {
+    "citation": "Hall JE & Hall ME, Guyton and Hall Textbook of Medical Physiology, 14th ed.",
+    "identifier": "ISBN:9780323597128",
+    "licence_tier": "T2"
+   }
+  ],
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:myocardium-fibre-architecture",
+  "subject": "UBERON:0002349",
+  "predicate": "spatial_arrangement",
+  "object": "UNKNOWN — transmural fibre orientation is known to vary and is functionally significant, but is not represented in this model",
+  "evidence_class": "EVC-8",
+  "source_type": "reference textbook",
+  "species": "Homo sapiens",
+  "population": "adult",
+  "date_asserted": "2026-07-26",
+  "limitations": "This is an asserted gap, not missing data. The arrangement is documented in the literature; the model holds composition only, per SCL-05.",
+  "assigned_by": "human:reviewer-cardio-01"
+ },
+ {
+  "id": "CLM:sarcomere-resting-length",
+  "subject": "GO:0030017",
+  "predicate": "resting_length",
+  "object": {
+   "min": 1.8,
+   "max": 2.2
+  },
+  "evidence_class": "EVC-2",
+  "source_type": "primary research",
+  "species": "Homo sapiens",
+  "population": "adult ventricular myocardium",
+  "date_asserted": "2026-07-26",
+  "limitations": "The Frank-Starling operating range. Values outside it occur but are not the reference range.",
+  "assigned_by": "human:reviewer-cardio-01",
+  "sources": [
+   {
+    "citation": "Bers DM, Cardiac excitation-contraction coupling, Nature 415:198-205",
+    "identifier": "DOI:10.1038/415198a",
+    "licence_tier": "T2"
+   },
+   {
+    "citation": "Hall JE & Hall ME, Guyton and Hall Textbook of Medical Physiology, 14th ed.",
+    "identifier": "ISBN:9780323597128",
+    "licence_tier": "T2"
+   }
+  ],
+  "unit": "um",
+  "conditions": {
+   "preparation": "ex vivo",
+   "notes": "isolated trabeculae and skinned fibre preparations"
+  }
+ },
+ {
+  "id": "CLM:cytosolic-ca-diastolic",
+  "subject": "CL:0000746",
+  "predicate": "diastolic_cytosolic_calcium",
+  "object": {
+   "min": 100,
+   "max": 200
+  },
+  "evidence_class": "EVC-3",
+  "source_type": "primary research",
+  "species": "Mus musculus",
+  "population": "isolated ventricular myocytes",
+  "date_asserted": "2026-07-26",
+  "limitations": "Human in-vivo measurement at this resolution does not exist. Presented as a modelled value, not a measured human one.",
+  "assigned_by": "human:reviewer-cardio-01",
+  "sources": [
+   {
+    "citation": "Bers DM, Cardiac excitation-contraction coupling, Nature 415:198-205",
+    "identifier": "DOI:10.1038/415198a",
+    "licence_tier": "T2"
+   }
+  ],
+  "unit": "nmol/L",
+  "conditions": {
+   "preparation": "in vitro",
+   "temperature_c": 37,
+   "notes": "fluorescent indicator, isolated myocytes"
+  },
+  "transfer_justification": "Calcium handling is mechanistically conserved across mammalian ventricular myocytes; absolute concentrations differ between species and the value is therefore graded EVC-3 rather than transferred as a human measurement."
+ },
+ {
+  "id": "CLM:cytosolic-ca-systolic",
+  "subject": "CL:0000746",
+  "predicate": "systolic_peak_cytosolic_calcium",
+  "object": 1.0,
+  "evidence_class": "EVC-3",
+  "source_type": "primary research",
+  "species": "Mus musculus",
+  "population": "isolated ventricular myocytes",
+  "date_asserted": "2026-07-26",
+  "limitations": "Order-of-magnitude value. A more precise figure would be false precision.",
+  "assigned_by": "human:reviewer-cardio-01",
+  "sources": [
+   {
+    "citation": "Bers DM, Cardiac excitation-contraction coupling, Nature 415:198-205",
+    "identifier": "DOI:10.1038/415198a",
+    "licence_tier": "T2"
+   }
+  ],
+  "unit": "umol/L",
+  "conditions": {
+   "preparation": "in vitro",
+   "temperature_c": 37
+  },
+  "transfer_justification": "As CLM:cytosolic-ca-diastolic: mechanism conserved, absolute values species-dependent."
+ },
+ {
+  "id": "CLM:cross-bridge-cycle-duration",
+  "subject": "HOX:mechanism:cross-bridge-cycle",
+  "predicate": "cycle_duration",
+  "object": {
+   "order_min": 10,
+   "order_max": 100
+  },
+  "evidence_class": "EVC-4",
+  "source_type": "primary research",
+  "species": "Oryctolagus cuniculus",
+  "population": "isolated cardiac preparations",
+  "date_asserted": "2026-07-26",
+  "limitations": "An approximation stated as an order of magnitude. Rates depend on load, temperature and species, and precise human in-vivo values do not exist.",
+  "assigned_by": "human:reviewer-cardio-01",
+  "sources": [
+   {
+    "citation": "Bers DM, Cardiac excitation-contraction coupling, Nature 415:198-205",
+    "identifier": "DOI:10.1038/415198a",
+    "licence_tier": "T2"
+   }
+  ],
+  "unit": "ms",
+  "conditions": {
+   "preparation": "in vitro",
+   "temperature_c": 22,
+   "notes": "sub-physiological temperature; rates at 37 C are faster"
+  },
+  "transfer_justification": "Cross-bridge cycling is mechanistically conserved across mammalian striated muscle; rate constants are NOT conserved, which is why this is graded APPROXIMATED."
+ },
+ {
+  "id": "CLM:cross-bridge-atp-stoichiometry",
+  "subject": "HOX:mechanism:cross-bridge-cycle",
+  "predicate": "atp_per_cycle",
+  "object": 1,
+  "evidence_class": "EVC-2",
+  "source_type": "primary research",
+  "species": "not applicable",
+  "population": "not applicable",
+  "date_asserted": "2026-07-26",
+  "limitations": "Stoichiometric, not a measured rate.",
+  "assigned_by": "human:reviewer-cardio-01",
+  "sources": [
+   {
+    "citation": "Bers DM, Cardiac excitation-contraction coupling, Nature 415:198-205",
+    "identifier": "DOI:10.1038/415198a",
+    "licence_tier": "T2"
+   }
+  ],
+  "unit": "1",
+  "conditions": {
+   "preparation": "in vitro",
+   "notes": "Stoichiometric rather than measured under conditions; one ATP is hydrolysed per cycle by the chemistry of the cycle itself."
+  }
+ },
+ {
+  "id": "CLM:cardiomyocyte-regional-heterogeneity",
+  "subject": "CL:0000746",
+  "predicate": "population_heterogeneity",
+  "object": "UNKNOWN — endocardial, midmyocardial and epicardial myocytes differ electrically; this model represents one canonical exemplar",
+  "evidence_class": "EVC-8",
+  "source_type": "reference textbook",
+  "species": "Homo sapiens",
+  "population": "adult",
+  "date_asserted": "2026-07-26",
+  "limitations": "An asserted gap. SCL-07 declares 'typed' mode: one exemplar per type, and real cells vary continuously.",
+  "assigned_by": "human:reviewer-cardio-01"
+ }
+]

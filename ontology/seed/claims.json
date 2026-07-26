@@ -1,0 +1,2942 @@
+[
+ {
+  "id": "CLM:seed-levelsoforganization-definition",
+  "subject": "HOX:function:levelsoforganization",
+  "predicate": "has_definition",
+  "object": "The hierarchical model in which matter is organized into successive levels — chemical, cellular, tissue, organ, organ system, organism — with each level assembled entirely from the level beneath it.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Tortora & Derrickson, \"Principles of Anatomy and Physiology\"; Marieb & Hoehn, \"Human Anatomy & Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-chemicallevel-definition",
+  "subject": "HOX:function:chemicallevel",
+  "predicate": "has_definition",
+  "object": "The foundation of anatomy at the level of atoms, ions, and molecules — the roughly 20 elements and handful of molecular classes (water, carbohydrates, lipids, proteins, nucleic acids) that every larger structure in the body is built from.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Tortora & Derrickson, \"Principles of Anatomy and Physiology\"; Marieb & Hoehn, \"Human Anatomy & Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-cellularlevel-definition",
+  "subject": "HOX:function:cellularlevel",
+  "predicate": "has_definition",
+  "object": "The cell as the smallest unit that is fully alive on its own — the level at which the roughly 30–37 trillion cells of an adult human body are organized into the ~200 specialized types that build every tissue.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Marieb & Hoehn, \"Human Anatomy & Physiology\"; Mescher, \"Junqueira's Basic Histology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-tissuelevel-definition",
+  "subject": "HOX:function:tissuelevel",
+  "predicate": "has_definition",
+  "object": "The level at which groups of similar cells, plus the extracellular material surrounding them, cooperate as a functional unit — the immediate subject of histology, and the level this map treats separately as its own foundation.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Mescher, \"Junqueira's Basic Histology\"; Tortora & Derrickson, \"Principles of Anatomy and Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-organlevel-definition",
+  "subject": "HOX:function:organlevel",
+  "predicate": "has_definition",
+  "object": "An organ is a structure built from two or more tissue types performing a defined job; an organ system is a group of organs cooperating toward a shared physiological goal — the level at which most of this map's branches are organized.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Tortora & Derrickson, \"Principles of Anatomy and Physiology\"; Standring (ed.), \"Gray's Anatomy,\" 42nd ed.",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-bodycavities-definition",
+  "subject": "HOX:function:bodycavities",
+  "predicate": "has_definition",
+  "object": "The fluid-cushioned, membrane-lined internal spaces — cranial, spinal, thoracic, abdominal, pelvic — that house and protect the body's organs, most of them wrapped in a slick double-layered serous membrane that lets moving organs slide against their neighbors.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Moore, Dalley & Agur, \"Clinically Oriented Anatomy\"; Standring (ed.), \"Gray's Anatomy,\" 42nd ed.",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-anatomicalterminology-definition",
+  "subject": "HOX:function:anatomicalterminology",
+  "predicate": "has_definition",
+  "object": "The standardized, Latin-rooted system of names, directional terms, and reference planes that lets any point on or in the human body be located unambiguously, regardless of the body's actual orientation at the time.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Moore, Dalley & Agur, \"Clinically Oriented Anatomy\"; Standring (ed.), \"Gray's Anatomy,\" 42nd ed.",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-anatomicalposition-definition",
+  "subject": "HOX:function:anatomicalposition",
+  "predicate": "has_definition",
+  "object": "The universal reference pose — standing erect, facing forward, arms at the sides, palms facing forward, feet parallel — against which every anatomical directional term (superior, inferior, anterior, posterior, medial, lateral, proximal, distal) is defined.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Moore, Dalley & Agur, \"Clinically Oriented Anatomy\"; Tortora & Derrickson, \"Principles of Anatomy and Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-bodyplanes-definition",
+  "subject": "HOX:function:bodyplanes",
+  "predicate": "has_definition",
+  "object": "Three mutually perpendicular reference planes — sagittal (divides left/right), frontal or coronal (divides front/back), and transverse or axial (divides top/bottom) — used to describe sections through the body or any of its parts.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Moore, Dalley & Agur, \"Clinically Oriented Anatomy\"; Standring (ed.), \"Gray's Anatomy,\" 42nd ed.",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-bodyregions-definition",
+  "subject": "HOX:function:bodyregions",
+  "predicate": "has_definition",
+  "object": "The system of named surface landmarks and regional subdivisions — the abdominal quadrants and nine regions, the cubital fossa, the popliteal region — that lets a clinician locate and describe findings using visible or palpable anatomy rather than internal structures alone.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Moore, Dalley & Agur, \"Clinically Oriented Anatomy\"; Standring (ed.), \"Gray's Anatomy,\" 42nd ed.",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-medicalimaging-definition",
+  "subject": "HOX:function:medicalimaging",
+  "predicate": "has_definition",
+  "object": "The sequence of physics-driven breakthroughs — X-ray, computed tomography, magnetic resonance imaging, ultrasound — that made it possible to visualize internal human anatomy in a living patient, ending anatomy's total historical dependence on the dissected cadaver.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Standring (ed.), \"Gray's Anatomy,\" 42nd ed.; \"Radiopaedia.org\" (clinical reference)",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-homeostasis-definition",
+  "subject": "HOX:function:homeostasis",
+  "predicate": "has_definition",
+  "object": "The body's capacity to actively hold its internal environment — temperature, blood glucose, blood pH, fluid and electrolyte balance, and dozens of other variables — stable within a narrow functional range despite continuous change in the external environment and internal demand.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Sherwood, \"Human Physiology: From Cells to Systems\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-feedbackloops-definition",
+  "subject": "HOX:function:feedbackloops",
+  "predicate": "has_definition",
+  "object": "The two basic control patterns physiological systems use: negative feedback, where a deviation from a set point triggers a response that pushes the variable back toward normal, and positive feedback, where a deviation triggers a response that amplifies the deviation further.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Sherwood, \"Human Physiology: From Cells to Systems\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-controlcenters-definition",
+  "subject": "HOX:function:controlcenters",
+  "predicate": "has_definition",
+  "object": "The shared three-part architecture behind every homeostatic mechanism in the body: a receptor that detects the current value of a regulated variable, a control (integrating) center that compares that value against a set point, and an effector that carries out the corrective response the control center commands.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Tortora & Derrickson, \"Principles of Anatomy and Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-fluidelectrolyte-definition",
+  "subject": "HOX:function:fluidelectrolyte",
+  "predicate": "has_definition",
+  "object": "The regulation of total body water, its distribution between the intracellular and extracellular compartments, the concentration of dissolved electrolytes within each, and blood pH — three tightly interlinked variables the kidneys, lungs, and endocrine system jointly defend.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Barrett et al., \"Ganong's Review of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-thermoregulation-definition",
+  "subject": "HOX:function:thermoregulation",
+  "predicate": "has_definition",
+  "object": "The physiological control of core body temperature within roughly half a degree of 37°C (98.6°F), coordinated by a hypothalamic control center acting as a literal biological thermostat, balancing heat production and heat loss through effectors including sweating, shivering, and blood vessel diameter.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Sherwood, \"Human Physiology: From Cells to Systems\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-histology-definition",
+  "subject": "HOX:function:histology",
+  "predicate": "has_definition",
+  "object": "The microscopic study of tissue — and the finding, foundational to all of gross anatomy, that every organ in the human body is built from combinations of just four fundamental tissue types: epithelial, connective, muscle, and nervous.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Mescher, \"Junqueira's Basic Histology\"; Kumar, Abbas & Aster, \"Robbins Basic Pathology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-epithelialtissue-definition",
+  "subject": "HOX:function:epithelialtissue",
+  "predicate": "has_definition",
+  "object": "Sheets of closely packed cells with almost no space between them, covering external body surfaces and lining internal cavities, ducts, and glands — the body's primary barrier, protective, and exchange-surface tissue, classified by cell shape and number of cell layers.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Mescher, \"Junqueira's Basic Histology\"; Marieb & Hoehn, \"Human Anatomy & Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-connectivetissue-definition",
+  "subject": "HOX:function:connectivetissue",
+  "predicate": "has_definition",
+  "object": "The most abundant and structurally diverse tissue type in the body, defined not primarily by its cells (which are typically sparse) but by the extracellular matrix surrounding them — ranging from loose areolar tissue and fat, through dense tendon and ligament, to cartilage, bone, and blood.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Mescher, \"Junqueira's Basic Histology\"; Marieb & Hoehn, \"Human Anatomy & Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-muscletissuehist-definition",
+  "subject": "HOX:function:muscletissuehist",
+  "predicate": "has_definition",
+  "object": "The body's sole contractile tissue type, built from cells (fibers) specialized to shorten forcefully using the actin-myosin sliding-filament mechanism, occurring in three microscopically and functionally distinct forms: skeletal, cardiac, and smooth muscle.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Mescher, \"Junqueira's Basic Histology\"; Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-nervoustissuehist-definition",
+  "subject": "HOX:function:nervoustissuehist",
+  "predicate": "has_definition",
+  "object": "Tissue built from two fundamentally different cell populations: neurons, electrically excitable cells specialized to generate and transmit signals, and glial cells, which outnumber neurons and provide structural support, insulation, nutrient supply, and immune defense within nervous tissue.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kandel et al., \"Principles of Neural Science\"; Mescher, \"Junqueira's Basic Histology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-bodymembranes-definition",
+  "subject": "HOX:function:bodymembranes",
+  "predicate": "has_definition",
+  "object": "Thin sheets of tissue, typically combining an epithelial layer with an underlying connective tissue layer, that line or cover body surfaces and cavities — classified into mucous, serous, cutaneous, and synovial membranes by location and function.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Mescher, \"Junqueira's Basic Histology\"; Marieb & Hoehn, \"Human Anatomy & Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-integumentary-definition",
+  "subject": "HOX:function:integumentary",
+  "predicate": "has_definition",
+  "object": "The organ system formed by skin and its associated structures — hair, nails, sweat glands, sebaceous glands — collectively the body's largest organ, providing the primary physical barrier between the internal body and the external environment.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Standring (ed.), \"Gray's Anatomy,\" 42nd ed.; Marieb & Hoehn, \"Human Anatomy & Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-skinlayers-definition",
+  "subject": "HOX:function:skinlayers",
+  "predicate": "has_definition",
+  "object": "Skin's three structurally and functionally distinct layers: the epidermis (a tough, avascular, self-renewing epithelial barrier), the dermis (a thick connective tissue layer housing blood vessels, nerves, and glands), and the hypodermis (subcutaneous fatty tissue anchoring skin to underlying structures).",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Mescher, \"Junqueira's Basic Histology\"; Standring (ed.), \"Gray's Anatomy,\" 42nd ed.",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-skinfunctions-definition",
+  "subject": "HOX:function:skinfunctions",
+  "predicate": "has_definition",
+  "object": "The full range of physiological jobs skin performs beyond simple covering: mechanical and pathogen barrier, thermoregulation via blood vessels and sweat glands, sensory reception, vitamin D synthesis, minor excretion, and localized immune surveillance.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Marieb & Hoehn, \"Human Anatomy & Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-hairnails-definition",
+  "subject": "HOX:function:hairnails",
+  "predicate": "has_definition",
+  "object": "Two hardened, keratin-based derivatives of the epidermis: hair, growing continuously from follicles embedded in the dermis in a cycle of active growth and rest, and nails, growing from a protected matrix at the base of each nail bed.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Mescher, \"Junqueira's Basic Histology\"; Standring (ed.), \"Gray's Anatomy,\" 42nd ed.",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-skinglands-definition",
+  "subject": "HOX:function:skinglands",
+  "predicate": "has_definition",
+  "object": "Skin's two major gland types: sweat glands (eccrine glands for evaporative cooling, distributed almost everywhere; apocrine glands, scent-related, concentrated in the armpits and groin) and sebaceous glands, which secrete the oily substance sebum that waterproofs skin and hair.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Mescher, \"Junqueira's Basic Histology\"; Marieb & Hoehn, \"Human Anatomy & Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-skinpigmentation-definition",
+  "subject": "HOX:function:skinpigmentation",
+  "predicate": "has_definition",
+  "object": "The production of melanin by melanocytes in the epidermis's basal layer — the pigment responsible for essentially all natural variation in human skin, hair, and eye color, and skin's primary defense against UV radiation damage.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Mescher, \"Junqueira's Basic Histology\"; Standring (ed.), \"Gray's Anatomy,\" 42nd ed.",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-woundhealing-definition",
+  "subject": "HOX:function:woundhealing",
+  "predicate": "has_definition",
+  "object": "The remarkably consistent four-phase sequence by which skin repairs itself after injury: hemostasis (stopping blood loss), inflammation (clearing debris and pathogens), proliferation (rebuilding tissue), and remodeling (strengthening and reorganizing the repair over weeks to months).",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kumar, Abbas & Aster, \"Robbins Basic Pathology\"; Mescher, \"Junqueira's Basic Histology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-skinmicrobiome-definition",
+  "subject": "HOX:function:skinmicrobiome",
+  "predicate": "has_definition",
+  "object": "The distinct community of bacteria, fungi, and viruses that resides on and within the outer layers of skin, varying substantially between oily, moist, and dry skin regions on the same individual, and playing an active role in skin immune function rather than simply existing on its surface.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kumar, Abbas & Aster, \"Robbins Basic Pathology\"; \"Human Microbiome Project\" consortium publications",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-skeletal-definition",
+  "subject": "HOX:function:skeletal",
+  "predicate": "has_definition",
+  "object": "The organ system formed by the 206 bones of the adult skeleton, their joints, and associated cartilage — providing structural support, protecting internal organs, enabling movement in partnership with muscle, storing minerals, and manufacturing blood cells.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Standring (ed.), \"Gray's Anatomy,\" 42nd ed.; Moore, Dalley & Agur, \"Clinically Oriented Anatomy\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-boneanatomy-definition",
+  "subject": "HOX:function:boneanatomy",
+  "predicate": "has_definition",
+  "object": "Bone's composite structure — roughly one-third flexible organic collagen framework and two-thirds rigid mineral (chiefly calcium phosphate as hydroxyapatite crystals) — organized into dense compact bone for strength and lighter, lattice-like spongy (cancellous) bone for strength-to-weight efficiency.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Standring (ed.), \"Gray's Anatomy,\" 42nd ed.; Mescher, \"Junqueira's Basic Histology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-skeletondivisions-definition",
+  "subject": "HOX:function:skeletondivisions",
+  "predicate": "has_definition",
+  "object": "The two functional divisions of the 206-bone adult skeleton: the axial skeleton (80 bones — skull, vertebral column, rib cage, forming the body's central axis and protecting the brain, spinal cord, and thoracic organs) and the appendicular skeleton (126 bones — limbs plus the shoulder and hip girdles connecting them to the axis).",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Standring (ed.), \"Gray's Anatomy,\" 42nd ed.; Moore, Dalley & Agur, \"Clinically Oriented Anatomy\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-boneremodeling-definition",
+  "subject": "HOX:function:boneremodeling",
+  "predicate": "has_definition",
+  "object": "The continuous, lifelong cycle in which osteoclasts resorb (dissolve) old or damaged bone matrix while osteoblasts synthesize new bone matrix in its place, governed by the RANK/RANKL/osteoprotegerin signaling pathway that couples the two opposing cell activities together.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Kumar, Abbas & Aster, \"Robbins Basic Pathology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-ossification-definition",
+  "subject": "HOX:function:ossification",
+  "predicate": "has_definition",
+  "object": "The process by which bone tissue forms, occurring through one of two distinct routes — intramembranous ossification (bone forms directly within a sheet of connective tissue, building the flat bones of the skull) or endochondral ossification (bone replaces a pre-existing cartilage template, building most of the rest of the skeleton) — with growth continuing at cartilage growth plates until roughly the mid-20s.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Mescher, \"Junqueira's Basic Histology\"; Standring (ed.), \"Gray's Anatomy,\" 42nd ed.",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-jointsarticulations-definition",
+  "subject": "HOX:function:jointsarticulations",
+  "predicate": "has_definition",
+  "object": "The point where two or more bones meet, classified by structure and the degree of movement permitted — fibrous joints (immovable to slightly movable, connected by dense connective tissue), cartilaginous joints (slightly movable, connected by cartilage), and synovial joints (freely movable, with a fluid-filled joint cavity).",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Moore, Dalley & Agur, \"Clinically Oriented Anatomy\"; Standring (ed.), \"Gray's Anatomy,\" 42nd ed.",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-cartilage-definition",
+  "subject": "HOX:function:cartilage",
+  "predicate": "has_definition",
+  "object": "A flexible, resilient, avascular connective tissue with cells (chondrocytes) embedded in a firm but pliable extracellular matrix, occurring in three distinct forms: hyaline cartilage (the most common, cushioning joints and forming the fetal skeletal template), elastic cartilage (flexible structural support), and fibrocartilage (dense, shock-absorbing).",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Mescher, \"Junqueira's Basic Histology\"; Standring (ed.), \"Gray's Anatomy,\" 42nd ed.",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-vertebralcolumn-definition",
+  "subject": "HOX:function:vertebralcolumn",
+  "predicate": "has_definition",
+  "object": "The 33 vertebrae (24 individually movable, plus the fused sacrum and coccyx) stacked into an S-shaped column with four alternating curvatures, developing sequentially after birth as an infant gains head control, sits, and stands — a curved architecture that distributes mechanical load far more efficiently than a rigid straight column would.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Moore, Dalley & Agur, \"Clinically Oriented Anatomy\"; Standring (ed.), \"Gray's Anatomy,\" 42nd ed.",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-muscular-definition",
+  "subject": "HOX:function:muscular",
+  "predicate": "has_definition",
+  "object": "The organ system built from skeletal, cardiac, and smooth muscle tissue, together accounting for roughly 40% of total adult body mass — responsible for voluntary movement and posture, the heartbeat, and the involuntary movement of material through internal organs and vessels.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Standring (ed.), \"Gray's Anatomy,\" 42nd ed.; Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-muscletypes-definition",
+  "subject": "HOX:function:muscletypes",
+  "predicate": "has_definition",
+  "object": "A direct functional comparison of the three muscle tissue types introduced under this map's Histology foundation: skeletal (striated, voluntary, fast and powerful but fatigues relatively quickly), cardiac (striated, involuntary, rhythmic and highly fatigue-resistant), and smooth (non-striated, involuntary, slow but able to sustain contraction for extended periods with little energy cost).",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Mescher, \"Junqueira's Basic Histology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-slidingfilament-definition",
+  "subject": "HOX:function:slidingfilament",
+  "predicate": "has_definition",
+  "object": "The resolved mechanism of skeletal (and, with variations, cardiac) muscle contraction: overlapping thick (myosin) and thin (actin) protein filaments slide past one another as myosin \"heads\" repeatedly bind actin, pull, release, and reset in an ATP-powered cycle, while neither filament itself shortens.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Kandel et al., \"Principles of Neural Science\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-muscleenergetics-definition",
+  "subject": "HOX:function:muscleenergetics",
+  "predicate": "has_definition",
+  "object": "The three overlapping ATP-supply systems skeletal muscle draws on depending on effort intensity and duration: stored phosphocreatine (immediate, seconds), anaerobic glycolysis (short, intense effort, roughly a minute or two), and aerobic (oxidative) metabolism (sustained effort, minutes to hours).",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; \"Exercise Physiology\" (McArdle, Katch & Katch)",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-musclefibertypes-definition",
+  "subject": "HOX:function:musclefibertypes",
+  "predicate": "has_definition",
+  "object": "The physiologically distinct categories of skeletal muscle fiber present, in genetically influenced proportions, within essentially every skeletal muscle: Type I (slow-twitch, fatigue-resistant, built for sustained endurance work) and Type II (fast-twitch, subdivided into IIa and IIx, built for rapid, powerful but quickly fatiguing bursts).",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; \"Exercise Physiology\" (McArdle, Katch & Katch)",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-neuromuscularjunction-definition",
+  "subject": "HOX:function:neuromuscularjunction",
+  "predicate": "has_definition",
+  "object": "The specialized chemical synapse between a motor neuron's axon terminal and a skeletal muscle fiber, where the neurotransmitter acetylcholine crosses the synaptic gap to trigger, with high reliability, a full contraction of the muscle fiber on the receiving end.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kandel et al., \"Principles of Neural Science\"; Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-majormusclegroups-definition",
+  "subject": "HOX:function:majormusclegroups",
+  "predicate": "has_definition",
+  "object": "The regional organization of the roughly 600-plus named skeletal muscles of the human body, most working in opposing agonist/antagonist pairs or groups across a given joint — one group contracting to produce a movement while its counterpart relaxes and lengthens, then reversing roles to produce the opposite movement.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Moore, Dalley & Agur, \"Clinically Oriented Anatomy\"; Standring (ed.), \"Gray's Anatomy,\" 42nd ed.",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-muscleexerciseadaptation-definition",
+  "subject": "HOX:function:muscleexerciseadaptation",
+  "predicate": "has_definition",
+  "object": "The tissue-level changes skeletal muscle undergoes in response to sustained training, differing sharply by training type: resistance (strength) training drives fiber hypertrophy and increased force-generating capacity, while endurance training drives increased capillary density, mitochondrial content, and aerobic enzyme activity with comparatively little fiber enlargement.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "\"Exercise Physiology\" (McArdle, Katch & Katch); Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-nervous-definition",
+  "subject": "HOX:function:nervous",
+  "predicate": "has_definition",
+  "object": "The organ system built from the brain, spinal cord, and peripheral nerves — roughly 86 billion neurons in the brain alone, coordinating sensation, voluntary and involuntary movement, and the moment-to-moment regulation of nearly every other organ system through electrical and chemical signaling.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kandel et al., \"Principles of Neural Science\"; Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-cnsoverview-definition",
+  "subject": "HOX:function:cnsoverview",
+  "predicate": "has_definition",
+  "object": "The brain and spinal cord — encased within the skull and vertebral column respectively, and together forming the nervous system's central integration and command hub, where sensory information is processed and voluntary and involuntary motor commands originate.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kandel et al., \"Principles of Neural Science\"; Standring (ed.), \"Gray's Anatomy,\" 42nd ed.",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-brainanatomy-definition",
+  "subject": "HOX:function:brainanatomy",
+  "predicate": "has_definition",
+  "object": "The major structural and functional divisions of the roughly 1.3–1.4 kilogram adult human brain: the cerebrum (higher cognition, sensory processing, voluntary movement), the cerebellum (movement coordination and balance), the brainstem (vital automatic functions), and the diencephalon (the thalamus and hypothalamus, a central relay and regulatory hub).",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kandel et al., \"Principles of Neural Science\"; Standring (ed.), \"Gray's Anatomy,\" 42nd ed.",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-corticalmapping-definition",
+  "subject": "HOX:function:corticalmapping",
+  "predicate": "has_definition",
+  "object": "The discovery, made through direct electrical stimulation of the exposed brain in conscious neurosurgical patients, that the body's motor and sensory representation across the cerebral cortex forms an orderly but grossly distorted map — the \"homunculus\" — with disproportionately large cortical territory devoted to the hands, lips, and tongue relative to their actual physical size.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kandel et al., \"Principles of Neural Science\"; \"Penfield & Rasmussen, The Cerebral Cortex of Man\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-splitbrain-definition",
+  "subject": "HOX:function:splitbrain",
+  "predicate": "has_definition",
+  "object": "Research on patients who had undergone commissurotomy (surgical severing of the corpus callosum, the thick band of nerve fibers connecting the brain's two hemispheres, historically performed to control severe, otherwise untreatable epilepsy) revealing that the left and right cerebral hemispheres are specialized for measurably different cognitive functions and can, under carefully controlled experimental conditions, be shown to process information almost independently.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kandel et al., \"Principles of Neural Science\"; \"Gazzaniga, The Split Brain Revisited\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-pnsoverview-definition",
+  "subject": "HOX:function:pnsoverview",
+  "predicate": "has_definition",
+  "object": "Every nerve structure outside the brain and spinal cord: 12 paired cranial nerves emerging directly from the brain (numbered I–XII by convention) and 31 paired spinal nerves emerging from the spinal cord at regular intervals, together carrying sensory information inward and motor commands outward to the rest of the body.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kandel et al., \"Principles of Neural Science\"; Moore, Dalley & Agur, \"Clinically Oriented Anatomy\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-autonomicnervous-definition",
+  "subject": "HOX:function:autonomicnervous",
+  "predicate": "has_definition",
+  "object": "The involuntary division of the peripheral nervous system governing internal organ function without conscious control, split into two largely opposing divisions: the sympathetic division (mobilizing the body for exertion or perceived threat — \"fight or flight\") and the parasympathetic division (conserving energy and supporting routine maintenance functions — \"rest and digest\").",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Kandel et al., \"Principles of Neural Science\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-spinalcordreflexes-definition",
+  "subject": "HOX:function:spinalcordreflexes",
+  "predicate": "has_definition",
+  "object": "The simplest, fastest circuit type in the nervous system — a reflex arc — in which a sensory stimulus triggers a motor response through the spinal cord, often without requiring any involvement from the brain at all, resolved through Charles Sherrington's foundational late-19th and early-20th century work on how individual neurons connect and communicate.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kandel et al., \"Principles of Neural Science\"; Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-bloodbrainbarrier-definition",
+  "subject": "HOX:function:bloodbrainbarrier",
+  "predicate": "has_definition",
+  "object": "A highly selective physiological barrier, formed by specialized tightly-joined blood vessel cells throughout the brain, that restricts which substances can cross from the bloodstream into brain tissue — protecting the brain's exquisitely sensitive chemical environment at the direct cost of also blocking many potentially useful therapeutic drugs.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kandel et al., \"Principles of Neural Science\"; Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-csfventricles-definition",
+  "subject": "HOX:function:csfventricles",
+  "predicate": "has_definition",
+  "object": "The system of four interconnected fluid-filled cavities (ventricles) within the brain that produce cerebrospinal fluid (CSF), which then circulates through and around the brain and spinal cord, providing mechanical cushioning, chemical stability, and a route for clearing metabolic waste.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kandel et al., \"Principles of Neural Science\"; Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-anesthesiamechanism-definition",
+  "subject": "HOX:function:anesthesiamechanism",
+  "predicate": "has_definition",
+  "object": "The still-incomplete scientific understanding of exactly how general anesthetic drugs — a chemically diverse group with no obvious shared structural feature — reliably produce reversible loss of consciousness, despite having been used safely and predictably in surgery for nearly two centuries.",
+  "evidence_class": "EVC-6",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kandel et al., \"Principles of Neural Science\"; \"Miller's Anesthesia\" (Gropper et al., eds.)",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment. The corpus marks this topic as an open scientific question.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-painphantomlimb-definition",
+  "subject": "HOX:function:painphantomlimb",
+  "predicate": "has_definition",
+  "object": "The experience, reported by a large majority of amputees, of continued sensation — frequently painful — apparently located in a limb that has been surgically or traumatically removed, increasingly understood to involve the brain's own cortical body-map (covered under this branch's Cortical Mapping node) reorganizing once its normal sensory input is lost.",
+  "evidence_class": "EVC-6",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kandel et al., \"Principles of Neural Science\"; \"Ramachandran & Blakeslee, Phantoms in the Brain\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment. The corpus marks this topic as an open scientific question.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-specialsenses-definition",
+  "subject": "HOX:function:specialsenses",
+  "predicate": "has_definition",
+  "object": "The sensory systems built around dedicated, structurally complex organs devoted to a single sensory modality — vision (eye), hearing and balance (ear), taste (tongue), and smell (nose) — distinguished from the more diffusely distributed general senses covered under Somatosensation.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kandel et al., \"Principles of Neural Science\"; Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-visualsystem-definition",
+  "subject": "HOX:function:visualsystem",
+  "predicate": "has_definition",
+  "object": "The eye's optical and neural apparatus for vision: the cornea and lens focus incoming light onto the retina, where photoreceptor cells convert it into electrical signals that travel via the optic nerve, through a relay in the thalamus, to the visual cortex at the back of the brain for final processing.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kandel et al., \"Principles of Neural Science\"; Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-phototransduction-definition",
+  "subject": "HOX:function:phototransduction",
+  "predicate": "has_definition",
+  "object": "The molecular chemistry by which a photoreceptor cell converts a captured photon into an electrical signal: light striking a light-sensitive pigment molecule triggers a shape change that sets off an amplifying enzymatic cascade, ultimately closing ion channels and changing the cell's electrical output.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kandel et al., \"Principles of Neural Science\"; Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-auditorysystem-definition",
+  "subject": "HOX:function:auditorysystem",
+  "predicate": "has_definition",
+  "object": "The ear's three-part structure for hearing: the outer ear funnels sound waves to the eardrum, the middle ear's three tiny bones (malleus, incus, stapes) mechanically amplify the resulting vibration, and the inner ear's fluid-filled, spiral-shaped cochlea converts that mechanical vibration into an electrical neural signal.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kandel et al., \"Principles of Neural Science\"; Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-cochleamechanics-definition",
+  "subject": "HOX:function:cochleamechanics",
+  "predicate": "has_definition",
+  "object": "The resolved biomechanical explanation for how the cochlea distinguishes pitch: an incoming sound sets up a traveling wave along the length of its coiled basilar membrane, and the specific point where that wave reaches maximum amplitude shifts systematically with sound frequency, encoding pitch by physical location before any nerve signal is generated.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kandel et al., \"Principles of Neural Science\"; \"von Békésy, Experiments in Hearing\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-vestibularsystem-definition",
+  "subject": "HOX:function:vestibularsystem",
+  "predicate": "has_definition",
+  "object": "The inner ear's balance-sensing apparatus: three fluid-filled semicircular canals, oriented in three roughly perpendicular planes, detect rotational head movement, while two otolith organs (the utricle and saccule) detect linear acceleration and the head's static tilt relative to gravity.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kandel et al., \"Principles of Neural Science\"; Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-tastesmell-definition",
+  "subject": "HOX:function:tastesmell",
+  "predicate": "has_definition",
+  "object": "The two chemical senses: gustation (taste), detecting a small number of basic taste qualities via taste bud receptor cells concentrated on the tongue, and olfaction (smell), detecting a vastly larger range of distinct airborne odor molecules via a large family of dedicated olfactory receptor genes in the nasal cavity.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kandel et al., \"Principles of Neural Science\"; Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-somatosensation-definition",
+  "subject": "HOX:function:somatosensation",
+  "predicate": "has_definition",
+  "object": "The general senses distributed across the skin, muscles, tendons, and joints throughout the body, rather than concentrated in a single dedicated organ: touch and pressure, temperature, pain (nociception), and proprioception (the sense of the body's own position and movement, even without visual confirmation).",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kandel et al., \"Principles of Neural Science\"; Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-itchpathway-definition",
+  "subject": "HOX:function:itchpathway",
+  "predicate": "has_definition",
+  "object": "The 2007 discovery of a spinal cord receptor (GRPR, the gastrin-releasing peptide receptor) and an associated dedicated neural pathway specifically responsible for transmitting itch sensation — resolving a long-running scientific debate over whether itch was simply a weak or low-intensity form of pain signaling, or, as this discovery confirmed, its own genuinely distinct sensory channel.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kandel et al., \"Principles of Neural Science\"; \"Sun & Chen, Nature\" (2007)",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-endocrine-definition",
+  "subject": "HOX:function:endocrine",
+  "predicate": "has_definition",
+  "object": "The organ system built from hormone-secreting glands — pituitary, thyroid, parathyroid, adrenal, pancreas, gonads, and others — that coordinates slower, longer-lasting, body-wide physiological processes including growth, metabolism, reproduction, and stress response through chemical messengers released directly into the bloodstream.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Barrett et al., \"Ganong's Review of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-pituitarygland-definition",
+  "subject": "HOX:function:pituitarygland",
+  "predicate": "has_definition",
+  "object": "A pea-sized gland suspended directly beneath the hypothalamus by a thin stalk, functionally split into an anterior lobe (which synthesizes and releases its own set of hormones under direct hypothalamic control) and a posterior lobe (which stores and releases two hormones actually manufactured in the hypothalamus itself).",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Barrett et al., \"Ganong's Review of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-thyroidparathyroid-definition",
+  "subject": "HOX:function:thyroidparathyroid",
+  "predicate": "has_definition",
+  "object": "Two glands sharing the same general location in the neck but with entirely unrelated functions: the thyroid, a butterfly-shaped gland wrapped around the front of the trachea, sets the body's overall baseline metabolic rate, while the four tiny parathyroid glands embedded in its posterior surface tightly regulate blood calcium concentration.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Barrett et al., \"Ganong's Review of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-adrenalglands-definition",
+  "subject": "HOX:function:adrenalglands",
+  "predicate": "has_definition",
+  "object": "Paired glands, one perched atop each kidney, that are functionally two separate glands fused into a single structure: an outer adrenal cortex, producing steroid hormones (including cortisol and aldosterone) under pituitary and other control, and an inner adrenal medulla, producing epinephrine and norepinephrine as a direct hormonal extension of the sympathetic nervous system.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Barrett et al., \"Ganong's Review of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-pancreasendocrine-definition",
+  "subject": "HOX:function:pancreasendocrine",
+  "predicate": "has_definition",
+  "object": "The discovery and isolation of insulin, the pancreatic hormone that allows the body's cells to take up glucose from the bloodstream — resolving the underlying mechanism of type 1 diabetes and, within roughly a year of the hormone's isolation, converting the disease from an almost universally fatal diagnosis into a manageable chronic condition.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; \"Bliss, The Discovery of Insulin\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-gonadsendocrine-definition",
+  "subject": "HOX:function:gonadsendocrine",
+  "predicate": "has_definition",
+  "object": "The testes and ovaries functioning simultaneously as reproductive organs and endocrine glands, producing the steroid sex hormones — chiefly testosterone from the testes, and estrogen and progesterone from the ovaries — responsible for puberty, secondary sexual characteristics, and, in females, the cyclical hormonal pattern of the menstrual cycle.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Barrett et al., \"Ganong's Review of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-hormoneclasses-definition",
+  "subject": "HOX:function:hormoneclasses",
+  "predicate": "has_definition",
+  "object": "The two broad chemical categories hormones fall into, each using a fundamentally different mechanism to affect a target cell: water-soluble hormones (proteins, peptides, and modified amino acids) bind a receptor on the cell surface and trigger an internal signaling cascade, while lipid-soluble steroid and thyroid hormones pass directly through the cell membrane to bind receptors inside the cell.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Barrett et al., \"Ganong's Review of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-stressresponse-definition",
+  "subject": "HOX:function:stressresponse",
+  "predicate": "has_definition",
+  "object": "The hypothalamus–pituitary–adrenal (HPA) axis: a coordinated hormonal cascade, running alongside and complementing the faster nervous-system-based sympathetic response, that mobilizes the body's metabolic resources and suppresses non-urgent processes during periods of sustained physical or psychological stress.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; \"Sapolsky, Why Zebras Don't Get Ulcers\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-cardiovascular-definition",
+  "subject": "HOX:function:cardiovascular",
+  "predicate": "has_definition",
+  "object": "The organ system built from the heart and roughly 100,000 kilometers of blood vessels, together forming a closed circulatory loop that moves blood — and with it oxygen, nutrients, hormones, immune cells, and waste products — to and from every living tissue in the body.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Standring (ed.), \"Gray's Anatomy,\" 42nd ed.",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-heartanatomy-definition",
+  "subject": "HOX:function:heartanatomy",
+  "predicate": "has_definition",
+  "object": "The heart's structure as a four-chambered muscular pump: two upper receiving chambers (the right and left atria) and two lower ejecting chambers (the right and left ventricles), separated by four one-way valves that ensure blood moves through the heart in a single fixed direction on every beat.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Standring (ed.), \"Gray's Anatomy,\" 42nd ed.; Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-cardiaccycle-definition",
+  "subject": "HOX:function:cardiaccycle",
+  "predicate": "has_definition",
+  "object": "The precisely timed sequence of chamber contraction (systole) and relaxation (diastole) that makes up a single heartbeat, initiated and coordinated by the heart's own internal electrical conduction system rather than by external nerve signals alone.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Standring (ed.), \"Gray's Anatomy,\" 42nd ed.",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-circulationdiscovery-definition",
+  "subject": "HOX:function:circulationdiscovery",
+  "predicate": "has_definition",
+  "object": "William Harvey's 1628 demonstration, through quantitative reasoning rather than new dissection alone, that blood circulates continuously in a single closed loop propelled by the heart — directly overturning Galen's second-century model, which had held that blood was continuously manufactured fresh by the liver and consumed by the tissues, for well over a millennium without serious challenge.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "\"Harvey, De Motu Cordis\" (1628); Standring (ed.), \"Gray's Anatomy,\" 42nd ed.",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-pacemakerdiscovery-definition",
+  "subject": "HOX:function:pacemakerdiscovery",
+  "predicate": "has_definition",
+  "object": "The identification of the sinoatrial node, a small cluster of specialized, spontaneously electrically active cells in the wall of the right atrium, as the heart's natural pacemaker — generating the heart's own intrinsic rhythm entirely independent of any signal from the brain or nervous system.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Standring (ed.), \"Gray's Anatomy,\" 42nd ed.",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-bloodvessels-definition",
+  "subject": "HOX:function:bloodvessels",
+  "predicate": "has_definition",
+  "object": "The three structurally distinct vessel types making up the circulatory network: arteries (thick-walled, elastic, carrying high-pressure blood away from the heart), capillaries (single-cell-thick, enabling direct exchange between blood and surrounding tissue), and veins (thinner-walled, valved, returning low-pressure blood back to the heart).",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Standring (ed.), \"Gray's Anatomy,\" 42nd ed.",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-bloodpressureregulation-definition",
+  "subject": "HOX:function:bloodpressureregulation",
+  "predicate": "has_definition",
+  "object": "The dual-timescale system defending blood pressure within a normal functional range: a fast-acting neural mechanism, the baroreceptor reflex, correcting deviations within seconds, and a slower hormonal cascade, the renin-angiotensin-aldosterone system (RAAS), correcting them over hours to days.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Barrett et al., \"Ganong's Review of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-starlinglaw-definition",
+  "subject": "HOX:function:starlinglaw",
+  "predicate": "has_definition",
+  "object": "The intrinsic property of cardiac muscle in which a greater volume of blood stretching a heart chamber before contraction (increased preload) causes that chamber to contract more forcefully on the very next beat — automatically matching the heart's output to venous return with no nerve or hormone signal required.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Barrett et al., \"Ganong's Review of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-circulatorypathways-definition",
+  "subject": "HOX:function:circulatorypathways",
+  "predicate": "has_definition",
+  "object": "The two separate circuits blood completes per full loop through the body, connected in series by the same four-chambered heart: pulmonary circulation (right side of the heart to the lungs and back, picking up oxygen and releasing carbon dioxide) and systemic circulation (left side of the heart to the rest of the body and back, delivering oxygenated blood to tissue).",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Standring (ed.), \"Gray's Anatomy,\" 42nd ed.",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-hematology-definition",
+  "subject": "HOX:function:hematology",
+  "predicate": "has_definition",
+  "object": "Blood, formally classified as a connective tissue, and the study of its components and function — a liquid tissue that carries oxygen, nutrients, hormones, immune cells, and waste products throughout the body via the cardiovascular system, and that clots on demand to seal vessel damage.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Kumar, Abbas & Aster, \"Robbins Basic Pathology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-bloodcomposition-definition",
+  "subject": "HOX:function:bloodcomposition",
+  "predicate": "has_definition",
+  "object": "The two broad components of whole blood by volume: plasma (roughly 55%, a straw-colored liquid that is itself about 90% water plus dissolved proteins, electrolytes, nutrients, hormones, and waste products) and formed elements (roughly 45%, the cellular fraction — red blood cells, white blood cells, and platelets).",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Kumar, Abbas & Aster, \"Robbins Basic Pathology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-erythrocytes-definition",
+  "subject": "HOX:function:erythrocytes",
+  "predicate": "has_definition",
+  "object": "Red blood cells (erythrocytes): biconcave, disc-shaped cells packed with the oxygen-binding protein hemoglobin, uniquely stripped of their own nucleus and most other organelles during maturation to maximize internal space available for hemoglobin, and produced continuously in bone marrow at a rate of roughly 2 million new cells per second in a healthy adult.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Kumar, Abbas & Aster, \"Robbins Basic Pathology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-leukocytesplatelets-definition",
+  "subject": "HOX:function:leukocytesplatelets",
+  "predicate": "has_definition",
+  "object": "White blood cells (leukocytes) — five structurally and functionally distinct types (neutrophils, lymphocytes, monocytes, eosinophils, basophils), all part of the immune system covered further under the Lymphatic & Immune System branch — and platelets, small cell fragments (not whole cells) that are the first responders initiating clot formation at a site of vessel injury.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kumar, Abbas & Aster, \"Robbins Basic Pathology\"; Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-bloodtypediscovery-definition",
+  "subject": "HOX:function:bloodtypediscovery",
+  "predicate": "has_definition",
+  "object": "Karl Landsteiner's 1901 discovery that human blood exists in distinct, incompatible types (the ABO system) based on specific marker molecules (antigens) present or absent on the surface of red blood cells — explaining why mixing blood from different individuals had so often caused dangerous, sometimes fatal clumping, and making deliberately safe blood transfusion possible for the first time.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kumar, Abbas & Aster, \"Robbins Basic Pathology\"; \"Starr, Blood: An Epic History\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-rhfactor-definition",
+  "subject": "HOX:function:rhfactor",
+  "predicate": "has_definition",
+  "object": "A second, entirely independent red blood cell surface antigen system (Rh, named for the rhesus monkeys used in the original research), identified nearly four decades after ABO — its discovery explained a previously mysterious and frequently fatal blood incompatibility between an Rh-negative mother and her Rh-positive fetus, and led directly to an effective preventive treatment.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kumar, Abbas & Aster, \"Robbins Basic Pathology\"; Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-hemostasisclotting-definition",
+  "subject": "HOX:function:hemostasisclotting",
+  "predicate": "has_definition",
+  "object": "The body's layered response to blood vessel injury, unfolding in overlapping stages: immediate vessel constriction to reduce blood loss, rapid platelet plug formation at the injury site, and a cascading sequence of numbered clotting factor proteins activating one another in strict order, ending in a stable, cross-linked fibrin mesh that seals the damaged vessel.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Kumar, Abbas & Aster, \"Robbins Basic Pathology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-erythropoiesis-definition",
+  "subject": "HOX:function:erythropoiesis",
+  "predicate": "has_definition",
+  "object": "The hormonal regulation of red blood cell production: erythropoietin, a hormone released primarily by specialized kidney cells in direct response to detected low tissue oxygen levels, travels to bone marrow to stimulate increased red blood cell production — a feedback loop that keeps the body's oxygen-carrying capacity matched to actual physiological demand.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Barrett et al., \"Ganong's Review of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-lymphimmune-definition",
+  "subject": "HOX:function:lymphimmune",
+  "predicate": "has_definition",
+  "object": "The organ system formed by lymphatic vessels, lymph nodes, and lymphoid organs (spleen, thymus, tonsils) — anatomically distinct from, but functionally interdependent with, the cardiovascular system, responsible for draining excess tissue fluid and housing much of the body's immune cell population.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Standring (ed.), \"Gray's Anatomy,\" 42nd ed.; Kumar, Abbas & Aster, \"Robbins Basic Pathology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-lymphaticanatomy-definition",
+  "subject": "HOX:function:lymphaticanatomy",
+  "predicate": "has_definition",
+  "object": "The lymphatic vessel network: a one-way drainage system, structurally similar to veins but built to collect excess interstitial fluid that leaks from blood capillaries into surrounding tissue, filtering it through a chain of lymph nodes en route before finally returning it to the bloodstream near the base of the neck.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Standring (ed.), \"Gray's Anatomy,\" 42nd ed.; Kumar, Abbas & Aster, \"Robbins Basic Pathology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-lymphaticdiscovery-definition",
+  "subject": "HOX:function:lymphaticdiscovery",
+  "predicate": "has_definition",
+  "object": "Gaspare Aselli's 1622 discovery of the lacteals — milky-white vessels draining the small intestine, visible specifically after a recent meal — providing the first direct evidence of a separate vessel network distinct from the blood vessels already known at the time.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Standring (ed.), \"Gray's Anatomy,\" 42nd ed.; \"Aselli, De Lactibus\" (1627, historical)",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-spleenthymus-definition",
+  "subject": "HOX:function:spleenthymus",
+  "predicate": "has_definition",
+  "object": "Two lymphoid organs with distinct roles: the spleen, the body's largest lymphoid organ, filters blood directly to remove aged red blood cells and mount immune responses to blood-borne pathogens, while the thymus, most active in childhood and shrinking substantially by adulthood, is where developing T cells complete their essential maturation and self/non-self screening.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kumar, Abbas & Aster, \"Robbins Basic Pathology\"; Standring (ed.), \"Gray's Anatomy,\" 42nd ed.",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-immuneorgans-definition",
+  "subject": "HOX:function:immuneorgans",
+  "predicate": "has_definition",
+  "object": "The functional classification of lymphoid organs into two categories: primary lymphoid organs (bone marrow and the thymus, where immune cells are originally produced and complete their initial maturation) and secondary lymphoid organs (lymph nodes, spleen, tonsils, and other scattered lymphoid tissue, where mature immune cells actually encounter antigens and mount a coordinated response).",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kumar, Abbas & Aster, \"Robbins Basic Pathology\"; Standring (ed.), \"Gray's Anatomy,\" 42nd ed.",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-tonsilsmalt-definition",
+  "subject": "HOX:function:tonsilsmalt",
+  "predicate": "has_definition",
+  "object": "Mucosa-associated lymphoid tissue (MALT): immune tissue embedded directly within mucous membranes at the body's major points of pathogen entry, including the tonsils and adenoids guarding the throat and nasal passage, and scattered patches of similar tissue throughout the lining of the digestive and respiratory tracts.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kumar, Abbas & Aster, \"Robbins Basic Pathology\"; Standring (ed.), \"Gray's Anatomy,\" 42nd ed.",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-feverinflammation-definition",
+  "subject": "HOX:function:feverinflammation",
+  "predicate": "has_definition",
+  "object": "The body's coordinated, non-specific response to tissue injury or infection: local acute inflammation (redness, heat, swelling, and pain at the affected site) and, when the trigger is significant enough, a body-wide fever — both driven substantially by the same class of signaling molecules and serving to contain damage while mobilizing immune defenses.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kumar, Abbas & Aster, \"Robbins Basic Pathology\"; Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-respiratory-definition",
+  "subject": "HOX:function:respiratory",
+  "predicate": "has_definition",
+  "object": "The organ system responsible for gas exchange — moving atmospheric oxygen into the blood and carbon dioxide out of it — built from the airway (nose through bronchioles) and the lungs, whose internal alveolar surface area, though folded compactly into the chest cavity, rivals half a tennis court when fully unfolded.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Standring (ed.), \"Gray's Anatomy,\" 42nd ed.",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-upperairway-definition",
+  "subject": "HOX:function:upperairway",
+  "predicate": "has_definition",
+  "object": "The nasal cavity, pharynx, and larynx: air's first stop on the way into the body, where it is warmed, humidified, and filtered (nasal cavity), passes through a shared crossroads with the digestive tract (pharynx), and finally passes through the voice box (larynx), which also guards the entrance to the lower airway during swallowing.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Standring (ed.), \"Gray's Anatomy,\" 42nd ed.; Moore, Dalley & Agur, \"Clinically Oriented Anatomy\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-lunganatomy-definition",
+  "subject": "HOX:function:lunganatomy",
+  "predicate": "has_definition",
+  "object": "The branching architecture of the lower airway and lungs: air passes from the trachea through progressively narrower and more numerous bronchi and bronchioles, terminating in roughly 300 million microscopic air sacs (alveoli) whose combined surface area does nearly all of the body's actual gas exchange.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Standring (ed.), \"Gray's Anatomy,\" 42nd ed.; Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-surfactantdiscovery-definition",
+  "subject": "HOX:function:surfactantdiscovery",
+  "predicate": "has_definition",
+  "object": "The discovery that pulmonary surfactant — a thin fluid film coating the inner surface of each alveolus, dramatically reducing surface tension there — is essential to prevent the lungs' tiny air sacs from collapsing between breaths, and that its absence in premature infants is the direct cause of a once nearly always fatal newborn respiratory distress syndrome.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; \"Avery & Mead, Surface Properties in Relation to Atelectasis and Hyaline Membrane Disease\" (1959)",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-breathingmechanics-definition",
+  "subject": "HOX:function:breathingmechanics",
+  "predicate": "has_definition",
+  "object": "The physics of breathing: the diaphragm and, to a lesser extent, the external intercostal muscles between the ribs, contract to increase the volume of the chest cavity, which lowers internal pressure relative to the outside air and drives air into the lungs by simple pressure-gradient physics — with no muscular effort required inside the lungs themselves.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Barrett et al., \"Ganong's Review of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-gasexchange-definition",
+  "subject": "HOX:function:gasexchange",
+  "predicate": "has_definition",
+  "object": "The passive diffusion of oxygen and carbon dioxide between air in the alveoli and blood in the surrounding capillaries, driven purely by each gas's own concentration gradient across the thin alveolar-capillary membrane — requiring no active transport — aided on the blood side by hemoglobin's cooperative, concentration-sensitive oxygen-binding behavior.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Barrett et al., \"Ganong's Review of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-respiratorycontrol-definition",
+  "subject": "HOX:function:respiratorycontrol",
+  "predicate": "has_definition",
+  "object": "The automatic neural regulation of breathing rate and depth by respiratory centers in the brainstem, driven chiefly by blood carbon dioxide level (sensed indirectly via its effect on pH) rather than by blood oxygen level directly — the reason breath-holding becomes urgently uncomfortable from rising CO₂ well before blood oxygen has actually fallen to a dangerous level.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Kandel et al., \"Principles of Neural Science\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-digestive-definition",
+  "subject": "HOX:function:digestive",
+  "predicate": "has_definition",
+  "object": "The organ system running from mouth to anus, plus the liver, pancreas, and gallbladder feeding into it — mechanically and chemically breaking food down into molecules small enough to absorb into the bloodstream, while hosting the body's largest and most diverse resident microbial community.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Standring (ed.), \"Gray's Anatomy,\" 42nd ed.",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-oralcavityesophagus-definition",
+  "subject": "HOX:function:oralcavityesophagus",
+  "predicate": "has_definition",
+  "object": "Digestion's first stage: mechanical breakdown by 32 adult teeth of four distinct shapes (incisors, canines, premolars, molars, each suited to a different task), chemical breakdown begun by salivary enzymes, and coordinated wave-like muscle contraction (peristalsis) that propels the resulting food bolus down the esophagus to the stomach.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Standring (ed.), \"Gray's Anatomy,\" 42nd ed.",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-stomachanatomy-definition",
+  "subject": "HOX:function:stomachanatomy",
+  "predicate": "has_definition",
+  "object": "A muscular, highly expandable pouch that mechanically churns swallowed food into a semi-liquid mixture (chyme) while chemically digesting it in an extraordinarily acidic environment (pH roughly 1.5–3.5), protected from digesting its own tissue only by a thick, continuously secreted and renewed layer of protective mucus.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Kumar, Abbas & Aster, \"Robbins Basic Pathology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-gastricexperiments-definition",
+  "subject": "HOX:function:gastricexperiments",
+  "predicate": "has_definition",
+  "object": "Army surgeon William Beaumont's decade of careful, systematic observation of digestion occurring directly inside the stomach of Alexis St. Martin, a young fur trader left with a permanent open fistula (opening) into his stomach after a near-fatal 1822 shotgun wound — producing the first direct experimental evidence of how human gastric digestion actually proceeds.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "\"Beaumont, Experiments and Observations on the Gastric Juice\" (1833); Kumar, Abbas & Aster, \"Robbins Basic Pathology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-smallintestine-definition",
+  "subject": "HOX:function:smallintestine",
+  "predicate": "has_definition",
+  "object": "A roughly 6-meter-long tube divided into three regions (duodenum, jejunum, ileum) where the overwhelming majority of chemical digestion and nutrient absorption actually occurs, its inner surface folded at three successive structural scales — circular folds, villi, and microvilli — that together multiply its effective absorptive surface area to roughly the size of a tennis court.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Mescher, \"Junqueira's Basic Histology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-largeintestine-definition",
+  "subject": "HOX:function:largeintestine",
+  "predicate": "has_definition",
+  "object": "A shorter (roughly 1.5 meters), wider tube receiving the material the small intestine was unable to absorb, whose principal jobs are reabsorbing water and electrolytes to solidify waste into feces, and hosting the vast majority of the body's resident gut microbial community, covered in its own dedicated node on this branch.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Mescher, \"Junqueira's Basic Histology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-liverpancreasgallbladder-definition",
+  "subject": "HOX:function:liverpancreasgallbladder",
+  "predicate": "has_definition",
+  "object": "Three accessory digestive organs whose secretions empty into the duodenum, the small intestine's first segment: the liver (producing bile and performing several hundred distinct metabolic functions beyond digestion), the gallbladder (storing and concentrating that bile between meals), and the pancreas (secreting a full suite of digestive enzymes, alongside the separate endocrine hormone function covered under this map's Endocrine System branch).",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Kumar, Abbas & Aster, \"Robbins Basic Pathology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-hpyloridiscovery-definition",
+  "subject": "HOX:function:hpyloridiscovery",
+  "predicate": "has_definition",
+  "object": "Barry Marshall and Robin Warren's identification of the bacterium Helicobacter pylori as the actual underlying cause of most peptic ulcers and chronic gastritis — directly overturning the decades-long medical consensus that ulcers were caused primarily by stress and excess stomach acid alone, a claim Marshall famously made impossible to dismiss by deliberately infecting himself.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kumar, Abbas & Aster, \"Robbins Basic Pathology\"; \"Marshall, Helicobacter Pioneers\" (memoir/history)",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-appendixfunction-definition",
+  "subject": "HOX:function:appendixfunction",
+  "predicate": "has_definition",
+  "object": "A small, narrow, worm-shaped pouch attached to the beginning of the large intestine, historically dismissed as a functionless evolutionary leftover since its surgical removal causes no obvious lasting harm — a view increasingly challenged, though not definitively resolved, by more recent hypotheses proposing it may serve as a protected reservoir helping recolonize the gut with beneficial bacteria after severe illness.",
+  "evidence_class": "EVC-6",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kumar, Abbas & Aster, \"Robbins Basic Pathology\"; \"Bollinger et al., Journal of Theoretical Biology\" (2007)",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment. The corpus marks this topic as an open scientific question.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-gutmicrobiome-definition",
+  "subject": "HOX:function:gutmicrobiome",
+  "predicate": "has_definition",
+  "object": "The trillions of resident bacteria, archaea, fungi, and viruses inhabiting the digestive tract — overwhelmingly concentrated in the large intestine, where bacterial density is highest of anywhere in or on the human body — increasingly understood to play an active role in digestion, immune system development, and, via the gut-brain axis, potentially even mood and behavior.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "\"Human Microbiome Project\" consortium publications; Kumar, Abbas & Aster, \"Robbins Basic Pathology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-entericnervoussystem-definition",
+  "subject": "HOX:function:entericnervoussystem",
+  "predicate": "has_definition",
+  "object": "A dense, largely self-sufficient network of neurons embedded directly within the walls of the digestive tract itself, containing more individual neurons than the entire spinal cord and capable of coordinating basic digestive movement (peristalsis) and secretion on its own, even when its connections to the brain and spinal cord are completely severed.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Kandel et al., \"Principles of Neural Science\"; Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-nutritionmetabolism-definition",
+  "subject": "HOX:function:nutritionmetabolism",
+  "predicate": "has_definition",
+  "object": "What the body requires from food to survive and function — macronutrients (carbohydrates, proteins, fats, needed in comparatively large quantity) and micronutrients (vitamins and minerals, needed in only small quantity) — and the metabolic pathways that convert absorbed nutrients into usable energy or store them for later use.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; \"Krause's Food & the Nutrition Care Process\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-macronutrients-definition",
+  "subject": "HOX:function:macronutrients",
+  "predicate": "has_definition",
+  "object": "The three nutrient classes needed in comparatively large daily quantity: carbohydrates (the body's preferred quick energy source, broken down to glucose), proteins (broken down to amino acids, used chiefly for building and repairing tissue rather than as a primary energy source), and fats (the most energy-dense macronutrient, used for long-term energy storage, cell membranes, and steroid hormone synthesis).",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; \"Krause's Food & the Nutrition Care Process\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-micronutrients-definition",
+  "subject": "HOX:function:micronutrients",
+  "predicate": "has_definition",
+  "object": "Vitamins (organic compounds the body cannot synthesize in adequate quantity itself, most functioning as coenzymes that enzymes require to operate) and minerals (inorganic elements ranging from bulk electrolytes needed in gram quantities to trace elements needed in only micrograms) — both required only in small amounts but essential nonetheless.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; \"Krause's Food & the Nutrition Care Process\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-scurvydiscovery-definition",
+  "subject": "HOX:function:scurvydiscovery",
+  "predicate": "has_definition",
+  "object": "James Lind's 1747 shipboard trial testing six different proposed scurvy remedies on twelve similarly afflicted Royal Navy sailors simultaneously — finding citrus fruit dramatically and unambiguously outperformed every alternative tested — widely regarded as the first genuinely controlled clinical trial in the history of medicine, conducted over 150 years before vitamin C itself was chemically identified.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "\"Lind, A Treatise of the Scurvy\" (1753); Kumar, Abbas & Aster, \"Robbins Basic Pathology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-basalmetabolicrate-definition",
+  "subject": "HOX:function:basalmetabolicrate",
+  "predicate": "has_definition",
+  "object": "The minimum rate of energy expenditure the body requires at complete physical and mental rest, in a comfortable temperature, simply to sustain essential involuntary functions (breathing, circulation, cellular maintenance, organ function) — typically accounting for roughly 60–75% of most people's total daily energy expenditure.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; \"Krause's Food & the Nutrition Care Process\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-leptindiscovery-definition",
+  "subject": "HOX:function:leptindiscovery",
+  "predicate": "has_definition",
+  "object": "The 1994 identification, by Jeffrey Friedman's laboratory, of leptin — a hormone secreted by fat (adipose) tissue itself in rough proportion to total body fat stores, which signals the brain's hypothalamus to reduce appetite — the first direct molecular evidence that body fat functions as an active, hormone-secreting endocrine organ rather than merely a passive, inert energy reserve.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; \"Zhang et al., Nature\" (1994, original leptin paper)",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-appetiteregulation-definition",
+  "subject": "HOX:function:appetiteregulation",
+  "predicate": "has_definition",
+  "object": "The still genuinely contested question of exactly how, and how reliably, the body regulates appetite and body weight around a defended baseline (a proposed \"set point\") — and why sustained weight loss proves so difficult for most people to maintain long-term even once a clear excess-weight target has been achieved.",
+  "evidence_class": "EVC-6",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; \"Krause's Food & the Nutrition Care Process\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment. The corpus marks this topic as an open scientific question.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-metabolicpathwayshuman-definition",
+  "subject": "HOX:function:metabolicpathwayshuman",
+  "predicate": "has_definition",
+  "object": "The two broadly distinct metabolic programs the body runs depending on recent food intake: the fed state (excess absorbed glucose is stored as glycogen in liver and muscle, and as fat in adipose tissue) and the fasted state (stored glycogen is broken back down, and, once glycogen reserves run low, the liver synthesizes new glucose from non-carbohydrate sources via gluconeogenesis) — both governed chiefly by the opposing hormones insulin and glucagon.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Barrett et al., \"Ganong's Review of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-urinary-definition",
+  "subject": "HOX:function:urinary",
+  "predicate": "has_definition",
+  "object": "The organ system built from the kidneys and the ducts draining them (ureters, bladder, urethra) — filtering the body's entire blood volume roughly 60 times per day, reclaiming nearly everything the body needs, and excreting the remainder as urine while precisely regulating blood volume, electrolyte balance, and pH.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Barrett et al., \"Ganong's Review of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-kidneyanatomy-definition",
+  "subject": "HOX:function:kidneyanatomy",
+  "predicate": "has_definition",
+  "object": "The kidney's gross structure — outer cortex, inner medulla, and a central collecting region (the renal pelvis) draining into the ureter — is essentially the macroscopic packaging for roughly one million microscopic nephrons per kidney, the actual functional units where filtration, reabsorption, and secretion together determine urine's final composition.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Standring (ed.), \"Gray's Anatomy,\" 42nd ed.; Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-glomerularfiltration-definition",
+  "subject": "HOX:function:glomerularfiltration",
+  "predicate": "has_definition",
+  "object": "The nephron's first step: blood entering a specialized tuft of capillaries (the glomerulus) is filtered under pressure through a highly selective barrier that allows water, ions, and small dissolved molecules through into the nephron's tubule while retaining blood cells and larger proteins in the bloodstream — producing roughly 180 liters of filtrate per day from the entire combined nephron population.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; \"Bowman, Philosophical Transactions of the Royal Society\" (1842)",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-urineformation-definition",
+  "subject": "HOX:function:urineformation",
+  "predicate": "has_definition",
+  "object": "The three sequential processes that together determine urine's final composition as fluid moves along a nephron's tubule: bulk filtration at the glomerulus (covered as its own node on this branch), selective reabsorption of nearly everything the body still needs back into the blood, and targeted secretion of specific additional substances directly from blood into the forming urine.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Barrett et al., \"Ganong's Review of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-reninangiotensin-definition",
+  "subject": "HOX:function:reninangiotensin",
+  "predicate": "has_definition",
+  "object": "A hormonal cascade beginning when specialized kidney cells detect low blood pressure, low blood volume, or low sodium delivery, releasing the enzyme renin, which triggers production of angiotensin II (a powerful vessel constrictor) and aldosterone (which increases sodium and water retention) — raising blood pressure through a combination of vascular and kidney-based effects.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Barrett et al., \"Ganong's Review of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-bladderurethra-definition",
+  "subject": "HOX:function:bladderurethra",
+  "predicate": "has_definition",
+  "object": "The urinary tract's storage and voiding structures: two ureters carry urine from each kidney to the bladder via peristalsis (rather than gravity alone), the bladder is a distensible muscular reservoir capable of comfortably storing several hundred milliliters of urine, and the urethra is the final duct through which urine is released to the outside during urination.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Standring (ed.), \"Gray's Anatomy,\" 42nd ed.",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-kidneytransplant-definition",
+  "subject": "HOX:function:kidneytransplant",
+  "predicate": "has_definition",
+  "object": "Joseph Murray's 1954 kidney transplant between identical twin brothers — the first organ transplant in medical history to succeed long-term in a human — specifically designed to sidestep the immune rejection problem that had doomed every previous transplant attempt, since a genetically identical twin's tissue would not be recognized as foreign by the recipient's immune system.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; \"Tilney, Transplant: From Myth to Reality\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-reproductive-definition",
+  "subject": "HOX:function:reproductive",
+  "predicate": "has_definition",
+  "object": "The organ system responsible for producing gametes (sperm and eggs), enabling fertilization, and, in female anatomy, supporting pregnancy and childbirth — anatomically and hormonally distinct between the sexes, and the only major organ system whose central function serves the continuation of the species rather than the survival of the individual body it belongs to.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Moore, Dalley & Agur, \"Clinically Oriented Anatomy\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-maleanatomy-definition",
+  "subject": "HOX:function:maleanatomy",
+  "predicate": "has_definition",
+  "object": "The male reproductive tract: the testes (paired glands producing both sperm and testosterone), an extensive internal duct system (epididymis, vas deferens) that stores and transports maturing and mature sperm, and accessory glands (seminal vesicles, prostate, bulbourethral glands) that together contribute the large majority of semen's total volume.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Moore, Dalley & Agur, \"Clinically Oriented Anatomy\"; Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-femaleanatomy-definition",
+  "subject": "HOX:function:femaleanatomy",
+  "predicate": "has_definition",
+  "object": "The female reproductive tract: paired ovaries (producing eggs and the sex steroid hormones estrogen and progesterone), fallopian tubes (where fertilization typically occurs), the uterus (where a fertilized egg implants and a pregnancy is carried), and the vagina — an anatomy built not only to release a single mature egg roughly monthly, but to support and sustain an entire pregnancy.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Moore, Dalley & Agur, \"Clinically Oriented Anatomy\"; Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-gametogenesis-definition",
+  "subject": "HOX:function:gametogenesis",
+  "predicate": "has_definition",
+  "object": "The specialized cell division process, meiosis, by which the testes produce sperm (spermatogenesis) and the ovaries produce eggs (oogenesis) — each halving the normal chromosome number so that fertilization, reuniting a sperm and an egg, restores the full complement characteristic of every other cell in the body.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Mescher, \"Junqueira's Basic Histology\"; Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-menstrualcycle-definition",
+  "subject": "HOX:function:menstrualcycle",
+  "predicate": "has_definition",
+  "object": "A roughly month-long, tightly hormonally coordinated cycle running from puberty until menopause, synchronizing egg maturation and release (ovulation) in the ovary with parallel cyclical changes in the uterine lining that prepare it for a possible pregnancy — governed by a feedback loop between the hypothalamus, pituitary, and ovaries.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Barrett et al., \"Ganong's Review of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-fertilizationconception-definition",
+  "subject": "HOX:function:fertilizationconception",
+  "predicate": "has_definition",
+  "object": "The union of a single sperm cell and an egg, typically occurring within a fallopian tube within roughly a day of ovulation, combining each parent's genetic material into a single new cell (the zygote) and beginning a new individual's distinct genetic identity — the event that begins the developmental process covered in full under this map's Embryology & Human Development branch.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Moore, Dalley & Agur, \"Clinically Oriented Anatomy\"; Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-menopause-definition",
+  "subject": "HOX:function:menopause",
+  "predicate": "has_definition",
+  "object": "The genuinely contested evolutionary question of why human females, highly unusually among mammals, reliably survive for decades after reproductive capacity ends around age 45–55 — a pattern that, on the face of it, seems to run against ordinary natural selection's expectation that reproductive capacity and lifespan should track each other closely.",
+  "evidence_class": "EVC-6",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; \"Hawkes et al., Proceedings of the National Academy of Sciences\" (1998)",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment. The corpus marks this topic as an open scientific question.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "CLM:seed-puberty-definition",
+  "subject": "HOX:function:puberty",
+  "predicate": "has_definition",
+  "object": "The hormonally driven transition from childhood to reproductive maturity, triggered when the hypothalamus resumes pulsatile release of gonadotropin-releasing hormone after years of relative dormancy since infancy — cascading through the pituitary gland to activate the testes or ovaries and drive the full range of physical changes associated with sexual maturation.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall & Hall, \"Guyton and Hall Textbook of Medical Physiology\"; Barrett et al., \"Ganong's Review of Medical Physiology\"",
+    "identifier": "corpus-reading-list",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, unspecified in source",
+  "date_asserted": "2026-07-26",
+  "limitations": "Narrative definition as received from the source corpus. Not compiled into typed relations, inputs, outputs, or state variables; carries no mechanistic commitment.",
+  "assigned_by": "human:reviewer-seed-01",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ }
+]

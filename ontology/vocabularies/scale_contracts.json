@@ -1,0 +1,167 @@
+[
+ {
+  "id": "SCL-00",
+  "level": 0,
+  "represents": "whole organism",
+  "representation_mode": [
+   "enumerated"
+  ],
+  "data_model": "single Organism entity with reference-population parameters",
+  "spatial_model": "one root coordinate frame, standard anatomical position",
+  "functional_model": "whole-body homeostatic set points only",
+  "evidence_model": "reference physiology texts, population survey data",
+  "uncertainty_model": "population ranges, never a single true value",
+  "computational_cost": "negligible",
+  "resolution_limit": "one declared population; not any individual, and not an average of individuals"
+ },
+ {
+  "id": "SCL-01",
+  "level": 1,
+  "represents": "anatomical regions",
+  "representation_mode": [
+   "enumerated"
+  ],
+  "data_model": "Region entities with containment to L2 and L3",
+  "spatial_model": "bounding volumes, not surfaces",
+  "functional_model": "none - regions locate, they do not function",
+  "evidence_model": "anatomical nomenclature authority (TA)",
+  "uncertainty_model": "boundary ambiguity recorded per region pair",
+  "computational_cost": "negligible",
+  "resolution_limit": "region boundaries are conventions, not physical surfaces; adjacent regions share tissue"
+ },
+ {
+  "id": "SCL-02",
+  "level": 2,
+  "represents": "organ systems",
+  "representation_mode": [
+   "enumerated"
+  ],
+  "data_model": "System entities; membership many-to-many with organs",
+  "spatial_model": "none - systems are not spatially contiguous",
+  "functional_model": "system-level function statements with EVC grades",
+  "evidence_model": "reference physiology texts",
+  "uncertainty_model": "overlapping membership recorded explicitly",
+  "computational_cost": "negligible",
+  "resolution_limit": "systems are functional groupings, not spatial objects; immune and endocrine systems are diffuse and the model says so"
+ },
+ {
+  "id": "SCL-03",
+  "level": 3,
+  "represents": "organs",
+  "representation_mode": [
+   "enumerated"
+  ],
+  "data_model": "Organ entities, external xref primary (UBERON/FMA)",
+  "spatial_model": "surface mesh per organ, one canonical pose",
+  "functional_model": "organ-level function plus supply, drainage, innervation",
+  "evidence_model": "anatomical atlases, imaging-derived reference geometry",
+  "uncertainty_model": "geometry is one exemplar; inter-individual variation not represented at this level",
+  "computational_cost": "low - hundreds of meshes",
+  "resolution_limit": "a single reference geometry; organ shape and volume vary by tens of percent between individuals"
+ },
+ {
+  "id": "SCL-04",
+  "level": 4,
+  "represents": "sub-organ structures",
+  "representation_mode": [
+   "enumerated"
+  ],
+  "data_model": "Structure entities, part-of an Organ",
+  "spatial_model": "surface mesh where the structure has a discrete boundary; otherwise a labelled region within the parent",
+  "functional_model": "structure-specific function",
+  "evidence_model": "anatomical atlases, surgical and histological reference",
+  "uncertainty_model": "structures without discrete boundaries flagged as region-labelled, not meshed",
+  "computational_cost": "low",
+  "resolution_limit": "many sub-organ divisions are gradients (renal cortex to medulla); the model marks these rather than drawing a false boundary"
+ },
+ {
+  "id": "SCL-05",
+  "level": 5,
+  "represents": "tissues",
+  "representation_mode": [
+   "typed"
+  ],
+  "data_model": "TissueType entities; an Organ references composition, not instances",
+  "spatial_model": "none - tissue is a composition property at this level",
+  "functional_model": "tissue-level mechanical, transport and metabolic properties",
+  "evidence_model": "histology reference, tissue-property literature",
+  "uncertainty_model": "property ranges with measurement conditions",
+  "computational_cost": "low",
+  "resolution_limit": "composition only; the model states what tissue an organ contains, not where each portion of tissue is"
+ },
+ {
+  "id": "SCL-06",
+  "level": 6,
+  "represents": "cell populations",
+  "representation_mode": [
+   "statistical"
+  ],
+  "data_model": "CellPopulation entities: cell type, host tissue, abundance distribution",
+  "spatial_model": "none",
+  "functional_model": "population-level function and turnover",
+  "evidence_model": "quantitative histology, single-cell atlases",
+  "uncertainty_model": "abundance as a distribution with its source population; never a point count",
+  "computational_cost": "low",
+  "resolution_limit": "population statistics only; no individual cell is located or instantiated"
+ },
+ {
+  "id": "SCL-07",
+  "level": 7,
+  "represents": "individual cell types",
+  "representation_mode": [
+   "typed"
+  ],
+  "data_model": "CellType entities, external xref primary (CL)",
+  "spatial_model": "canonical schematic geometry, explicitly non-spatial-in-body",
+  "functional_model": "cell-type function, its inputs and outputs",
+  "evidence_model": "cell-ontology authority, primary cell-biology literature",
+  "uncertainty_model": "cell type versus cell state distinguished; ambiguous cases flagged",
+  "computational_cost": "low",
+  "resolution_limit": "one canonical exemplar per type; real cells vary continuously and type boundaries are contested upstream"
+ },
+ {
+  "id": "SCL-08",
+  "level": 8,
+  "represents": "subcellular structures",
+  "representation_mode": [
+   "typed"
+  ],
+  "data_model": "Organelle entities, part-of a CellType",
+  "spatial_model": "canonical schematic geometry only",
+  "functional_model": "organelle function within its cell type",
+  "evidence_model": "cell-biology reference, electron-microscopy literature",
+  "uncertainty_model": "schematic geometry marked as schematic wherever displayed",
+  "computational_cost": "low",
+  "resolution_limit": "schematic; organelle morphology is dynamic and cell-state dependent, and this model shows one state"
+ },
+ {
+  "id": "SCL-09",
+  "level": 9,
+  "represents": "molecular mechanisms",
+  "representation_mode": [
+   "exemplar"
+  ],
+  "data_model": "Biomolecule entities plus Mechanism entities",
+  "spatial_model": "none",
+  "functional_model": "mechanism steps as an ordered causal chain",
+  "evidence_model": "primary molecular-biology literature, curated pathway databases",
+  "uncertainty_model": "each step graded independently; the chain is only as strong as its weakest step",
+  "computational_cost": "medium - curation cost, not compute",
+  "resolution_limit": "one exemplar mechanism per phenomenon; mechanisms are cell-type-specific and condition-dependent, and alternatives are not enumerated"
+ },
+ {
+  "id": "SCL-10",
+  "level": 10,
+  "represents": "biochemical and physical processes",
+  "representation_mode": [
+   "exemplar"
+  ],
+  "data_model": "Process entities with rate parameters, state variables and conditions",
+  "spatial_model": "none",
+  "functional_model": "quantitative process specification, executable only when parameterized",
+  "evidence_model": "primary literature with measurement conditions attached",
+  "uncertainty_model": "every rate carries its measurement conditions; in-vitro origin is flagged",
+  "computational_cost": "high when executed; medium as specification",
+  "resolution_limit": "rate constants are condition-specific and predominantly in-vitro; transfer to living human tissue is an assumption, marked as one"
+ }
+]

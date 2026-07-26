@@ -1,0 +1,344 @@
+[
+ {
+  "id": "UBERON:0000468",
+  "minted": false,
+  "entity_class": "Organism",
+  "level": 0,
+  "subsystem": "whole-organism",
+  "preferred_term": "Homo sapiens (reference adult)",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000468",
+    "pinned_version": "2026-01-15"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "multicellular organism",
+    "source": "UBERON",
+    "register": "latin"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0004535",
+  "minted": false,
+  "entity_class": "System",
+  "level": 2,
+  "subsystem": "cardiovascular",
+  "preferred_term": "Cardiovascular system",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "part_of": "UBERON:0000468",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0004535",
+    "pinned_version": "2026-01-15"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "systema cardiovasculare",
+    "source": "Terminologia Anatomica",
+    "register": "latin"
+   },
+   {
+    "term": "circulatory system",
+    "source": "Marieb & Hoehn",
+    "register": "colloquial"
+   }
+  ],
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "UBERON:0000948",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "cardiovascular",
+  "preferred_term": "Heart",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "part_of": "UBERON:0004535",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000948",
+    "pinned_version": "2026-01-15"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:7088",
+    "pinned_version": "4.14.0"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "cor",
+    "source": "Terminologia Anatomica",
+    "register": "latin"
+   }
+  ],
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+ },
+ {
+  "id": "UBERON:0002084",
+  "minted": false,
+  "entity_class": "Structure",
+  "level": 4,
+  "subsystem": "cardiovascular",
+  "preferred_term": "Left ventricle",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "part_of": "UBERON:0000948",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002084",
+    "pinned_version": "2026-01-15"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "ventriculus sinister",
+    "source": "Terminologia Anatomica",
+    "register": "latin"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002349",
+  "minted": false,
+  "entity_class": "TissueType",
+  "level": 5,
+  "subsystem": "cardiovascular",
+  "preferred_term": "Myocardium",
+  "compilation_status": "structured",
+  "representation_mode": "typed",
+  "part_of": "UBERON:0002084",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002349",
+    "pinned_version": "2026-01-15"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "myocardium",
+    "source": "Terminologia Anatomica",
+    "register": "latin"
+   },
+   {
+    "term": "cardiac muscle tissue",
+    "source": "Mescher, Junqueira's Basic Histology",
+    "register": "clinical"
+   }
+  ]
+ },
+ {
+  "id": "HOX:cellpopulation:ventricular-cardiomyocyte-population",
+  "minted": true,
+  "minted_reason": "No external term distinguishes a cardiomyocyte POPULATION (L6) from the cell TYPE (L7); CL defines the type only.",
+  "entity_class": "CellPopulation",
+  "level": 6,
+  "subsystem": "cardiovascular",
+  "preferred_term": "Ventricular cardiomyocyte population",
+  "compilation_status": "structured",
+  "representation_mode": "statistical",
+  "part_of": "UBERON:0002349"
+ },
+ {
+  "id": "CL:0000746",
+  "minted": false,
+  "entity_class": "CellType",
+  "level": 7,
+  "subsystem": "cardiovascular",
+  "preferred_term": "Cardiac muscle cell",
+  "compilation_status": "mechanistic",
+  "representation_mode": "typed",
+  "part_of": "HOX:cellpopulation:ventricular-cardiomyocyte-population",
+  "xrefs": [
+   {
+    "authority": "CL",
+    "id": "CL:0000746",
+    "pinned_version": "2026-01-10"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "cardiomyocyte",
+    "source": "Cell Ontology",
+    "register": "clinical"
+   },
+   {
+    "term": "myocyte",
+    "source": "Marieb & Hoehn",
+    "register": "abbreviation"
+   }
+  ]
+ },
+ {
+  "id": "GO:0030017",
+  "minted": false,
+  "entity_class": "Organelle",
+  "level": 8,
+  "subsystem": "cardiovascular",
+  "preferred_term": "Sarcomere",
+  "compilation_status": "mechanistic",
+  "representation_mode": "typed",
+  "part_of": "CL:0000746",
+  "xrefs": [
+   {
+    "authority": "GO",
+    "id": "GO:0030017",
+    "pinned_version": "2026-01-01"
+   }
+  ]
+ },
+ {
+  "id": "GO:0016529",
+  "minted": false,
+  "entity_class": "Organelle",
+  "level": 8,
+  "subsystem": "cardiovascular",
+  "preferred_term": "Sarcoplasmic reticulum",
+  "compilation_status": "mechanistic",
+  "representation_mode": "typed",
+  "part_of": "CL:0000746",
+  "xrefs": [
+   {
+    "authority": "GO",
+    "id": "GO:0016529",
+    "pinned_version": "2026-01-01"
+   }
+  ]
+ },
+ {
+  "id": "GO:0030315",
+  "minted": false,
+  "entity_class": "Organelle",
+  "level": 8,
+  "subsystem": "cardiovascular",
+  "preferred_term": "T-tubule",
+  "compilation_status": "mechanistic",
+  "representation_mode": "typed",
+  "part_of": "CL:0000746",
+  "xrefs": [
+   {
+    "authority": "GO",
+    "id": "GO:0030315",
+    "pinned_version": "2026-01-01"
+   }
+  ]
+ },
+ {
+  "id": "CHEBI:29108",
+  "minted": false,
+  "entity_class": "Biomolecule",
+  "level": 9,
+  "subsystem": "cardiovascular",
+  "preferred_term": "Calcium(2+)",
+  "compilation_status": "mechanistic",
+  "representation_mode": "exemplar",
+  "xrefs": [
+   {
+    "authority": "CHEBI",
+    "id": "CHEBI:29108",
+    "pinned_version": "236"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "Ca2+",
+    "source": "ChEBI",
+    "register": "abbreviation"
+   }
+  ]
+ },
+ {
+  "id": "CHEBI:15422",
+  "minted": false,
+  "entity_class": "Biomolecule",
+  "level": 9,
+  "subsystem": "cardiovascular",
+  "preferred_term": "ATP",
+  "compilation_status": "mechanistic",
+  "representation_mode": "exemplar",
+  "xrefs": [
+   {
+    "authority": "CHEBI",
+    "id": "CHEBI:15422",
+    "pinned_version": "236"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "adenosine 5'-triphosphate",
+    "source": "ChEBI",
+    "register": "latin"
+   }
+  ]
+ },
+ {
+  "id": "UniProt:P12883",
+  "minted": false,
+  "entity_class": "Biomolecule",
+  "level": 9,
+  "subsystem": "cardiovascular",
+  "preferred_term": "Myosin-7 (beta cardiac heavy chain)",
+  "compilation_status": "mechanistic",
+  "representation_mode": "exemplar",
+  "xrefs": [
+   {
+    "authority": "UniProt",
+    "id": "P12883",
+    "pinned_version": "2026_01"
+   },
+   {
+    "authority": "HGNC",
+    "id": "HGNC:7577",
+    "pinned_version": "2026-01"
+   }
+  ]
+ },
+ {
+  "id": "UniProt:P68032",
+  "minted": false,
+  "entity_class": "Biomolecule",
+  "level": 9,
+  "subsystem": "cardiovascular",
+  "preferred_term": "Actin, alpha cardiac muscle 1",
+  "compilation_status": "mechanistic",
+  "representation_mode": "exemplar",
+  "xrefs": [
+   {
+    "authority": "UniProt",
+    "id": "P68032",
+    "pinned_version": "2026_01"
+   }
+  ]
+ },
+ {
+  "id": "HOX:mechanism:cross-bridge-cycle",
+  "minted": true,
+  "minted_reason": "GO has no single term for the complete ATP-dependent cross-bridge cycle as an ordered causal chain; GO:0030049 covers muscle filament sliding as a process, not the mechanism steps.",
+  "entity_class": "Mechanism",
+  "spatial_scale": [
+   9,
+   10
+  ],
+  "level_contributions": {
+   "9": "the ordered molecular steps: ATP binding, detachment, hydrolysis, attachment, power stroke, ADP release",
+   "10": "the rate at which the cycle turns, and its ATP stoichiometry"
+  },
+  "subsystem": "cardiovascular",
+  "preferred_term": "ATP-dependent cross-bridge cycle",
+  "compilation_status": "mechanistic",
+  "representation_mode": "exemplar"
+ }
+]

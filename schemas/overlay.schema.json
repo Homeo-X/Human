@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://homeo-x.org/schemas/overlay.schema.json",
+  "title": "Overlay",
+  "description": "Individual data over an immutable reference release (D-004). Phase 7.",
+  "type": "object",
+  "required": ["id", "individual_id", "pinned_release", "values"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {"type": "string"},
+    "individual_id": {"type": "string"},
+    "pinned_release": {"type": "string",
+      "description": "An overlay never floats across releases (FR-PERS-002)"},
+    "values": {"type": "array", "items": {"$ref": "#/$defs/overlay_value"}}
+  },
+  "$defs": {
+    "overlay_value": {
+      "type": "object",
+      "required": ["id","target_path","value","unit","measured_at","method","source_rank","confidence"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {"type": "string"},
+        "target_path": {"type": "string", "pattern": "^overlay\\.",
+          "description": "INV-08: must resolve inside the overlay namespace. A reference path is refused."},
+        "value": {},
+        "unit": {"type": "string", "description": "UCUM (INV-04 applies to overlays too)"},
+        "measured_at": {"type": "string", "format": "date-time",
+          "description": "When measured, not when entered"},
+        "method": {"type": "string", "minLength": 1},
+        "device": {"type": "string"},
+        "source_rank": {"enum": ["clinical_measurement","validated_device","consumer_device_known",
+          "consumer_device_unknown","derived","self_reported","system_inferred"]},
+        "confidence": {"enum": ["high", "moderate", "low"]},
+        "superseded_by": {"type": "string"}
+      }
+    }
+  }
+}

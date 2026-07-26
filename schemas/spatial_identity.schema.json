@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://homeo-x.org/schemas/spatial_identity.schema.json",
+  "title": "SpatialIdentity",
+  "description": "Where an entity is, independent of geometry. Geometry binds here, never to an entity (D-008).",
+  "type": "object",
+  "required": ["id", "entity", "coordinate_frame"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {"type": "string", "pattern": "^SPI:[a-z0-9-]+$"},
+    "entity": {"type": "string"},
+    "coordinate_frame": {"type": "string",
+      "description": "Explicit frame; cross-frame queries must reconcile or state a limitation"},
+    "anatomical_position": {"type": "string"},
+    "laterality": {"enum": ["left", "right", "midline", "bilateral", "not applicable"]},
+    "contained_in": {"type": "string"},
+    "adjacent_to": {"type": "array", "items": {"type": "string"}},
+    "landmarks": {"type": "array", "items": {"type": "string"}},
+    "geometry": {"type": "array", "items": {"$ref": "#/$defs/geometry_binding"}}
+  },
+  "$defs": {
+    "geometry_binding": {
+      "type": "object",
+      "required": ["asset_id", "representation_kind", "level", "licence", "licence_tier"],
+      "additionalProperties": false,
+      "properties": {
+        "asset_id": {"type": "string"},
+        "representation_kind": {"enum": ["measured", "derived", "reference_exemplar", "schematic"],
+          "description": "Schematic must be marked wherever bound (FR-SPAT-004, INV-13)"},
+        "level": {"type": "integer", "minimum": 0, "maximum": 10},
+        "lod": {"type": "integer", "minimum": 0},
+        "licence": {"type": "string"},
+        "licence_tier": {"enum": ["T0", "T1", "T2"],
+          "description": "T1/T2 never embedded in T0 layers (INV-11)"},
+        "attribution": {"type": "string"},
+        "source": {"type": "string"}
+      }
+    }
+  }
+}

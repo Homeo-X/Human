@@ -1,0 +1,51 @@
+[
+ {
+  "id": "SPI:heart",
+  "entity": "UBERON:0000948",
+  "coordinate_frame": "HOX-REF-ADULT-2026",
+  "anatomical_position": "middle mediastinum, posterior to the sternum, two thirds left of midline",
+  "laterality": "midline",
+  "contained_in": "UBERON:0002224",
+  "adjacent_to": [
+   "UBERON:0002048",
+   "UBERON:0000970"
+  ],
+  "landmarks": [
+   "apex",
+   "base",
+   "coronary sulcus"
+  ],
+  "geometry": []
+ },
+ {
+  "id": "SPI:left-ventricle",
+  "entity": "UBERON:0002084",
+  "coordinate_frame": "HOX-REF-ADULT-2026",
+  "anatomical_position": "posteroinferior-left portion of the heart",
+  "laterality": "left",
+  "contained_in": "UBERON:0000948",
+  "adjacent_to": [
+   "UBERON:0002078"
+  ],
+  "landmarks": [
+   "apex",
+   "mitral annulus",
+   "aortic outflow"
+  ],
+  "geometry": []
+ },
+ {
+  "id": "SPI:sarcomere",
+  "entity": "GO:0030017",
+  "coordinate_frame": "HOX-SCHEMATIC-CELL",
+  "anatomical_position": "repeating unit between adjacent Z-discs within a myofibril",
+  "laterality": "not applicable",
+  "landmarks": [
+   "Z-disc",
+   "M-line",
+   "A-band",
+   "I-band"
+  ],
+  "geometry": []
+ }
+]

@@ -1,0 +1,129 @@
+[
+ {
+  "id": "BPR-01",
+  "label": "Cardiac excitation-contraction coupling",
+  "subsystem": "cardiovascular",
+  "spatial_scale": [
+   3,
+   7,
+   8,
+   9,
+   10
+  ],
+  "level_contributions": {
+   "3": "chamber pressure development",
+   "7": "whole-cell calcium transient and shortening",
+   "8": "calcium release and reuptake by the sarcoplasmic reticulum via the T-tubule",
+   "9": "channel gating, troponin binding, actin-myosin interaction",
+   "10": "cross-bridge cycling rate and ATP consumption"
+  },
+  "timescale_domain": "cellular_electrical",
+  "characteristic_duration": {
+   "value": 250,
+   "unit": "ms",
+   "range": "200-300 ms depolarization to peak tension"
+  },
+  "representation_status": "structured",
+  "evidence_class": "EVC-2",
+  "inputs": [
+   "CHEBI:29108",
+   "CHEBI:15422"
+  ],
+  "outputs": [
+   "CHEBI:29108"
+  ],
+  "participants": [
+   "CL:0000746",
+   "GO:0030017",
+   "GO:0016529",
+   "GO:0030315",
+   "UniProt:P12883",
+   "UniProt:P68032",
+   "HOX:mechanism:cross-bridge-cycle"
+  ],
+  "state_variables": [
+   {
+    "name": "cytosolic calcium, diastolic",
+    "unit": "nmol/L",
+    "normal_range": "100-200",
+    "evidence_class": "EVC-3",
+    "note": "predominantly isolated myocyte preparations; human in-vivo inferred"
+   },
+   {
+    "name": "cytosolic calcium, systolic peak",
+    "unit": "umol/L",
+    "normal_range": "~1",
+    "evidence_class": "EVC-3",
+    "note": "order of magnitude"
+   },
+   {
+    "name": "sarcomere length, resting",
+    "unit": "um",
+    "normal_range": "1.8-2.2",
+    "evidence_class": "EVC-2",
+    "note": "the Frank-Starling operating range"
+   },
+   {
+    "name": "developed tension",
+    "unit": "mN/mm2",
+    "normal_range": "reported per preparation",
+    "evidence_class": "EVC-4",
+    "note": "preparation-dependent; no single human in-vivo figure is available and none is invented"
+   },
+   {
+    "name": "time to peak tension",
+    "unit": "ms",
+    "normal_range": "150-250",
+    "evidence_class": "EVC-3",
+    "note": "varies with rate and temperature"
+   }
+  ],
+  "mechanism": [
+   "membrane depolarization arrives at the T-tubule",
+   "L-type calcium channels open, admitting a small calcium influx",
+   "ryanodine receptors on the sarcoplasmic reticulum activate",
+   "calcium-induced calcium release raises cytosolic calcium",
+   "calcium binds troponin C",
+   "tropomyosin shifts, exposing actin binding sites",
+   "myosin cross-bridges attach",
+   "ATP-dependent power stroke slides the filaments",
+   "sarcomere shortens, developing tension",
+   "tension becomes chamber pressure",
+   "SERCA returns calcium to the sarcoplasmic reticulum and the sodium-calcium exchanger extrudes the remainder",
+   "troponin releases calcium and cross-bridges detach"
+  ],
+  "depends_on": [
+   "BPR-02"
+  ],
+  "feedback_loops": [
+   {
+    "description": "Length-dependent activation (Frank-Starling): greater end-diastolic sarcomere length increases myofilament calcium sensitivity and developed tension",
+    "damping": "bounded by the descending limb of the length-tension curve above approximately 2.2 um, and by pericardial restraint at chamber level"
+   }
+  ],
+  "failure_states": [
+   {
+    "failure": "ATP depletion",
+    "consequence": "cross-bridges cannot detach",
+    "downstream": "rigor; relaxation fails before contraction does"
+   },
+   {
+    "failure": "SERCA impairment",
+    "consequence": "slowed calcium reuptake",
+    "downstream": "impaired relaxation, elevated diastolic calcium"
+   },
+   {
+    "failure": "L-type channel blockade",
+    "consequence": "reduced trigger calcium",
+    "downstream": "reduced developed tension"
+   },
+   {
+    "failure": "ryanodine receptor calcium leak",
+    "consequence": "diastolic calcium elevation",
+    "downstream": "reduced SR load, arrhythmogenic potential"
+   }
+  ],
+  "limitations": "Quantitative parameters derive predominantly from animal and isolated-preparation work; human in-vivo cytosolic calcium at this resolution does not exist. Cross-species transfer is flagged per INV-12. Transmural regional heterogeneity is real and is not represented. This specifies one exemplar cardiomyocyte, not a population.",
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26); mechanism detail from primary literature"
+ }
+]

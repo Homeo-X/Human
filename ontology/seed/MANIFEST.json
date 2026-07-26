@@ -1,0 +1,12 @@
+{
+ "corpus": "A Map of the Human Body",
+ "ingested": "2026-07-26",
+ "tree_nodes_in_corpus": 156,
+ "entities_ingested": 140,
+ "claims_ingested": 140,
+ "associations_ingested": 26,
+ "associations_dropped_out_of_scope": 5,
+ "nodes_skipped_out_of_scope": 16,
+ "compilation_status": "narrative — all of it",
+ "note": "Ingested per D-007. Nothing here is typed, mechanistic, or parameterized. The 'frontier' nodes of the corpus are graded EVC-6 and retained deliberately: they are its record of what medicine has not settled."
+}
