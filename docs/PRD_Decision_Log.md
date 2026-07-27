@@ -901,3 +901,86 @@ get entries._
 - **Affects:** src/homeo/substrate.py, tools/biocheck.py,
   BIO_Anatomical_Ontology, BIO_Validation_Framework, PRD_FR_Relationship_Graph
 - **Supersedes:** none — extends D-013's lesson to a second vocabulary
+
+### D-024 — Content arrives by rule from a pinned ontology (2026-07-27, architect)
+- **Status:** active
+- **Context:** Hand-writing organs from Gray's would produce T2-sourced content
+  capped at EVC-4 and thrown away later. UBERON, CL and ECO are openly licensed
+  (CC-BY, CC-BY, CC0 — all admissible at T0), machine-readable, and already
+  curated, which dissolves the licensing blockage entirely.
+- **Decision:** Import by stated rule from a **pinned snapshot**.
+  `tools/fetch_authorities.py` records each source's URL, size, SHA-256 and its
+  own `data-version` into `ontology/vocabularies/SNAPSHOTS.json` — a new file,
+  because `authorities.json` is the flat registry INV-10 reads and restructuring
+  it would break that invariant. `src/homeo/importers/obo.py` refuses to load a
+  snapshot whose hash has moved: an import against a moving source is not
+  reproducible (G-07).
+  Four gates, each refusing rather than assuming: the **human warrant** (an
+  `FMA:` xref, FMA being human-only, or `human_reference_atlas` membership — a
+  UBERON class is vertebrate-general and "compound eye" has no place in a human
+  reference model); the **grouping filter** (`grouping_class`,
+  `non_informative`, `upper_level` are scaffolding, not anatomy); the **class
+  rule** (a term no rule covers is refused, never placed on a guessed level);
+  and **existing ids** (below).
+  **Placement comes from UBERON's own closure**, not from opinion: walking
+  `part_of`/`is_a` reaches the systems the ontology says a term belongs to, and
+  `SYSTEM_MAP` translates the meaningful ones. Terms reaching only "anatomical
+  system" — true of all 195 organs — are refused, because reaching *a* system
+  places nothing.
+- **Alternatives:**
+  - Adopt UBERON's `part_of` as this project's containment — rejected_because:
+    the heart is `part_of` "heart plus pericardium", not the thorax. Of 204
+    organ terms only 17 point at another organ. Its mereology is finer-grained
+    and full of grouping classes; adopting it would make the body navigable
+    into abstractions.
+  - Import everything and let review sort it out — rejected_because: RSK-02
+    says review is the binding constraint, and 16,000 unreviewed records would
+    consume it entirely.
+- **Consequences:** + 105 organs, 258 claims and 156 relationships admitted
+  provisionally; the substrate grows from 171 to 276 entities. + **15
+  multi-membership organs** — the liver in digestive and endocrine, the
+  pituitary in three systems — which is the D-019 case at fifteen times the
+  scale it was fixed against, and it holds. + 98 refusals, reported rather than
+  silent: 67 non-human, 22 unplaced, 9 scaffolding. − Nine of the ten system
+  anchors are narrative seed nodes rather than System entities; membership
+  edges point at them because that is what the substrate has, and importing the
+  eleven UBERON system terms properly is outstanding. − `lymphatic` has no L2
+  anchor at all, so lymphatic organs are refused.
+- **Reversibility:** high — imported content is separable by `provenance_source`.
+- **Affects:** tools/fetch_authorities.py, tools/import_l3.py,
+  src/homeo/importers/obo.py, ontology/imported/, BIO_Anatomical_Ontology
+- **Supersedes:** none
+
+### D-025 — An id defined twice is broken, and nothing was checking (2026-07-27, architect)
+- **Status:** active
+- **Context:** The first import run re-imported `UBERON:0000948` — a heart
+  already in the substrate as a curated record: preferred term "Heart",
+  `part_of` the thorax, in the cardiovascular slice. The imported record was
+  the raw ontology term: "heart", no containment, no subsystem placement. The
+  loader takes the last file read, so **the curation silently disappeared**. It
+  surfaced only because a release-determinism test compared two serializations
+  and found the same id with different content.
+  Two failures, not one: the importer did not know what already existed, and
+  **nothing in the substrate checked for duplicate ids at all**.
+- **Decision:** `OboImporter` takes the set of existing ids and refuses those
+  terms — an importer that overwrites curation is worse than one that imports
+  nothing. And **INV-20**: no id is defined twice as an entity, claim,
+  relationship or process, with a negative test. Last-file-wins is not a
+  conflict-resolution policy; it is the absence of one.
+- **Alternatives:**
+  - Merge imported fields into the existing record — rejected_because: merging
+    a curated record with a raw one needs a rule for every field, and getting
+    that wrong loses curation just as thoroughly, only less visibly. Enriching
+    existing entities is separate work with its own review.
+  - Let the importer overwrite and rely on review to catch it — rejected_because:
+    nothing was reviewing, and the whole point of D-017 is that unreviewed
+    content must not masquerade as reviewed.
+- **Consequences:** + Curated content cannot be silently replaced by an import.
+  + Duplicate ids are now caught anywhere they arise, not just from imports.
+  − 2 organs are refused as already present, which is correct and will grow as
+  the substrate does. − Enriching an existing entity from an ontology is now
+  explicitly unimplemented rather than accidentally implemented as overwrite.
+- **Reversibility:** high.
+- **Affects:** src/homeo/importers/obo.py, tools/import_l3.py,
+  tools/biocheck.py, BIO_Validation_Framework
+- **Supersedes:** none

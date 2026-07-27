@@ -181,7 +181,10 @@ class TestNegativeSpace(unittest.TestCase):
         """[FR-SRCH-004] Scope gaps count as things the model does not hold."""
         ns = self.ev.negative_space('HOX:function:nervous')
         self.assertEqual(ns.declared_depth, 5)
-        self.assertEqual([3, 4, 5], ns.unpopulated_levels)
+        # L3 filled when the organ import landed; L4 and L5 remain empty. The
+        # assertion is that gaps are reported, not that these particular gaps
+        # persist — content closing one is the system working.
+        self.assertEqual([4, 5], ns.unpopulated_levels)
 
     def test_levels_a_subsystem_cannot_occupy_are_not_gaps(self):
         """[FR-SRCH-004] [D-018] An organ system was never going to hold the

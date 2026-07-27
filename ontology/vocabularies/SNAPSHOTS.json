@@ -1,0 +1,42 @@
+{
+ "note": "Pinned snapshots of the external ontologies this project imports from. The importer reads the cache under vendor/ontologies/ and refuses to run if a hash here does not match, because an import against a moving source is not reproducible (G-07). Separate from authorities.json, which is the flat registry INV-10 checks xrefs against and must keep its shape.",
+ "cache": "vendor/ontologies",
+ "snapshots": {
+  "CL": {
+   "url": "https://purl.obolibrary.org/obo/cl/cl-basic.obo",
+   "file": "cl-basic.obo",
+   "format": "obo",
+   "licence": "CC-BY 4.0",
+   "licence_tier": "T0",
+   "note": "Cell types.",
+   "bytes": 3347518,
+   "sha256": "73996c6349283e7a8cbd8183367a1cb810d0077e9c291ae0c72bd31e869f8c1c",
+   "data_version": "cl/releases/2026-06-08/cl-basic.owl",
+   "fetched": "2026-07-27"
+  },
+  "ECO": {
+   "url": "https://purl.obolibrary.org/obo/eco.obo",
+   "file": "eco.obo",
+   "format": "obo",
+   "licence": "CC0",
+   "licence_tier": "T0",
+   "note": "Evidence codes, mapped to the EVC ladder by the table in BIO_Evidence_and_Provenance.",
+   "bytes": 1371481,
+   "sha256": "c8b52a2da2b0f92224b50a1d8773fd7e3bca0977d920d4e31ef9fde960c84fd4",
+   "data_version": "releases/2026-07-10",
+   "fetched": "2026-07-27"
+  },
+  "UBERON": {
+   "url": "https://purl.obolibrary.org/obo/uberon/basic.json",
+   "file": "uberon-basic.json",
+   "format": "obo-json",
+   "licence": "CC-BY 3.0",
+   "licence_tier": "T0",
+   "note": "Anatomy across vertebrates. Human applicability is a warrant each term must carry, never an assumption (INV-12).",
+   "bytes": 29444639,
+   "sha256": "6e68f576712edd121be209a743f7cdc8b78f6f3cfa83909b1fa5acf3835a9aa9",
+   "data_version": "2026-06-19",
+   "fetched": "2026-07-27"
+  }
+ }
+}

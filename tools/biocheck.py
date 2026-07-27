@@ -39,7 +39,10 @@ import json, os, re, sys
 # Levels at which each relation type may hold. None = any level pair.
 # Mirrors BIO_Anatomical_Ontology's relationship table (INV-01).
 ADMISSIBLE = {
-    'part_of':          [(1, 0), (2, 0), (3, 1), (3, 2), (4, 3), (5, 4), (6, 5), (7, 6), (8, 7)],
+    # (3, 3) is real: the vermiform appendix is part of the large intestine and
+    # the seminal vesicle part of the testis. INV-02 still forbids cycles and
+    # second parents, so organ-in-organ containment is safe as well as true.
+    'part_of':          [(1, 0), (2, 0), (3, 1), (3, 2), (3, 3), (4, 3), (5, 4), (6, 5), (7, 6), (8, 7)],
     'member_of':        [(3, 2), (7, 6)],
     'composed_of':      [(3, 5), (4, 5), (5, 6), (4, 4)],
     'located_in':       None,
@@ -468,6 +471,20 @@ def check(data, ladder=None, minimums=None):
         if c.get('unit') and not UCUM_OK.match(c['unit']):
             f.append(('error', 'INV-04', f'{c["id"]}: unit "{c["unit"]}" is not a UCUM code'))
         ec = c.get('evidence_class')
+        # The source-count and source-type rules belong to the *evidence*
+        # ladder. A terminological claim is backed by an authority and a
+        # definition source, which INV-18 checks; demanding an evidence
+        # `sources` array of it applies the wrong rule to the wrong register
+        # (D-021). This surfaced at import scale — 260 errors, none of them a
+        # defect in the data.
+        terminological = c.get('kind') == 'terminological'
+        if terminological:
+            for fld in ('species', 'population', 'limitations', 'assigned_by',
+                        'date_asserted'):
+                if not c.get(fld):
+                    f.append(('error', 'INV-07',
+                              f'{c["id"]}: incomplete claim record, missing {fld}'))
+            continue
         if ec != 'EVC-8' and not c.get('sources'):
             f.append(('error', 'INV-07', f'{c["id"]}: {ec} with no sources'))
         if ec == 'EVC-8' and c.get('sources'):
@@ -580,6 +597,27 @@ def check(data, ladder=None, minimums=None):
                     f.append(('error', 'INV-15',
                               f'{p["id"]} at status {p["representation_status"]} depends on '
                               f'narrative {ref}'))
+
+    # INV-20 identity uniqueness. Two records for one id is not a merge
+    # problem to resolve at read time — it is an ambiguity, and the loader
+    # resolving it by "last file read wins" is not a decision anyone made. An
+    # import re-added an entity that already existed and silently replaced a
+    # curated record with a raw ontology one; nothing noticed, because nothing
+    # was looking.
+    for kind, records in (('entity', ents), ('claim', claims),
+                          ('relationship', rels), ('process', procs)):
+        seen: dict = {}
+        for rec in records:
+            rid = rec.get('id')
+            if rid is None:
+                continue
+            seen[rid] = seen.get(rid, 0) + 1
+        for rid, n in sorted(seen.items()):
+            if n > 1:
+                f.append(('error', 'INV-20',
+                          f'{rid}: defined {n} times as a {kind}. One id names '
+                          f'one thing; whichever record loads last would '
+                          f'silently win'))
 
     # INV-17 review-state integrity. The failure this guards against has now
     # happened twice in this project's own history (D-013, D-017): content that
@@ -778,6 +816,9 @@ SELFTESTS = [
     ('INV-17', 'a proposed_class weaker than the class asserted',
      lambda d: _find(d['claims'], 'id', 'CLM:cytosolic-ca-diastolic')
                     .update({'proposed_class': 'EVC-6'})),
+    ('INV-20', 'the same entity id defined twice',
+     lambda d: d['entities'].append(dict(_find(d['entities'], 'id',
+                                               'UBERON:0000948')))),
     ('INV-18', 'a definition graded as biological evidence',
      lambda d: _find(d['claims'], 'id', 'CLM:region-thorax-boundary')
                     .update({'evidence_class': 'EVC-2'})),

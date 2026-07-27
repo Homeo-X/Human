@@ -1,0 +1,4684 @@
+[
+ {
+  "id": "UBERON:0000007",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "endocrine",
+  "preferred_term": "pituitary gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000007",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "Hp",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "glandula pituitaria",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "pituitary",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "pituitary body",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "hypophysis",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "hypophysis cerebri",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0000016",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "endocrine",
+  "preferred_term": "endocrine pancreas",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000016",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "endocrine pancreas",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "pars endocrina pancreatis",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "endocrine part of pancreas",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "islets of Langerhans part of pancreas",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0000017",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "digestive",
+  "preferred_term": "exocrine pancreas",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000017",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "exocrine pancreas",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "pars exocrina pancreatis",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "exocrine component of pancreas",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "exocrine part of pancreas",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0000056",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "urinary",
+  "preferred_term": "ureter",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000056",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "metanephric duct",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0000057",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "urinary",
+  "preferred_term": "urethra",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000057",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": []
+ },
+ {
+  "id": "UBERON:0000059",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "digestive",
+  "preferred_term": "large intestine",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000059",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "intestinum crassum",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0000080",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "urinary",
+  "preferred_term": "mesonephros",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000080",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "Wolffian body",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "mesonephric kidney",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "mesonephroi",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "amphibian adult kidney",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "corpus Wolffi",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "middle kidney",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "opisthonephros",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "opisto nephros",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "opistonephros",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0000081",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "urinary",
+  "preferred_term": "metanephros",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000081",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "metanephron",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "definite kidney",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "definitive kidney",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "hind kidney",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "metanephric kidney",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0000325",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "digestive",
+  "preferred_term": "gastric gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000325",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": []
+ },
+ {
+  "id": "UBERON:0000333",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "digestive",
+  "preferred_term": "intestinal gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000333",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "bowel mucosa gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "bowel mucosa of organ gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "bowel mucous membrane gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "bowel organ mucosa gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gland of bowel mucosa",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gland of bowel mucosa of organ",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gland of bowel mucous membrane",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gland of bowel organ mucosa",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gland of intestinal mucosa",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gland of intestine mucosa",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gland of intestine mucosa of organ",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gland of intestine mucous membrane",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gland of intestine organ mucosa",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gland of mucosa of bowel",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gland of mucosa of intestine",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gland of mucosa of organ of bowel",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gland of mucosa of organ of intestine",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gland of mucous membrane of bowel",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gland of mucous membrane of intestine",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gland of organ mucosa of bowel",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gland of organ mucosa of intestine",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "glandula intestinalis",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "intestinal mucosa gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "intestine mucosa gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "intestine mucosa of organ gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "intestine mucous membrane gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "intestine organ mucosa gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "mucosa of bowel gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "mucosa of intestine gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "mucosa of organ of bowel gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "mucosa of organ of intestine gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "mucous membrane of bowel gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "mucous membrane of intestine gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "organ mucosa of bowel gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "organ mucosa of intestine gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "glandulae intestinales",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0000382",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "integumentary",
+  "preferred_term": "apocrine sweat gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000382",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "glandula sudorifera apocrina",
+    "source": "UBERON",
+    "register": "exact"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0000391",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "nervous",
+  "preferred_term": "leptomeninx",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000391",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "leptomeninges",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "arachnoid mater and pia mater",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "arachnoidea mater et pia mater",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "pia-arachnoid",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "pia-arachnoid of neuraxis",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0000423",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "integumentary",
+  "preferred_term": "eccrine sweat gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000423",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "glandula sudorifera eccrina",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "glandula sudorifera merocrina",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "eccrine gland",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "merocrine sweat gland",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0000460",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "integumentary",
+  "preferred_term": "major vestibular gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000460",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "Bartholin gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "Bartholin's gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "Tiedemann's gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "vulvovaginal gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "Duverney's gland",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "glandula vestibularis major",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "greater vestibular gland",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "greater vestibular glands of Bartholin",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0000461",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "reproductive",
+  "preferred_term": "minor vestibular gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000461",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "glandula vestibular minor",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "lesser vestibular gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "Guerin's gland",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "Guérin's gland",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "Schueller's gland",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "Skene gland",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "Skene's gland",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "glandula vestibulares minor",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "paraurethral gland",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "periurethral gland",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "urethral gland of female urethra",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0000473",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "reproductive",
+  "preferred_term": "testis",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000473",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "gonad of male genitalia",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gonad of male reproductive system",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "male gonad",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "testicle",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "orchis",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "testes",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "testiculus",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0000945",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "digestive",
+  "preferred_term": "stomach",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000945",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "stomach chamber",
+    "source": "UBERON",
+    "register": "narrow"
+   },
+   {
+    "term": "anterior intestine",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "gaster",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "mesenteron",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "ventriculus",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0000970",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "nervous",
+  "preferred_term": "eye",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000970",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "light-detecting organ",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "visual apparatus",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0000982",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "musculoskeletal",
+  "preferred_term": "skeletal joint",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000982",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "articulation",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "joint",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "articular joint",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "joints",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0000989",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "reproductive",
+  "preferred_term": "penis",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000989",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "penes",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "phallus",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0000991",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "reproductive",
+  "preferred_term": "gonad",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000991",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "gonada",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gonads",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0000992",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "reproductive",
+  "preferred_term": "ovary",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000992",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "animal ovary",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "female gonad",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "female organism genitalia gonad",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "female organism genitalia gonada",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "female organism reproductive system gonad",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "female organism reproductive system gonada",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "female reproductive system gonad",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "female reproductive system gonada",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "genitalia of female organism gonad",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "genitalia of female organism gonada",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gonad of female organism genitalia",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gonad of female organism reproductive system",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gonad of female reproductive system",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gonad of genitalia of female organism",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gonad of reproductive system of female organism",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gonada of female organism genitalia",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gonada of female organism reproductive system",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gonada of female reproductive system",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gonada of genitalia of female organism",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gonada of reproductive system of female organism",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "ovum-producing ovary",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "reproductive system of female organism gonad",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "reproductive system of female organism gonada",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "ovaries",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "ovarium",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0000995",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "reproductive",
+  "preferred_term": "uterus",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000995",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": []
+ },
+ {
+  "id": "UBERON:0000998",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "reproductive",
+  "preferred_term": "seminal vesicle",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000998",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "seminal gland",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "glandula seminalis",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "glandula vesiculosa",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "gonecyst",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "vas efferens",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "vesicula seminalis",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "vesiculae seminales",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "vesicular gland",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "vesicular glands",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "vesicular seminalis",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "vesiculæ seminales",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001043",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "digestive",
+  "preferred_term": "esophagus",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001043",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "gullet",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "oesophagus",
+    "source": "UBERON",
+    "register": "exact"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001044",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "digestive",
+  "preferred_term": "saliva-secreting gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001044",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "salivary gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "glandulae salivariae",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001103",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "respiratory",
+  "preferred_term": "diaphragm",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001103",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "diaphragm muscle",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "diaphragm of thorax",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "thoracic diaphragm",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "midriff",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "phren",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001132",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "endocrine",
+  "preferred_term": "parathyroid gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001132",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "parathyroid",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "epithelial body",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "parathyroid secreting cell",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001154",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "digestive",
+  "preferred_term": "vermiform appendix",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001154",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "vermix",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "appendix",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "appendix vermiformis",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "caecal appendix",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "cecal appendix",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "apex of caecum",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "apex of cecum",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "appendix vermiformis",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001173",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "digestive",
+  "preferred_term": "biliary tree",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001173",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "biliary tract",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001212",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "digestive",
+  "preferred_term": "duodenal gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001212",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "Brunner's gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gland of Brunner",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "submucosal gland of duodenum",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "glandula duodenales",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "glandula duodenales Brunneri",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001237",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "endocrine",
+  "preferred_term": "paraaortic body",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001237",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "organ of Zuckerkandl",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "paraganglion of Zuckerkandl",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "para-aortic body",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "paraganglia of Zuckerkandl",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001255",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "urinary",
+  "preferred_term": "urinary bladder",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001255",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "bladder",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "vesica urinaria",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "urocyst",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "vesica",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001338",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "urinary",
+  "preferred_term": "urethral gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001338",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "gland of urethra",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "urethra gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "urethra gland (male or female)",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "urethral mucuous gland",
+    "source": "UBERON",
+    "register": "exact"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001350",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "musculoskeletal",
+  "preferred_term": "coccyx",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001350",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "coccygeal skeleton",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "coccygeal vertebrae I-IV",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "coccyx [coccygeal vertebrae I-IV]",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "coccyx [vertebrae coccygeae I-IV]",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "fused caudal vertebrae",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "fused caudal vertebral column",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "os coccygis",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "os coccygis",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "tailbone",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001474",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "musculoskeletal",
+  "preferred_term": "bone element",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001474",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "bone organ",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "bone",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "bones",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001629",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "nervous",
+  "preferred_term": "carotid body",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001629",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "carotid glomus",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "glomus caroticum",
+    "source": "UBERON",
+    "register": "exact"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001690",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "nervous",
+  "preferred_term": "ear",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001690",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "auditory apparatus",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "auris",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001723",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "digestive",
+  "preferred_term": "tongue",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001723",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "glossus",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001817",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "nervous",
+  "preferred_term": "lacrimal gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001817",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "glandula lacrimalis",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "lacrimal-preorbital gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "glandula praeorbitalis",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "preorbital gland",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "tear gland",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001818",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "integumentary",
+  "preferred_term": "tarsal gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001818",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "Meibomian gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gland of Meibom",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "glandula tarsales",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "palpebral gland",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "tarsoconjunctival gland",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001820",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "integumentary",
+  "preferred_term": "sweat gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001820",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "glandula sudorifera",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "sudoriferous gland",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "sudoriparous gland",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001821",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "integumentary",
+  "preferred_term": "sebaceous gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001821",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "glandula sebacea",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "glandula sebaceae",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "sebaceous follicle",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001822",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "musculoskeletal",
+  "preferred_term": "orbital septum",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001822",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "septum orbitale",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001829",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "digestive",
+  "preferred_term": "major salivary gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001829",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": []
+ },
+ {
+  "id": "UBERON:0001830",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "digestive",
+  "preferred_term": "minor salivary gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001830",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": []
+ },
+ {
+  "id": "UBERON:0001849",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "nervous",
+  "preferred_term": "membranous labyrinth",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001849",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "labyrinthus membranaceus",
+    "source": "UBERON",
+    "register": "exact"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001853",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "nervous",
+  "preferred_term": "utricle of membranous labyrinth",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001853",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "membranous labyrinth utricle",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "utricle",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "utriculus",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "utriculus (labyrinthus vestibularis)",
+    "source": "UBERON",
+    "register": "exact"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001854",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "nervous",
+  "preferred_term": "saccule of membranous labyrinth",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001854",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "membranous labyrinth saccule",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "saccule",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "sacculus",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "sacculus (labyrinthus vestibularis)",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "sacculus",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001905",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "endocrine",
+  "preferred_term": "pineal body",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001905",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "Pi",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "corpus pineale",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "glandula pinealis",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "pineal gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "pineal organ",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "conarium",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "epiphysis",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "epiphysis cerebri",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "frontal organ",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "pineal",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "pineal gland (Galen)",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "stirnorgan",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001911",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "integumentary",
+  "preferred_term": "mammary gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001911",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "glandula mammaria",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "lactiferous gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "lobe of breast",
+    "source": "UBERON",
+    "register": "narrow"
+   },
+   {
+    "term": "milk patch",
+    "source": "UBERON",
+    "register": "narrow"
+   },
+   {
+    "term": "Brustdruese",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "dug",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "glandula mammaria",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "lobe of mammary gland",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "mamma",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "mammae",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001964",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "nervous",
+  "preferred_term": "least splanchnic nerve",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001964",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "least thoracic splanchnic nerve",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "lowest splanchnic nerve",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "nervus splanchnicus imus",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "ramus renalis nervus splanchnici minoris",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "renal branch of lesser splanchnic nerve",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "renal nerve",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "thoracic splanchnic nerve",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001983",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "digestive",
+  "preferred_term": "crypt of Lieberkuhn",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001983",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "intestinal gland",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "Lieberkuhn crypt",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "Lieberkuhn gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "Lieberkuhn's gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "Lieberkuhn's glands",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "Lieberkühn crypt",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "crypt of Lieberkuhn",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "crypt of Lieberkühn",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "crypts of Lieberkühn",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "follicles of Lieberkühn",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "intestinal crypt",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "intestinal crypts",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "intestinal gland of Lieberkuhn",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001987",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "reproductive",
+  "preferred_term": "placenta",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001987",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "allantoic placenta",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "eutherian placenta",
+    "source": "UBERON",
+    "register": "exact"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002041",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "respiratory",
+  "preferred_term": "terminal bronchus",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002041",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": []
+ },
+ {
+  "id": "UBERON:0002046",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "endocrine",
+  "preferred_term": "thyroid gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002046",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "thyroid",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "glandula thyroidea",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002048",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "respiratory",
+  "preferred_term": "lung",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002048",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "pulmo",
+    "source": "UBERON",
+    "register": "exact"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002073",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "integumentary",
+  "preferred_term": "hair follicle",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002073",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "folliculus pili",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002093",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "nervous",
+  "preferred_term": "spinal dura mater",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002093",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "dura mater of neuraxis of spinal cord",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "dura mater of spinal cord",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "spinal cord dura mater",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "spinal cord dura mater of neuraxis",
+    "source": "UBERON",
+    "register": "exact"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002106",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "immune",
+  "preferred_term": "spleen",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002106",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "lien",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002107",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "digestive",
+  "preferred_term": "liver",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002107",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "iecur",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "jecur",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002108",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "digestive",
+  "preferred_term": "small intestine",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002108",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "small bowel",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "small intestine",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "anterior intestine",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "intestinum tenue",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "mid intestine",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002110",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "digestive",
+  "preferred_term": "gallbladder",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002110",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "cholecyst",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gall bladder",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "vesica biliaris",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "vesica fellea",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002113",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "urinary",
+  "preferred_term": "kidney",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002113",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "reniculate kidney",
+    "source": "UBERON",
+    "register": "narrow"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002120",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "urinary",
+  "preferred_term": "pronephros",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002120",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "pronephric kidney",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "archinephron",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "embryonic kidney",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "pronephron",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002182",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "respiratory",
+  "preferred_term": "main bronchus",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002182",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "bronchus principalis",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "extrapulmonary bronchus",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "mainstem bronchus",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "major bronchus",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "primary bronchus",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "principal bronchus",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "proximal bronchus",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002183",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "respiratory",
+  "preferred_term": "lobar bronchus",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002183",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "bronchi lobaris",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "secondary bronchus",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "lobar bronchi",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "secondary bronchi",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002184",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "respiratory",
+  "preferred_term": "segmental bronchus",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002184",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "tertiary bronchus",
+    "source": "UBERON",
+    "register": "exact"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002185",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "respiratory",
+  "preferred_term": "bronchus",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002185",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "bronchi",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "bronchial trunk",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "bronchial tissue",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002232",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "nervous",
+  "preferred_term": "olfactory gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002232",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "olfactory gland of Bowman",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "Bowman's gland",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "gland of Bowman",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "glandulae olfactoriae",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002240",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "nervous",
+  "preferred_term": "spinal cord",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002240",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "SpC",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "cerebro-cerebellar fissure",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "cerebrocerebellar fissure",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "fissura cerebro-cerebellaris",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "fissura cerebrocerebellaris",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "medulla spinalis",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "spinal cord structure",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "spinal medulla",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002255",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "nervous",
+  "preferred_term": "vomeronasal organ",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002255",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "Jacobson's organ",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "organon vomeronasale",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "organum vomeronasale",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "VNO",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "organ of Jacobsen",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002359",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "cardiovascular",
+  "preferred_term": "fibrous pericardium",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002359",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "fibrous portion of pericardium",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "pericardium fibrosum",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002360",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "nervous",
+  "preferred_term": "meninx",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002360",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "layer of meninges",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "meningeal layer",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "meninx primitiva",
+    "source": "UBERON",
+    "register": "narrow"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002363",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "nervous",
+  "preferred_term": "dura mater",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002363",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "dura mater of neuraxis",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "pachymeninges",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "dura",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002364",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "nervous",
+  "preferred_term": "tympanic membrane",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002364",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "Rivinus' membrane",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "ear drum",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "eardrum",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "lateral wall of tympanic cavity",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "membranous wall of tympanic cavity",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "myrinx",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "paries membranaceus cavi tympani",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "tympanum",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002366",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "reproductive",
+  "preferred_term": "bulbo-urethral gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002366",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "Cowper's gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "Cowper's glands",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "Mery's gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "Méry gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "bulbourethral gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "glandula bulbourethralis",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "Cowper's gland of male",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002367",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "reproductive",
+  "preferred_term": "prostate gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002367",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "male prostate",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "prostate",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "prostata",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002368",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "endocrine",
+  "preferred_term": "endocrine gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002368",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "ductless gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "glandula endocrina",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "ductless gland",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "glandulae endocrinae",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002369",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "endocrine",
+  "preferred_term": "adrenal gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002369",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "glandula adrenalis",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "glandula suprarenalis",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "adrenal",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "adrenal capsule",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "adrenal medulla cell",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "atrabiliary capsule",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "epinephric gland",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "epinephros",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "glandula suprarenalis",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "interrenal gland",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "suprarenal capsule",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "suprarenal gland",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002370",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "endocrine",
+  "preferred_term": "thymus",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002370",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "thymus gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "thymus organ",
+    "source": "UBERON",
+    "register": "exact"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002393",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "nervous",
+  "preferred_term": "pharyngotympanic tube",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002393",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "auditory tube",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "internal auditory tube",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "pharyngo-tympanic tube",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "tuba auditiva",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "tuba auditoria",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "eustachian tube",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "tuba auditiva; tuba auditoria; tuba auditivea",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "tuba pharyngotympanica",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002411",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "reproductive",
+  "preferred_term": "clitoris",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002411",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": []
+ },
+ {
+  "id": "UBERON:0002419",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "integumentary",
+  "preferred_term": "skin gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002419",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "glandulae cutis",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "set of skin glands",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "skin glands",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "skin glands set",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002451",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "reproductive",
+  "preferred_term": "endometrial gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002451",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "endometrial gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "endometrial mucuous gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "endometrium gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "glandulae uterinae",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "uterine gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "glandulae uterinae",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0003295",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "digestive",
+  "preferred_term": "pharyngeal gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0003295",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "pharynx gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "glandulae pharyngeae",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0003699",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "musculoskeletal",
+  "preferred_term": "pubic symphysis",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0003699",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "symphysis pubis",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "interpubic articulation",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "symphisis pubis",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "symphysis pubica",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "symphysis pubis",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0003975",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "reproductive",
+  "preferred_term": "internal female genitalia",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0003975",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "female internal genitalia",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "internal female genital organ",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "internal genitalia of female reproductive system",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "organa genitalia feminina interna",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0004053",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "reproductive",
+  "preferred_term": "external male genitalia",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0004053",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "external male genital organ",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "male external genitalia",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "organa genitalia masculina externa",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0004054",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "reproductive",
+  "preferred_term": "internal male genitalia",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0004054",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "internal male genital organ",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "male internal genitalia",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "organa genitalia masculina interna",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0004175",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "reproductive",
+  "preferred_term": "internal genitalia",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0004175",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "internal genitalia",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "internal genitals",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "internal reproductive organ",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "internal sex organ",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0004176",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "reproductive",
+  "preferred_term": "external genitalia",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0004176",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "external genitalia",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "external reproductive organ",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "external sex organ",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0004177",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "immune",
+  "preferred_term": "hemopoietic organ",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0004177",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "haematological system organ",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "haemopoietic system organ",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "hematopoeitic organ",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "hematopoietic system organ",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "organ of haematological system",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "organ of haemopoietic system",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "organ of hematopoietic system",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "organ of organa haemopoietica",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "organa haemopoietica organ",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "hematopoeitic or lymphoid organ",
+    "source": "UBERON",
+    "register": "narrow"
+   },
+   {
+    "term": "lymph organ",
+    "source": "UBERON",
+    "register": "narrow"
+   },
+   {
+    "term": "lymphoid organ",
+    "source": "UBERON",
+    "register": "narrow"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0004721",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "nervous",
+  "preferred_term": "crista ampullaris",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0004721",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "ampullary crest of semicircular duct",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "ampullary crest",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "cristae ampullares",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0004760",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "digestive",
+  "preferred_term": "gland of anal canal",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0004760",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "anal gland",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "anal sac",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "gland of anal sac",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "gland of anus",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "rectal gland",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0004772",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "nervous",
+  "preferred_term": "eyelid tarsus",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0004772",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "tarsal plate",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "tarsal plate of eyelid",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "tarsus palpebralis",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "eyelid tarsi",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "tarsi",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0005056",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "reproductive",
+  "preferred_term": "external female genitalia",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0005056",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "external female genital organ",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "external genitalia of female reproductive system",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "female external genitalia",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "organa genitalia feminina externa",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0005203",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "respiratory",
+  "preferred_term": "trachea gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0005203",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "glandula trachealis",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "tracheal gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "tubular seromucous gland of trachea",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0006723",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "musculoskeletal",
+  "preferred_term": "cochlear modiolus",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0006723",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "modiolus",
+    "source": "UBERON",
+    "register": "related"
+   },
+   {
+    "term": "cochlea modiolus",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "modiolus cochleae",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "modiolus of cochlea",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "columella cochleae",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0006749",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "endocrine",
+  "preferred_term": "superior parathyroid gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0006749",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "parathyroid 4",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "parathyroid IV",
+    "source": "UBERON",
+    "register": "exact"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0006755",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "endocrine",
+  "preferred_term": "inferior parathyroid gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0006755",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "inferior parathyroid",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "parathyroid 3",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "parathyroid III",
+    "source": "UBERON",
+    "register": "exact"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0007196",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "respiratory",
+  "preferred_term": "tracheobronchial tree",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0007196",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "arbor tracheobronchialis",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "tracheobronchial system",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0007844",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "musculoskeletal",
+  "preferred_term": "cartilage element",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0007844",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "cartilage organ",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "cartilaginous element",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "chondrogenic element",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "cartilage",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0008310",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "digestive",
+  "preferred_term": "nasopharyngeal gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0008310",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": []
+ },
+ {
+  "id": "UBERON:0008859",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "digestive",
+  "preferred_term": "cardiac gastric gland",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "provenance_source": "UBERON 2026-06-19",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0008859",
+    "pinned_version": "2026-06-19"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "gardiac gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gastric cardiac gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gastric cardiac mucuous gland",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "gastric gland of cardia",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "glandula cardiaca (gaster)",
+    "source": "UBERON",
+    "register": "exact"
+   },
+   {
+    "term": "cardiac gland",
+    "source": "UBERON",
+    "register": "related"
+   }
+  ]
+ }
+]

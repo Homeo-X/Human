@@ -90,7 +90,7 @@ corpus's cross-links are the reason this table exists (D-007).
 
 | Relation | Inverse | Cardinality | Admissible Between | Semantics |
 |---|---|---|---|---|
-| `part_of` | `has_part` | many-to-**one** | L1→L0, L3→L1, L4→L3, L8→L7 | physical containment; single-parent, acyclic (INV-02) |
+| `part_of` | `has_part` | many-to-**one** | L1→L0, L3→L1, L3→L3, L4→L3, L8→L7 | physical containment; single-parent, acyclic (INV-02). L3→L3 is admitted because organs do contain organs — the vermiform appendix is part of the large intestine |
 | `member_of` | `has_member` | many-to-many | L3→L2, L7→L6 | functional membership; the pancreas relation |
 | `located_in` | `location_of` | many-to-many | any structural level → L1 | spatial presence without containment semantics |
 | `adjacent_to` | `adjacent_to` | many-to-many, symmetric | same level | shares a boundary |

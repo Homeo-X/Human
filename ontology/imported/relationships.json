@@ -1,0 +1,1562 @@
+[
+ {
+  "id": "REL:uberon-0000007-is_a-uberon-0002368",
+  "source": "UBERON:0000007",
+  "target": "UBERON:0002368",
+  "type": "is_a",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000007-is_a-uberon-0002368-assertion",
+  "prose_justification": "UBERON asserts UBERON:0000007 is_a UBERON:0002368."
+ },
+ {
+  "id": "REL:uberon-0000080-is_a-uberon-0002113",
+  "source": "UBERON:0000080",
+  "target": "UBERON:0002113",
+  "type": "is_a",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000080-is_a-uberon-0002113-assertion",
+  "prose_justification": "UBERON asserts UBERON:0000080 is_a UBERON:0002113."
+ },
+ {
+  "id": "REL:uberon-0000081-is_a-uberon-0002113",
+  "source": "UBERON:0000081",
+  "target": "UBERON:0002113",
+  "type": "is_a",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000081-is_a-uberon-0002113-assertion",
+  "prose_justification": "UBERON asserts UBERON:0000081 is_a UBERON:0002113."
+ },
+ {
+  "id": "REL:uberon-0000382-is_a-uberon-0001820",
+  "source": "UBERON:0000382",
+  "target": "UBERON:0001820",
+  "type": "is_a",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000382-is_a-uberon-0001820-assertion",
+  "prose_justification": "UBERON asserts UBERON:0000382 is_a UBERON:0001820."
+ },
+ {
+  "id": "REL:uberon-0000391-is_a-uberon-0002360",
+  "source": "UBERON:0000391",
+  "target": "UBERON:0002360",
+  "type": "is_a",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000391-is_a-uberon-0002360-assertion",
+  "prose_justification": "UBERON asserts UBERON:0000391 is_a UBERON:0002360."
+ },
+ {
+  "id": "REL:uberon-0000423-is_a-uberon-0001820",
+  "source": "UBERON:0000423",
+  "target": "UBERON:0001820",
+  "type": "is_a",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000423-is_a-uberon-0001820-assertion",
+  "prose_justification": "UBERON asserts UBERON:0000423 is_a UBERON:0001820."
+ },
+ {
+  "id": "REL:uberon-0000473-is_a-uberon-0000991",
+  "source": "UBERON:0000473",
+  "target": "UBERON:0000991",
+  "type": "is_a",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000473-is_a-uberon-0000991-assertion",
+  "prose_justification": "UBERON asserts UBERON:0000473 is_a UBERON:0000991."
+ },
+ {
+  "id": "REL:uberon-0000992-is_a-uberon-0000991",
+  "source": "UBERON:0000992",
+  "target": "UBERON:0000991",
+  "type": "is_a",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000992-is_a-uberon-0000991-assertion",
+  "prose_justification": "UBERON asserts UBERON:0000992 is_a UBERON:0000991."
+ },
+ {
+  "id": "REL:uberon-0000995-part_of-uberon-0004175",
+  "source": "UBERON:0000995",
+  "target": "UBERON:0004175",
+  "type": "part_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000995-part_of-uberon-0004175-assertion",
+  "prose_justification": "UBERON asserts UBERON:0000995 part_of UBERON:0004175."
+ },
+ {
+  "id": "REL:uberon-0000998-part_of-uberon-0000473",
+  "source": "UBERON:0000998",
+  "target": "UBERON:0000473",
+  "type": "part_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000998-part_of-uberon-0000473-assertion",
+  "prose_justification": "UBERON asserts UBERON:0000998 part_of UBERON:0000473."
+ },
+ {
+  "id": "REL:uberon-0001132-is_a-uberon-0002368",
+  "source": "UBERON:0001132",
+  "target": "UBERON:0002368",
+  "type": "is_a",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001132-is_a-uberon-0002368-assertion",
+  "prose_justification": "UBERON asserts UBERON:0001132 is_a UBERON:0002368."
+ },
+ {
+  "id": "REL:uberon-0001154-part_of-uberon-0000059",
+  "source": "UBERON:0001154",
+  "target": "UBERON:0000059",
+  "type": "part_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001154-part_of-uberon-0000059-assertion",
+  "prose_justification": "UBERON asserts UBERON:0001154 part_of UBERON:0000059."
+ },
+ {
+  "id": "REL:uberon-0001338-part_of-uberon-0000057",
+  "source": "UBERON:0001338",
+  "target": "UBERON:0000057",
+  "type": "part_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001338-part_of-uberon-0000057-assertion",
+  "prose_justification": "UBERON asserts UBERON:0001338 part_of UBERON:0000057."
+ },
+ {
+  "id": "REL:uberon-0001818-part_of-uberon-0004772",
+  "source": "UBERON:0001818",
+  "target": "UBERON:0004772",
+  "type": "part_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001818-part_of-uberon-0004772-assertion",
+  "prose_justification": "UBERON asserts UBERON:0001818 part_of UBERON:0004772."
+ },
+ {
+  "id": "REL:uberon-0001822-part_of-uberon-0004772",
+  "source": "UBERON:0001822",
+  "target": "UBERON:0004772",
+  "type": "part_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001822-part_of-uberon-0004772-assertion",
+  "prose_justification": "UBERON asserts UBERON:0001822 part_of UBERON:0004772."
+ },
+ {
+  "id": "REL:uberon-0001829-is_a-uberon-0001044",
+  "source": "UBERON:0001829",
+  "target": "UBERON:0001044",
+  "type": "is_a",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001829-is_a-uberon-0001044-assertion",
+  "prose_justification": "UBERON asserts UBERON:0001829 is_a UBERON:0001044."
+ },
+ {
+  "id": "REL:uberon-0001830-is_a-uberon-0001044",
+  "source": "UBERON:0001830",
+  "target": "UBERON:0001044",
+  "type": "is_a",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001830-is_a-uberon-0001044-assertion",
+  "prose_justification": "UBERON asserts UBERON:0001830 is_a UBERON:0001044."
+ },
+ {
+  "id": "REL:uberon-0001983-is_a-uberon-0000333",
+  "source": "UBERON:0001983",
+  "target": "UBERON:0000333",
+  "type": "is_a",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001983-is_a-uberon-0000333-assertion",
+  "prose_justification": "UBERON asserts UBERON:0001983 is_a UBERON:0000333."
+ },
+ {
+  "id": "REL:uberon-0002041-is_a-uberon-0002185",
+  "source": "UBERON:0002041",
+  "target": "UBERON:0002185",
+  "type": "is_a",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002041-is_a-uberon-0002185-assertion",
+  "prose_justification": "UBERON asserts UBERON:0002041 is_a UBERON:0002185."
+ },
+ {
+  "id": "REL:uberon-0002046-is_a-uberon-0002368",
+  "source": "UBERON:0002046",
+  "target": "UBERON:0002368",
+  "type": "is_a",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002046-is_a-uberon-0002368-assertion",
+  "prose_justification": "UBERON asserts UBERON:0002046 is_a UBERON:0002368."
+ },
+ {
+  "id": "REL:uberon-0002093-is_a-uberon-0002363",
+  "source": "UBERON:0002093",
+  "target": "UBERON:0002363",
+  "type": "is_a",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002093-is_a-uberon-0002363-assertion",
+  "prose_justification": "UBERON asserts UBERON:0002093 is_a UBERON:0002363."
+ },
+ {
+  "id": "REL:uberon-0002106-is_a-uberon-0004177",
+  "source": "UBERON:0002106",
+  "target": "UBERON:0004177",
+  "type": "is_a",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002106-is_a-uberon-0004177-assertion",
+  "prose_justification": "UBERON asserts UBERON:0002106 is_a UBERON:0004177."
+ },
+ {
+  "id": "REL:uberon-0002120-is_a-uberon-0002113",
+  "source": "UBERON:0002120",
+  "target": "UBERON:0002113",
+  "type": "is_a",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002120-is_a-uberon-0002113-assertion",
+  "prose_justification": "UBERON asserts UBERON:0002120 is_a UBERON:0002113."
+ },
+ {
+  "id": "REL:uberon-0002182-is_a-uberon-0002185",
+  "source": "UBERON:0002182",
+  "target": "UBERON:0002185",
+  "type": "is_a",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002182-is_a-uberon-0002185-assertion",
+  "prose_justification": "UBERON asserts UBERON:0002182 is_a UBERON:0002185."
+ },
+ {
+  "id": "REL:uberon-0002185-part_of-uberon-0007196",
+  "source": "UBERON:0002185",
+  "target": "UBERON:0007196",
+  "type": "part_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002185-part_of-uberon-0007196-assertion",
+  "prose_justification": "UBERON asserts UBERON:0002185 part_of UBERON:0007196."
+ },
+ {
+  "id": "REL:uberon-0002363-is_a-uberon-0002360",
+  "source": "UBERON:0002363",
+  "target": "UBERON:0002360",
+  "type": "is_a",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002363-is_a-uberon-0002360-assertion",
+  "prose_justification": "UBERON asserts UBERON:0002363 is_a UBERON:0002360."
+ },
+ {
+  "id": "REL:uberon-0002370-is_a-uberon-0002368",
+  "source": "UBERON:0002370",
+  "target": "UBERON:0002368",
+  "type": "is_a",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002370-is_a-uberon-0002368-assertion",
+  "prose_justification": "UBERON asserts UBERON:0002370 is_a UBERON:0002368."
+ },
+ {
+  "id": "REL:uberon-0002370-is_a-uberon-0004177",
+  "source": "UBERON:0002370",
+  "target": "UBERON:0004177",
+  "type": "is_a",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002370-is_a-uberon-0004177-assertion",
+  "prose_justification": "UBERON asserts UBERON:0002370 is_a UBERON:0004177."
+ },
+ {
+  "id": "REL:uberon-0003975-is_a-uberon-0004175",
+  "source": "UBERON:0003975",
+  "target": "UBERON:0004175",
+  "type": "is_a",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0003975-is_a-uberon-0004175-assertion",
+  "prose_justification": "UBERON asserts UBERON:0003975 is_a UBERON:0004175."
+ },
+ {
+  "id": "REL:uberon-0004053-is_a-uberon-0004176",
+  "source": "UBERON:0004053",
+  "target": "UBERON:0004176",
+  "type": "is_a",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0004053-is_a-uberon-0004176-assertion",
+  "prose_justification": "UBERON asserts UBERON:0004053 is_a UBERON:0004176."
+ },
+ {
+  "id": "REL:uberon-0004054-is_a-uberon-0004175",
+  "source": "UBERON:0004054",
+  "target": "UBERON:0004175",
+  "type": "is_a",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0004054-is_a-uberon-0004175-assertion",
+  "prose_justification": "UBERON asserts UBERON:0004054 is_a UBERON:0004175."
+ },
+ {
+  "id": "REL:uberon-0005056-is_a-uberon-0004176",
+  "source": "UBERON:0005056",
+  "target": "UBERON:0004176",
+  "type": "is_a",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0005056-is_a-uberon-0004176-assertion",
+  "prose_justification": "UBERON asserts UBERON:0005056 is_a UBERON:0004176."
+ },
+ {
+  "id": "REL:uberon-0006749-is_a-uberon-0001132",
+  "source": "UBERON:0006749",
+  "target": "UBERON:0001132",
+  "type": "is_a",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0006749-is_a-uberon-0001132-assertion",
+  "prose_justification": "UBERON asserts UBERON:0006749 is_a UBERON:0001132."
+ },
+ {
+  "id": "REL:uberon-0006755-is_a-uberon-0001132",
+  "source": "UBERON:0006755",
+  "target": "UBERON:0001132",
+  "type": "is_a",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0006755-is_a-uberon-0001132-assertion",
+  "prose_justification": "UBERON asserts UBERON:0006755 is_a UBERON:0001132."
+ },
+ {
+  "id": "REL:uberon-0008310-is_a-uberon-0003295",
+  "source": "UBERON:0008310",
+  "target": "UBERON:0003295",
+  "type": "is_a",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0008310-is_a-uberon-0003295-assertion",
+  "prose_justification": "UBERON asserts UBERON:0008310 is_a UBERON:0003295."
+ },
+ {
+  "id": "REL:uberon-0008859-is_a-uberon-0000325",
+  "source": "UBERON:0008859",
+  "target": "UBERON:0000325",
+  "type": "is_a",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0008859-is_a-uberon-0000325-assertion",
+  "prose_justification": "UBERON asserts UBERON:0008859 is_a UBERON:0000325."
+ },
+ {
+  "id": "REL:uberon-0000007-member-endocrine",
+  "source": "UBERON:0000007",
+  "target": "HOX:function:endocrine",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000007-member-endocrine-assertion",
+  "prose_justification": "UBERON places UBERON:0000007 under the endocrine system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0000007-member-nervous",
+  "source": "UBERON:0000007",
+  "target": "HOX:function:nervous",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000007-member-nervous-assertion",
+  "prose_justification": "UBERON places UBERON:0000007 under the nervous system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0000007-member-reproductive",
+  "source": "UBERON:0000007",
+  "target": "HOX:function:reproductive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000007-member-reproductive-assertion",
+  "prose_justification": "UBERON places UBERON:0000007 under the reproductive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0000016-member-endocrine",
+  "source": "UBERON:0000016",
+  "target": "HOX:function:endocrine",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000016-member-endocrine-assertion",
+  "prose_justification": "UBERON places UBERON:0000016 under the endocrine system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0000017-member-digestive",
+  "source": "UBERON:0000017",
+  "target": "HOX:function:digestive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000017-member-digestive-assertion",
+  "prose_justification": "UBERON places UBERON:0000017 under the digestive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0000056-member-urinary",
+  "source": "UBERON:0000056",
+  "target": "HOX:function:urinary",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000056-member-urinary-assertion",
+  "prose_justification": "UBERON places UBERON:0000056 under the urinary system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0000057-member-urinary",
+  "source": "UBERON:0000057",
+  "target": "HOX:function:urinary",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000057-member-urinary-assertion",
+  "prose_justification": "UBERON places UBERON:0000057 under the urinary system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0000059-member-digestive",
+  "source": "UBERON:0000059",
+  "target": "HOX:function:digestive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000059-member-digestive-assertion",
+  "prose_justification": "UBERON places UBERON:0000059 under the digestive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0000080-member-urinary",
+  "source": "UBERON:0000080",
+  "target": "HOX:function:urinary",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000080-member-urinary-assertion",
+  "prose_justification": "UBERON places UBERON:0000080 under the urinary system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0000081-member-urinary",
+  "source": "UBERON:0000081",
+  "target": "HOX:function:urinary",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000081-member-urinary-assertion",
+  "prose_justification": "UBERON places UBERON:0000081 under the urinary system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0000325-member-digestive",
+  "source": "UBERON:0000325",
+  "target": "HOX:function:digestive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000325-member-digestive-assertion",
+  "prose_justification": "UBERON places UBERON:0000325 under the digestive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0000333-member-digestive",
+  "source": "UBERON:0000333",
+  "target": "HOX:function:digestive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000333-member-digestive-assertion",
+  "prose_justification": "UBERON places UBERON:0000333 under the digestive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0000382-member-integumentary",
+  "source": "UBERON:0000382",
+  "target": "HOX:function:integumentary",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000382-member-integumentary-assertion",
+  "prose_justification": "UBERON places UBERON:0000382 under the integumentary system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0000391-member-nervous",
+  "source": "UBERON:0000391",
+  "target": "HOX:function:nervous",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000391-member-nervous-assertion",
+  "prose_justification": "UBERON places UBERON:0000391 under the nervous system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0000423-member-integumentary",
+  "source": "UBERON:0000423",
+  "target": "HOX:function:integumentary",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000423-member-integumentary-assertion",
+  "prose_justification": "UBERON places UBERON:0000423 under the integumentary system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0000460-member-integumentary",
+  "source": "UBERON:0000460",
+  "target": "HOX:function:integumentary",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000460-member-integumentary-assertion",
+  "prose_justification": "UBERON places UBERON:0000460 under the integumentary system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0000460-member-reproductive",
+  "source": "UBERON:0000460",
+  "target": "HOX:function:reproductive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000460-member-reproductive-assertion",
+  "prose_justification": "UBERON places UBERON:0000460 under the reproductive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0000461-member-reproductive",
+  "source": "UBERON:0000461",
+  "target": "HOX:function:reproductive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000461-member-reproductive-assertion",
+  "prose_justification": "UBERON places UBERON:0000461 under the reproductive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0000461-member-urinary",
+  "source": "UBERON:0000461",
+  "target": "HOX:function:urinary",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000461-member-urinary-assertion",
+  "prose_justification": "UBERON places UBERON:0000461 under the urinary system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0000473-member-reproductive",
+  "source": "UBERON:0000473",
+  "target": "HOX:function:reproductive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000473-member-reproductive-assertion",
+  "prose_justification": "UBERON places UBERON:0000473 under the reproductive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0000945-member-digestive",
+  "source": "UBERON:0000945",
+  "target": "HOX:function:digestive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000945-member-digestive-assertion",
+  "prose_justification": "UBERON places UBERON:0000945 under the digestive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0000970-member-nervous",
+  "source": "UBERON:0000970",
+  "target": "HOX:function:nervous",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000970-member-nervous-assertion",
+  "prose_justification": "UBERON places UBERON:0000970 under the nervous system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0000982-member-musculoskeletal",
+  "source": "UBERON:0000982",
+  "target": "HOX:function:skeletal",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000982-member-musculoskeletal-assertion",
+  "prose_justification": "UBERON places UBERON:0000982 under the musculoskeletal system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0000989-member-reproductive",
+  "source": "UBERON:0000989",
+  "target": "HOX:function:reproductive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000989-member-reproductive-assertion",
+  "prose_justification": "UBERON places UBERON:0000989 under the reproductive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0000991-member-reproductive",
+  "source": "UBERON:0000991",
+  "target": "HOX:function:reproductive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000991-member-reproductive-assertion",
+  "prose_justification": "UBERON places UBERON:0000991 under the reproductive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0000992-member-reproductive",
+  "source": "UBERON:0000992",
+  "target": "HOX:function:reproductive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000992-member-reproductive-assertion",
+  "prose_justification": "UBERON places UBERON:0000992 under the reproductive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0000995-member-reproductive",
+  "source": "UBERON:0000995",
+  "target": "HOX:function:reproductive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000995-member-reproductive-assertion",
+  "prose_justification": "UBERON places UBERON:0000995 under the reproductive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0000998-member-reproductive",
+  "source": "UBERON:0000998",
+  "target": "HOX:function:reproductive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0000998-member-reproductive-assertion",
+  "prose_justification": "UBERON places UBERON:0000998 under the reproductive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001043-member-digestive",
+  "source": "UBERON:0001043",
+  "target": "HOX:function:digestive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001043-member-digestive-assertion",
+  "prose_justification": "UBERON places UBERON:0001043 under the digestive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001044-member-digestive",
+  "source": "UBERON:0001044",
+  "target": "HOX:function:digestive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001044-member-digestive-assertion",
+  "prose_justification": "UBERON places UBERON:0001044 under the digestive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001103-member-respiratory",
+  "source": "UBERON:0001103",
+  "target": "HOX:function:respiratory",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001103-member-respiratory-assertion",
+  "prose_justification": "UBERON places UBERON:0001103 under the respiratory system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001132-member-endocrine",
+  "source": "UBERON:0001132",
+  "target": "HOX:function:endocrine",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001132-member-endocrine-assertion",
+  "prose_justification": "UBERON places UBERON:0001132 under the endocrine system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001154-member-digestive",
+  "source": "UBERON:0001154",
+  "target": "HOX:function:digestive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001154-member-digestive-assertion",
+  "prose_justification": "UBERON places UBERON:0001154 under the digestive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001173-member-digestive",
+  "source": "UBERON:0001173",
+  "target": "HOX:function:digestive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001173-member-digestive-assertion",
+  "prose_justification": "UBERON places UBERON:0001173 under the digestive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001212-member-digestive",
+  "source": "UBERON:0001212",
+  "target": "HOX:function:digestive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001212-member-digestive-assertion",
+  "prose_justification": "UBERON places UBERON:0001212 under the digestive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001237-member-endocrine",
+  "source": "UBERON:0001237",
+  "target": "HOX:function:endocrine",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001237-member-endocrine-assertion",
+  "prose_justification": "UBERON places UBERON:0001237 under the endocrine system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001255-member-urinary",
+  "source": "UBERON:0001255",
+  "target": "HOX:function:urinary",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001255-member-urinary-assertion",
+  "prose_justification": "UBERON places UBERON:0001255 under the urinary system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001338-member-urinary",
+  "source": "UBERON:0001338",
+  "target": "HOX:function:urinary",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001338-member-urinary-assertion",
+  "prose_justification": "UBERON places UBERON:0001338 under the urinary system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001350-member-musculoskeletal",
+  "source": "UBERON:0001350",
+  "target": "HOX:function:skeletal",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001350-member-musculoskeletal-assertion",
+  "prose_justification": "UBERON places UBERON:0001350 under the musculoskeletal system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001474-member-musculoskeletal",
+  "source": "UBERON:0001474",
+  "target": "HOX:function:skeletal",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001474-member-musculoskeletal-assertion",
+  "prose_justification": "UBERON places UBERON:0001474 under the musculoskeletal system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001629-member-nervous",
+  "source": "UBERON:0001629",
+  "target": "HOX:function:nervous",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001629-member-nervous-assertion",
+  "prose_justification": "UBERON places UBERON:0001629 under the nervous system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001690-member-nervous",
+  "source": "UBERON:0001690",
+  "target": "HOX:function:nervous",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001690-member-nervous-assertion",
+  "prose_justification": "UBERON places UBERON:0001690 under the nervous system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001723-member-digestive",
+  "source": "UBERON:0001723",
+  "target": "HOX:function:digestive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001723-member-digestive-assertion",
+  "prose_justification": "UBERON places UBERON:0001723 under the digestive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001723-member-nervous",
+  "source": "UBERON:0001723",
+  "target": "HOX:function:nervous",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001723-member-nervous-assertion",
+  "prose_justification": "UBERON places UBERON:0001723 under the nervous system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001817-member-nervous",
+  "source": "UBERON:0001817",
+  "target": "HOX:function:nervous",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001817-member-nervous-assertion",
+  "prose_justification": "UBERON places UBERON:0001817 under the nervous system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001818-member-integumentary",
+  "source": "UBERON:0001818",
+  "target": "HOX:function:integumentary",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001818-member-integumentary-assertion",
+  "prose_justification": "UBERON places UBERON:0001818 under the integumentary system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001818-member-nervous",
+  "source": "UBERON:0001818",
+  "target": "HOX:function:nervous",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001818-member-nervous-assertion",
+  "prose_justification": "UBERON places UBERON:0001818 under the nervous system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001820-member-integumentary",
+  "source": "UBERON:0001820",
+  "target": "HOX:function:integumentary",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001820-member-integumentary-assertion",
+  "prose_justification": "UBERON places UBERON:0001820 under the integumentary system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001821-member-integumentary",
+  "source": "UBERON:0001821",
+  "target": "HOX:function:integumentary",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001821-member-integumentary-assertion",
+  "prose_justification": "UBERON places UBERON:0001821 under the integumentary system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001822-member-musculoskeletal",
+  "source": "UBERON:0001822",
+  "target": "HOX:function:skeletal",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001822-member-musculoskeletal-assertion",
+  "prose_justification": "UBERON places UBERON:0001822 under the musculoskeletal system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001822-member-nervous",
+  "source": "UBERON:0001822",
+  "target": "HOX:function:nervous",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001822-member-nervous-assertion",
+  "prose_justification": "UBERON places UBERON:0001822 under the nervous system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001829-member-digestive",
+  "source": "UBERON:0001829",
+  "target": "HOX:function:digestive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001829-member-digestive-assertion",
+  "prose_justification": "UBERON places UBERON:0001829 under the digestive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001830-member-digestive",
+  "source": "UBERON:0001830",
+  "target": "HOX:function:digestive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001830-member-digestive-assertion",
+  "prose_justification": "UBERON places UBERON:0001830 under the digestive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001849-member-nervous",
+  "source": "UBERON:0001849",
+  "target": "HOX:function:nervous",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001849-member-nervous-assertion",
+  "prose_justification": "UBERON places UBERON:0001849 under the nervous system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001853-member-nervous",
+  "source": "UBERON:0001853",
+  "target": "HOX:function:nervous",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001853-member-nervous-assertion",
+  "prose_justification": "UBERON places UBERON:0001853 under the nervous system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001854-member-nervous",
+  "source": "UBERON:0001854",
+  "target": "HOX:function:nervous",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001854-member-nervous-assertion",
+  "prose_justification": "UBERON places UBERON:0001854 under the nervous system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001905-member-endocrine",
+  "source": "UBERON:0001905",
+  "target": "HOX:function:endocrine",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001905-member-endocrine-assertion",
+  "prose_justification": "UBERON places UBERON:0001905 under the endocrine system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001905-member-nervous",
+  "source": "UBERON:0001905",
+  "target": "HOX:function:nervous",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001905-member-nervous-assertion",
+  "prose_justification": "UBERON places UBERON:0001905 under the nervous system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001911-member-integumentary",
+  "source": "UBERON:0001911",
+  "target": "HOX:function:integumentary",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001911-member-integumentary-assertion",
+  "prose_justification": "UBERON places UBERON:0001911 under the integumentary system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001964-member-nervous",
+  "source": "UBERON:0001964",
+  "target": "HOX:function:nervous",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001964-member-nervous-assertion",
+  "prose_justification": "UBERON places UBERON:0001964 under the nervous system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001983-member-digestive",
+  "source": "UBERON:0001983",
+  "target": "HOX:function:digestive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001983-member-digestive-assertion",
+  "prose_justification": "UBERON places UBERON:0001983 under the digestive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0001987-member-reproductive",
+  "source": "UBERON:0001987",
+  "target": "HOX:function:reproductive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0001987-member-reproductive-assertion",
+  "prose_justification": "UBERON places UBERON:0001987 under the reproductive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002041-member-respiratory",
+  "source": "UBERON:0002041",
+  "target": "HOX:function:respiratory",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002041-member-respiratory-assertion",
+  "prose_justification": "UBERON places UBERON:0002041 under the respiratory system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002046-member-endocrine",
+  "source": "UBERON:0002046",
+  "target": "HOX:function:endocrine",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002046-member-endocrine-assertion",
+  "prose_justification": "UBERON places UBERON:0002046 under the endocrine system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002048-member-respiratory",
+  "source": "UBERON:0002048",
+  "target": "HOX:function:respiratory",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002048-member-respiratory-assertion",
+  "prose_justification": "UBERON places UBERON:0002048 under the respiratory system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002073-member-integumentary",
+  "source": "UBERON:0002073",
+  "target": "HOX:function:integumentary",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002073-member-integumentary-assertion",
+  "prose_justification": "UBERON places UBERON:0002073 under the integumentary system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002093-member-nervous",
+  "source": "UBERON:0002093",
+  "target": "HOX:function:nervous",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002093-member-nervous-assertion",
+  "prose_justification": "UBERON places UBERON:0002093 under the nervous system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002106-member-immune",
+  "source": "UBERON:0002106",
+  "target": "HOX:function:lymphimmune",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002106-member-immune-assertion",
+  "prose_justification": "UBERON places UBERON:0002106 under the immune system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002107-member-digestive",
+  "source": "UBERON:0002107",
+  "target": "HOX:function:digestive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002107-member-digestive-assertion",
+  "prose_justification": "UBERON places UBERON:0002107 under the digestive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002107-member-endocrine",
+  "source": "UBERON:0002107",
+  "target": "HOX:function:endocrine",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002107-member-endocrine-assertion",
+  "prose_justification": "UBERON places UBERON:0002107 under the endocrine system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002108-member-digestive",
+  "source": "UBERON:0002108",
+  "target": "HOX:function:digestive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002108-member-digestive-assertion",
+  "prose_justification": "UBERON places UBERON:0002108 under the digestive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002110-member-digestive",
+  "source": "UBERON:0002110",
+  "target": "HOX:function:digestive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002110-member-digestive-assertion",
+  "prose_justification": "UBERON places UBERON:0002110 under the digestive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002113-member-urinary",
+  "source": "UBERON:0002113",
+  "target": "HOX:function:urinary",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002113-member-urinary-assertion",
+  "prose_justification": "UBERON places UBERON:0002113 under the urinary system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002120-member-urinary",
+  "source": "UBERON:0002120",
+  "target": "HOX:function:urinary",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002120-member-urinary-assertion",
+  "prose_justification": "UBERON places UBERON:0002120 under the urinary system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002182-member-respiratory",
+  "source": "UBERON:0002182",
+  "target": "HOX:function:respiratory",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002182-member-respiratory-assertion",
+  "prose_justification": "UBERON places UBERON:0002182 under the respiratory system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002183-member-respiratory",
+  "source": "UBERON:0002183",
+  "target": "HOX:function:respiratory",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002183-member-respiratory-assertion",
+  "prose_justification": "UBERON places UBERON:0002183 under the respiratory system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002184-member-respiratory",
+  "source": "UBERON:0002184",
+  "target": "HOX:function:respiratory",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002184-member-respiratory-assertion",
+  "prose_justification": "UBERON places UBERON:0002184 under the respiratory system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002185-member-respiratory",
+  "source": "UBERON:0002185",
+  "target": "HOX:function:respiratory",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002185-member-respiratory-assertion",
+  "prose_justification": "UBERON places UBERON:0002185 under the respiratory system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002232-member-nervous",
+  "source": "UBERON:0002232",
+  "target": "HOX:function:nervous",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002232-member-nervous-assertion",
+  "prose_justification": "UBERON places UBERON:0002232 under the nervous system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002232-member-respiratory",
+  "source": "UBERON:0002232",
+  "target": "HOX:function:respiratory",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002232-member-respiratory-assertion",
+  "prose_justification": "UBERON places UBERON:0002232 under the respiratory system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002240-member-nervous",
+  "source": "UBERON:0002240",
+  "target": "HOX:function:nervous",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002240-member-nervous-assertion",
+  "prose_justification": "UBERON places UBERON:0002240 under the nervous system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002255-member-nervous",
+  "source": "UBERON:0002255",
+  "target": "HOX:function:nervous",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002255-member-nervous-assertion",
+  "prose_justification": "UBERON places UBERON:0002255 under the nervous system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002359-member-cardiovascular",
+  "source": "UBERON:0002359",
+  "target": "UBERON:0004535",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002359-member-cardiovascular-assertion",
+  "prose_justification": "UBERON places UBERON:0002359 under the cardiovascular system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002360-member-nervous",
+  "source": "UBERON:0002360",
+  "target": "HOX:function:nervous",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002360-member-nervous-assertion",
+  "prose_justification": "UBERON places UBERON:0002360 under the nervous system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002363-member-nervous",
+  "source": "UBERON:0002363",
+  "target": "HOX:function:nervous",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002363-member-nervous-assertion",
+  "prose_justification": "UBERON places UBERON:0002363 under the nervous system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002364-member-nervous",
+  "source": "UBERON:0002364",
+  "target": "HOX:function:nervous",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002364-member-nervous-assertion",
+  "prose_justification": "UBERON places UBERON:0002364 under the nervous system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002366-member-reproductive",
+  "source": "UBERON:0002366",
+  "target": "HOX:function:reproductive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002366-member-reproductive-assertion",
+  "prose_justification": "UBERON places UBERON:0002366 under the reproductive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002366-member-urinary",
+  "source": "UBERON:0002366",
+  "target": "HOX:function:urinary",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002366-member-urinary-assertion",
+  "prose_justification": "UBERON places UBERON:0002366 under the urinary system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002367-member-reproductive",
+  "source": "UBERON:0002367",
+  "target": "HOX:function:reproductive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002367-member-reproductive-assertion",
+  "prose_justification": "UBERON places UBERON:0002367 under the reproductive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002368-member-endocrine",
+  "source": "UBERON:0002368",
+  "target": "HOX:function:endocrine",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002368-member-endocrine-assertion",
+  "prose_justification": "UBERON places UBERON:0002368 under the endocrine system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002369-member-endocrine",
+  "source": "UBERON:0002369",
+  "target": "HOX:function:endocrine",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002369-member-endocrine-assertion",
+  "prose_justification": "UBERON places UBERON:0002369 under the endocrine system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002370-member-endocrine",
+  "source": "UBERON:0002370",
+  "target": "HOX:function:endocrine",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002370-member-endocrine-assertion",
+  "prose_justification": "UBERON places UBERON:0002370 under the endocrine system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002370-member-immune",
+  "source": "UBERON:0002370",
+  "target": "HOX:function:lymphimmune",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002370-member-immune-assertion",
+  "prose_justification": "UBERON places UBERON:0002370 under the immune system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002393-member-nervous",
+  "source": "UBERON:0002393",
+  "target": "HOX:function:nervous",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002393-member-nervous-assertion",
+  "prose_justification": "UBERON places UBERON:0002393 under the nervous system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002411-member-reproductive",
+  "source": "UBERON:0002411",
+  "target": "HOX:function:reproductive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002411-member-reproductive-assertion",
+  "prose_justification": "UBERON places UBERON:0002411 under the reproductive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002419-member-integumentary",
+  "source": "UBERON:0002419",
+  "target": "HOX:function:integumentary",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002419-member-integumentary-assertion",
+  "prose_justification": "UBERON places UBERON:0002419 under the integumentary system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0002451-member-reproductive",
+  "source": "UBERON:0002451",
+  "target": "HOX:function:reproductive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0002451-member-reproductive-assertion",
+  "prose_justification": "UBERON places UBERON:0002451 under the reproductive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0003295-member-digestive",
+  "source": "UBERON:0003295",
+  "target": "HOX:function:digestive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0003295-member-digestive-assertion",
+  "prose_justification": "UBERON places UBERON:0003295 under the digestive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0003295-member-respiratory",
+  "source": "UBERON:0003295",
+  "target": "HOX:function:respiratory",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0003295-member-respiratory-assertion",
+  "prose_justification": "UBERON places UBERON:0003295 under the respiratory system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0003699-member-musculoskeletal",
+  "source": "UBERON:0003699",
+  "target": "HOX:function:skeletal",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0003699-member-musculoskeletal-assertion",
+  "prose_justification": "UBERON places UBERON:0003699 under the musculoskeletal system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0003975-member-reproductive",
+  "source": "UBERON:0003975",
+  "target": "HOX:function:reproductive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0003975-member-reproductive-assertion",
+  "prose_justification": "UBERON places UBERON:0003975 under the reproductive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0004053-member-reproductive",
+  "source": "UBERON:0004053",
+  "target": "HOX:function:reproductive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0004053-member-reproductive-assertion",
+  "prose_justification": "UBERON places UBERON:0004053 under the reproductive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0004054-member-reproductive",
+  "source": "UBERON:0004054",
+  "target": "HOX:function:reproductive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0004054-member-reproductive-assertion",
+  "prose_justification": "UBERON places UBERON:0004054 under the reproductive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0004175-member-reproductive",
+  "source": "UBERON:0004175",
+  "target": "HOX:function:reproductive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0004175-member-reproductive-assertion",
+  "prose_justification": "UBERON places UBERON:0004175 under the reproductive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0004176-member-reproductive",
+  "source": "UBERON:0004176",
+  "target": "HOX:function:reproductive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0004176-member-reproductive-assertion",
+  "prose_justification": "UBERON places UBERON:0004176 under the reproductive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0004177-member-immune",
+  "source": "UBERON:0004177",
+  "target": "HOX:function:lymphimmune",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0004177-member-immune-assertion",
+  "prose_justification": "UBERON places UBERON:0004177 under the immune system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0004721-member-nervous",
+  "source": "UBERON:0004721",
+  "target": "HOX:function:nervous",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0004721-member-nervous-assertion",
+  "prose_justification": "UBERON places UBERON:0004721 under the nervous system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0004760-member-digestive",
+  "source": "UBERON:0004760",
+  "target": "HOX:function:digestive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0004760-member-digestive-assertion",
+  "prose_justification": "UBERON places UBERON:0004760 under the digestive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0004772-member-nervous",
+  "source": "UBERON:0004772",
+  "target": "HOX:function:nervous",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0004772-member-nervous-assertion",
+  "prose_justification": "UBERON places UBERON:0004772 under the nervous system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0005056-member-reproductive",
+  "source": "UBERON:0005056",
+  "target": "HOX:function:reproductive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0005056-member-reproductive-assertion",
+  "prose_justification": "UBERON places UBERON:0005056 under the reproductive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0005203-member-respiratory",
+  "source": "UBERON:0005203",
+  "target": "HOX:function:respiratory",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0005203-member-respiratory-assertion",
+  "prose_justification": "UBERON places UBERON:0005203 under the respiratory system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0006723-member-musculoskeletal",
+  "source": "UBERON:0006723",
+  "target": "HOX:function:skeletal",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0006723-member-musculoskeletal-assertion",
+  "prose_justification": "UBERON places UBERON:0006723 under the musculoskeletal system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0006723-member-nervous",
+  "source": "UBERON:0006723",
+  "target": "HOX:function:nervous",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0006723-member-nervous-assertion",
+  "prose_justification": "UBERON places UBERON:0006723 under the nervous system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0006749-member-endocrine",
+  "source": "UBERON:0006749",
+  "target": "HOX:function:endocrine",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0006749-member-endocrine-assertion",
+  "prose_justification": "UBERON places UBERON:0006749 under the endocrine system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0006755-member-endocrine",
+  "source": "UBERON:0006755",
+  "target": "HOX:function:endocrine",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0006755-member-endocrine-assertion",
+  "prose_justification": "UBERON places UBERON:0006755 under the endocrine system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0007196-member-respiratory",
+  "source": "UBERON:0007196",
+  "target": "HOX:function:respiratory",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0007196-member-respiratory-assertion",
+  "prose_justification": "UBERON places UBERON:0007196 under the respiratory system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0007844-member-musculoskeletal",
+  "source": "UBERON:0007844",
+  "target": "HOX:function:skeletal",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0007844-member-musculoskeletal-assertion",
+  "prose_justification": "UBERON places UBERON:0007844 under the musculoskeletal system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0008310-member-digestive",
+  "source": "UBERON:0008310",
+  "target": "HOX:function:digestive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0008310-member-digestive-assertion",
+  "prose_justification": "UBERON places UBERON:0008310 under the digestive system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0008310-member-respiratory",
+  "source": "UBERON:0008310",
+  "target": "HOX:function:respiratory",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0008310-member-respiratory-assertion",
+  "prose_justification": "UBERON places UBERON:0008310 under the respiratory system through its own part_of/is_a closure."
+ },
+ {
+  "id": "REL:uberon-0008859-member-digestive",
+  "source": "UBERON:0008859",
+  "target": "HOX:function:digestive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "provenance_claim": "CLM:uberon-0008859-member-digestive-assertion",
+  "prose_justification": "UBERON places UBERON:0008859 under the digestive system through its own part_of/is_a closure."
+ }
+]

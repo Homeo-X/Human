@@ -55,14 +55,17 @@ src/homeo/          the reference implementation of the substrate services
   agents.py           the agent runtime — the twelve-facet contract, enforced
   evals.py            the EV-RETR suites that gate a release
   release.py          build, validate, hash, atomic publish
+  importers/obo.py    OBO/OBO-JSON import with its four refusal gates
   api.py, cli.py      the API and its command-line equivalent
-tests/              433 tests, each tagged with the FR ids it verifies
+tests/              452 tests, each tagged with the FR ids it verifies
 tools/
   check.sh            everything that must be green (--quick for pre-commit)
   curate_regions.py   adds the L1 regions through the real curation path
   curate_pancreas.py  the multi-membership test case (D-019)
   correct_attribution.py  the D-017 attribution correction, auditable
   split_claim_kinds.py  separates definitions from findings (D-021)
+  fetch_authorities.py  pins UBERON/CL/ECO snapshots by SHA-256 (D-024)
+  import_l3.py        imports L3 organs by rule from the pinned snapshot
   biocheck.py         executes the BIO_Validation_Framework invariants (INV-NN)
   specgraph.py        spec-graph validator (framework, extended for the bio profile)
   validate.sh         static checker for the framework tree and generated docs

@@ -105,7 +105,8 @@ class TestProbe1DerivedTree(unittest.TestCase):
         self.assertEqual('contains', abdomen.child_kinds[PANCREAS])
 
     def test_a_node_still_advertises_its_other_memberships(self):
-        node = self.graph.navigation_tree(DIGESTIVE).children[0]
+        node = next(c for c in self.graph.navigation_tree(DIGESTIVE).children
+                    if c.entity_id == PANCREAS)
         self.assertIn(ENDOCRINE, node.other_memberships)
 
     def test_the_tree_is_still_a_view(self):
@@ -142,24 +143,37 @@ class TestProbe3Coverage(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.scale = _services()[1]
+        cls.graph, cls.scale = _services()[0], _services()[1]
 
     def _l3(self, subsystem):
         row = self.scale.coverage(subsystem)[0]
         return [c.populated for c in row.cells if c.level == 3][0]
 
     def test_the_pancreas_counts_in_both_systems(self):
-        self.assertEqual(1, self._l3('digestive'))
-        self.assertEqual(1, self._l3('endocrine'),
-                         'the endocrine system reported zero organs while '
-                         'containing one')
+        """Counted where it belongs, in both columns.
+
+        Asserted against the pancreas itself rather than a total: the organ
+        import filled these levels, and a test pinned to a count would break
+        every time content arrives, which is the wrong thing to notice.
+        """
+        for subsystem in ('digestive', 'endocrine'):
+            self.assertIn(PANCREAS, self._organs_in(subsystem), subsystem)
+        self.assertGreaterEqual(self._l3('endocrine'), 1,
+                                'the endocrine system reported zero organs '
+                                'while containing at least one')
+
+    def _organs_in(self, subsystem):
+        return [e.id for e in self.graph.entities()
+                if e.level == 3 and self.graph.in_subsystem(e.id, subsystem)]
 
     def test_a_single_membership_organ_counts_once(self):
         """The fix must not smear every entity across every system."""
-        self.assertEqual(0, self._l3('respiratory'))
-        heart_systems = [r.subsystem for r in self.scale.coverage()
-                         if any(c.populated for c in r.cells if c.level == 3)]
-        self.assertNotIn('respiratory', heart_systems)
+        respiratory = self._organs_in('respiratory')
+        self.assertNotIn(PANCREAS, respiratory,
+                         'the pancreas is not a respiratory organ')
+        self.assertNotIn('UBERON:0000948', respiratory,
+                         'the heart is not a respiratory organ')
+        self.assertTrue(respiratory, 'the respiratory system has organs')
 
 
 class TestProbe4Projection(unittest.TestCase):
