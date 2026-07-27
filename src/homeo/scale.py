@@ -20,6 +20,19 @@ from .substrate import CONTAINMENT, ScaleContract
 # what stops content being silently renumbered on ingest (FR-SCAL-008).
 COMMON_SCHEME_TO_LEVEL = {1: 0, 2: 2, 3: 3, 4: 4, 5: 5, 6: 7, 7: 8, 8: 9}
 
+# Levels that participate in the *containment* ladder.
+#
+# L2 is absent deliberately. An organ is physically contained in a region and is
+# a MEMBER of a system; a system is a functional grouping, not a spatial
+# container (D-006, BIO_Anatomical_Ontology §Hierarchy Rules). A containment
+# path from organism to organ therefore runs L0 → L1 → L3 and is contiguous
+# despite the numeric jump.
+#
+# L9 and L10 are absent for the same kind of reason: molecules and mechanisms
+# attach to structures by participation, not containment — a molecule is not
+# *part of* a sarcomere in the mereological sense.
+CONTAINMENT_LEVELS = (0, 1, 3, 4, 5, 6, 7, 8)
+
 
 @dataclass(frozen=True)
 class TerminalAnswer:
@@ -253,10 +266,18 @@ class ScaleService:
                 'compilation_status': e.compilation_status if e else None,
             })
         levels = [s['level'] for s in steps if s['level'] is not None]
+        # Contiguity is assessed against the containment ladder, not against
+        # every integer: a path from organism to organ legitimately runs
+        # L0 → L1 → L3, because L2 attaches by membership rather than
+        # containment. Measuring against all levels would report correct
+        # structure as a gap.
+        ladder = CONTAINMENT_LEVELS
         skipped: list[int] = []
         for a, b in zip(levels, levels[1:]):
-            lo, hi = sorted((a, b))
-            skipped.extend(range(lo + 1, hi))
+            if a not in ladder or b not in ladder:
+                continue
+            lo, hi = sorted((ladder.index(a), ladder.index(b)))
+            skipped.extend(ladder[i] for i in range(lo + 1, hi))
         contiguous = not skipped
         result = {
             'complete': complete and contiguous,

@@ -1,10 +1,10 @@
 ---
 doc: MANIFEST
 tier: light+
-version: 1.0.0
+version: 1.1.0
 status: draft
 owner: orchestrator
-last_updated: 2026-07-26
+last_updated: 2026-07-27
 ---
 
 # MANIFEST — Project Human Organism
@@ -193,13 +193,13 @@ the vendored baseline and every delta applied, including the new `bio` profile.
 | Artifact | State |
 |---|---|
 | Specification set | 44 files in `docs/`, all `status: draft`, validating clean |
-| Decisions | D-001 … D-010, append-only, integrity-hashed |
+| Decisions | D-001 … D-014, append-only, integrity-hashed |
 | Rubric pass | 30 BRB items dispositioned; 3 flags raised, 2 applied, 1 carried to UX pass B by design |
 | Red team | 13 challenges; 8 accepted, 4 acknowledged, 1 refuted with evidence; 2 S1 escalated verbatim |
 | Schemas | 7 JSON Schemas in `schemas/` |
-| Substrate | 374 records: cardiovascular vertical slice spanning L0–L10 (15 entities, 9 claims, 19 relations, 1 process, 3 spatial identities) + 306 seed records. **The slice is not one unbroken containment chain:** L1 is empty across the whole substrate, so containment runs L0→L2→…→L8, and L9–L10 attach by participation rather than containment (D-013) |
+| Substrate | 392 records: cardiovascular vertical slice spanning L0–L10 (15 entities, 9 claims, 19 relations, 1 process, 3 spatial identities) + 9 L1 region entities with 9 claims + 306 seed records. **Containment now runs unbroken L0→L1→L3→L4→L5→L6→L7→L8** — the regions were added through the curation path and the heart re-attached as `part_of` thorax and `member_of` the cardiovascular system (D-014). L2 is absent by design (membership, not containment); L9–L10 attach by participation (D-013) |
 | Evidence state | no EVC-1 claims exist: nothing has had domain review, and the two claims previously graded EVC-1 rested on reference texts, which the ladder forbids for that class (D-013) |
-| Invariants | INV-01 … INV-15; 14 executable, all fail when violated; INV-14 is runtime-enforced |
+| Invariants | INV-01 … INV-16; 15 executable, all fail when violated; INV-14 is runtime-enforced |
 | Coverage | published per subsystem per level; only cardiovascular has depth, and the matrix says so. 42 of 62 declared levels (68%) are empty |
 
 ## Implementation State (D-011)
@@ -219,12 +219,20 @@ remains behind the Phase 1 entry gate.
 | PHYS | specifications served; no runtime | `api.py` |
 | SPAT | identity and binding served; no assets, no viewer | `substrate.py`, `api.py` |
 | NAV | derived tree and terminal answers served; **viewer gated** | `graph.py`, `scale.py` |
+| CUR | implemented — queue, competence scoping, approvals, throttle, persistence | `curation.py`, `api.py`, `cli.py` |
+| AGD | implemented — the twelve-facet contract, enforced by the runtime | `agents.py` |
 | SIM | **not built** — Phase 6 | — |
 | PERS | **not built** — Phase 7 | — |
-| CUR, AGD | **not built** — curation plane | — |
+
+The curation plane is opt-in per deployment: `Service` holds no curation service
+unless one is injected, so a process serving reads has no write surface at all
+(FR-CUR-007). Ten deliberate mutations of the CUR and AGD gates — removing the
+competence check, permitting a forbidden tool, dropping the approval filter,
+disabling the EVC-1 refusal, the budget ceiling, and the injection flag — each
+turn the suite red.
 
 Verification: `bash tools/check.sh` runs the substrate invariants, their negative
-tests, 219 unit tests, both static validators, the strict spec graph, the
+tests, 308 unit tests, both static validators, the strict spec graph, the
 implementation trace, and a release build. The trace holds *claimed-but-untested*
 Musts at zero; Musts with no implementation at all are expected for the unbuilt
 modules above and are listed by module rather than hidden.

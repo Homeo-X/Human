@@ -28,17 +28,26 @@ NON_DISCRIMINATING = frozenset({
 
 @dataclass(frozen=True)
 class PromotionDecision:
-    """The outcome of an attempted promotion. Refusals name what is missing."""
+    """The outcome of an attempted promotion. Refusals name what is missing.
+
+    The decision names the reviewer who authorized it and the work they cited,
+    so a promotion in the record answers "on whose authority" without a lookup
+    (FR-CUR-006). A refusal carries them too — knowing who was refused, and on
+    what basis, is how a reviewer learns what the promotion actually needed.
+    """
     allowed: bool
     entity_id: str
     from_status: str
     to_status: str
     reasons: tuple[str, ...] = ()
+    reviewer: str = ''
+    work_recorded: str = ''
 
     def as_dict(self) -> dict:
         return {'allowed': self.allowed, 'entity': self.entity_id,
                 'from': self.from_status, 'to': self.to_status,
-                'reasons': list(self.reasons)}
+                'reasons': list(self.reasons), 'reviewer': self.reviewer,
+                'work_recorded': self.work_recorded}
 
 
 @dataclass(frozen=True)
@@ -65,7 +74,8 @@ class PromotionService:
         if entity is None:
             return PromotionDecision(
                 False, request.entity_id, 'unknown', request.to_status,
-                (f'{request.entity_id} is not an entity in this release',))
+                (f'{request.entity_id} is not an entity in this release',),
+                request.reviewer, request.work_recorded)
 
         reasons: list[str] = []
         current = entity.compilation_status
@@ -78,7 +88,8 @@ class PromotionService:
         except ValueError:
             return PromotionDecision(
                 False, entity.id, current, request.to_status,
-                (f'{request.to_status!r} is not a compilation status',))
+                (f'{request.to_status!r} is not a compilation status',),
+                request.reviewer, request.work_recorded)
         if there <= here:
             reasons.append(
                 f'promotion is forward-only: {current} to {request.to_status} '
@@ -109,7 +120,8 @@ class PromotionService:
 
         return PromotionDecision(
             allowed=not reasons, entity_id=entity.id, from_status=current,
-            to_status=request.to_status, reasons=tuple(reasons))
+            to_status=request.to_status, reasons=tuple(reasons),
+            reviewer=request.reviewer, work_recorded=request.work_recorded)
 
     def _population_reasons(self, entity: Entity) -> list[str]:
         claims = self.evidence.claims_for(entity.id)
@@ -162,7 +174,7 @@ class PromotionService:
         if rel is None:
             return PromotionDecision(
                 False, relationship_id, 'unknown', new_type,
-                (f'no relationship {relationship_id}',))
+                (f'no relationship {relationship_id}',), reviewer, source)
         reasons: list[str] = []
         if not rel.is_untyped_association:
             reasons.append(
@@ -206,7 +218,8 @@ class PromotionService:
                         f'Consider contributes_to')
         return PromotionDecision(
             allowed=not reasons, entity_id=relationship_id,
-            from_status=rel.type, to_status=new_type, reasons=tuple(reasons))
+            from_status=rel.type, to_status=new_type, reasons=tuple(reasons),
+            reviewer=reviewer, work_recorded=source)
 
     # ---- reporting -----------------------------------------------------
 

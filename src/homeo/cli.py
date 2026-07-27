@@ -12,11 +12,62 @@ import json
 import sys
 
 from .api import Service, serve
+from .curation import CurationError, CurationService
 from .release import ReleaseBuilder, diff, load_manifest, verify_rebuild
+
+DEFAULT_QUEUE = 'curation/queue.json'
 
 
 def _print(payload) -> None:
     print(json.dumps(payload, indent=1, ensure_ascii=False))
+
+
+def _curation(args) -> int:
+    """The review commands, which read and write a persisted queue.
+
+    Separated from the read commands because they are a different plane, not a
+    different verb: these need a reviewer identity, they refuse work outside
+    that reviewer's competence, and they write. A deployment that serves reads
+    never loads this file.
+    """
+    try:
+        plane = CurationService.load(args.queue)
+    except FileNotFoundError:
+        print(f'no curation queue at {args.queue}. Agents write proposals '
+              f'there; until one has run, there is nothing to review.',
+              file=sys.stderr)
+        return 1
+
+    if args.command == 'operator':
+        _print(plane.operator_view())
+        return 0
+
+    if args.command == 'queue':
+        rows = []
+        for task in plane.pending():
+            ok, why = plane.can_review(args.reviewer, task.id)
+            if ok:
+                rows.append(task.as_dict())
+            else:
+                rows.append({'id': task.id, 'subsystem': task.proposal.subsystem,
+                             'level': task.proposal.level,
+                             'out_of_scope': why})
+        _print({'reviewer': args.reviewer, 'depth': len(rows), 'tasks': rows})
+        return 0
+
+    try:
+        if args.decision == 'accept':
+            approval = plane.accept(args.task, args.reviewer, args.reason)
+            plane.save(args.queue)
+            _print(approval.as_dict())
+        else:
+            task = plane.reject(args.task, args.reviewer, args.reason)
+            plane.save(args.queue)
+            _print(task.as_dict())
+    except CurationError as exc:
+        print(f'refused: {exc}', file=sys.stderr)
+        return 1
+    return 0
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -82,6 +133,26 @@ def main(argv: list[str] | None = None) -> int:
     sv = sub.add_parser('serve', help='run the read API')
     sv.add_argument('--host', default='127.0.0.1')
     sv.add_argument('--port', type=int, default=8080)
+    sv.add_argument('--queue', default=None,
+                    help='curation queue file; without it the served API has '
+                         'no write surface at all')
+
+    q = sub.add_parser('queue', help='proposals awaiting review')
+    q.add_argument('--queue', default=DEFAULT_QUEUE)
+    q.add_argument('--reviewer', required=True,
+                   help='reviewer identity; the queue is scoped to competence')
+
+    rv = sub.add_parser('review', help='accept or reject a proposal')
+    rv.add_argument('task')
+    rv.add_argument('decision', choices=('accept', 'reject'))
+    rv.add_argument('--queue', default=DEFAULT_QUEUE)
+    rv.add_argument('--reviewer', required=True)
+    rv.add_argument('--reason', required=True,
+                    help='mandatory: a decision without a reason teaches '
+                         'nobody anything')
+
+    op = sub.add_parser('operator', help='queue depth, throughput, blocked')
+    op.add_argument('--queue', default=DEFAULT_QUEUE)
 
     args = p.parse_args(argv)
 
@@ -104,8 +175,12 @@ def main(argv: list[str] | None = None) -> int:
               f'{len(m.artifacts)} artifacts')
         return 0
 
+    if args.command in ('queue', 'review', 'operator'):
+        return _curation(args)
+
     if args.command == 'serve':
-        serve(args.substrate, args.host, args.port, args.release)
+        serve(args.substrate, args.host, args.port, args.release,
+              queue=args.queue)
         return 0
 
     svc = Service(args.substrate, release=args.release)

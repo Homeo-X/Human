@@ -49,12 +49,15 @@ src/homeo/          the reference implementation of the substrate services
   search.py           name, function, clinical, spatial, negative, structured
   groundedness.py     the INV-14 guard — refuses ungrounded output
   promotion.py        the compilation ladder and its gates
+  curation.py         the review queue, competence scoping, approval records
+  agents.py           the agent runtime — the twelve-facet contract, enforced
   evals.py            the EV-RETR suites that gate a release
   release.py          build, validate, hash, atomic publish
-  api.py, cli.py      the read API and its command-line equivalent
-tests/              219 tests, each tagged with the FR ids it verifies
+  api.py, cli.py      the API and its command-line equivalent
+tests/              308 tests, each tagged with the FR ids it verifies
 tools/
   check.sh            everything that must be green (--quick for pre-commit)
+  curate_regions.py   adds the L1 regions through the real curation path
   biocheck.py         executes the BIO_Validation_Framework invariants (INV-NN)
   specgraph.py        spec-graph validator (framework, extended for the bio profile)
   validate.sh         static checker for the framework tree and generated docs
@@ -76,8 +79,23 @@ python3 -m homeo.cli search cor --mode name       # synonyms, eponyms, registers
 python3 -m homeo.cli path UBERON:0000468 GO:0030017   # cross-scale path
 python3 -m homeo.cli coverage --table             # declared vs populated
 python3 -m homeo.cli publish rel-2026-07-26 --out releases
-python3 -m homeo.cli serve --port 8080            # the read API
+python3 -m homeo.cli serve --port 8080            # the read API, no write surface
 ```
+
+The review commands are a separate plane, reached deliberately. They need a
+reviewer identity, they refuse anything outside that reviewer's declared
+competence, and they are the only way content becomes canonical:
+
+```bash
+python3 -m homeo.cli queue    --reviewer human:anatomy-reviewer-01
+python3 -m homeo.cli review   TASK:00001 accept \
+    --reviewer human:anatomy-reviewer-01 --reason "TA division, UBERON resolves"
+python3 -m homeo.cli operator                     # depth, throughput, blocked
+python3 -m homeo.cli serve --queue curation/queue.json   # opt in to the plane
+```
+
+Started without `--queue`, the server has no curation service at all — the write
+endpoints are not merely unauthorized there, they do not exist.
 
 The API's status codes encode the project's posture: **the model's limits are
 200s, and only genuine caller errors are 4xx.** `/descend` past a declared depth
@@ -108,8 +126,8 @@ python3 tools/specgraph.py docs/ --trace src tests tools   # FR to code and test
 violated and must be detected. A validator that cannot fail is not a validator.
 
 The trace report distinguishes two things. A Must with **no** implementation is
-expected for the modules not yet built (personalization, curation, agents,
-simulation, and the two viewer requirements — D-011). A Must that is *claimed* —
+expected for the modules not yet built (personalization, simulation, and the two
+viewer requirements — D-011). A Must that is *claimed* —
 code exists but no test verifies it — is a failure, and `check.sh` holds that
 count at zero.
 
@@ -135,10 +153,16 @@ seed corpus.
 Two things about that slice are worth stating precisely, because the first
 version of this README overclaimed them:
 
-- **L1 (anatomical regions) is empty across the entire substrate.** The
-  containment chain runs L0→L2→L3→L4→L5→L6→L7→L8 and skips L1. `homeo.cli path`
-  now reports `complete: false` with `missing_levels: [1]` rather than calling
-  it complete (D-013).
+- **The containment chain now runs unbroken from L0 to L8**: organism → thorax →
+  heart → left ventricle → myocardium → cardiomyocyte population → cardiomyocyte
+  → sarcomere. It did not before. L1 was empty across the whole substrate, so
+  the chain jumped organism straight to organ; the nine anatomical regions were
+  added through the curation path (`tools/curate_regions.py`, D-014) and the
+  heart's containment corrected — a heart is *in* the thorax and a *member of*
+  the cardiovascular system, which is why L2 is absent from the chain rather
+  than missing from it. `homeo.cli path` measures this rather than asserting it,
+  and reports `complete: false` with the missing levels named whenever a real
+  gap exists (D-013).
 - **L9 and L10 attach by participation, not containment.** Biomolecules and the
   cross-bridge mechanism are reached through `participates_in` and `consumes`,
   which is correct biology — a molecule is not *part of* a sarcomere in the
@@ -152,9 +176,18 @@ domain reviewer has yet examined any of it, so the substrate currently contains
 Built: entity resolution, typed traversal, the derived navigation view, scale
 contracts and terminal answers, evidence and provenance, five search modes, the
 groundedness guard, the compilation ladder, the EV-RETR suites, the release
-pipeline, and the read API.
+pipeline, the read API, the curation plane, and the agent runtime.
+
+The last two are the ones that determine whether anything else can be trusted,
+so they are enforced rather than documented. No proposal becomes canonical
+content without an Approval record from a reviewer whose declared competence
+covers that subsystem and level; no agent can assign EVC-1 or EVC-2, promote a
+compilation status, or publish, because the runtime checks the tool contract
+before the tool is reached. Ten deliberate mutations of those gates — deleting
+the competence check, permitting a forbidden tool, dropping the approval
+requirement — each turn the suite red.
 
 Not built, deliberately: the 3D viewer and the study UI (behind the Phase 1
-entry gate, D-011), the curation plane, the agent runtime, the simulation runtime
-(Phase 6), and personalization (Phase 7). Roadmap phases 1–7 are specified in
+entry gate, D-011), the simulation runtime (Phase 6), and personalization
+(Phase 7). Roadmap phases 1–7 are specified in
 `docs/PRD_Scope_and_Roadmap.md`.

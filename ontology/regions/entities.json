@@ -1,0 +1,227 @@
+[
+ {
+  "id": "UBERON:0000033",
+  "minted": false,
+  "entity_class": "Region",
+  "level": 1,
+  "subsystem": "whole-organism",
+  "preferred_term": "Head",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "part_of": "UBERON:0000468",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000033",
+    "pinned_version": "2026-01-15"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "caput",
+    "source": "Terminologia Anatomica",
+    "register": "latin"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0000974",
+  "minted": false,
+  "entity_class": "Region",
+  "level": 1,
+  "subsystem": "whole-organism",
+  "preferred_term": "Neck",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "part_of": "UBERON:0000468",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000974",
+    "pinned_version": "2026-01-15"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "collum",
+    "source": "Terminologia Anatomica",
+    "register": "latin"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0000915",
+  "minted": false,
+  "entity_class": "Region",
+  "level": 1,
+  "subsystem": "whole-organism",
+  "preferred_term": "Thorax",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "part_of": "UBERON:0000468",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000915",
+    "pinned_version": "2026-01-15"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "thorax",
+    "source": "Terminologia Anatomica",
+    "register": "latin"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0000916",
+  "minted": false,
+  "entity_class": "Region",
+  "level": 1,
+  "subsystem": "whole-organism",
+  "preferred_term": "Abdomen",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "part_of": "UBERON:0000468",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000916",
+    "pinned_version": "2026-01-15"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "abdomen",
+    "source": "Terminologia Anatomica",
+    "register": "latin"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001085",
+  "minted": false,
+  "entity_class": "Region",
+  "level": 1,
+  "subsystem": "whole-organism",
+  "preferred_term": "Pelvis",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "part_of": "UBERON:0000468",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001085",
+    "pinned_version": "2026-01-15"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "pelvis",
+    "source": "Terminologia Anatomica",
+    "register": "latin"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001460",
+  "minted": false,
+  "entity_class": "Region",
+  "level": 1,
+  "subsystem": "whole-organism",
+  "preferred_term": "Upper limb",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "part_of": "UBERON:0000468",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001460",
+    "pinned_version": "2026-01-15"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "membrum superius",
+    "source": "Terminologia Anatomica",
+    "register": "latin"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0000978",
+  "minted": false,
+  "entity_class": "Region",
+  "level": 1,
+  "subsystem": "whole-organism",
+  "preferred_term": "Lower limb",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "part_of": "UBERON:0000468",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000978",
+    "pinned_version": "2026-01-15"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "membrum inferius",
+    "source": "Terminologia Anatomica",
+    "register": "latin"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0001137",
+  "minted": false,
+  "entity_class": "Region",
+  "level": 1,
+  "subsystem": "whole-organism",
+  "preferred_term": "Back",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "part_of": "UBERON:0000468",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001137",
+    "pinned_version": "2026-01-15"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "dorsum",
+    "source": "Terminologia Anatomica",
+    "register": "latin"
+   }
+  ]
+ },
+ {
+  "id": "UBERON:0002100",
+  "minted": false,
+  "entity_class": "Region",
+  "level": 1,
+  "subsystem": "whole-organism",
+  "preferred_term": "Trunk",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "part_of": "UBERON:0000468",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0002100",
+    "pinned_version": "2026-01-15"
+   }
+  ],
+  "synonyms": [
+   {
+    "term": "truncus",
+    "source": "Terminologia Anatomica",
+    "register": "latin"
+   }
+  ]
+ }
+]

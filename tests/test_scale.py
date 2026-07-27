@@ -1,5 +1,6 @@
 """Scale contracts, declared depth, the terminal answer, and coverage."""
 import unittest
+from dataclasses import replace
 
 from homeo.graph import Graph
 from homeo.scale import ScaleService, TerminalAnswer
@@ -130,21 +131,44 @@ class TestCrossScalePath(unittest.TestCase):
     def setUpClass(cls):
         cls.scale = ScaleService(Graph(load(SUBSTRATE)))
 
-    def test_path_across_the_slice_is_found_but_not_complete(self):
-        """[FR-SCAL-009] A path that skips a level is found, not complete.
+    def test_the_slice_runs_organism_to_sarcomere_without_a_gap(self):
+        """[FR-SCAL-009] The vertical slice is level-contiguous.
 
-        The slice has no L1 entity, so the containment chain jumps L0 to L2.
-        Reporting that as complete is the failure the model exists to prevent,
-        and it is what this tool did before D-013.
+        It was not, before D-014: L1 was empty and the chain jumped organism
+        straight to organ. The regions were added through the curation path and
+        the heart's containment corrected, so the claim now holds — and holds
+        by measurement, which is the only way it is allowed to be made.
+
+        L2 is absent by design: an organ belongs to a system by membership, not
+        containment, so the ladder runs L1 → L3 without skipping anything.
         """
         p = self.scale.cross_scale_path('UBERON:0000468', 'GO:0030017')
         self.assertTrue(p['path_found'])
-        self.assertFalse(p['level_contiguous'])
-        self.assertFalse(p['complete'])
-        self.assertEqual(p['missing_levels'], [1])
-        self.assertIn('skips L1', p['statement'])
+        self.assertTrue(p['level_contiguous'])
+        self.assertTrue(p['complete'])
+        self.assertEqual([], p['missing_levels'])
         levels = [s['level'] for s in p['steps']]
-        self.assertEqual((levels[0], levels[-1]), (0, 8))
+        self.assertEqual([0, 1, 3, 4, 5, 6, 7, 8], levels)
+
+    def test_removing_a_level_reopens_the_gap(self):
+        """[FR-SCAL-009] The contiguity check still detects a real skip.
+
+        A check that passes because the substrate happens to be sound proves
+        nothing. Drop L5 out of the chain and the same call must report the
+        hole rather than the destination.
+        """
+        substrate = load(SUBSTRATE)
+        substrate.entities = [e for e in substrate.entities
+                              if e.id != 'UBERON:0002349']       # myocardium
+        substrate.relationships = [
+            replace(r, target='UBERON:0002084')                  # left ventricle
+            if r.target == 'UBERON:0002349' else r
+            for r in substrate.relationships]
+        scale = ScaleService(Graph(substrate))
+        p = scale.cross_scale_path('UBERON:0000468', 'GO:0030017')
+        self.assertTrue(p['path_found'])
+        self.assertFalse(p['complete'])
+        self.assertEqual([5], p['missing_levels'])
 
     def test_a_contiguous_path_is_reported_complete(self):
         """[FR-SCAL-009] The gap report must not fire on a sound path."""

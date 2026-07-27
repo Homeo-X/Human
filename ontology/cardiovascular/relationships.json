@@ -8,10 +8,10 @@
   "compilation_status": "structured"
  },
  {
-  "id": "REL:heart-part-of-cvs",
+  "id": "REL:heart-member-of-cvs",
   "source": "UBERON:0000948",
   "target": "UBERON:0004535",
-  "type": "part_of",
+  "type": "member_of",
   "provenance_claim": "CLM:heart-function-pump",
   "compilation_status": "structured"
  },
@@ -154,5 +154,13 @@
   "compilation_status": "narrative",
   "prose_justification": "Seed corpus cross-link: 'Sympathetic and parasympathetic input continuously fine-tune the heart's own intrinsic pacemaker rate.' The corpus states that a relationship exists; it does not state its type. Typing this requires a curator decision with a source (FR-REL-007).",
   "skip_justification": "The corpus asserts that a relationship exists without stating its type or its intermediate steps. That is precisely why this edge is associated_with rather than regulates: the skipped levels are unknown because the relationship is uncompiled, not because they were judged unnecessary."
+ },
+ {
+  "id": "REL:heart-part-of-thorax",
+  "source": "UBERON:0000948",
+  "target": "UBERON:0000915",
+  "type": "part_of",
+  "provenance_claim": "CLM:region-thorax-boundary",
+  "compilation_status": "structured"
  }
 ]

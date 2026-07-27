@@ -1,0 +1,115 @@
+{
+ "note": "Every entity in this directory was admitted through tools/curate_regions.py: proposed by AGT-3, reviewed and accepted by a competence-scoped human reviewer, with the Approval record below. No entity here was hand-authored (D-013, BR-009).",
+ "run": "RUN:00001",
+ "agent": "AGT-3",
+ "approvals": [
+  {
+   "task": "TASK:00001",
+   "approval": {
+    "id": "APPR:00010",
+    "task": "TASK:00001",
+    "reviewer": "human:anatomy-reviewer-01",
+    "kind": "entity",
+    "payload_digest": "627853c344806549",
+    "at": "2026-07-27T07:04:49+00:00"
+   },
+   "entity": "UBERON:0000033"
+  },
+  {
+   "task": "TASK:00002",
+   "approval": {
+    "id": "APPR:00011",
+    "task": "TASK:00002",
+    "reviewer": "human:anatomy-reviewer-01",
+    "kind": "entity",
+    "payload_digest": "f63ad1d20e1bc637",
+    "at": "2026-07-27T07:04:49+00:00"
+   },
+   "entity": "UBERON:0000974"
+  },
+  {
+   "task": "TASK:00003",
+   "approval": {
+    "id": "APPR:00012",
+    "task": "TASK:00003",
+    "reviewer": "human:anatomy-reviewer-01",
+    "kind": "entity",
+    "payload_digest": "9bb5a3a45b950493",
+    "at": "2026-07-27T07:04:49+00:00"
+   },
+   "entity": "UBERON:0000915"
+  },
+  {
+   "task": "TASK:00004",
+   "approval": {
+    "id": "APPR:00013",
+    "task": "TASK:00004",
+    "reviewer": "human:anatomy-reviewer-01",
+    "kind": "entity",
+    "payload_digest": "39f466f409e19d2e",
+    "at": "2026-07-27T07:04:49+00:00"
+   },
+   "entity": "UBERON:0000916"
+  },
+  {
+   "task": "TASK:00005",
+   "approval": {
+    "id": "APPR:00014",
+    "task": "TASK:00005",
+    "reviewer": "human:anatomy-reviewer-01",
+    "kind": "entity",
+    "payload_digest": "114ad124493c94a9",
+    "at": "2026-07-27T07:04:49+00:00"
+   },
+   "entity": "UBERON:0001085"
+  },
+  {
+   "task": "TASK:00006",
+   "approval": {
+    "id": "APPR:00015",
+    "task": "TASK:00006",
+    "reviewer": "human:anatomy-reviewer-01",
+    "kind": "entity",
+    "payload_digest": "7328456a99a8154d",
+    "at": "2026-07-27T07:04:49+00:00"
+   },
+   "entity": "UBERON:0001460"
+  },
+  {
+   "task": "TASK:00007",
+   "approval": {
+    "id": "APPR:00016",
+    "task": "TASK:00007",
+    "reviewer": "human:anatomy-reviewer-01",
+    "kind": "entity",
+    "payload_digest": "43ef8afac6eecf8a",
+    "at": "2026-07-27T07:04:49+00:00"
+   },
+   "entity": "UBERON:0000978"
+  },
+  {
+   "task": "TASK:00008",
+   "approval": {
+    "id": "APPR:00017",
+    "task": "TASK:00008",
+    "reviewer": "human:anatomy-reviewer-01",
+    "kind": "entity",
+    "payload_digest": "cb97166b897fea03",
+    "at": "2026-07-27T07:04:49+00:00"
+   },
+   "entity": "UBERON:0001137"
+  },
+  {
+   "task": "TASK:00009",
+   "approval": {
+    "id": "APPR:00018",
+    "task": "TASK:00009",
+    "reviewer": "human:anatomy-reviewer-01",
+    "kind": "entity",
+    "payload_digest": "d46039c15df135c4",
+    "at": "2026-07-27T07:04:49+00:00"
+   },
+   "entity": "UBERON:0002100"
+  }
+ ]
+}

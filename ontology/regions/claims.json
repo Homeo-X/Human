@@ -1,0 +1,227 @@
+[
+ {
+  "id": "CLM:region-head-boundary",
+  "subject": "UBERON:0000033",
+  "predicate": "has_boundary_definition",
+  "object": "The cranial-most region, bounded inferiorly by the neck at a plane conventionally taken through the base of the mandible and the external occipital protuberance.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Standring S (ed.), Gray's Anatomy, 42nd ed.",
+    "identifier": "ISBN:9780702077050",
+    "licence_tier": "T2"
+   },
+   {
+    "citation": "Terminologia Anatomica, 2nd ed. (FIPAT)",
+    "identifier": "ISBN:9783132200111",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, both sexes",
+  "date_asserted": "2026-07-26",
+  "limitations": "A regional boundary is a naming convention, not a physical surface. Adjacent regions share tissue, and authors place several of these planes differently (SCL-01 resolution limit).",
+  "assigned_by": "human:anatomy-reviewer-01"
+ },
+ {
+  "id": "CLM:region-neck-boundary",
+  "subject": "UBERON:0000974",
+  "predicate": "has_boundary_definition",
+  "object": "The region between head and thorax, bounded superiorly by the mandibular base and inferiorly by the suprasternal notch and the clavicles.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Standring S (ed.), Gray's Anatomy, 42nd ed.",
+    "identifier": "ISBN:9780702077050",
+    "licence_tier": "T2"
+   },
+   {
+    "citation": "Terminologia Anatomica, 2nd ed. (FIPAT)",
+    "identifier": "ISBN:9783132200111",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, both sexes",
+  "date_asserted": "2026-07-26",
+  "limitations": "A regional boundary is a naming convention, not a physical surface. Adjacent regions share tissue, and authors place several of these planes differently (SCL-01 resolution limit).",
+  "assigned_by": "human:anatomy-reviewer-01"
+ },
+ {
+  "id": "CLM:region-thorax-boundary",
+  "subject": "UBERON:0000915",
+  "predicate": "has_boundary_definition",
+  "object": "The region enclosed by the thoracic cage, bounded inferiorly by the diaphragm — a physical boundary, unusually for a region.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Standring S (ed.), Gray's Anatomy, 42nd ed.",
+    "identifier": "ISBN:9780702077050",
+    "licence_tier": "T2"
+   },
+   {
+    "citation": "Terminologia Anatomica, 2nd ed. (FIPAT)",
+    "identifier": "ISBN:9783132200111",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, both sexes",
+  "date_asserted": "2026-07-26",
+  "limitations": "A regional boundary is a naming convention, not a physical surface. Adjacent regions share tissue, and authors place several of these planes differently (SCL-01 resolution limit).",
+  "assigned_by": "human:anatomy-reviewer-01"
+ },
+ {
+  "id": "CLM:region-abdomen-boundary",
+  "subject": "UBERON:0000916",
+  "predicate": "has_boundary_definition",
+  "object": "The region between the diaphragm and the pelvic inlet; its boundary with the pelvis is conventional and authors place it differently.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Standring S (ed.), Gray's Anatomy, 42nd ed.",
+    "identifier": "ISBN:9780702077050",
+    "licence_tier": "T2"
+   },
+   {
+    "citation": "Terminologia Anatomica, 2nd ed. (FIPAT)",
+    "identifier": "ISBN:9783132200111",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, both sexes",
+  "date_asserted": "2026-07-26",
+  "limitations": "A regional boundary is a naming convention, not a physical surface. Adjacent regions share tissue, and authors place several of these planes differently (SCL-01 resolution limit).",
+  "assigned_by": "human:anatomy-reviewer-01"
+ },
+ {
+  "id": "CLM:region-pelvis-boundary",
+  "subject": "UBERON:0001085",
+  "predicate": "has_boundary_definition",
+  "object": "The region enclosed by the bony pelvis, continuous with the abdominal cavity above; the abdominopelvic cavity is one space, divided by convention.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Standring S (ed.), Gray's Anatomy, 42nd ed.",
+    "identifier": "ISBN:9780702077050",
+    "licence_tier": "T2"
+   },
+   {
+    "citation": "Terminologia Anatomica, 2nd ed. (FIPAT)",
+    "identifier": "ISBN:9783132200111",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, both sexes",
+  "date_asserted": "2026-07-26",
+  "limitations": "A regional boundary is a naming convention, not a physical surface. Adjacent regions share tissue, and authors place several of these planes differently (SCL-01 resolution limit).",
+  "assigned_by": "human:anatomy-reviewer-01"
+ },
+ {
+  "id": "CLM:region-upper-limb-boundary",
+  "subject": "UBERON:0001460",
+  "predicate": "has_boundary_definition",
+  "object": "The region from the shoulder girdle to the fingertips.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Standring S (ed.), Gray's Anatomy, 42nd ed.",
+    "identifier": "ISBN:9780702077050",
+    "licence_tier": "T2"
+   },
+   {
+    "citation": "Terminologia Anatomica, 2nd ed. (FIPAT)",
+    "identifier": "ISBN:9783132200111",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, both sexes",
+  "date_asserted": "2026-07-26",
+  "limitations": "A regional boundary is a naming convention, not a physical surface. Adjacent regions share tissue, and authors place several of these planes differently (SCL-01 resolution limit).",
+  "assigned_by": "human:anatomy-reviewer-01"
+ },
+ {
+  "id": "CLM:region-lower-limb-boundary",
+  "subject": "UBERON:0000978",
+  "predicate": "has_boundary_definition",
+  "object": "The region from the pelvic girdle to the toes.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Standring S (ed.), Gray's Anatomy, 42nd ed.",
+    "identifier": "ISBN:9780702077050",
+    "licence_tier": "T2"
+   },
+   {
+    "citation": "Terminologia Anatomica, 2nd ed. (FIPAT)",
+    "identifier": "ISBN:9783132200111",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, both sexes",
+  "date_asserted": "2026-07-26",
+  "limitations": "A regional boundary is a naming convention, not a physical surface. Adjacent regions share tissue, and authors place several of these planes differently (SCL-01 resolution limit).",
+  "assigned_by": "human:anatomy-reviewer-01"
+ },
+ {
+  "id": "CLM:region-back-boundary",
+  "subject": "UBERON:0001137",
+  "predicate": "has_boundary_definition",
+  "object": "The posterior region of the trunk; overlaps thorax and abdomen, which is why regional membership is not exclusive.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Standring S (ed.), Gray's Anatomy, 42nd ed.",
+    "identifier": "ISBN:9780702077050",
+    "licence_tier": "T2"
+   },
+   {
+    "citation": "Terminologia Anatomica, 2nd ed. (FIPAT)",
+    "identifier": "ISBN:9783132200111",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, both sexes",
+  "date_asserted": "2026-07-26",
+  "limitations": "A regional boundary is a naming convention, not a physical surface. Adjacent regions share tissue, and authors place several of these planes differently (SCL-01 resolution limit).",
+  "assigned_by": "human:anatomy-reviewer-01"
+ },
+ {
+  "id": "CLM:region-trunk-boundary",
+  "subject": "UBERON:0002100",
+  "predicate": "has_boundary_definition",
+  "object": "The body minus head, neck and limbs. Contains thorax, abdomen and pelvis and therefore sits above them in containment.",
+  "evidence_class": "EVC-2",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Standring S (ed.), Gray's Anatomy, 42nd ed.",
+    "identifier": "ISBN:9780702077050",
+    "licence_tier": "T2"
+   },
+   {
+    "citation": "Terminologia Anatomica, 2nd ed. (FIPAT)",
+    "identifier": "ISBN:9783132200111",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, both sexes",
+  "date_asserted": "2026-07-26",
+  "limitations": "A regional boundary is a naming convention, not a physical surface. Adjacent regions share tissue, and authors place several of these planes differently (SCL-01 resolution limit).",
+  "assigned_by": "human:anatomy-reviewer-01"
+ }
+]

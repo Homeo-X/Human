@@ -19,6 +19,7 @@ from dataclasses import dataclass
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, unquote, urlparse
 
+from .curation import CurationError, CurationService
 from .evidence import EvidenceService
 from .graph import EntityRetired, Graph
 from .groundedness import Assertion, GroundednessGuard
@@ -44,8 +45,12 @@ def error(code: str, http: int, message: str, **detail) -> Reply:
 class Service:
     """The API's logic, independent of transport so it is directly testable."""
 
-    def __init__(self, substrate_root: str, release: str = 'unpinned'):
+    def __init__(self, substrate_root: str, release: str = 'unpinned',
+                 curation: CurationService | None = None):
         self.graph = Graph(load(substrate_root))
+        # The read plane never holds a curation service unless one is injected;
+        # a deployment that serves reads has no write surface at all.
+        self.curation = curation
         self.scale = ScaleService(self.graph)
         self.evidence = EvidenceService(self.graph, self.scale)
         self.search = SearchService(self.graph, self.evidence, self.scale)
@@ -360,6 +365,68 @@ class Service:
 
     # ---- release -------------------------------------------------------
 
+    # ---- curation (authenticated) --------------------------------------
+
+    def _curation_plane(self) -> CurationService:
+        if self.curation is None:
+            raise CurationError(
+                'this deployment serves the read plane only; it holds no '
+                'curation service and therefore no write surface')
+        return self.curation
+
+    def curation_queue(self, reviewer: str | None) -> Reply:
+        """Proposals within the caller's competence scope (FR-CUR-002/004)."""
+        try:
+            plane = self._curation_plane()
+        except CurationError as exc:
+            return error('NO_CURATION_PLANE', 404, str(exc))
+        if not reviewer:
+            return error('UNAUTHENTICATED', 401,
+                         'the curation plane requires an authenticated reviewer')
+        rows = []
+        for task in plane.tasks.values():
+            ok, why = plane.can_review(reviewer, task.id)
+            rows.append({**task.as_dict(), 'in_scope': ok,
+                         'out_of_scope_reason': None if ok else why})
+        in_scope = [r for r in rows if r['in_scope']]
+        return Reply(200, self._envelope({
+            'reviewer': reviewer, 'in_scope': len(in_scope),
+            'total': len(rows), 'tasks': rows,
+            'note': ('Out-of-scope tasks are listed but not actionable; hiding '
+                     'them would hide the queue depth a reviewer cannot help '
+                     'with, which is the number that matters for RSK-02.')}))
+
+    def curation_review(self, task_id: str, reviewer: str | None,
+                        decision: str, reason: str) -> Reply:
+        try:
+            plane = self._curation_plane()
+        except CurationError as exc:
+            return error('NO_CURATION_PLANE', 404, str(exc))
+        if not reviewer:
+            return error('UNAUTHENTICATED', 401, 'reviewer identity required')
+        try:
+            if decision == 'accept':
+                approval = plane.accept(task_id, reviewer, reason)
+                return Reply(200, self._envelope(
+                    {'task': task_id, 'approval': approval.as_dict()}))
+            if decision == 'reject':
+                task = plane.reject(task_id, reviewer, reason)
+                return Reply(200, self._envelope(task.as_dict()))
+            return error('QUERY_SYNTAX', 422,
+                         "decision must be 'accept' or 'reject'")
+        except CurationError as exc:
+            msg = str(exc)
+            code = ('OUT_OF_COMPETENCE_SCOPE' if 'competence' in msg
+                    else 'CURATION_REFUSED')
+            return error(code, 403 if 'competence' in msg else 409, msg)
+
+    def curation_operator(self) -> Reply:
+        try:
+            plane = self._curation_plane()
+        except CurationError as exc:
+            return error('NO_CURATION_PLANE', 404, str(exc))
+        return Reply(200, self._envelope(plane.operator_view()))
+
     def release_info(self) -> Reply:
         return Reply(200, self._envelope({
             'release': self.release,
@@ -389,6 +456,10 @@ ROUTES = [
     (re.compile(rf'^/{API_VERSION}/search$'), 'search'),
     (re.compile(rf'^/{API_VERSION}/ask$'), 'ask'),
     (re.compile(rf'^/{API_VERSION}/release$'), 'release'),
+    (re.compile(rf'^/{API_VERSION}/curation/queue$'), 'curation_queue'),
+    (re.compile(rf'^/{API_VERSION}/curation/tasks/([^/]+)/review$'),
+     'curation_review'),
+    (re.compile(rf'^/{API_VERSION}/curation/operator$'), 'curation_operator'),
 ]
 
 
@@ -440,6 +511,15 @@ def dispatch(service: Service, path: str, query: dict,
                                payload.get('assertions', []))
         if name == 'release':
             return service.release_info()
+        if name == 'curation_queue':
+            return service.curation_queue(query.get('reviewer', [None])[0])
+        if name == 'curation_operator':
+            return service.curation_operator()
+        if name == 'curation_review':
+            payload = body or {}
+            return service.curation_review(
+                args[0], payload.get('reviewer'),
+                payload.get('decision', ''), payload.get('reason', ''))
     return error('NOT_FOUND', 404, f'no route for {path}')
 
 
@@ -475,9 +555,18 @@ class Handler(BaseHTTPRequestHandler):
 
 
 def serve(substrate_root: str, host: str = '127.0.0.1', port: int = 8080,
-          release: str = 'unpinned') -> None:
-    Handler.service = Service(substrate_root, release=release)
+          release: str = 'unpinned', queue: str | None = None) -> None:
+    """Serve the API. Without `queue`, the process has no write surface.
+
+    The write plane is opt-in per deployment rather than per request: a public
+    reader is started with no queue at all, so the curation endpoints are not
+    merely unauthorized there — they do not exist (FR-CUR-007).
+    """
+    curation = CurationService.load(queue) if queue else None
+    Handler.service = Service(substrate_root, release=release,
+                              curation=curation)
     httpd = ThreadingHTTPServer((host, port), Handler)
     print(f'homeo read API on http://{host}:{port}/{API_VERSION}/  '
-          f'release={release}  entities={len(Handler.service.graph)}')
+          f'release={release}  entities={len(Handler.service.graph)}  '
+          f'curation={"enabled" if curation else "absent"}')
     httpd.serve_forever()

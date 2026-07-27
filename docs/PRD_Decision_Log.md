@@ -473,3 +473,38 @@ get entries._
 - **Valid while:** unconditional.
 - **Affects:** BIO_Evidence_and_Provenance, BIO_Validation_Framework, BIO_Model_Review, PRD_FR_Evidence, PRD_FR_Scale_Bridging, MANIFEST.md
 - **Supersedes:** none
+
+### D-014 — Scope Reopen: whole-organism declared to L1 (2026-07-26, orchestrator)
+- **Status:** active
+- **Context:** D-013 recorded that L1 was empty across the entire substrate,
+  which is why the cardiovascular slice is not level-contiguous — the
+  containment chain jumps L0 to L2. Adding the nine Terminologia Anatomica
+  regional divisions requires L1 content, and `whole-organism` was declared to
+  L0. The invariant refused the write, correctly: correct content beyond a
+  declaration is still out of contract (BR-005).
+- **Decision:** Scope Reopen under AGENTS.md §9 clause 2 — `whole-organism`
+  deepens from L0 to L1. This is a **widening**, so FR-VER-013's dual-denominator
+  rule does not apply; the change adds declared levels rather than removing them,
+  and coverage against the new denominator is reported normally. Regions are
+  placed in `whole-organism` rather than given their own subsystem because they
+  partition the organism itself and belong to no organ system — which is the
+  same reason SCL-01 records that they locate rather than function.
+- **Alternatives:**
+  - Add a separate `regional` subsystem — rejected_because: a subsystem is a
+    functional grouping in this model, and regions are explicitly not functional.
+    Inventing one to hold them would put a spatial convenience in a functional
+    register.
+  - Leave L1 empty and accept the non-contiguous slice — rejected_because: the
+    gap is real and cheap to close, and leaving it while the README described the
+    slice as complete is what produced the D-013 overclaim.
+- **Consequences:** + The cardiovascular containment chain becomes contiguous
+  from L0 to L8, so `cross_scale_path` reports it complete on its own merits
+  rather than by a relaxed check. − One more declared level with content to
+  maintain, and the regions carry a boundary problem that is genuinely unsettled:
+  several of these planes are placed differently by different authors, which
+  every region's claim states rather than resolving.
+- **Reversibility:** medium — narrowing back would require retiring nine
+  entities with tombstones and would trigger FR-VER-013's dual reporting.
+- **Valid while:** unconditional.
+- **Affects:** BIO_Scale_Contract, MANIFEST.md, PRD_FR_Scale_Bridging
+- **Supersedes:** none

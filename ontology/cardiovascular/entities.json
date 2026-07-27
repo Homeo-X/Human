@@ -63,7 +63,7 @@
   "preferred_term": "Heart",
   "compilation_status": "structured",
   "representation_mode": "enumerated",
-  "part_of": "UBERON:0004535",
+  "part_of": "UBERON:0000915",
   "xrefs": [
    {
     "authority": "UBERON",

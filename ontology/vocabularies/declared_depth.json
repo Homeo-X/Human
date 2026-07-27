@@ -10,6 +10,6 @@
  "lymphatic": 3,
  "integumentary": 3,
  "reproductive": 3,
- "whole-organism": 0,
+ "whole-organism": 1,
  "foundational": 2
 }

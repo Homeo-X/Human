@@ -208,14 +208,23 @@ class TestScaleEndpoints(unittest.TestCase):
         r = dispatch(self.svc, '/v1/coverage', {'subsystem': ['telepathy']})
         self.assertEqual(r.status, 404)
 
-    def test_cross_scale_path_reports_its_level_gap(self):
-        """[FR-SCAL-009] L1 is empty, so this path is found but not complete."""
+    def test_cross_scale_path_reports_contiguity_as_a_separate_fact(self):
+        """[FR-SCAL-009] Reaching the destination and covering every level are
+        two different claims, and the endpoint answers both."""
         r = dispatch(self.svc, '/v1/path',
                      {'from': ['UBERON:0000468'], 'to': ['GO:0030017']})
         self.assertTrue(r.body['path_found'])
-        self.assertFalse(r.body['complete'])
-        self.assertEqual(r.body['missing_levels'], [1])
+        self.assertTrue(r.body['level_contiguous'])
+        self.assertTrue(r.body['complete'])
+        self.assertEqual([], r.body['missing_levels'])
         self.assertEqual(r.body['steps'][0]['level'], 0)
+
+    def test_a_path_that_is_not_containment_reports_no_path(self):
+        """[FR-SCAL-009] Two molecules in one reaction are not nested."""
+        r = dispatch(self.svc, '/v1/path',
+                     {'from': ['CHEBI:15422'], 'to': ['CHEBI:29108']})
+        self.assertFalse(r.body['complete'])
+        self.assertIn('No containment path', r.body['statement'])
 
     def test_path_without_parameters_is_422(self):
         r = dispatch(self.svc, '/v1/path', {})
