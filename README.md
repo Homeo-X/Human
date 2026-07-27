@@ -40,8 +40,21 @@ docs/               the specification set — PRD, TECH, and BIO documents
   PRD_FR_*.md         15 functional-requirement modules
   CHALLENGE_REGISTER.md  red-team findings and their dispositions
 schemas/            JSON Schemas for the substrate (entity, claim, process, …)
-ontology/           canonical seed data — the L0→L10 vertical slice
+ontology/           canonical data — the L0→L10 vertical slice + the narrative seed
+src/homeo/          the reference implementation of the substrate services
+  substrate.py        typed loading of the canonical files
+  graph.py            resolution, typed traversal, the derived navigation view
+  scale.py            level contracts, declared depth, terminal answers, coverage
+  evidence.py         claims, provenance, conflicts, the negative space
+  search.py           name, function, clinical, spatial, negative, structured
+  groundedness.py     the INV-14 guard — refuses ungrounded output
+  promotion.py        the compilation ladder and its gates
+  evals.py            the EV-RETR suites that gate a release
+  release.py          build, validate, hash, atomic publish
+  api.py, cli.py      the read API and its command-line equivalent
+tests/              219 tests, each tagged with the FR ids it verifies
 tools/
+  check.sh            everything that must be green (--quick for pre-commit)
   biocheck.py         executes the BIO_Validation_Framework invariants (INV-NN)
   specgraph.py        spec-graph validator (framework, extended for the bio profile)
   validate.sh         static checker for the framework tree and generated docs
@@ -51,17 +64,54 @@ FRAMEWORK.md        the vendored framework's own README
 UPSTREAM.md         what was vendored, and every delta applied to it
 ```
 
+## Using it
+
+```bash
+export PYTHONPATH=src
+
+python3 -m homeo.cli entity UBERON:0000948        # resolve and describe
+python3 -m homeo.cli descend GO:0030017           # one level down, or the limit
+python3 -m homeo.cli unknowns UBERON:0002349      # what the model does not know
+python3 -m homeo.cli search cor --mode name       # synonyms, eponyms, registers
+python3 -m homeo.cli path UBERON:0000468 GO:0030017   # cross-scale path
+python3 -m homeo.cli coverage --table             # declared vs populated
+python3 -m homeo.cli publish rel-2026-07-26 --out releases
+python3 -m homeo.cli serve --port 8080            # the read API
+```
+
+The API's status codes encode the project's posture: **the model's limits are
+200s, and only genuine caller errors are 4xx.** `/descend` past a declared depth
+returns 200 with `NOT_REPRESENTED`; a refused generation returns 200 with its
+reason. A system that 404s "we do not model that" teaches its users that its
+honesty is a malfunction.
+
 ## Verifying the repository
 
 ```bash
-bash tools/validate.sh                      # framework tree, incl. templates/bio/
-bash tools/validate.sh --docs docs/         # the generated specification
-python3 tools/specgraph.py docs/ --strict   # spec graph: ids, refs, traces
-python3 tools/biocheck.py ontology/ --strict  # biological integrity invariants
+bash tools/check.sh              # everything below, in order
+bash tools/check.sh --quick      # substrate + tests only, for a pre-commit hook
 ```
 
-`biocheck.py --selftest` runs the negative tests: each invariant is deliberately
-violated and must fail. A validator that cannot fail is not a validator.
+Individually:
+
+```bash
+python3 tools/biocheck.py ontology/ --strict    # biological integrity invariants
+python3 tools/biocheck.py ontology/ --selftest  # every invariant, deliberately violated
+PYTHONPATH=src:. python3 -m unittest discover -s tests -t . -q
+bash tools/validate.sh                          # framework tree, incl. templates/bio/
+bash tools/validate.sh --docs docs/             # the generated specification
+python3 tools/specgraph.py docs/ --strict       # spec graph: ids, refs, traces
+python3 tools/specgraph.py docs/ --trace src tests tools   # FR to code and test
+```
+
+`--selftest` is the one that matters most: each invariant is deliberately
+violated and must be detected. A validator that cannot fail is not a validator.
+
+The trace report distinguishes two things. A Must with **no** implementation is
+expected for the modules not yet built (personalization, curation, agents,
+simulation, and the two viewer requirements — D-011). A Must that is *claimed* —
+code exists but no test verifies it — is a failure, and `check.sh` holds that
+count at zero.
 
 ## Scientific honesty
 
@@ -75,9 +125,21 @@ intended to be more trustworthy *because* it represents what it does not know.
 
 ## Current state
 
-Phase 0. The specification set is complete and validated; the substrate holds one
-complete cross-scale path (Human → cardiovascular system → heart → left ventricle
-→ myocardium → cardiomyocyte → sarcomere → actin/myosin → cross-bridge cycle) as
-proof that the schema carries real biology. It is a slice, not coverage.
+Phase 0, with the substrate services implemented.
 
-Roadmap phases 1–7 are specified in `docs/PRD_Scope_and_Roadmap.md`.
+The specification set is complete and validated. The substrate holds one complete
+cross-scale path (Human → cardiovascular system → heart → left ventricle →
+myocardium → cardiomyocyte → sarcomere → actin/myosin → cross-bridge cycle) plus
+the narrative seed corpus. **90% of entities are still `narrative`** — described,
+not modelled — and the release manifest publishes that proportion so an entity
+count is never mistaken for modelled coverage.
+
+Built: entity resolution, typed traversal, the derived navigation view, scale
+contracts and terminal answers, evidence and provenance, five search modes, the
+groundedness guard, the compilation ladder, the EV-RETR suites, the release
+pipeline, and the read API.
+
+Not built, deliberately: the 3D viewer and the study UI (behind the Phase 1
+entry gate, D-011), the curation plane, the agent runtime, the simulation runtime
+(Phase 6), and personalization (Phase 7). Roadmap phases 1–7 are specified in
+`docs/PRD_Scope_and_Roadmap.md`.

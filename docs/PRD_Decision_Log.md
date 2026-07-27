@@ -354,3 +354,65 @@ get entries._
 - **Valid while:** unconditional.
 - **Affects:** PRD_Scope_and_Roadmap, PRD_Risks_and_Constraints, PRD_FR_Evidence, PRD_FR_Versioning, PRD_FR_Ontology, BIO_Validation_Framework, CHALLENGE_REGISTER.md
 - **Supersedes:** none
+
+### D-011 — Implementation proceeds on RSK-01-independent infrastructure (2026-07-26, orchestrator)
+- **Status:** active
+- **Context:** D-010 made educator validation a Phase 1 **entry gate**: build does
+  not begin until RSK-01 resolves. Implementation was then requested before that
+  validation exists. Stepping over the gate silently would make it decorative —
+  which is exactly the failure CH-01 identified.
+- **Decision:** Split the gate by what RSK-01 actually threatens. RSK-01 asks
+  whether *users want evidence grading surfaced to them*. It therefore governs
+  the **presentation** layer — the 3D viewer, the study surfaces, and the
+  content-population effort that fills them. It does not govern the substrate
+  services, which are required under either answer: a model that abandoned
+  evidence grading in its UI would still need entity resolution, typed traversal,
+  scale contracts, release immutability, and a query surface.
+  Accordingly, implementation proceeds now on: substrate loading, the graph and
+  its derived navigation view, scale services, evidence retrieval, search, the
+  groundedness guard, the release pipeline, and the read API. **Still gated:** the
+  3D viewer, the study UI, and L0–L3 content population.
+- **Alternatives:**
+  - Build everything including the viewer — rejected_because: it spends the most
+    expensive effort on the part RSK-01 could invalidate, and makes the gate a
+    formality.
+  - Build nothing until validation — rejected_because: the substrate services are
+    needed under both outcomes, so blocking them buys no information.
+- **Consequences:** + Work proceeds on what is unconditionally needed, and the
+  gate keeps its meaning for the part it actually protects. − If educators reject
+  evidence grading outright, some API surface (per-assertion classes, the evidence
+  panel endpoints) becomes lower-value than built — an accepted, bounded loss.
+- **Reversibility:** high.
+- **Valid while:** RSK-01 is unresolved. On resolution this decision is superseded
+  by one that either opens the presentation gate or re-scopes the product.
+- **Affects:** PRD_Scope_and_Roadmap, TECH_System_Architecture, TECH_API_Specification
+- **Supersedes:** none
+
+### D-012 — A causal retype may not inherit an association's provenance (2026-07-26, architect)
+- **Status:** active
+- **Context:** Implementing FR-REL-007 surfaced a gap the specification did not
+  close. An untyped `associated_with` edge carries a provenance claim, and the
+  retyping check originally consulted that claim's evidence class when gating a
+  promotion to `causes`. In the seeded substrate that claim is EVC-1 — strong —
+  so the gate passed. But the claim was recorded for a different assertion
+  entirely; its strength is evidence about that assertion, not about whether
+  causation holds between the endpoints.
+- **Decision:** Retyping an association to `causes` or `contributes_to` requires
+  a claim **independent of** the one backing the untyped edge, identified by
+  claim id rather than by a citation string, and for `causes` graded EVC-2 or
+  better. This is FR-REL-008's principle — edges do not inherit their endpoints'
+  evidence — applied one level further: a retyped edge does not inherit the
+  evidence of its untyped predecessor either.
+- **Alternatives:**
+  - Keep consulting the existing provenance claim — rejected_because: it lets a
+    strong claim about one thing license a causal assertion about another, which
+    is the exact laundering the evidence ladder exists to prevent.
+  - Accept any non-empty source string — rejected_because: a citation string is
+    not a claim and cannot be graded, so the EVC-2 gate would be unenforceable.
+- **Consequences:** + The causal gate now actually gates; the 26 seed
+  associations cannot be upgraded to causation without new sourcing. − Retyping
+  is more expensive, and a curator must create the supporting claim first.
+- **Reversibility:** high — a check, not a data shape.
+- **Valid while:** unconditional.
+- **Affects:** PRD_FR_Relationship_Graph, PRD_FR_Evidence
+- **Supersedes:** none

@@ -14,6 +14,19 @@ Usage:
 Severity: blocking invariants produce errors; advisory ones produce warnings.
 Exit: 0 clean, 1 errors (or warnings under --strict), 2 usage.
 
+Realizes the Validation module in full: FR-VALD-001 (every INV has a check here),
+FR-VALD-002 (--selftest), FR-VALD-003 (blocking vs advisory), FR-VALD-004 (runs
+at commit, in CI, and pre-release), FR-VALD-005 (messages name the biological
+problem), FR-VALD-006 (results recorded per release by tools/release.py),
+FR-VALD-007 (the closing note on what validation does not establish),
+FR-VALD-008 (scoped runs), FR-VALD-009 (shares specgraph's idiom).
+Also enforces, on behalf of their owning modules: FR-REL-004 (relation
+admissibility), FR-REL-005 (causal gating), FR-SCAL-004 (skip justification),
+FR-SCAL-007 (representation mode), FR-SPAT-003/FR-SPAT-004/FR-SPAT-005 (geometry
+binding, kind, licence tier), FR-EVID-009 (tier integrity), FR-PHYS-003
+(input/output resolution), FR-PHYS-004 (timescale domain), FR-PHYS-005 (spanning
+declarations).
+
 Written in specgraph.py's idiom deliberately — two validators with different
 conventions is one validator people misread (FR-VALD-009).
 

@@ -201,6 +201,33 @@ the vendored baseline and every delta applied, including the new `bio` profile.
 | Invariants | INV-01 … INV-15; 14 executable, all fail when violated; INV-14 is runtime-enforced |
 | Coverage | published per subsystem per level; only cardiovascular has depth, and the matrix says so |
 
+## Implementation State (D-011)
+The substrate services are implemented in `src/homeo/`; the presentation layer
+remains behind the Phase 1 entry gate.
+
+| Module | State | Where |
+|---|---|---|
+| ONTO | implemented | `substrate.py`, `graph.py`, `promotion.py` |
+| REL | implemented | `graph.py`, `promotion.py` (retyping) |
+| EVID | implemented | `evidence.py` |
+| SCAL | implemented | `scale.py` |
+| SRCH | implemented | `search.py` |
+| RETR | guard + evals implemented; no model provider bound | `groundedness.py`, `evals.py` |
+| VER | implemented | `release.py` |
+| VALD | implemented | `tools/biocheck.py` |
+| PHYS | specifications served; no runtime | `api.py` |
+| SPAT | identity and binding served; no assets, no viewer | `substrate.py`, `api.py` |
+| NAV | derived tree and terminal answers served; **viewer gated** | `graph.py`, `scale.py` |
+| SIM | **not built** — Phase 6 | — |
+| PERS | **not built** — Phase 7 | — |
+| CUR, AGD | **not built** — curation plane | — |
+
+Verification: `bash tools/check.sh` runs the substrate invariants, their negative
+tests, 219 unit tests, both static validators, the strict spec graph, the
+implementation trace, and a release build. The trace holds *claimed-but-untested*
+Musts at zero; Musts with no implementation at all are expected for the unbuilt
+modules above and are listed by module rather than hidden.
+
 ## Assumptions Made at Scoping
 - The reference subject is a healthy adult; its population parameters are
   declared in BIO_Research_Charter, not assumed to be "average".

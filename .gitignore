@@ -1,3 +1,5 @@
 __pycache__/
 *.pyc
 docs/INTEGRITY.json
+releases/
+.pytest_cache/
