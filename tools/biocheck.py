@@ -10,6 +10,7 @@ Usage:
   python3 tools/biocheck.py <ontology-dir> [--strict] [--json OUT]
   python3 tools/biocheck.py <ontology-dir> --coverage      declared vs populated
   python3 tools/biocheck.py <ontology-dir> --ladder PATH   override the EVC doc
+  python3 tools/biocheck.py <ontology-dir> --relations PATH override the relation doc
   python3 tools/biocheck.py --selftest                     negative tests
 
 Severity: blocking invariants produce errors; advisory ones produce warnings.
@@ -62,6 +63,9 @@ ADMISSIBLE = {
     'causes':           None,
     'contributes_to':   None,
     'associated_with':  None,
+    # A class and its superclass describe the same kind of thing at the same
+    # granularity. A cross-level `is_a` is a classification error (D-023).
+    'is_a':             'same-level',
 }
 HUMAN = ('Homo sapiens', 'not applicable')
 STRONG = ('EVC-1', 'EVC-2')
@@ -95,8 +99,99 @@ CLASS_SOURCE = {
 }
 MIN_SOURCES = {'EVC-1': 2, 'EVC-2': 2, 'EVC-3': 1, 'EVC-4': 1, 'EVC-5': 1,
                'EVC-6': 1, 'EVC-7': 2, 'EVC-8': 0}
+
+# ECO -> EVC, for claims imported from databases that annotate their evidence.
+# A FALLBACK, exactly like CLASS_SOURCE above: the authority is the mapping
+# table in the ladder document, and a divergence between the two is an INV-16
+# error. The same trap, guarded the same way (D-013).
+ECO_TO_EVC = {
+    'ECO:0000006': 'EVC-2',   # experimental evidence
+    'ECO:0000033': 'EVC-5',   # author statement, traceable reference
+    'ECO:0000034': 'EVC-6',   # author statement, no traceable support
+    'ECO:0000203': 'EVC-6',   # automatic assertion
+    'ECO:0000205': 'EVC-5',   # curator inference
+    'ECO:0000501': 'EVC-6',   # evidence used in automatic assertion
+}
 LADDER_DOC = os.path.join('docs', 'BIO_Evidence_and_Provenance.md')
+ONTOLOGY_DOC = os.path.join('docs', 'BIO_Anatomical_Ontology.md')
 UCUM_OK = re.compile(r'^[A-Za-z0-9%\[\]/*.\-^{}()]+$')
+
+
+def load_relations(path=ONTOLOGY_DOC):
+    """Parse the relation vocabulary from the document that defines it.
+
+    Returns {relation: inverse} or None when unreachable. Rows naming two
+    relations at once (`activates` / `inhibits`) are split, because the document
+    pairs them for readability and the code holds them separately.
+    """
+    if not os.path.isfile(path):
+        return None
+    out = {}
+    for line in open(path, encoding='utf-8'):
+        if not line.startswith('| `'):
+            continue
+        cells = [c.strip() for c in line.strip().strip('|').split('|')]
+        if len(cells) < 5:
+            continue
+        rels = [r.strip(' `') for r in cells[0].split('/')]
+        invs = [i.strip(' `') for i in cells[1].split('/')]
+        if len(rels) != len(invs):
+            continue
+        for rel, inv in zip(rels, invs):
+            if rel and inv:
+                out[rel] = inv
+    return out or None
+
+
+def relation_divergence(doc_relations, code_inverses=None,
+                        path=ONTOLOGY_DOC):
+    """INV-19: the documented relation vocabulary and the code must agree.
+
+    The check exists because its absence let a defect through. `is_a` was added
+    to INVERSES and ADMISSIBLE in code and not to the document — the same
+    doc/code divergence D-013 recorded for the evidence ladder, committed again
+    inside the change whose purpose was to add a relation. INV-16 guards the
+    ladder; nothing guarded this table, so nothing noticed.
+
+    `code_inverses` is injectable so the negative tests can diverge it without
+    editing the module under test.
+    """
+    out = []
+    if doc_relations is None:
+        out.append(('warn', 'INV-19',
+                    f'{path} not found; the relation vocabulary is '
+                    f'unverified. The document is the authority'))
+        return out
+    try:
+        if code_inverses is None:
+            sys.path.insert(0, 'src')
+            from homeo.substrate import INVERSES as code_inverses  # noqa: PLC0415
+    except ImportError:
+        out.append(('warn', 'INV-19',
+                    'src/homeo/substrate.py not importable; the relation '
+                    'vocabulary could not be cross-checked'))
+        return out
+    for rel in sorted(set(doc_relations) | set(code_inverses)):
+        mine, theirs = code_inverses.get(rel), doc_relations.get(rel)
+        if theirs is None:
+            out.append(('error', 'INV-19',
+                        f'{rel}: in the code vocabulary but absent from '
+                        f'{path} — a relation the document does not '
+                        f'define is a relation nobody agreed to'))
+        elif mine is None:
+            out.append(('error', 'INV-19',
+                        f'{rel}: defined in {path} but absent from the '
+                        f'code vocabulary — edges of this type cannot be typed'))
+        elif mine != theirs:
+            out.append(('error', 'INV-19',
+                        f'{rel}: code says the inverse is {mine!r}, '
+                        f'{path} says {theirs!r} — the document is the '
+                        f'authority'))
+    for rel in sorted(set(ADMISSIBLE) - set(doc_relations)):
+        out.append(('error', 'INV-19',
+                    f'{rel}: has an admissibility rule in the checker but no '
+                    f'row in {path}'))
+    return out
 
 
 def load_ladder(path=LADDER_DOC):
@@ -124,6 +219,45 @@ def load_ladder(path=LADDER_DOC):
         if types:
             sources[evc] = types
     return (sources or None), (minimums or None)
+
+
+def load_eco_mapping(path=LADDER_DOC):
+    """Parse the ECO mapping from the document that defines it.
+
+    Same shape as load_ladder, and for the same reason: a rule stated in one
+    place and enforced in another will drift, invisibly, because both halves
+    look correct on their own.
+    """
+    if not os.path.isfile(path):
+        return None
+    mapping = {}
+    for line in open(path, encoding='utf-8'):
+        if not line.startswith('| ECO:'):
+            continue
+        cells = [c.strip() for c in line.strip().strip('|').split('|')]
+        if len(cells) < 3:
+            continue
+        target = cells[2]
+        if target.startswith('EVC-'):
+            mapping[cells[0]] = target
+    return mapping or None
+
+
+def eco_divergence(doc_mapping, path=LADDER_DOC):
+    """INV-16, extended to the ECO table."""
+    out = []
+    if doc_mapping is None:
+        out.append(('warn', 'INV-16',
+                    f'{path} carries no ECO mapping; the built-in table '
+                    f'is unverified. The document is the authority'))
+        return out
+    for eco in sorted(set(ECO_TO_EVC) | set(doc_mapping)):
+        mine, theirs = ECO_TO_EVC.get(eco), doc_mapping.get(eco)
+        if mine != theirs:
+            out.append(('error', 'INV-16',
+                        f'{eco}: checker maps to {mine}, {path} maps to '
+                        f'{theirs} — the document is the authority'))
+    return out
 
 
 def ladder_divergence(doc_sources, doc_minimums):
@@ -666,6 +800,8 @@ def selftest(root):
     base = load(root)
     doc_sources, doc_minimums = load_ladder()
     clean = ladder_divergence(doc_sources, doc_minimums)
+    clean += eco_divergence(load_eco_mapping())
+    clean += relation_divergence(load_relations())
     clean += check(base, doc_sources, doc_minimums)
     hard = [x for x in clean if x[0] == 'error']
     print(f'baseline: {len(hard)} errors, {len(clean) - len(hard)} warnings')
@@ -699,9 +835,42 @@ def selftest(root):
           f'the checker table diverging from the ladder document')
     if not detected16:
         failed += 1
+    eco_bad = dict(load_eco_mapping() or ECO_TO_EVC)
+    eco_bad['ECO:0000006'] = 'EVC-1'
+    detected_eco = any(x[1] == 'INV-16' for x in eco_divergence(eco_bad))
+    print(f'  INV-16  {"detected" if detected_eco else "NOT DETECTED"}  — '
+          f'the ECO mapping diverging from the ladder document')
+    if not detected_eco:
+        failed += 1
+
+    # INV-19 is checked against the document too, so its violations are injected
+    # into the parsed vocabulary rather than into the substrate. Three shapes:
+    # a relation the code has and the document does not (today's defect), one
+    # the document has and the code does not, and an inverse that disagrees.
+    # Each case must isolate ONE branch. The first version did not: removing
+    # `is_a` from the document fired both the code-only branch and the
+    # ADMISSIBLE-orphan loop, so a mutation disabling either survived because
+    # the other covered it. Overlapping negative tests are how a selftest comes
+    # to certify checks that no longer run.
+    doc_rel = load_relations() or {}
+    no_part_of = {k: v for k, v in doc_rel.items() if k != 'part_of'}
+    for desc, doc_side, code_side in (
+            ('a relation in the code and not in the document',
+             doc_rel, {**doc_rel, 'HOX:invented': 'HOX:invented_inverse'}),
+            ('a relation in the document and not in the code',
+             {**doc_rel, 'documented_only': 'documented_only_inverse'}, doc_rel),
+            ('an inverse that disagrees between code and document',
+             doc_rel, {**doc_rel, 'part_of': 'contains'}),
+            ('an admissibility rule with no row in the document',
+             no_part_of, no_part_of)):
+        got = relation_divergence(doc_side, code_side)
+        ok19 = any(x[1] == 'INV-19' and x[0] == 'error' for x in got)
+        print(f'  INV-19  {"detected" if ok19 else "NOT DETECTED"}  — {desc}')
+        if not ok19:
+            failed += 1
     # INV-14 is enforced at runtime in the retrieval pipeline, not over the substrate
     print('  INV-14  n/a here — enforced at runtime by the groundedness guard (EV-RETR-001)')
-    print(f'\nselftest: {len(SELFTESTS) + 1} invariants exercised, '
+    print(f'\nselftest: {len(SELFTESTS) + 6} invariants exercised, '
           f'{failed} not detected')
     return 1 if failed else 0
 
@@ -725,9 +894,19 @@ def main(argv):
     if '--coverage' in argv:
         coverage(data)
         return 0
-    doc_sources, doc_minimums = load_ladder(
-        arg_after('--ladder', LADDER_DOC) if '--ladder' in argv else LADDER_DOC)
+    # Both documents are overridable, so the divergence checks can be driven
+    # through the real command-line path with a diverging file. Without that,
+    # deleting either call site below is invisible: `--selftest` calls the
+    # functions directly and would keep certifying a check that no longer runs.
+    ladder_path = (arg_after('--ladder', LADDER_DOC) if '--ladder' in argv
+                   else LADDER_DOC)
+    relations_path = (arg_after('--relations', ONTOLOGY_DOC)
+                      if '--relations' in argv else ONTOLOGY_DOC)
+    doc_sources, doc_minimums = load_ladder(ladder_path)
     findings = ladder_divergence(doc_sources, doc_minimums)
+    findings += eco_divergence(load_eco_mapping(ladder_path), ladder_path)
+    findings += relation_divergence(load_relations(relations_path),
+                                    path=relations_path)
     findings += check(data, doc_sources, doc_minimums)
     errs = [(i, m) for lv, i, m in findings if lv == 'error']
     warns = [(i, m) for lv, i, m in findings if lv == 'warn']

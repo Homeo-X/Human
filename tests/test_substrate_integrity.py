@@ -490,3 +490,64 @@ class TestReviewState(unittest.TestCase):
             self.assertTrue(claim.is_evidence, 'only findings await a curator')
             self.assertEqual('EVC-2', claim.proposed_class)
             self.assertEqual('EVC-4', claim.evidence_class)
+
+
+class TestSubsumptionIsNotContainment(unittest.TestCase):
+    """[FR-REL-001] [D-023] A taxonomy is not a body.
+
+    UBERON says the heart `is_a` "thoracic segment organ", "primary circulatory
+    organ", and "mesoderm-derived structure". None of those is a place, a
+    container, or something a user navigates into. Letting subsumption into the
+    containment ladder would fill it with abstractions — which is exactly why
+    UBERON's own hierarchy cannot simply be adopted as this model's structure.
+
+    The fixture adds a true subsumption the substrate does not yet hold: a type
+    B pancreatic cell *is a* secretory cell. Both sit at L7, neither contains
+    the other, and that is the whole point.
+    """
+
+    SUPERCLASS = 'HOX:celltype:secretory-cell'
+    BETA_CELL = 'CL:0000169'
+
+    @classmethod
+    def setUpClass(cls):
+        from dataclasses import replace as dc_replace
+        substrate = load(SUBSTRATE)
+        beta = next(e for e in substrate.entities if e.id == cls.BETA_CELL)
+        substrate.entities.append(dc_replace(
+            beta, id=cls.SUPERCLASS, preferred_term='Secretory cell',
+            minted=True, minted_reason='no external term for the test fixture',
+            part_of=None))
+        template = substrate.relationships[0]
+        substrate.relationships.append(dc_replace(
+            template, id='REL:test-isa', source=cls.BETA_CELL,
+            target=cls.SUPERCLASS, type='is_a',
+            prose_justification='fixture', skip_justification=None))
+        cls.graph = Graph(substrate)
+
+    def test_is_a_is_in_the_relation_vocabulary(self):
+        self.assertIn('is_a', INVERSES)
+        self.assertEqual('subsumes', INVERSES['is_a'])
+
+    def test_is_a_is_not_a_structural_relation(self):
+        self.assertNotIn('is_a', STRUCTURAL_RELATIONS)
+
+    def test_subsumption_never_enters_a_containment_lineage(self):
+        self.assertNotIn(self.SUPERCLASS, self.graph.lineage(self.BETA_CELL),
+                         'an is_a edge became a containment ancestor')
+
+    def test_subsumption_is_not_a_child_and_not_a_descendant(self):
+        self.assertNotIn(self.SUPERCLASS, self.graph.children(self.BETA_CELL))
+        self.assertNotIn(self.SUPERCLASS,
+                         self.graph.descendants(self.BETA_CELL))
+
+    def test_subsumption_never_enters_the_navigation_tree(self):
+        node = self.graph.navigation_tree(self.BETA_CELL)
+        self.assertNotIn(self.SUPERCLASS, node.child_kinds)
+
+    def test_subsumption_is_still_traversable_as_a_typed_edge(self):
+        """[FR-REL-010] Excluded from structure, not from the graph."""
+        edges = self.graph.edges(self.BETA_CELL, types={'is_a'})
+        self.assertEqual(1, len(edges))
+        self.assertEqual(self.SUPERCLASS, edges[0].other)
+        self.assertFalse(edges[0].is_untyped_association)

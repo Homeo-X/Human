@@ -79,6 +79,13 @@ INVERSES = {
     'originates_from': 'gives_rise_to', 'realizes': 'realized_by',
     'participates_in': 'has_participant', 'causes': 'caused_by',
     'contributes_to': 'contributed_to_by', 'associated_with': 'associated_with',
+    # Subsumption: "a cardiomyocyte IS A muscle cell". Deliberately absent from
+    # STRUCTURAL_RELATIONS above — a class is not a container, and a taxonomy is
+    # not a body. Letting `is_a` into containment would fill the navigation
+    # ladder with abstractions like "thoracic segment organ", which is what
+    # UBERON's own hierarchy is full of and why its structure cannot simply be
+    # adopted (D-023).
+    'is_a': 'subsumes',
 }
 
 

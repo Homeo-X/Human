@@ -139,3 +139,99 @@ class TestCoverageReport(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class TestVocabularyDivergenceIsWiredIn(unittest.TestCase):
+    """[FR-VALD-001] [INV-19] [D-023] The check must run, not merely exist.
+
+    A mutation that deleted the `relation_divergence` call from the main path
+    survived the first round: `--selftest` invokes the function directly, so it
+    certified a check that no longer ran anywhere else. These tests drive the
+    real command-line path with a diverging document instead.
+    """
+
+    def setUp(self):
+        self.dir = tempfile.mkdtemp()
+        self.doc = os.path.join(self.dir, 'BIO_Anatomical_Ontology.md')
+
+    def tearDown(self):
+        shutil.rmtree(self.dir, ignore_errors=True)
+
+    def _doc_without(self, relation):
+        """A copy of the real relation table with one row removed."""
+        src = os.path.join('docs', 'BIO_Anatomical_Ontology.md')
+        with open(src, encoding='utf-8') as fh:
+            lines = [ln for ln in fh
+                     if not ln.startswith(f'| `{relation}` |')]
+        with open(self.doc, 'w', encoding='utf-8') as fh:
+            fh.writelines(lines)
+        return self.doc
+
+    def test_a_diverging_relation_table_fails_the_real_run(self):
+        """Driven through the CLI, so deleting the call site is visible."""
+        r = run(SUBSTRATE, '--relations', self._doc_without('member_of'))
+        self.assertEqual(1, r.returncode, r.stdout)
+        self.assertIn('INV-19', r.stdout)
+        self.assertIn('member_of', r.stdout)
+
+    def test_a_code_only_relation_is_named_as_such(self):
+        """[FR-VALD-005] The message must say which way the divergence runs.
+
+        Without this, the generic inverse-mismatch branch reports the same
+        divergence with wording that sends a reader to fix the wrong file.
+        """
+        r = run(SUBSTRATE, '--relations', self._doc_without('member_of'))
+        self.assertIn('in the code vocabulary but absent from', r.stdout)
+
+    def test_a_doc_only_relation_is_named_as_such(self):
+        """[FR-VALD-005] The other direction, worded for the other fix."""
+        import importlib.util
+        spec = importlib.util.spec_from_file_location('bc', BIOCHECK)
+        bc = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(bc)
+        documented = dict(bc.load_relations())
+        documented['documented_only'] = 'documented_only_inverse'
+        findings = bc.relation_divergence(documented)
+        self.assertTrue(any('but absent from the code vocabulary' in m
+                            for _, _, m in findings), findings)
+
+    def test_the_message_names_the_file_actually_read(self):
+        """[FR-VALD-005] A message naming the default path when another was
+        read sends a reader to the wrong file."""
+        doc = self._doc_without('member_of')
+        r = run(SUBSTRATE, '--relations', doc)
+        self.assertIn(doc, r.stdout)
+
+    def test_a_diverging_eco_table_fails_the_real_run(self):
+        ladder = os.path.join(self.dir, 'ladder.md')
+        src = os.path.join('docs', 'BIO_Evidence_and_Provenance.md')
+        with open(src, encoding='utf-8') as fh:
+            text = fh.read()
+        with open(ladder, 'w', encoding='utf-8') as fh:
+            fh.write(text.replace('| ECO:0000006 | experimental evidence | EVC-2 ',
+                                  '| ECO:0000006 | experimental evidence | EVC-1 '))
+        r = run(SUBSTRATE, '--ladder', ladder)
+        self.assertEqual(1, r.returncode, r.stdout)
+        self.assertIn('ECO:0000006', r.stdout)
+
+    def test_the_shipped_document_and_code_agree(self):
+        """The state that must hold: no divergence on the real pair."""
+        import importlib.util
+        spec = importlib.util.spec_from_file_location('bc', BIOCHECK)
+        bc = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(bc)
+        self.assertEqual([], bc.relation_divergence(bc.load_relations()))
+        self.assertEqual([], bc.eco_divergence(bc.load_eco_mapping()))
+
+    def test_every_documented_relation_is_usable_in_the_substrate(self):
+        """A relation the code cannot type is a row nobody can act on."""
+        import importlib.util
+        sys.path.insert(0, 'src')
+        from homeo.substrate import INVERSES
+        spec = importlib.util.spec_from_file_location('bc', BIOCHECK)
+        bc = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(bc)
+        documented = bc.load_relations()
+        self.assertEqual(set(documented), set(INVERSES))
+        self.assertIn('is_a', documented)
+        self.assertEqual('subsumes', documented['is_a'])

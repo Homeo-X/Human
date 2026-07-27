@@ -141,6 +141,35 @@ _The system never silently resolves a disagreement._
 | Sources disagree because they describe different populations | not a conflict — a scoping error in the claim | both claims retained with their populations made explicit; INV-07 requires the population field, which is what surfaces this case |
 | An expert adjudicates a conflict | adjudication recorded as its own claim, citing both originals and the reviewer | resolved claim shown, with the conflict and its adjudication one click away — never erased |
 
+## Imported Evidence — the ECO mapping
+
+Open biological databases annotate their assertions with **ECO**, the Evidence
+and Conclusion Ontology (CC0). ECO says *how a conclusion was reached*, which is
+the same question the EVC ladder asks, so imported claims arrive with their
+evidence already characterised rather than needing it invented.
+
+The mapping below is the authority; `tools/biocheck.py` derives from it, and a
+divergence between the two is an error under INV-16 exactly as for the ladder.
+
+| ECO | Meaning | Maps To | Note |
+|---|---|---|---|
+| ECO:0000006 | experimental evidence | EVC-2 | the strongest an import can *propose*; a curator decides whether it holds |
+| ECO:0000033 | author statement supported by traceable reference | EVC-5 | a stated conclusion whose source resolves — inference, not measurement |
+| ECO:0000034 | author statement without traceable support | EVC-6 | asserted in the literature, not established |
+| ECO:0000205 | curator inference | EVC-5 | a database curator's reasoning from adjacent facts |
+| ECO:0000203 | automatic assertion | EVC-6 | produced by a pipeline with no human in it |
+| ECO:0000501 | evidence used in automatic assertion | EVC-6 | as above |
+
+**A mapped class is a proposal, never an assertion.** BR-002 does not relax for
+imported data: the mapping populates `proposed_class`, and the claim's asserted
+`evidence_class` stays capped at what an automated actor may assign until a
+curator confirms it (D-017). ECO:0000006 mapping to EVC-2 therefore means "a
+reviewer is being asked to confirm EVC-2", not "this claim is EVC-2".
+
+Terminological claims imported from an ontology are graded on the TRM register
+and never touch this table — a definition's provenance is an authority, not an
+experiment (D-021).
+
 ## The Evidence Pipeline
 | Stage | Performed By | May Change | May NOT Change | Output |
 |---|---|---|---|---|

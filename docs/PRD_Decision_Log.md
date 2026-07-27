@@ -851,3 +851,53 @@ get entries._
   BIO_Evidence_and_Provenance, BIO_Validation_Framework, PRD_FR_Evidence,
   ontology/CLAIM_KIND_SPLIT.json
 - **Supersedes:** none
+
+### D-023 — Subsumption is a relation; the vocabulary had no guard (2026-07-27, architect)
+- **Status:** active
+- **Context:** UBERON carries 19,387 `is_a` edges and the relation vocabulary
+  had no subsumption at all — it holds mereological and functional relations
+  only, so "a cardiomyocyte *is a* muscle cell" was inexpressible. Dropping the
+  edges on import would discard the taxonomy that makes search and
+  generalization work; adopting UBERON's hierarchy as structure would be worse,
+  because the heart there `is_a` "thoracic segment organ" and "mesoderm-derived
+  structure" — concepts, not places.
+  **While adding it, the same mistake was made again.** `is_a` went into
+  `INVERSES` and `ADMISSIBLE` in code and *not* into the relation table in
+  `BIO_Anatomical_Ontology` §Relationship Types. That is precisely the D-013
+  divergence — a rule stated in one place and enforced in another — committed
+  inside the change whose purpose was to add a relation. It was found by
+  re-reading the documents, not by any check, because **the relation table had
+  no doc↔code guard while the evidence ladder has had one since D-013.**
+- **Decision:** Two parts, and the second matters more.
+  **The relation:** `is_a` is admitted with inverse `subsumes`, cardinality
+  many-to-many, admissible **same level only** — a class and its superclass
+  describe the same kind of thing at the same granularity, so a cross-level
+  `is_a` is a classification error worth catching. It is deliberately excluded
+  from `STRUCTURAL_RELATIONS`, `lineage()`, `children()`, `descendants()` and
+  the navigation tree: a taxonomy is not a body, and admitting subsumption as
+  structure would let a user navigate *into* a concept. Six tests pin that,
+  against a fixture asserting a true subsumption rather than a plausible-looking
+  one.
+  **The guard:** `INV-19` parses the documented relation table and compares it
+  against the code vocabulary, reporting as errors any relation present in one
+  and not the other and any inverse that disagrees. Three negative tests cover
+  the three shapes, including the exact one committed today.
+- **Alternatives:**
+  - Drop `is_a` on import — rejected_because: the class hierarchy is most of
+    what an ontology knows, and search over "all muscle cells" needs it.
+  - Model subsumption as `part_of` — rejected_because: it is the error the whole
+    entry exists to prevent, and it would put "thoracic segment organ" into the
+    containment ladder.
+  - Fix the document and move on without the check — rejected_because: this is
+    the second occurrence of the same class of defect, and the first one got a
+    check. A lesson applied once is a coincidence.
+- **Consequences:** + Subsumption is expressible and the import can carry it.
+  + The relation vocabulary can no longer drift between document and code.
+  − One more table the document must keep accurate, now enforced. − `INV-19`
+  imports `homeo.substrate` from a validator that was otherwise stdlib-only over
+  files; it degrades to a warning when the import fails rather than pretending
+  to have checked.
+- **Reversibility:** high for the relation; the guard should not be reversed.
+- **Affects:** src/homeo/substrate.py, tools/biocheck.py,
+  BIO_Anatomical_Ontology, BIO_Validation_Framework, PRD_FR_Relationship_Graph
+- **Supersedes:** none — extends D-013's lesson to a second vocabulary

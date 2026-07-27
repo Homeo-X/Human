@@ -31,6 +31,7 @@ that enforces it and the failure it produces; a rule with no check is a finding
 | INV-13 | Representation honesty | no entity claims a representation mode its level's `SCL` row does not offer; schematic geometry is flagged as schematic wherever it is bound | `biocheck --scale` | `entity <id> claims mode <m> unavailable at L<n>` | advisory |
 | INV-14 | Retrieval groundedness | every generated claim in a retrieval response resolves to a graph claim id; unresolvable content is refused, not rendered | runtime guard in PRD_FR_Knowledge_Retrieval, tested by EV-RETR-001 | `ungrounded assertion in response` | blocking |
 | INV-16 | Rule/checker agreement | the class table in `tools/biocheck.py` must agree with the EVC ladder in BIO_Evidence_and_Provenance; the document is the authority and the checker derives from it | `biocheck` (always, before any other check) | `INV-16 EVC-n: checker admits X but the document admits Y` | blocking |
+| INV-19 | Relation-vocabulary agreement | the relation table in BIO_Anatomical_Ontology §Relationship Types and the `INVERSES`/`ADMISSIBLE` tables in code must define the same relations with the same inverses; the document is the authority | `biocheck` (always, before any substrate check) | `INV-19 <rel>: in the code vocabulary but absent from BIO_Anatomical_Ontology — a relation the document does not define is a relation nobody agreed to` | blocking |
 | INV-18 | Claim-kind integrity | a definition is never graded on the evidence ladder and a finding is never graded on the terminological one; every terminological claim names its authority, and TRM-1 names the source it asserts resolves | `biocheck` (every run) | `INV-18 <id>: a terminological claim is graded on the TRM register; EVC-n is an evidence class, and a definition is not evidence` | blocking |
 | INV-17 | Review-state integrity | every entity and claim declares `reviewed` or `provisional`; provisional content never names a `human:` assigner; reviewed content always does; nothing unreviewed sits at EVC-1 or EVC-2; a `proposed_class` is never weaker than the class asserted | `biocheck` (every run) | `INV-17 <id>: provisional but assigned_by human:… — an unreviewed claim naming a human reviewer is a fabricated review` | blocking |
 | INV-15 | Compilation-status coherence | a `mechanistic` or `parameterized` relationship or process may not depend on a `narrative` endpoint; status is a capability constraint, not only a label | `biocheck --status` | `INV-15 <id> at status <s> depends on narrative <ref>` | blocking |
@@ -135,6 +136,9 @@ that cannot fail is not a validator._
 | a finding graded on the terminological register | INV-18 | category error between registers |
 | a terminological claim with no authority behind it | INV-18 | unattributable definition |
 | a biological claim carrying a definition source | INV-18 | register leak |
+| a relation in the code and not in the document | INV-19 | vocabulary divergence |
+| a relation in the document and not in the code | INV-19 | vocabulary divergence |
+| an inverse that disagrees between code and document | INV-19 | vocabulary divergence |
 | a mechanistic relationship pointing at a narrative endpoint | INV-15 | mixed compilation status |
 | a retrieval response asserting a claim with no graph id | INV-14 | ungrounded assertion |
 

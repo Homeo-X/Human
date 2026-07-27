@@ -113,6 +113,7 @@ corpus's cross-links are the reason this table exists (D-007).
 | `causes` | `caused_by` | many-to-many | any→any | **restricted**: requires an evidence class of EVC-2 or better and, if it spans more than one level, a skip justification (INV-05) |
 | `contributes_to` | `contributed_to_by` | many-to-many | any→any | partial causation; the honest form when `causes` is too strong |
 | `associated_with` | `associated_with` | many-to-many, symmetric | any→any | **an observed relationship of unstated type.** The seed corpus's cross-links land here. Carries its prose justification. Never rendered as a mechanism, never promoted without a curator choosing a type (BRB-30) |
+| `is_a` | `subsumes` | many-to-many | same level | **subsumption, and explicitly not containment.** A cardiomyocyte *is a* muscle cell; neither contains the other and both sit at the same granularity. Excluded from the containment ladder, from `lineage()`, and from the navigation tree — an imported ontology's `is_a` hierarchy is full of abstractions like "thoracic segment organ", and admitting them as structure would make the body navigable into concepts (D-023) |
 
 **The `associated_with` rule is the compilation discipline in one line:** knowing
 *that* two things are related is not knowing *how*. The corpus tells us the
