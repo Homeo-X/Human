@@ -9,6 +9,7 @@ a finding, not a merge.
 Usage:
   python3 tools/biocheck.py <ontology-dir> [--strict] [--json OUT]
   python3 tools/biocheck.py <ontology-dir> --coverage      declared vs populated
+  python3 tools/biocheck.py <ontology-dir> --ladder PATH   override the EVC doc
   python3 tools/biocheck.py --selftest                     negative tests
 
 Severity: blocking invariants produce errors; advisory ones produce warnings.
@@ -64,13 +65,96 @@ ADMISSIBLE = {
 }
 HUMAN = ('Homo sapiens', 'not applicable')
 STRONG = ('EVC-1', 'EVC-2')
-# Which source types may support which classes (INV-07).
+
+# Which source types may support which classes, and how many independent sources
+# each requires (INV-07).
+#
+# This is a FALLBACK. The authority is the table in
+# docs/BIO_Evidence_and_Provenance.md, which is parsed by load_ladder() and used
+# in preference; when both are available and they disagree, that divergence is
+# itself an error (INV-16).
+#
+# The check exists because this project shipped exactly that divergence: the
+# ladder forbade textbook-sourced EVC-1 in prose while this table permitted it,
+# and two claims were graded VERIFIED on textbooks as a result. A rule stated in
+# one place and enforced in another will drift, and the drift is invisible
+# precisely because both halves look correct on their own (D-013).
 CLASS_SOURCE = {
-    'EVC-1': ('primary research', 'systematic review', 'reference textbook'),
-    'EVC-2': ('primary research', 'systematic review', 'reference textbook',
-              'anatomical atlas', 'curated database'),
+    'EVC-1': ('primary research', 'systematic review'),
+    'EVC-2': ('anatomical atlas', 'curated database', 'primary research',
+              'reference textbook', 'systematic review'),
+    'EVC-3': ('curated database', 'derived model', 'primary research'),
+    'EVC-4': ('anatomical atlas', 'derived model', 'primary research',
+              'reference textbook'),
+    'EVC-5': ('derived model', 'expert assertion', 'primary research',
+              'reference textbook'),
+    'EVC-6': ('expert assertion', 'primary research', 'reference textbook'),
+    'EVC-7': ('anatomical atlas', 'curated database', 'derived model',
+              'expert assertion', 'primary research', 'reference textbook',
+              'systematic review'),
 }
+MIN_SOURCES = {'EVC-1': 2, 'EVC-2': 2, 'EVC-3': 1, 'EVC-4': 1, 'EVC-5': 1,
+               'EVC-6': 1, 'EVC-7': 2, 'EVC-8': 0}
+LADDER_DOC = os.path.join('docs', 'BIO_Evidence_and_Provenance.md')
 UCUM_OK = re.compile(r'^[A-Za-z0-9%\[\]/*.\-^{}()]+$')
+
+
+def load_ladder(path=LADDER_DOC):
+    """Parse the EVC ladder from the document that defines it.
+
+    Returns (class_source, min_sources) or (None, None) when the document is not
+    reachable — biocheck must remain runnable against a bare substrate.
+    """
+    if not os.path.isfile(path):
+        return None, None
+    sources, minimums = {}, {}
+    for line in open(path, encoding='utf-8'):
+        if not line.startswith('| EVC-'):
+            continue
+        cells = [c.strip() for c in line.strip().strip('|').split('|')]
+        if len(cells) < 6:
+            continue
+        evc = cells[0]
+        types = tuple(sorted(t.strip(' `') for t in cells[3].split(',')
+                             if t.strip(' `') and not t.strip().startswith('none')))
+        try:
+            minimums[evc] = int(cells[4])
+        except ValueError:
+            continue
+        if types:
+            sources[evc] = types
+    return (sources or None), (minimums or None)
+
+
+def ladder_divergence(doc_sources, doc_minimums):
+    """INV-16: the checker's fallback must agree with the document.
+
+    Reported as errors rather than warnings. A checker that silently disagrees
+    with the rule it enforces is worse than no checker, because it produces
+    green runs that mean nothing.
+    """
+    out = []
+    if doc_sources is None:
+        out.append(('warn', 'INV-16',
+                    f'{LADDER_DOC} not found; using the built-in class table '
+                    f'unverified. The document is the authority'))
+        return out
+    for evc in sorted(set(CLASS_SOURCE) | set(doc_sources)):
+        mine = tuple(sorted(CLASS_SOURCE.get(evc, ())))
+        theirs = tuple(sorted(doc_sources.get(evc, ())))
+        if mine != theirs:
+            out.append(('error', 'INV-16',
+                        f'{evc}: checker admits {mine or "()"} but '
+                        f'{LADDER_DOC} admits {theirs or "()"} — the document '
+                        f'is the authority and the checker must match it'))
+    for evc in sorted(set(MIN_SOURCES) | set(doc_minimums or {})):
+        mine = MIN_SOURCES.get(evc)
+        theirs = (doc_minimums or {}).get(evc)
+        if mine != theirs:
+            out.append(('error', 'INV-16',
+                        f'{evc}: checker requires {mine} independent source(s), '
+                        f'{LADDER_DOC} requires {theirs}'))
+    return out
 
 
 def load(root):
@@ -109,9 +193,15 @@ def is_quantity(v):
     return False
 
 
-def check(data):
-    """Run every invariant. Returns a list of (level, inv, message)."""
+def check(data, ladder=None, minimums=None):
+    """Run every invariant. Returns a list of (level, inv, message).
+
+    `ladder`/`minimums` come from the document when available (load_ladder);
+    the module constants are the fallback, and INV-16 checks they agree.
+    """
     f = []
+    class_source = ladder or CLASS_SOURCE
+    min_sources = minimums or MIN_SOURCES
     ents = data.get('entities', [])
     rels = data.get('relationships', [])
     claims = data.get('claims', [])
@@ -256,10 +346,17 @@ def check(data):
                 f.append(('error', 'INV-07',
                           f'{c["id"]}: {ec} assigned by non-human reviewer '
                           f'"{c.get("assigned_by")}" — BR-002 forbids this'))
-            allowed = CLASS_SOURCE[ec]
-            if c.get('source_type') and c['source_type'] not in allowed:
-                f.append(('error', 'INV-07',
-                          f'{c["id"]}: {ec} unsupported by source type "{c["source_type"]}"'))
+        allowed = class_source.get(ec)
+        if allowed and c.get('source_type') and c['source_type'] not in allowed:
+            f.append(('error', 'INV-07',
+                      f'{c["id"]}: {ec} unsupported by source type '
+                      f'"{c["source_type"]}" (admits: {", ".join(allowed)})'))
+        # A class demanding independent agreement cannot rest on one source.
+        need = min_sources.get(ec)
+        if need and len(c.get('sources') or ()) < need:
+            f.append(('error', 'INV-07',
+                      f'{c["id"]}: {ec} requires {need} independent source(s), '
+                      f'has {len(c.get("sources") or ())}'))
         sp = c.get('species')
         if sp and sp not in HUMAN and not c.get('transfer_justification'):
             f.append(('error', 'INV-12',
@@ -436,6 +533,9 @@ SELFTESTS = [
     ('INV-13', 'an entity claiming enumerated at a typed level',
      lambda d: _find(d['entities'], 'id', 'CL:0000746')
                     .update({'representation_mode': 'enumerated'})),
+    ('INV-07', 'an EVC-2 claim reduced to a single source',
+     lambda d: _find(d['claims'], 'id', 'CLM:sarcomere-resting-length')
+                    .update({'sources': [{'citation': 'one', 'identifier': 'DOI:1'}]})),
     ('INV-15', 'a mechanistic relationship pointing at a narrative endpoint',
      lambda d: d['relationships'].append(
          {'id': 'REL:bad15', 'source': 'CL:0000746',
@@ -449,7 +549,9 @@ SELFTESTS = [
 def selftest(root):
     """Every invariant is deliberately violated. A validator that cannot fail is not one."""
     base = load(root)
-    clean = check(base)
+    doc_sources, doc_minimums = load_ladder()
+    clean = ladder_divergence(doc_sources, doc_minimums)
+    clean += check(base, doc_sources, doc_minimums)
     hard = [x for x in clean if x[0] == 'error']
     print(f'baseline: {len(hard)} errors, {len(clean) - len(hard)} warnings')
     if hard:
@@ -466,14 +568,26 @@ def selftest(root):
             print(f'  {inv}  MUTATION FAILED ({e})')
             failed += 1
             continue
-        got = [x for x in check(d) if x[1] == inv]
+        got = [x for x in check(d, doc_sources, doc_minimums) if x[1] == inv]
         ok = bool(got)
         print(f'  {inv}  {"detected" if ok else "NOT DETECTED"}  — {desc}')
         if not ok:
             failed += 1
+    # INV-16 is checked against the document rather than the substrate, so its
+    # violation is injected into the parsed ladder rather than into the data.
+    divergent = dict(doc_sources or CLASS_SOURCE)
+    divergent['EVC-1'] = tuple(sorted(set(divergent.get('EVC-1', ())) |
+                                      {'reference textbook'}))
+    got16 = ladder_divergence(divergent, doc_minimums)
+    detected16 = any(x[1] == 'INV-16' for x in got16)
+    print(f'  INV-16  {"detected" if detected16 else "NOT DETECTED"}  — '
+          f'the checker table diverging from the ladder document')
+    if not detected16:
+        failed += 1
     # INV-14 is enforced at runtime in the retrieval pipeline, not over the substrate
     print('  INV-14  n/a here — enforced at runtime by the groundedness guard (EV-RETR-001)')
-    print(f'\nselftest: {len(SELFTESTS)} invariants exercised, {failed} not detected')
+    print(f'\nselftest: {len(SELFTESTS) + 1} invariants exercised, '
+          f'{failed} not detected')
     return 1 if failed else 0
 
 
@@ -484,6 +598,10 @@ def main(argv):
     if '--selftest' in argv:
         root = next((a for a in argv[1:] if not a.startswith('--')), 'ontology')
         return selftest(root)
+    def arg_after(flag, default=None):
+        i = argv.index(flag)
+        return argv[i + 1] if i + 1 < len(argv) else default
+
     root = argv[1]
     if not os.path.isdir(root):
         print(f'not a directory: {root}')
@@ -492,7 +610,10 @@ def main(argv):
     if '--coverage' in argv:
         coverage(data)
         return 0
-    findings = check(data)
+    doc_sources, doc_minimums = load_ladder(
+        arg_after('--ladder', LADDER_DOC) if '--ladder' in argv else LADDER_DOC)
+    findings = ladder_divergence(doc_sources, doc_minimums)
+    findings += check(data, doc_sources, doc_minimums)
     errs = [(i, m) for lv, i, m in findings if lv == 'error']
     warns = [(i, m) for lv, i, m in findings if lv == 'warn']
     for i, m in errs:

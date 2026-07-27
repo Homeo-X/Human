@@ -130,13 +130,27 @@ class TestCrossScalePath(unittest.TestCase):
     def setUpClass(cls):
         cls.scale = ScaleService(Graph(load(SUBSTRATE)))
 
-    def test_complete_path_across_the_vertical_slice(self):
-        """[FR-SCAL-009] L0 to L8 resolves through the seeded slice."""
+    def test_path_across_the_slice_is_found_but_not_complete(self):
+        """[FR-SCAL-009] A path that skips a level is found, not complete.
+
+        The slice has no L1 entity, so the containment chain jumps L0 to L2.
+        Reporting that as complete is the failure the model exists to prevent,
+        and it is what this tool did before D-013.
+        """
         p = self.scale.cross_scale_path('UBERON:0000468', 'GO:0030017')
-        self.assertTrue(p['complete'])
+        self.assertTrue(p['path_found'])
+        self.assertFalse(p['level_contiguous'])
+        self.assertFalse(p['complete'])
+        self.assertEqual(p['missing_levels'], [1])
+        self.assertIn('skips L1', p['statement'])
         levels = [s['level'] for s in p['steps']]
-        self.assertEqual(levels[0], 0)
-        self.assertEqual(levels[-1], 8)
+        self.assertEqual((levels[0], levels[-1]), (0, 8))
+
+    def test_a_contiguous_path_is_reported_complete(self):
+        """[FR-SCAL-009] The gap report must not fire on a sound path."""
+        p = self.scale.cross_scale_path('UBERON:0000948', 'GO:0030017')
+        self.assertTrue(p['complete'])
+        self.assertEqual(p['missing_levels'], [])
 
     def test_broken_chain_is_reported_not_silently_empty(self):
         """[FR-SCAL-009] The gap is the interesting result."""

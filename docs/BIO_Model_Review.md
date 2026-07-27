@@ -14,7 +14,7 @@ names the punch-list item it became; **N/A** states the reason._
 
 - **Scale depth under review:** cardiovascular L10 (vertical slice); respiratory,
   nervous, urinary L5; musculoskeletal L4; remainder L3 — per MANIFEST §Product
-- **Reviewed:** 2026-07-26 · **Reviewer role:** ux (Model Reviewer) · **Phase:** 0
+- **Reviewed:** 2026-07-26 · **Re-reviewed:** 2026-07-26 (D-013) · **Reviewer role:** ux (Model Reviewer) · **Phase:** 0
 
 | BRB | Disposition | Evidence / Punch Item / Reason |
 |---|---|---|
@@ -22,13 +22,13 @@ names the punch-list item it became; **N/A** states the reason._
 | BRB-02 | pass | Every quantitative row in BPR-01's state table and the cross-bridge quantity table carries an evidence class; FR-EVID-002 requires class display wherever a claim appears |
 | BRB-03 | pass | EVC-8 is a first-class asserted claim, queryable via FR-SRCH-004 and counted in G-03; BIO_Evidence_and_Provenance §Negative Knowledge specifies storage and surfacing |
 | BRB-04 | pass | FR-SPAT-004 requires a declared representation kind per asset and marks schematic content at every binding site; PRD_Information_Architecture layer 1 keeps evidence class always-visible |
-| BRB-05 | pass | G-01 and G-02 report `n / declared_n`; BR-021 forbids narrowing the denominator outside a Scope Reopen; the Executive Summary carries an explicit metric-integrity note |
+| BRB-05 | **flag — was wrongly passed** | **PUNCH-05.** The metric machinery is sound, but the review checked the metrics and not the prose around them. The README and MANIFEST described the vertical slice as "one complete L0→L10 path" when L1 is empty across the entire substrate and L9–L10 attach by participation rather than containment. A coverage claim stated without its denominator is precisely what this item tests for, and it was made in the project's own front matter. |
 | BRB-06 | pass | BIO_Scale_Contract §Cross-Scale Linkage Rules requires recorded justification for any level-skipping edge; INV-05 enforces; FR-REL-005 additionally gates `causes` at EVC-2 |
 | BRB-07 | pass | BPR-01 declares `spatial_scale` L3/L7/L8/L9/L10 with per-level contribution; FR-SCAL-005 requires it, FR-SCAL-006 forbids spanning as a depth bypass |
 | BRB-08 | pass | BIO_Scale_Contract §Semantic Zoom vs Physical Zoom defines both with four transition rules; FR-NAV-001 requires distinct controls |
 | BRB-09 | **flag** | **PUNCH-01.** Nine of ten registered processes are `narrative`, and eight of eleven subsystems have zero entities at their declared depth. The declarations are honest, but "declared L5" with no L5 content is a promise the Coverage surface must show as unmet — currently only G-01 reports it, and only at release. Coverage must show declared-vs-populated per level from Phase 1, not Phase 3. |
 | BRB-10 | pass | INV-05 enforces per-subsystem depth; FR-SCAL-002's acceptance criteria explicitly reject correct-but-too-deep content; the endocrine islet-cell example is written into the check specification |
-| BRB-11 | pass | EVC ladder ties class to source type; EVC-1 admits only reproduced human in-vivo measurement; BR-002 forbids agent assignment of the top two classes |
+| BRB-11 | **flag — was wrongly passed** | **PUNCH-04.** The original disposition cited the ladder's wording and stopped there. It did not check the shipped content against it, and the content did not comply: two claims were graded EVC-1 on reference textbooks, which the ladder explicitly forbids, and `biocheck`'s own class table admitted `reference textbook` for EVC-1 while the prose forbade it. 135 seed claims were EVC-2 on a single citation against a stated requirement for independent agreement. The rubric item written to catch "a textbook statement graded as verified measurement" passed the substrate that contained exactly that. Dispositioned by citing a requirement rather than by testing against it — which is the failure mode this whole review is supposed to prevent. |
 | BRB-12 | pass | FR-EVID-006 retains both claims and forbids silent selection; adjudication creates a new claim citing both originals rather than deleting either |
 | BRB-13 | pass | Species is a mandatory claim field (INV-12); BIO_Cell_and_Molecular_Model §Species Provenance marks rodent-derived kinetics explicitly and grades them EVC-4 |
 | BRB-14 | pass | D-003 tiering, INV-11 enforcement, per-asset licence metadata; FR-VER-009 refuses or tier-splits exports crossing tiers |
@@ -58,7 +58,18 @@ recorded here rather than resolved by the reviewer:
 | PUNCH-01 | Coverage must show declared-vs-populated per level from Phase 1, not only through G-01 at release | PM → PRD_FR_Scale_Bridging FR-SCAL-010, PRD_Scope_and_Roadmap Phase 1 exit | **applied** — FR-SCAL-010 exists; Phase 1 exit criteria updated to require the Coverage surface |
 | PUNCH-02 | Source-aptness spot-checking must be a named review gate with a sampling rate, not an implied duty | PM → BIO_Validation_Framework §Expert Review Gates | **applied** — a sampled source-aptness gate has been added to the gate table |
 | PUNCH-03 | The framing of out-of-range personalized comparisons needs a design decision, not only boundary text | UX pass B → TECH_UI_UX_Design | **carried to pass B** — recorded there as a required design decision |
+| PUNCH-04 | The evidence ladder was enforced more loosely than written, and this review passed it | Architect → tools/biocheck.py, BIO_Evidence_and_Provenance | **applied** — the ladder table is now machine-read and the checker derives from it; INV-16 fails on divergence; three slice claims and 135 seed claims regraded (D-013) |
+| PUNCH-05 | The vertical-slice completeness claim was not true, and this review passed it | Orchestrator → README, MANIFEST, src/homeo/scale.py | **applied** — the claim is corrected, and `cross_scale_path` now reports level gaps rather than asserting completeness (D-013) |
 
 No flag remains unaddressed at cross-review exit. PUNCH-03 is carried rather than
 closed: it is a design obligation on a Phase 7 surface, and closing it now would
 be closing it on paper.
+
+**Reviewer note (D-013).** Two items in this table were originally dispositioned
+`pass` and are now `flag`. Both were passed by citing a requirement rather than
+by testing the artifact against it — BRB-11 cited the ladder's wording without
+checking the claims, and BRB-05 checked the metrics without reading the prose
+that described them. A rubric dispositioned from the specification rather than
+from the content will pass a substrate that contradicts it, which is what
+happened here. Future passes must cite evidence drawn from the artifact, not
+from the requirement.

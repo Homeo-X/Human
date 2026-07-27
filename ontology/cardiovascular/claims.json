@@ -4,12 +4,12 @@
   "subject": "UBERON:0000948",
   "predicate": "has_function",
   "object": "Propels blood through the pulmonary and systemic circulations by rhythmic contraction",
-  "evidence_class": "EVC-1",
+  "evidence_class": "EVC-2",
   "source_type": "reference textbook",
   "species": "Homo sapiens",
   "population": "adult, healthy",
   "date_asserted": "2026-07-26",
-  "limitations": "Describes the organ-level function only; regional wall-motion heterogeneity is not represented.",
+  "limitations": "Describes the organ-level function only; regional wall-motion heterogeneity is not represented. Graded EVC-2 rather than EVC-1: the sources are reference texts in agreement, not independent human in-vivo measurement (D-013).",
   "assigned_by": "human:reviewer-cardio-01",
   "sources": [
    {
@@ -30,12 +30,12 @@
   "subject": "UBERON:0000948",
   "predicate": "has_property",
   "object": "The right and left sides function as two pumps in series, not in parallel",
-  "evidence_class": "EVC-1",
+  "evidence_class": "EVC-2",
   "source_type": "reference textbook",
   "species": "Homo sapiens",
   "population": "adult, healthy",
   "date_asserted": "2026-07-26",
-  "limitations": "A functional description; it does not capture ventricular interdependence through the shared septum.",
+  "limitations": "A functional description; it does not capture ventricular interdependence through the shared septum. Graded EVC-2 rather than EVC-1: the sources are reference texts in agreement, not independent human in-vivo measurement (D-013).",
   "assigned_by": "human:reviewer-cardio-01",
   "sources": [
    {
@@ -188,12 +188,12 @@
   "subject": "HOX:mechanism:cross-bridge-cycle",
   "predicate": "atp_per_cycle",
   "object": 1,
-  "evidence_class": "EVC-2",
+  "evidence_class": "EVC-3",
   "source_type": "primary research",
   "species": "not applicable",
   "population": "not applicable",
   "date_asserted": "2026-07-26",
-  "limitations": "Stoichiometric, not a measured rate.",
+  "limitations": "Derived from the stoichiometry of the cycle rather than measured; a single source, so EVC-2 is unavailable (D-013).",
   "assigned_by": "human:reviewer-cardio-01",
   "sources": [
    {

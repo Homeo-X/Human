@@ -94,10 +94,38 @@ class TestProvenance(unittest.TestCase):
         rec = self.ev.provenance(approx[0].id)
         self.assertIn('approximation', rec.presentation_constraint)
 
-    def test_provenance_marks_human_review(self):
-        """[FR-EVID-004] The reviewer is part of the record, not a side note."""
+    def test_provenance_marks_who_assigned_the_class(self):
+        """[FR-EVID-004] The assigner is part of the record, not a side note."""
         rec = self.ev.provenance('CLM:heart-function-pump')
         self.assertTrue(rec.reviewed_by_human)
+        seed = self.ev.provenance(
+            'CLM:seed-cardiaccycle-definition')
+        self.assertFalse(seed.reviewed_by_human,
+                         'seed content was ingested, not reviewed')
+
+    def test_no_claim_is_graded_verified(self):
+        """[FR-EVID-003] No domain reviewer has examined this substrate, and a
+        reference text cannot support EVC-1 however authoritative (D-013)."""
+        verified = [c.id for c in self.ev.all_claims()
+                    if c.evidence_class == 'EVC-1']
+        self.assertEqual(verified, [],
+                         'EVC-1 requires human in-vivo measurement under review')
+
+    def test_agent_assigned_claims_never_reach_the_strong_classes(self):
+        """[FR-EVID-004] BR-002, checked against the shipped content."""
+        for c in self.ev.all_claims():
+            if not c.assigned_by.startswith('human:'):
+                self.assertNotIn(c.evidence_class, ('EVC-1', 'EVC-2'),
+                                 f'{c.id} is {c.evidence_class} from '
+                                 f'{c.assigned_by}')
+
+    def test_strong_classes_require_independent_sources(self):
+        """[FR-EVID-003] EVC-2 means sources agree, not that one source is good."""
+        for c in self.ev.all_claims():
+            if c.evidence_class in ('EVC-1', 'EVC-2'):
+                self.assertGreaterEqual(
+                    len(c.sources), 2,
+                    f'{c.id} is {c.evidence_class} on {len(c.sources)} source(s)')
 
 
 class TestNegativeSpace(unittest.TestCase):

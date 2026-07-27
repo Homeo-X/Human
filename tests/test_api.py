@@ -149,7 +149,7 @@ class TestStatusCodePosture(unittest.TestCase):
                       'assertions': [{'text': 'It propels blood.',
                                       'claims': ['CLM:heart-function-pump']}]})
         self.assertEqual(r.body['status'], 'grounded')
-        self.assertEqual(r.body['assertions'][0]['evidence_classes'], ['EVC-1'])
+        self.assertEqual(r.body['assertions'][0]['evidence_classes'], ['EVC-2'])
 
     def test_clinical_question_is_declined_at_200(self):
         """[FR-RETR-005] Declining is an answer, not an error."""
@@ -208,10 +208,13 @@ class TestScaleEndpoints(unittest.TestCase):
         r = dispatch(self.svc, '/v1/coverage', {'subsystem': ['telepathy']})
         self.assertEqual(r.status, 404)
 
-    def test_cross_scale_path(self):
+    def test_cross_scale_path_reports_its_level_gap(self):
+        """[FR-SCAL-009] L1 is empty, so this path is found but not complete."""
         r = dispatch(self.svc, '/v1/path',
                      {'from': ['UBERON:0000468'], 'to': ['GO:0030017']})
-        self.assertTrue(r.body['complete'])
+        self.assertTrue(r.body['path_found'])
+        self.assertFalse(r.body['complete'])
+        self.assertEqual(r.body['missing_levels'], [1])
         self.assertEqual(r.body['steps'][0]['level'], 0)
 
     def test_path_without_parameters_is_422(self):

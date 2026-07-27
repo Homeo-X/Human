@@ -235,6 +235,14 @@ class ScaleService:
         }
 
     def _path_result(self, path: list[str], complete: bool) -> dict:
+        """Report a containment path, and whether it is level-contiguous.
+
+        A path that reaches its destination while skipping a level is *found*,
+        not *complete*. For a model whose whole thesis is that skipped levels
+        must be declared, reporting such a path as complete would be the
+        characteristic failure committed by the tool meant to detect it — which
+        is precisely what happened before D-013.
+        """
         steps = []
         for eid in path:
             e = self.graph.get(eid)
@@ -244,9 +252,29 @@ class ScaleService:
                 'level': e.shallowest_level if e else None,
                 'compilation_status': e.compilation_status if e else None,
             })
-        return {'complete': complete, 'from': path[0] if path else None,
-                'to': path[-1] if path else None, 'steps': steps,
-                'missing_levels': []}
+        levels = [s['level'] for s in steps if s['level'] is not None]
+        skipped: list[int] = []
+        for a, b in zip(levels, levels[1:]):
+            lo, hi = sorted((a, b))
+            skipped.extend(range(lo + 1, hi))
+        contiguous = not skipped
+        result = {
+            'complete': complete and contiguous,
+            'path_found': complete,
+            'level_contiguous': contiguous,
+            'from': path[0] if path else None,
+            'to': path[-1] if path else None,
+            'steps': steps,
+            'missing_levels': sorted(set(skipped)),
+        }
+        if skipped:
+            gaps = ', '.join(f'L{n}' for n in sorted(set(skipped)))
+            result['statement'] = (
+                f'A containment path exists, but it skips {gaps}: no entity at '
+                f'{"those levels" if len(set(skipped)) > 1 else "that level"} '
+                f'lies on it. The path is found, not complete — the model holds '
+                f'nothing there.')
+        return result
 
     def _missing_levels(self, a, b) -> list[int]:
         la, lb = a.shallowest_level, b.shallowest_level

@@ -30,6 +30,7 @@ that enforces it and the failure it produces; a rule with no check is a finding
 | INV-12 | Species provenance | every biological claim carries a species field; a non-human species on a claim presented as human carries a transfer justification | `biocheck --species` | `claim <id> missing species` / `cross-species claim without transfer justification` | blocking |
 | INV-13 | Representation honesty | no entity claims a representation mode its level's `SCL` row does not offer; schematic geometry is flagged as schematic wherever it is bound | `biocheck --scale` | `entity <id> claims mode <m> unavailable at L<n>` | advisory |
 | INV-14 | Retrieval groundedness | every generated claim in a retrieval response resolves to a graph claim id; unresolvable content is refused, not rendered | runtime guard in PRD_FR_Knowledge_Retrieval, tested by EV-RETR-001 | `ungrounded assertion in response` | blocking |
+| INV-16 | Rule/checker agreement | the class table in `tools/biocheck.py` must agree with the EVC ladder in BIO_Evidence_and_Provenance; the document is the authority and the checker derives from it | `biocheck` (always, before any other check) | `INV-16 EVC-n: checker admits X but the document admits Y` | blocking |
 | INV-15 | Compilation-status coherence | a `mechanistic` or `parameterized` relationship or process may not depend on a `narrative` endpoint; status is a capability constraint, not only a label | `biocheck --status` | `INV-15 <id> at status <s> depends on narrative <ref>` | blocking |
 
 ## Validation Layers
@@ -122,6 +123,8 @@ that cannot fail is not a validator._
 | a T1 mesh path embedded in a T0 entity record | INV-11 | tier violation |
 | a rodent-derived claim with the species field removed | INV-12 | missing species |
 | an entity claiming `enumerated` at a `typed` level | INV-13 | mode unavailable |
+| an EVC-2 claim reduced to a single source | INV-07 | insufficient independent sources |
+| the checker's class table edited to diverge from the ladder | INV-16 | rule/checker divergence |
 | a mechanistic relationship pointing at a narrative endpoint | INV-15 | mixed compilation status |
 | a retrieval response asserting a claim with no graph id | INV-14 | ungrounded assertion |
 
@@ -140,6 +143,14 @@ that cannot fail is not a validator._
 Consistency is not truth. Every check in this document verifies that the model
 agrees with itself, with its declared scope, and with its own evidence rules.
 None of them verifies that the biology is right.
+
+**This section was itself under-stated until D-013.** A fully passing run was
+also compatible with the checker enforcing a *different rule* from the one
+written down — which is what happened: the ladder forbade textbook-sourced EVC-1
+and the checker permitted it, so two claims sat at VERIFIED through every green
+run. INV-16 now closes that specific hole, and the general lesson is recorded
+here: a rule stated in one place and enforced in another will drift, and the
+drift is invisible because both halves look correct in isolation.
 
 Specifically, a fully passing validation run is compatible with: a correctly
 formatted claim citing a source that does not support it (BRB-16 — caught only by

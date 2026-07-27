@@ -16,16 +16,23 @@ is a data field with consequences, not a citation style._
 _The `EVC` ladder. Each class states what admits a claim to it and, critically,
 the promotions that are forbidden._
 
-| ID | Class | Admits | Typical Sources | Forbidden Promotion |
-|---|---|---|---|---|
-| EVC-1 | VERIFIED | direct measurement in living humans, reproduced independently, with stated conditions | systematic reviews, large primary studies with human in-vivo measurement | nothing may be promoted TO this class by inference, aggregation, or consensus of textbooks. Only a qualifying measurement admits |
-| EVC-2 | STRONGLY_SUPPORTED | multiple independent sources agree, but reproduction conditions differ or the measurement is indirect | multiple primary studies, authoritative reference texts in agreement | EVC-3 through EVC-8 may never be promoted here by adding another source of the same type; independence is the requirement, not count |
-| EVC-3 | MODELLED | computed or derived from known biology through a stated model, not measured | biophysical models, allometric derivations, curated pathway reconstructions | a modelled value may never be presented as measured, and the model that produced it must be named |
-| EVC-4 | APPROXIMATED | a deliberate simplification of something known to be more complex | simplified geometry, lumped parameters, single-value stand-ins for distributions | an approximation may never be promoted by removing the note that says it is one. This is the single most likely silent failure in the system |
-| EVC-5 | INFERRED | reasoned from adjacent established facts, without direct evidence for this specific claim | cross-species transfer, extrapolation from a related structure or cell type | inference may never be promoted to EVC-2 by finding a source that repeats the same inference |
-| EVC-6 | HYPOTHESIZED | scientifically plausible, proposed in the literature, not established | primary literature proposing a mechanism; competing hypotheses | may never be displayed without its hypothetical status; may never become the default answer to a user question |
-| EVC-7 | CONFLICTING_EVIDENCE | credible sources disagree and the disagreement is not resolved | two or more qualifying sources with incompatible claims | may never be resolved by the system choosing one side. Resolution requires either new evidence or an expert-reviewed adjudication recorded as such |
-| EVC-8 | UNKNOWN | no reliable representation currently exists | absence of qualifying sources | **UNKNOWN never becomes an assumption.** It may only leave this class when a qualifying source is added. An empty field is not UNKNOWN; UNKNOWN is asserted deliberately |
+| ID | Class | Admits | Admissible Source Types | Min Independent Sources | Forbidden Promotion |
+|---|---|---|---|---|---|
+| EVC-1 | VERIFIED | direct measurement in living humans, reproduced independently, with stated conditions | `primary research`, `systematic review` | 2 | nothing may be promoted TO this class by inference, aggregation, or consensus of textbooks. Only a qualifying measurement admits — **a reference textbook can never support EVC-1**, however authoritative |
+| EVC-2 | STRONGLY_SUPPORTED | multiple independent sources agree, but reproduction conditions differ or the measurement is indirect | `primary research`, `systematic review`, `reference textbook`, `anatomical atlas`, `curated database` | 2 | EVC-3 through EVC-8 may never be promoted here by adding another source of the same type; independence is the requirement, not count |
+| EVC-3 | MODELLED | computed or derived from known biology through a stated model, not measured | `primary research`, `derived model`, `curated database` | 1 | a modelled value may never be presented as measured, and the model that produced it must be named |
+| EVC-4 | APPROXIMATED | a deliberate simplification of something known to be more complex | `primary research`, `reference textbook`, `derived model`, `anatomical atlas` | 1 | an approximation may never be promoted by removing the note that says it is one. This is the single most likely silent failure in the system |
+| EVC-5 | INFERRED | reasoned from adjacent established facts, without direct evidence for this specific claim | `primary research`, `reference textbook`, `derived model`, `expert assertion` | 1 | inference may never be promoted to EVC-2 by finding a source that repeats the same inference |
+| EVC-6 | HYPOTHESIZED | scientifically plausible, proposed in the literature, not established | `primary research`, `reference textbook`, `expert assertion` | 1 | may never be displayed without its hypothetical status; may never become the default answer to a user question |
+| EVC-7 | CONFLICTING_EVIDENCE | credible sources disagree and the disagreement is not resolved | `primary research`, `systematic review`, `reference textbook`, `anatomical atlas`, `curated database`, `derived model`, `expert assertion` | 2 | may never be resolved by the system choosing one side. Resolution requires either new evidence or an expert-reviewed adjudication recorded as such |
+| EVC-8 | UNKNOWN | no reliable representation currently exists | none — an UNKNOWN claim carries no sources | 0 | **UNKNOWN never becomes an assumption.** It may only leave this class when a qualifying source is added. An empty field is not UNKNOWN; UNKNOWN is asserted deliberately |
+
+_The `Admissible Source Types` and `Min Independent Sources` columns are
+machine-read: `tools/biocheck.py` derives its class rules from this table rather
+than holding a second copy, and errors if its built-in fallback ever diverges
+from what is written here. That check exists because the first version of this
+project had exactly that divergence — the prose forbade textbook-sourced EVC-1
+and the checker permitted it (D-013)._
 
 **The promotion rule, stated once:** a claim's class may only change when its
 *evidence* changes. Reformatting, re-hosting, re-citing, aggregating, or

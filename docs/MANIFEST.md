@@ -197,9 +197,10 @@ the vendored baseline and every delta applied, including the new `bio` profile.
 | Rubric pass | 30 BRB items dispositioned; 3 flags raised, 2 applied, 1 carried to UX pass B by design |
 | Red team | 13 challenges; 8 accepted, 4 acknowledged, 1 refuted with evidence; 2 S1 escalated verbatim |
 | Schemas | 7 JSON Schemas in `schemas/` |
-| Substrate | 374 records: cardiovascular vertical slice L0→L10 (15 entities, 9 claims, 19 relations, 1 process, 3 spatial identities) + 306 seed records |
+| Substrate | 374 records: cardiovascular vertical slice spanning L0–L10 (15 entities, 9 claims, 19 relations, 1 process, 3 spatial identities) + 306 seed records. **The slice is not one unbroken containment chain:** L1 is empty across the whole substrate, so containment runs L0→L2→…→L8, and L9–L10 attach by participation rather than containment (D-013) |
+| Evidence state | no EVC-1 claims exist: nothing has had domain review, and the two claims previously graded EVC-1 rested on reference texts, which the ladder forbids for that class (D-013) |
 | Invariants | INV-01 … INV-15; 14 executable, all fail when violated; INV-14 is runtime-enforced |
-| Coverage | published per subsystem per level; only cardiovascular has depth, and the matrix says so |
+| Coverage | published per subsystem per level; only cardiovascular has depth, and the matrix says so. 42 of 62 declared levels (68%) are empty |
 
 ## Implementation State (D-011)
 The substrate services are implemented in `src/homeo/`; the presentation layer

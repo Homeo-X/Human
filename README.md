@@ -127,12 +127,27 @@ intended to be more trustworthy *because* it represents what it does not know.
 
 Phase 0, with the substrate services implemented.
 
-The specification set is complete and validated. The substrate holds one complete
-cross-scale path (Human → cardiovascular system → heart → left ventricle →
-myocardium → cardiomyocyte → sarcomere → actin/myosin → cross-bridge cycle) plus
-the narrative seed corpus. **90% of entities are still `narrative`** — described,
-not modelled — and the release manifest publishes that proportion so an entity
-count is never mistaken for modelled coverage.
+The specification set is complete and validated. The substrate holds a cardiovascular **vertical slice** spanning L0 to L10 —
+organism, system, heart, left ventricle, myocardium, cardiomyocyte population,
+cardiomyocyte, sarcomere, actin/myosin, cross-bridge cycle — plus the narrative
+seed corpus.
+
+Two things about that slice are worth stating precisely, because the first
+version of this README overclaimed them:
+
+- **L1 (anatomical regions) is empty across the entire substrate.** The
+  containment chain runs L0→L2→L3→L4→L5→L6→L7→L8 and skips L1. `homeo.cli path`
+  now reports `complete: false` with `missing_levels: [1]` rather than calling
+  it complete (D-013).
+- **L9 and L10 attach by participation, not containment.** Biomolecules and the
+  cross-bridge mechanism are reached through `participates_in` and `consumes`,
+  which is correct biology — a molecule is not *part of* a sarcomere in the
+  containment sense — but it means the slice is not one unbroken parent chain
+  from top to bottom.
+
+**90% of entities are still `narrative`** — described, not modelled — and no
+domain reviewer has yet examined any of it, so the substrate currently contains
+**no EVC-1 claims at all**. The release manifest publishes both figures.
 
 Built: entity resolution, typed traversal, the derived navigation view, scale
 contracts and terminal answers, evidence and provenance, five search modes, the

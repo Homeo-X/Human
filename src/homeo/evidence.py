@@ -16,14 +16,33 @@ from dataclasses import dataclass
 from .graph import Graph
 from .substrate import EVIDENCE_CLASSES, UNKNOWN, Claim
 
-# Source types that can support each class (BIO_Evidence_and_Provenance).
-CLASS_ADMISSIBLE_SOURCES = {
-    'EVC-1': frozenset({'primary research', 'systematic review',
-                        'reference textbook'}),
-    'EVC-2': frozenset({'primary research', 'systematic review',
-                        'reference textbook', 'anatomical atlas',
-                        'curated database'}),
-}
+# Source types that can support each class.
+#
+# A THIRD copy of this rule is exactly how the original divergence happened
+# (D-013), so this one is derived from tools/biocheck.py, which itself derives
+# from docs/BIO_Evidence_and_Provenance.md. The document remains the authority
+# and there is one derivation chain rather than three independent tables.
+def _admissible_sources() -> dict[str, frozenset[str]]:
+    try:
+        import sys
+        sys.path.insert(0, 'tools')
+        import biocheck                                    # noqa: PLC0415
+        doc, _ = biocheck.load_ladder()
+        table = doc or biocheck.CLASS_SOURCE
+        return {k: frozenset(v) for k, v in table.items()}
+    except Exception:
+        # Standalone use without the tools directory: fall back to the two
+        # classes whose misuse actually matters, stated as the ladder states
+        # them — a reference textbook can never support EVC-1.
+        return {
+            'EVC-1': frozenset({'primary research', 'systematic review'}),
+            'EVC-2': frozenset({'primary research', 'systematic review',
+                                'reference textbook', 'anatomical atlas',
+                                'curated database'}),
+        }
+
+
+CLASS_ADMISSIBLE_SOURCES = _admissible_sources()
 
 # How a class constrains what a downstream surface may say with it
 # (FR-EVID-011). Enforced in the pipeline rather than left to prompt wording,

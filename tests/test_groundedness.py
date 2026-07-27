@@ -35,7 +35,7 @@ class TestGroundedness(unittest.TestCase):
         r = self.guard.guard('What does the heart do?', [
             Assertion('The heart propels blood.', [REAL_CLAIM])])
         self.assertTrue(r.ok)
-        self.assertEqual(r.assertions[0].evidence_classes, ['EVC-1'])
+        self.assertEqual(r.assertions[0].evidence_classes, ['EVC-2'])
 
     def test_assertion_without_a_claim_id_is_refused(self):
         """[FR-RETR-001] Fluency is not evidence."""
@@ -66,7 +66,7 @@ class TestGroundedness(unittest.TestCase):
         self.assertTrue(r.ok)
         a = r.assertions[0]
         self.assertEqual(len(a.evidence_classes), 2)
-        self.assertIn('EVC-1', a.evidence_classes)
+        self.assertIn('EVC-2', a.evidence_classes)
         self.assertIn('EVC-4', a.evidence_classes)
         # The weakest is reported alongside the full list, never instead of it.
         self.assertEqual(a.weakest_class, 'EVC-4')

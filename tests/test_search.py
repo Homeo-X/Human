@@ -75,7 +75,7 @@ class TestFunctionSearch(unittest.TestCase):
     def test_results_carry_the_matching_claims_class(self):
         """[FR-SRCH-002] The grade travels with the hit."""
         rs = self.search.search('propels blood', 'function')
-        self.assertEqual(rs.results[0].evidence_class, 'EVC-1')
+        self.assertEqual(rs.results[0].evidence_class, 'EVC-2')
 
 
 class TestClinicalSearch(unittest.TestCase):

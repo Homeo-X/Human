@@ -416,3 +416,60 @@ get entries._
 - **Valid while:** unconditional.
 - **Affects:** PRD_FR_Relationship_Graph, PRD_FR_Evidence
 - **Supersedes:** none
+
+### D-013 — Evaluation round: the ladder becomes the single source of truth (2026-07-26, orchestrator)
+- **Status:** active
+- **Context:** An adversarial self-evaluation of the delivered Phase 0 work found
+  five defects, four of them in content and documentation that every validator
+  had passed green. The common shape: **the prose was stricter than the
+  enforcement.** Specifically — `biocheck`'s class table admitted
+  `reference textbook` for EVC-1 while the ladder forbade it, so two claims sat
+  at VERIFIED on Gray's Anatomy and Guyton & Hall; 135 seed claims sat at EVC-2
+  on a single citation against a stated requirement for independent agreement;
+  `cross_scale_path` reported `complete: true` for a chain that skipped L1; and
+  the README and MANIFEST described the vertical slice as "one complete L0→L10
+  path" when no L1 entity exists anywhere in the substrate. BRB-11 and BRB-05,
+  the two rubric items written to catch exactly these, had both been
+  dispositioned `pass`.
+- **Decision:**
+  - The EVC ladder table in BIO_Evidence_and_Provenance gains machine-readable
+    `Admissible Source Types` and `Min Independent Sources` columns, and becomes
+    **the single authority**. `tools/biocheck.py` derives its rules from that
+    table; `src/homeo/evidence.py` derives from `biocheck`. One derivation chain,
+    not three copies.
+  - **INV-16** (blocking): when the checker's fallback table and the document
+    disagree, that divergence is itself an error, reported before any other
+    check. Exercised by a negative test like every other invariant.
+  - Claims regraded to the ladder as written: two textbook-sourced EVC-1 → EVC-2;
+    one single-source EVC-2 → EVC-3; 135 seed EVC-2 → EVC-4. Seed claims are
+    reassigned from `human:reviewer-seed-01` to `agent:seed-ingest`, because no
+    human reviewed them and recording one was a fiction. **The substrate now
+    contains no EVC-1 claims at all**, which is the honest state of a model no
+    domain reviewer has examined.
+  - `cross_scale_path` distinguishes `path_found` from `level_contiguous` and
+    reports `missing_levels`; a path that skips a level is found, not complete.
+  - The README and MANIFEST state the slice's real shape: L1 empty, containment
+    L0→L8, L9–L10 attached by participation.
+  - BRB-11 and BRB-05 re-dispositioned from `pass` to `flag` with a reviewer note
+    on *why* they were wrongly passed: both were dispositioned by citing a
+    requirement rather than by testing the artifact against it.
+- **Alternatives:**
+  - Relax the ladder to match the checker (permit textbook-sourced EVC-1) —
+    rejected_because: it would resolve the contradiction by lowering the standard
+    the project exists to hold, and EVC-1's whole meaning is that it is hard to
+    reach.
+  - Keep three synchronized copies of the class table with a comparison test —
+    rejected_because: synchronization is the failure mode. Derivation removes the
+    possibility rather than detecting the symptom.
+  - Fix the claims and leave the checker — rejected_because: it fixes the
+    instances and leaves the mechanism that produced them.
+- **Consequences:** + The rule is enforced where it is written, and a future
+  divergence fails the build. The substrate's evidence state is now honest about
+  having had no review. − Every strong-class claim in the project disappeared,
+  which makes the model look weaker; that appearance is accurate. Regrading is
+  also a breaking content change for anyone who pinned the prior release.
+- **Reversibility:** high for the code; the regrades are content decisions that
+  would need re-review to undo.
+- **Valid while:** unconditional.
+- **Affects:** BIO_Evidence_and_Provenance, BIO_Validation_Framework, BIO_Model_Review, PRD_FR_Evidence, PRD_FR_Scale_Bridging, MANIFEST.md
+- **Supersedes:** none
