@@ -190,3 +190,53 @@ class TestGapAnswers(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class TestDefinitionIsNotEvidence(unittest.TestCase):
+    """[FR-RETR-001] [D-021] A dictionary cannot answer a physiological question.
+
+    This is RSK-08's failure mode in its purest form: fluent, correctly cited,
+    and empty. Before the claim registers were split, an assertion about what
+    the heart *does* could be grounded entirely in the definition of the word
+    'heart' and would pass every check.
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        cls.guard = _guard()
+
+    def test_a_functional_claim_grounded_only_in_definitions_is_refused(self):
+        r = self.guard.guard('What does the heart do?', [
+            Assertion('The heart pumps blood through the body.',
+                      ['CLM:pancreas-definition'])])
+        self.assertEqual('refused', r.status)
+        self.assertIn('not what the body does', r.reason)
+
+    def test_a_definitional_statement_on_a_definition_is_fine(self):
+        r = self.guard.guard('What is the pancreas?', [
+            Assertion('The pancreas is a retroperitoneal gland.',
+                      ['CLM:pancreas-definition'])])
+        self.assertTrue(r.ok)
+        self.assertEqual(['AUTHORITATIVE_TRACEABLE'],
+                         r.assertions[0].class_names)
+
+    def test_a_biological_claim_still_supports_a_functional_statement(self):
+        r = self.guard.guard('What does the heart do?', [
+            Assertion('It propels blood through both circulations.',
+                      ['CLM:heart-function-pump'])])
+        self.assertTrue(r.ok)
+
+    def test_mixing_a_definition_with_a_finding_is_permitted(self):
+        """The refusal is for definition-*only* grounding, not for citing one."""
+        r = self.guard.guard('What does the heart do?', [
+            Assertion('The heart propels blood through both circulations.',
+                      ['CLM:heart-function-pump', 'CLM:pancreas-definition'])])
+        self.assertTrue(r.ok)
+        self.assertEqual(2, len(r.assertions[0].evidence_classes))
+
+    def test_the_refusal_names_the_definitions_it_objected_to(self):
+        r = self.guard.guard('How does the pancreas work?', [
+            Assertion('The pancreas secretes enzymes.',
+                      ['CLM:pancreas-definition'])])
+        self.assertEqual('refused', r.status)
+        self.assertIn('CLM:pancreas-definition', r.reason)

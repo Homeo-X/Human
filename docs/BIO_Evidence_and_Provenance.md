@@ -39,6 +39,41 @@ and the checker permitted it (D-013)._
 repeating a claim changes nothing. Every class change is recorded with the
 evidence that caused it and the reviewer who accepted it (PRD_FR_Curation).
 
+## Terminological Claims — a definition is not a finding
+
+The ladder above grades **biological evidence**: what was measured, modelled, or
+approximated about a body. A definition is a different kind of statement. "The
+heart is a myogenic muscular circulatory organ" asserts what a term denotes
+according to some authority; no measurement could confirm or refute it, and
+grading it APPROXIMATED puts it on a register where it can be mistaken for a
+finding.
+
+This project made exactly that error at scale: **156 of 165 claims — 94% — were
+definitions carried on the evidence ladder** until D-021 separated them. The
+error would have been multiplied by the ontology import, which supplies
+definitions by the tens of thousands.
+
+Terminological claims are graded by the authority behind them and whether that
+authority's stated source resolves.
+
+| Class | Name | Admission Rule | Requires |
+|---|---|---|---|
+| TRM-1 | AUTHORITATIVE_TRACEABLE | a recognised naming authority states the definition, and its own cited source resolves to a retrievable identifier | `authority`, `definition_source` |
+| TRM-2 | AUTHORITATIVE_UNTRACEABLE | a recognised naming authority states it, but its cited source cannot be resolved | `authority` |
+| TRM-3 | DERIVED | restated or paraphrased from prose, with no resolvable definition source of its own | `authority` (the document restated) |
+| TRM-4 | UNSOURCED | a label with no authority behind it — admissible only as a placeholder, never displayed as a definition | `authority` = none, stated |
+
+**The separation rule, stated once:** a terminological claim may never be cited
+as evidence for a biological assertion, and a biological claim may never be
+graded on the TRM register. `INV-18` enforces both directions, and the
+groundedness guard refuses an assertion about the body grounded only in
+definitions — a model that answered "what does the heart do?" from a dictionary
+would be fluent and empty.
+
+A terminological claim is **not weaker** than a biological one; it is about
+something else. TRM-1 is a fully satisfactory grade for a definition, in the way
+EVC-1 is for a measurement.
+
 ## The Claim Record
 _The mandatory shape of any assertion the system stores or displays._
 

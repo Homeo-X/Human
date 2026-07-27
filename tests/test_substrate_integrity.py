@@ -481,7 +481,12 @@ class TestReviewState(unittest.TestCase):
     def test_the_capped_claims_retain_the_assessment_awaiting_a_curator(self):
         """[D-017] The backlog is a list, not a feeling."""
         awaiting = [c for c in self.ev.all_claims() if c.awaiting_upgrade]
-        self.assertEqual(12, len(awaiting))
+        # Three, not the twelve of D-017: nine of those were regional
+        # *definitions*, which moved to the terminological register and are no
+        # longer waiting on an evidence judgement at all (D-021). The backlog
+        # shrank because the question was wrong, not because it was answered.
+        self.assertEqual(3, len(awaiting))
         for claim in awaiting:
+            self.assertTrue(claim.is_evidence, 'only findings await a curator')
             self.assertEqual('EVC-2', claim.proposed_class)
             self.assertEqual('EVC-4', claim.evidence_class)

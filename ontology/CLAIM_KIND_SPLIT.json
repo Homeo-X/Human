@@ -1,0 +1,1260 @@
+{
+ "note": "94% of this substrate's claims were definitions graded on the biological evidence ladder. This file records every one moved to the terminological register, and why (D-021). What remains on the evidence ladder is what the model actually found out about a body.",
+ "decision": "D-021",
+ "corrected_on": "2026-07-27",
+ "claims_moved": 156,
+ "by_grade": {
+  "TRM-3": 140,
+  "TRM-1": 16
+ },
+ "changes": [
+  {
+   "claim": "CLM:seed-levelsoforganization-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-chemicallevel-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-cellularlevel-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-tissuelevel-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-organlevel-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-bodycavities-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-anatomicalterminology-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-anatomicalposition-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-bodyplanes-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-bodyregions-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-medicalimaging-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-homeostasis-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-feedbackloops-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-controlcenters-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-fluidelectrolyte-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-thermoregulation-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-histology-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-epithelialtissue-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-connectivetissue-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-muscletissuehist-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-nervoustissuehist-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-bodymembranes-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-integumentary-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-skinlayers-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-skinfunctions-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-hairnails-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-skinglands-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-skinpigmentation-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-woundhealing-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-skinmicrobiome-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-skeletal-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-boneanatomy-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-skeletondivisions-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-boneremodeling-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-ossification-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-jointsarticulations-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-cartilage-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-vertebralcolumn-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-muscular-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-muscletypes-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-slidingfilament-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-muscleenergetics-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-musclefibertypes-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-neuromuscularjunction-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-majormusclegroups-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-muscleexerciseadaptation-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-nervous-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-cnsoverview-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-brainanatomy-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-corticalmapping-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-splitbrain-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-pnsoverview-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-autonomicnervous-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-spinalcordreflexes-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-bloodbrainbarrier-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-csfventricles-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-anesthesiamechanism-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-6",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-painphantomlimb-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-6",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-specialsenses-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-visualsystem-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-phototransduction-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-auditorysystem-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-cochleamechanics-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-vestibularsystem-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-tastesmell-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-somatosensation-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-itchpathway-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-endocrine-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-pituitarygland-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-thyroidparathyroid-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-adrenalglands-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-pancreasendocrine-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-gonadsendocrine-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-hormoneclasses-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-stressresponse-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-cardiovascular-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-heartanatomy-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-cardiaccycle-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-circulationdiscovery-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-pacemakerdiscovery-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-bloodvessels-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-bloodpressureregulation-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-starlinglaw-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-circulatorypathways-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-hematology-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-bloodcomposition-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-erythrocytes-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-leukocytesplatelets-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-bloodtypediscovery-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-rhfactor-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-hemostasisclotting-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-erythropoiesis-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-lymphimmune-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-lymphaticanatomy-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-lymphaticdiscovery-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-spleenthymus-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-immuneorgans-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-tonsilsmalt-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-feverinflammation-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-respiratory-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-upperairway-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-lunganatomy-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-surfactantdiscovery-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-breathingmechanics-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-gasexchange-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-respiratorycontrol-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-digestive-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-oralcavityesophagus-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-stomachanatomy-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-gastricexperiments-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-smallintestine-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-largeintestine-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-liverpancreasgallbladder-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-hpyloridiscovery-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-appendixfunction-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-6",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-gutmicrobiome-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-entericnervoussystem-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-nutritionmetabolism-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-macronutrients-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-micronutrients-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-scurvydiscovery-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-basalmetabolicrate-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-leptindiscovery-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-appetiteregulation-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-6",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-metabolicpathwayshuman-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-urinary-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-kidneyanatomy-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-glomerularfiltration-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-urineformation-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-reninangiotensin-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-bladderurethra-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-kidneytransplant-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-reproductive-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-maleanatomy-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-femaleanatomy-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-gametogenesis-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-menstrualcycle-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-fertilizationconception-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-menopause-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-6",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:seed-puberty-definition",
+   "file": "ontology/seed/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-3",
+   "authority": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+   "reason": "restated from one narrative document with no resolvable definition source"
+  },
+  {
+   "claim": "CLM:region-head-boundary",
+   "file": "ontology/regions/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-1",
+   "authority": "Standring S (ed.), Gray's Anatomy, 42nd ed., Terminologia Anatomica, 2nd ed. (FIPAT)",
+   "reason": "a naming authority with a resolvable identifier"
+  },
+  {
+   "claim": "CLM:region-neck-boundary",
+   "file": "ontology/regions/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-1",
+   "authority": "Standring S (ed.), Gray's Anatomy, 42nd ed., Terminologia Anatomica, 2nd ed. (FIPAT)",
+   "reason": "a naming authority with a resolvable identifier"
+  },
+  {
+   "claim": "CLM:region-thorax-boundary",
+   "file": "ontology/regions/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-1",
+   "authority": "Standring S (ed.), Gray's Anatomy, 42nd ed., Terminologia Anatomica, 2nd ed. (FIPAT)",
+   "reason": "a naming authority with a resolvable identifier"
+  },
+  {
+   "claim": "CLM:region-abdomen-boundary",
+   "file": "ontology/regions/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-1",
+   "authority": "Standring S (ed.), Gray's Anatomy, 42nd ed., Terminologia Anatomica, 2nd ed. (FIPAT)",
+   "reason": "a naming authority with a resolvable identifier"
+  },
+  {
+   "claim": "CLM:region-pelvis-boundary",
+   "file": "ontology/regions/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-1",
+   "authority": "Standring S (ed.), Gray's Anatomy, 42nd ed., Terminologia Anatomica, 2nd ed. (FIPAT)",
+   "reason": "a naming authority with a resolvable identifier"
+  },
+  {
+   "claim": "CLM:region-upper-limb-boundary",
+   "file": "ontology/regions/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-1",
+   "authority": "Standring S (ed.), Gray's Anatomy, 42nd ed., Terminologia Anatomica, 2nd ed. (FIPAT)",
+   "reason": "a naming authority with a resolvable identifier"
+  },
+  {
+   "claim": "CLM:region-lower-limb-boundary",
+   "file": "ontology/regions/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-1",
+   "authority": "Standring S (ed.), Gray's Anatomy, 42nd ed., Terminologia Anatomica, 2nd ed. (FIPAT)",
+   "reason": "a naming authority with a resolvable identifier"
+  },
+  {
+   "claim": "CLM:region-back-boundary",
+   "file": "ontology/regions/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-1",
+   "authority": "Standring S (ed.), Gray's Anatomy, 42nd ed., Terminologia Anatomica, 2nd ed. (FIPAT)",
+   "reason": "a naming authority with a resolvable identifier"
+  },
+  {
+   "claim": "CLM:region-trunk-boundary",
+   "file": "ontology/regions/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-1",
+   "authority": "Standring S (ed.), Gray's Anatomy, 42nd ed., Terminologia Anatomica, 2nd ed. (FIPAT)",
+   "reason": "a naming authority with a resolvable identifier"
+  },
+  {
+   "claim": "CLM:pancreas-definition",
+   "file": "ontology/pancreas/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-1",
+   "authority": "Standring S (ed.), Gray's Anatomy, 42nd ed.",
+   "reason": "a naming authority with a resolvable identifier"
+  },
+  {
+   "claim": "CLM:pancreatic-acinus-definition",
+   "file": "ontology/pancreas/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-1",
+   "authority": "Standring S (ed.), Gray's Anatomy, 42nd ed.",
+   "reason": "a naming authority with a resolvable identifier"
+  },
+  {
+   "claim": "CLM:pancreatic-acinar-cell-definition",
+   "file": "ontology/pancreas/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-1",
+   "authority": "Standring S (ed.), Gray's Anatomy, 42nd ed.",
+   "reason": "a naming authority with a resolvable identifier"
+  },
+  {
+   "claim": "CLM:zymogen-granule-definition",
+   "file": "ontology/pancreas/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-1",
+   "authority": "Hall JE & Hall ME, Guyton and Hall, 14th ed.",
+   "reason": "a naming authority with a resolvable identifier"
+  },
+  {
+   "claim": "CLM:islet-of-langerhans-definition",
+   "file": "ontology/pancreas/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-1",
+   "authority": "Standring S (ed.), Gray's Anatomy, 42nd ed.",
+   "reason": "a naming authority with a resolvable identifier"
+  },
+  {
+   "claim": "CLM:type-b-pancreatic-cell-definition",
+   "file": "ontology/pancreas/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-1",
+   "authority": "Hall JE & Hall ME, Guyton and Hall, 14th ed.",
+   "reason": "a naming authority with a resolvable identifier"
+  },
+  {
+   "claim": "CLM:insulin-definition",
+   "file": "ontology/pancreas/claims.json",
+   "was": "EVC-4",
+   "now": "TRM-1",
+   "authority": "Hall JE & Hall ME, Guyton and Hall, 14th ed.",
+   "reason": "a naming authority with a resolvable identifier"
+  }
+ ]
+}

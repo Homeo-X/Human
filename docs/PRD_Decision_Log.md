@@ -797,3 +797,57 @@ get entries._
 - **Reversibility:** high — provisional content is separable by its own field.
 - **Affects:** PRD_Scope_and_Roadmap, MANIFEST.md, PRD_Risks_and_Constraints
 - **Supersedes:** D-011 (content clause only; the presentation gate stands)
+
+### D-021 — A definition is not a finding: claims split into two registers (2026-07-27, architect)
+- **Status:** active
+- **Context:** Probing UBERON ahead of the ontology import surfaced a category
+  error already present in the substrate at scale. UBERON's definition of the
+  heart cites `Wikipedia:Heart` and a curator's ORCID; imported onto the EVC
+  ladder it would be graded as biological evidence. Checking the existing
+  substrate showed the same error already made **156 times out of 165 claims —
+  94%**. "The heart is a myogenic muscular circulatory organ" was carried as
+  APPROXIMATED *evidence*, on the same register as a measured sarcomere length.
+  The import would have added tens of thousands more and drowned the nine real
+  findings entirely.
+- **Decision:** Claims carry a `kind`. **Biological** claims assert something
+  about a body and are graded EVC-1…EVC-8 by evidence. **Terminological**
+  claims assert what a term denotes and are graded TRM-1…TRM-4 by the authority
+  behind them and whether that authority's own cited source resolves. A
+  terminological claim may never be cited as evidence for a biological
+  assertion, and neither register may carry the other's grades — `INV-18`
+  enforces both directions with four negative tests.
+  `tools/split_claim_kinds.py` migrated the existing substrate, grading by
+  stated rule rather than case by case: seed-corpus definitions restating one
+  narrative document with no resolvable source → TRM-3 (140); definitions from
+  Gray's, Terminologia Anatomica and Guyton, which are naming authorities with
+  resolvable ISBNs → TRM-1 (16). The audit is
+  `ontology/CLAIM_KIND_SPLIT.json`.
+  A terminological claim is **not weaker** than a biological one; it is about
+  something else. TRM-1 is as satisfactory for a definition as EVC-1 is for a
+  measurement.
+- **Alternatives:**
+  - Keep one ladder and add a note to definitional claims — rejected_because:
+    a note is not a constraint, and the whole point is that a definition must
+    not be *reachable* as evidence for a physiological question.
+  - Exclude definitions from the substrate — rejected_because: they are what
+    makes the model navigable and searchable, and the ontologies that supply
+    breadth supply them by construction.
+  - Grade definitions EVC-8 (UNKNOWN) — rejected_because: a definition is not
+    an absence of knowledge, and UNKNOWN is a deliberate assertion about
+    biology, not a bin for things that do not fit.
+- **Consequences:** + The substrate now truthfully reports **9 biological
+  findings** — two of them UNKNOWN — rather than 165 claims. That number is
+  much smaller and much more useful. + The import can add 16,000 definitions
+  without diluting a single evidence figure. + The groundedness guard can
+  refuse an assertion about the body grounded only in definitions. − Every
+  claim-count figure published before today meant something different, and
+  comparisons across the change are invalid. − Two registers is more surface
+  for a caller to understand, and `evidence_class` now holds a TRM value for
+  terminological claims, which is a naming compromise made to avoid churning
+  every consumer.
+- **Reversibility:** low. Merging the registers again would reintroduce the
+  error deliberately.
+- **Affects:** src/homeo/substrate.py, tools/biocheck.py,
+  BIO_Evidence_and_Provenance, BIO_Validation_Framework, PRD_FR_Evidence,
+  ontology/CLAIM_KIND_SPLIT.json
+- **Supersedes:** none

@@ -252,7 +252,21 @@ class TestAdmittedProvisionally(unittest.TestCase):
         for claim in self.ev.all_claims():
             if claim.subject in (PANCREAS, ACINUS, ISLET, BETA_CELL, INSULIN):
                 self.assertFalse(claim.assigned_by.startswith('human:'))
-                self.assertEqual('EVC-4', claim.evidence_class)
+
+    def test_the_pancreatic_claims_are_definitions_not_findings(self):
+        """[D-021] Importing an organ tells you what a word means.
+
+        Nothing here measured anything. The claims say what Gray's and Guyton
+        call these structures, which is a terminological assertion graded by
+        authority — not evidence about a body.
+        """
+        for claim in self.ev.all_claims():
+            if claim.subject in (PANCREAS, ACINUS, ISLET, BETA_CELL, INSULIN):
+                self.assertTrue(claim.is_terminological, claim.id)
+                self.assertEqual('TRM-1', claim.evidence_class)
+                self.assertTrue(claim.authority)
+                self.assertFalse(claim.is_evidence,
+                                 'a definition must not be citable as evidence')
 
 
 if __name__ == '__main__':

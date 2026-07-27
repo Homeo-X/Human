@@ -30,6 +30,16 @@ CAUSAL_LANGUAGE = re.compile(
     r'produces?|induces?|mechanism|because of|due to|therefore|'
     r'consequently|activates?|inhibits?|regulates?)\b', re.I)
 
+# Language that asserts what the body *does*, as distinct from what a term
+# means. An assertion matching this and grounded only in definitions is refused
+# (D-021): a dictionary cannot answer a physiological question, however fluent
+# the sentence and however correct the citation.
+FUNCTIONAL_LANGUAGE = re.compile(
+    r'\b(functions?|does|acts?|works?|pumps?|secretes?|contracts?|filters?|'
+    r'absorbs?|transports?|maintains?|responds?|generates?|controls?|'
+    r'metaboli[sz]es?|synthesi[sz]es?|releases?|per (?:minute|second|day)|'
+    r'rate|volume|pressure|concentration)\b', re.I)
+
 # Framings that request clinical interpretation. Indirect phrasings are included
 # deliberately: the framing must not change the answer (UC-12).
 #
@@ -162,11 +172,11 @@ class GroundednessGuard:
                         f'release {self.release or "(unpinned)"}: {a.text!r}')
                 claim = self.evidence.claim(cid)
                 classes.append(claim.evidence_class)
-                names.append(EVIDENCE_CLASSES.get(claim.evidence_class,
-                                                  'UNRECOGNISED'))
+                names.append(claim.grade_name)
                 constraints.append(
                     PRESENTATION_CONSTRAINTS.get(claim.evidence_class, ''))
-            violation = self._association_violation(a)
+            violation = (self._association_violation(a)
+                         or self._definition_only_violation(a))
             if violation:
                 return self._refuse(violation)
             grounded.append(GroundedAssertion(
@@ -198,6 +208,31 @@ class GroundednessGuard:
                         f'untyped association ({rel.id}): {a.text!r}. The source '
                         f'states that a relationship exists, not what type it is.')
         return None
+
+    def _definition_only_violation(self, a: Assertion) -> str | None:
+        """Refuse an assertion about the body grounded only in definitions.
+
+        A definition says what a term denotes; it establishes nothing about what
+        a body does. An answer to "what does the heart do?" citing only the
+        UBERON definition of *heart* would be fluent, correctly cited, and
+        empty — which is RSK-08's failure exactly, and the reason the two claim
+        registers are separate (D-021).
+
+        Assertions that are *themselves* terminological are fine on
+        terminological grounds; the refusal fires only when the text makes a
+        functional or causal claim.
+        """
+        claims = [self.evidence.claim(cid) for cid in a.claim_ids
+                  if self.evidence.has(cid)]
+        if not claims or any(c.is_evidence for c in claims):
+            return None
+        if not FUNCTIONAL_LANGUAGE.search(a.text):
+            return None
+        return (
+            f'assertion makes a functional or causal statement grounded only in '
+            f'definitions ({", ".join(c.id for c in claims)}): {a.text!r}. A '
+            f'definition records what a term denotes, not what the body does. '
+            f'Cite a biological claim, or state it as a definition.')
 
     def describe_association(self, relationship_id: str) -> str:
         """The only admissible phrasing for an untyped association."""

@@ -14,7 +14,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from .graph import Graph
-from .substrate import EVIDENCE_CLASSES, UNKNOWN, Claim
+from .substrate import (EVIDENCE_CLASSES, TERMINOLOGICAL_GRADES, UNKNOWN,
+                        Claim)
 
 # Source types that can support each class.
 #
@@ -258,20 +259,38 @@ class EvidenceService:
     # ---- reporting -----------------------------------------------------
 
     def completeness(self) -> dict:
-        """G-03: proportion of claims with a complete evidence record."""
+        """G-03: proportion of claims with a complete evidence record.
+
+        Reported per register (D-021). A single "165 claims" figure would let
+        156 definitions stand in for the nine things this model has actually
+        found out about a body — which is the number a reader of a coverage
+        report is trying to learn.
+        """
         required = ('species', 'population', 'limitations', 'assigned_by',
                     'date_asserted')
         total = len(self._by_id)
+        biological = [c for c in self._by_id.values() if c.is_evidence]
+        terminological = [c for c in self._by_id.values()
+                          if c.is_terminological]
         complete = 0
         for c in self._by_id.values():
             if all(getattr(c, f) for f in required) and (
-                    c.is_unknown or c.sources):
+                    c.is_unknown or c.sources or c.is_terminological):
                 complete += 1
         return {
-            'claims': total, 'complete_records': complete,
+            'claims': total,
+            'biological_claims': len(biological),
+            'terminological_claims': len(terminological),
+            'complete_records': complete,
             'proportion': (complete / total) if total else 0.0,
             'unknown': self.unknown_counts(),
-            'by_class': {k: sum(1 for c in self._by_id.values()
+            'by_class': {k: sum(1 for c in biological
                                 if c.evidence_class == k)
                          for k in EVIDENCE_CLASSES},
+            'by_terminological_grade': {
+                k: sum(1 for c in terminological if c.evidence_class == k)
+                for k in TERMINOLOGICAL_GRADES},
+            'note': ('`by_class` counts biological findings only. A definition '
+                     'is not a finding and is graded on its own register '
+                     '(D-021); conflating them was 94% of this substrate.'),
         }

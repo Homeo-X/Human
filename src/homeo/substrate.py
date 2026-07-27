@@ -33,6 +33,28 @@ EVIDENCE_CLASSES = {
 }
 UNKNOWN = 'EVC-8'
 
+# A definition is not a finding.
+#
+# The EVC ladder grades *biological evidence* — what was measured, modelled, or
+# approximated about the body. A definition is a different kind of statement:
+# it says what a term denotes according to some authority. Grading "the heart is
+# a myogenic muscular circulatory organ" as APPROXIMATED evidence is a category
+# error, and it was 94% of this substrate before D-021 — 156 of 165 claims.
+#
+# Terminological claims are graded on their own short ladder, by authority and
+# traceability rather than by measurement. Keeping them on a separate register
+# is what stops a definition being offered as evidence for a physiological
+# assertion, which is precisely the failure the groundedness guard exists to
+# prevent.
+BIOLOGICAL, TERMINOLOGICAL = 'biological', 'terminological'
+CLAIM_KINDS = (BIOLOGICAL, TERMINOLOGICAL)
+TERMINOLOGICAL_GRADES = {
+    'TRM-1': 'AUTHORITATIVE_TRACEABLE',    # a naming authority, source resolves
+    'TRM-2': 'AUTHORITATIVE_UNTRACEABLE',  # a naming authority, source does not
+    'TRM-3': 'DERIVED',                    # paraphrased or restated from prose
+    'TRM-4': 'UNSOURCED',                  # a label with no authority behind it
+}
+
 # Relations that describe structure rather than causation. The distinction
 # matters in two places: the level-skip rule (biocheck INV-05) and the
 # navigation tree, which is built from containment alone (D-006).
@@ -146,6 +168,16 @@ class Claim:
     provenance_source: str | None = None
     prompted_by: str | None = None
     review_state: str = 'provisional'
+    # Which register this claim's grade belongs to (D-021). `biological` is the
+    # default because every claim written before the distinction existed was
+    # asserting something about the body — including, wrongly, the 156 that were
+    # asserting what a word means.
+    kind: str = BIOLOGICAL
+    # For terminological claims: who says so, and whether their stated source
+    # resolves. These carry the weight that `sources` carries for a biological
+    # claim.
+    authority: str | None = None
+    definition_source: str | None = None
     # What an automated actor assessed the evidence to be, when that is
     # stronger than the class it is permitted to assert.
     #
@@ -164,6 +196,26 @@ class Claim:
         return self.review_state == 'reviewed'
 
     @property
+    def is_terminological(self) -> bool:
+        return self.kind == TERMINOLOGICAL
+
+    @property
+    def grade_name(self) -> str:
+        """The human-readable name of whichever ladder this claim sits on."""
+        return (TERMINOLOGICAL_GRADES if self.is_terminological
+                else EVIDENCE_CLASSES).get(self.evidence_class, 'UNRECOGNISED')
+
+    @property
+    def is_evidence(self) -> bool:
+        """Whether this claim can support an assertion about the body.
+
+        A definition cannot. It can support an assertion about what a term
+        means, and nothing further — which is the whole reason the two registers
+        are separate (D-021).
+        """
+        return self.kind == BIOLOGICAL
+
+    @property
     def awaiting_upgrade(self) -> bool:
         """A claim whose evidence may support more than it currently asserts."""
         return (self.proposed_class is not None
@@ -176,7 +228,7 @@ class Claim:
 
     @property
     def class_name(self) -> str:
-        return EVIDENCE_CLASSES.get(self.evidence_class, 'UNRECOGNISED')
+        return self.grade_name
 
     @property
     def is_cross_species(self) -> bool:
@@ -309,6 +361,9 @@ def _claim(d: dict) -> Claim:
         conditions=d.get('conditions', {}),
         review_state=d.get('review_state', 'provisional'),
         proposed_class=d.get('proposed_class'),
+        kind=d.get('kind', BIOLOGICAL),
+        authority=d.get('authority'),
+        definition_source=d.get('definition_source'),
         conflicts_with=_tup(d.get('conflicts_with')),
         provenance_source=d.get('provenance_source'),
         prompted_by=d.get('prompted_by'))

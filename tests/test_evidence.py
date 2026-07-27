@@ -242,7 +242,15 @@ class TestCompleteness(unittest.TestCase):
         self.assertAlmostEqual(
             report['proportion'],
             report['complete_records'] / report['claims'], places=6)
-        self.assertEqual(sum(report['by_class'].values()), report['claims'])
+        # `by_class` counts biological findings only; definitions live on
+        # their own register (D-021). Conflating the two was 94% of this
+        # substrate, so the totals are asserted separately on purpose.
+        self.assertEqual(sum(report['by_class'].values()),
+                         report['biological_claims'])
+        self.assertEqual(sum(report['by_terminological_grade'].values()),
+                         report['terminological_claims'])
+        self.assertEqual(report['biological_claims']
+                         + report['terminological_claims'], report['claims'])
 
 
 if __name__ == '__main__':

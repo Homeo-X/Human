@@ -493,6 +493,43 @@ def check(data, ladder=None, minimums=None):
                       f'{e.get("admitted_by")!r} — a reviewed entity names the '
                       f'approval or the human behind it'))
 
+    # INV-18 claim-kind integrity. A definition is not a finding, and the two
+    # registers must not leak into one another: an EVC class on a definition
+    # would let "the heart is a muscular organ" be offered as evidence for a
+    # physiological assertion, which is the confusion D-021 separated.
+    for c in claims:
+        kind = c.get('kind', 'biological')
+        grade = c.get('evidence_class', '')
+        if kind not in ('biological', 'terminological'):
+            f.append(('error', 'INV-18',
+                      f'{c["id"]}: claim kind {kind!r} is neither biological '
+                      f'nor terminological'))
+            continue
+        if kind == 'terminological':
+            if not grade.startswith('TRM-'):
+                f.append(('error', 'INV-18',
+                          f'{c["id"]}: a terminological claim is graded on the '
+                          f'TRM register; {grade} is an evidence class, and a '
+                          f'definition is not evidence'))
+            if not c.get('authority'):
+                f.append(('error', 'INV-18',
+                          f'{c["id"]}: a terminological claim names the '
+                          f'authority whose definition it records'))
+            if grade == 'TRM-1' and not c.get('definition_source'):
+                f.append(('error', 'INV-18',
+                          f'{c["id"]}: TRM-1 asserts the authority\'s source '
+                          f'resolves, so the source must be named'))
+        else:
+            if not grade.startswith('EVC-'):
+                f.append(('error', 'INV-18',
+                          f'{c["id"]}: a biological claim is graded on the EVC '
+                          f'ladder; {grade} is a terminological grade'))
+            if c.get('authority') or c.get('definition_source'):
+                f.append(('error', 'INV-18',
+                          f'{c["id"]}: authority/definition_source belong to '
+                          f'terminological claims; a biological claim carries '
+                          f'sources'))
+
     # SCL completeness
     for s in scls:
         for fld in ('representation_mode', 'evidence_model', 'resolution_limit'):
@@ -607,6 +644,20 @@ SELFTESTS = [
     ('INV-17', 'a proposed_class weaker than the class asserted',
      lambda d: _find(d['claims'], 'id', 'CLM:cytosolic-ca-diastolic')
                     .update({'proposed_class': 'EVC-6'})),
+    ('INV-18', 'a definition graded as biological evidence',
+     lambda d: _find(d['claims'], 'id', 'CLM:region-thorax-boundary')
+                    .update({'evidence_class': 'EVC-2'})),
+    # Mutating only `kind` fires the terminological branch (no TRM grade), so
+    # it never exercised the biological one. Grading a finding TRM does.
+    ('INV-18', 'a finding graded on the terminological register',
+     lambda d: _find(d['claims'], 'id', 'CLM:sarcomere-resting-length')
+                    .update({'evidence_class': 'TRM-1'})),
+    ('INV-18', 'a terminological claim with no authority behind it',
+     lambda d: _find(d['claims'], 'id', 'CLM:region-thorax-boundary')
+                    .update({'authority': None})),
+    ('INV-18', 'a biological claim carrying a definition source',
+     lambda d: _find(d['claims'], 'id', 'CLM:cross-bridge-cycle-duration')
+                    .update({'definition_source': 'ISBN:1'})),
 ]
 
 
