@@ -150,7 +150,9 @@ class ProjectionService:
                        f'projected; this is a statement about the release, '
                        f'not about the anatomy.',))
 
-        candidates = [state.entity] + list(self.graph.children(state.entity))
+        candidates, level_note = self._at_level(focus_entity, state.level)
+        if level_note:
+            notes.append(level_note)
         if state.isolated:
             allowed = set(state.isolated)
             removed = [c for c in candidates if c not in allowed]
@@ -196,6 +198,71 @@ class ProjectionService:
             hidden=Hidden(sum(hidden_counts.values()), hidden_counts),
             depiction_summary=summary, truncated=truncated,
             total_before_paging=total, notes=tuple(notes))
+
+    # ---- the in-view set at a requested resolution ----------------------
+
+    def _at_level(self, focus, level: int) -> tuple[list[str], str]:
+        """The entities in view at the requested ontological resolution.
+
+        This is the operation the whole module is named for, and getting it
+        wrong is easy in a way that is hard to notice: returning the focus and
+        its immediate children regardless of the requested level produces a
+        plausible view that silently ignores the level entirely. The first
+        version of this method did exactly that, which made every claim about
+        "the requested resolution" false.
+
+        Three cases, all explicit:
+
+        - at the focus's own level — the focus and what it directly contains;
+        - deeper — the descendants that sit at the requested level, found by
+          walking containment, with the focus retained for orientation;
+        - shallower — the ancestor at that level and what it contains.
+
+        When nothing exists at the requested level the view says so and falls
+        back to the focus alone. An empty view would be indistinguishable from
+        a broken one.
+        """
+        here = focus.shallowest_level
+        if here is None or level == here:
+            return [focus.id] + list(self.graph.children(focus.id)), ''
+
+        if level > here:
+            found, frontier, seen = [], [focus.id], {focus.id}
+            while frontier:
+                nxt = []
+                for eid in frontier:
+                    for child in self.graph.children(eid):
+                        if child in seen:
+                            continue
+                        seen.add(child)
+                        entity = self.graph.get(child)
+                        child_level = entity.shallowest_level if entity else None
+                        if child_level == level:
+                            found.append(child)
+                        elif child_level is None or child_level < level:
+                            nxt.append(child)
+                frontier = nxt
+            if not found:
+                return [focus.id], (
+                    f'Nothing is represented at L{level} beneath '
+                    f'{focus.preferred_term} in this release. The focus is '
+                    f'shown alone; that is a statement about the model, not '
+                    f'about the anatomy — descend for the terminal answer.')
+            return [focus.id] + sorted(found), (
+                f'Showing L{level} content beneath {focus.preferred_term}. '
+                f'The focus is retained for orientation and is at L{here}.')
+
+        for ancestor_id in self.graph.lineage(focus.id):
+            ancestor = self.graph.get(ancestor_id)
+            if ancestor and ancestor.shallowest_level == level:
+                return ([ancestor_id]
+                        + list(self.graph.children(ancestor_id))), (
+                    f'Ascended to L{level}: {ancestor.preferred_term}, which '
+                    f'contains {focus.preferred_term}.')
+        return [focus.id], (
+            f'No ancestor of {focus.preferred_term} sits at L{level} in this '
+            f'release, so the view could not ascend to it. The focus is shown '
+            f'alone.')
 
     # ---- filters (FR-NAV-007) ------------------------------------------
 

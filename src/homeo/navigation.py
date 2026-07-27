@@ -20,7 +20,7 @@ Realizes: FR-NAV-001, FR-NAV-004 … FR-NAV-011.
 from __future__ import annotations
 
 from dataclasses import dataclass, field, replace
-from urllib.parse import parse_qsl, quote, unquote
+from urllib.parse import quote, unquote
 
 from .evidence import EvidenceService
 from .graph import EntityRetired, Graph
@@ -33,6 +33,10 @@ ADDRESS_VERSION = 1
 # renderer will happily interpolate. Past the limit the view stops and says so,
 # rather than presenting polygon detail as anatomy (FR-NAV-001 edge case).
 DEFAULT_MAGNIFICATION_LIMIT = 16.0
+
+# The scale contract's range (BIO_Scale_Contract SCL-00 … SCL-10). An address
+# outside it is malformed input, not a request the model must answer.
+MIN_LEVEL, MAX_LEVEL = 0, 10
 
 
 class AddressError(Exception):
@@ -146,32 +150,71 @@ def encode(state: ViewState) -> str:
              f'e={quote(state.entity, safe="")}', f'l={state.level}']
     if state.magnification != 1.0:
         parts.append(f'm={state.magnification:g}')
+    # Every value is escaped, including the layer members. A subsystem or
+    # tissue-class name containing a comma would otherwise split into two
+    # filters on decode — silently, and in the direction of hiding more content
+    # than the user asked to hide.
     if state.layers.systems:
-        parts.append('sys=' + ','.join(sorted(state.layers.systems)))
+        parts.append('sys=' + _join(state.layers.systems))
     if state.layers.tissue_classes:
-        parts.append('tis=' + ','.join(sorted(state.layers.tissue_classes)))
+        parts.append('tis=' + _join(state.layers.tissue_classes))
     if state.layers.evidence_classes:
-        parts.append('evc=' + ','.join(sorted(state.layers.evidence_classes)))
+        parts.append('evc=' + _join(state.layers.evidence_classes))
     if state.isolated:
-        parts.append('iso=' + ','.join(quote(i, safe='') for i in
-                                       sorted(state.isolated)))
+        parts.append('iso=' + _join(state.isolated))
     if state.section:
         parts.append(f'sec={quote(state.section, safe="")}')
     return f'{ADDRESS_SCHEME}:' + '&'.join(parts)
 
 
+def _join(values) -> str:
+    return ','.join(quote(v, safe='') for v in sorted(values))
+
+
 def _parse(address: str) -> dict:
+    """Parse an address. An address is untrusted input, not a serialization.
+
+    It arrives from a URL bar, a shared link, or a saved bookmark, so every
+    field is validated here rather than trusted because `encode` produced a
+    well-formed one. The magnification limit in particular is a claim about
+    what the assets resolve; a limit enforced only on the `magnify` path would
+    be bypassable by editing a link, which is precisely the surface where the
+    overclaim would be seen.
+    """
     if not address.startswith(ADDRESS_SCHEME + ':'):
         raise AddressError(
             f'not a {ADDRESS_SCHEME} address: {address[:40]!r}')
-    fields = dict(parse_qsl(address[len(ADDRESS_SCHEME) + 1:], keep_blank_values=True,
-                            separator='&'))
+    # Split without decoding. `parse_qsl` would percent-decode each value
+    # before the comma-separated members are split apart, so an escaped comma
+    # inside a member would decode first and then split — turning one filter
+    # into two. Decoding happens per member, after the split, at the use site.
+    fields = {}
+    for chunk in address[len(ADDRESS_SCHEME) + 1:].split('&'):
+        if not chunk:
+            continue
+        key, sep, value = chunk.partition('=')
+        if not sep:
+            raise AddressError(f'malformed address field: {chunk[:40]!r}')
+        fields[key] = value
     if 'e' not in fields or 'l' not in fields:
         raise AddressError('address must carry an entity (e) and a level (l)')
     try:
-        int(fields['l'])
+        level = int(fields['l'])
     except ValueError:
         raise AddressError(f'level is not an integer: {fields["l"]!r}') from None
+    if not MIN_LEVEL <= level <= MAX_LEVEL:
+        raise AddressError(
+            f'L{level} is not a level in this model: the scale contract runs '
+            f'L{MIN_LEVEL} to L{MAX_LEVEL} (BIO_Scale_Contract). This is a '
+            f'malformed address, not a limit of the model')
+    if 'm' in fields:
+        try:
+            magnification = float(fields['m'])
+        except ValueError:
+            raise AddressError(
+                f'magnification is not a number: {fields["m"]!r}') from None
+        if magnification <= 0:
+            raise AddressError('magnification must be positive')
     return fields
 
 
@@ -295,30 +338,50 @@ class NavigationService:
         return sorted(out)
 
     def section(self, state: ViewState, plane: str) -> dict:
-        """Apply a cut plane and report which entities it crosses.
+        """Apply a cut plane, and report honestly what can be said about it.
 
-        The crossing set is computed from spatial identities, so an entity with
-        no geometry is still reported as crossed — it is in the body whether or
-        not anyone has modelled it.
+        **Crossing is not computable in this release.** Determining which
+        structures a plane intersects requires geometry, and no entity in this
+        substrate has any. What is returned is therefore the set of *candidate*
+        entities — those with a spatial identity, which is the population a
+        crossing test would be run against — explicitly marked
+        `crossing: not_computable`.
+
+        This method previously returned that same list under the word
+        `crosses`, for any plane string including nonsense, which asserted a
+        computed intersection that had never been computed. Naming the limit is
+        the whole posture of this project (BRB-01); a plausible-looking answer
+        derived from nothing is worse than a refusal.
         """
-        crossed = []
+        candidates = []
         for si in self.graph.substrate.spatial_identities:
             entity = self.graph.get(si.entity)
             if entity is None or entity.is_retired:
                 continue
-            crossed.append({
+            candidates.append({
                 'entity': si.entity,
                 'label': entity.preferred_term,
                 'has_geometry': si.has_geometry,
                 'position': si.anatomical_position,
-                'laterality': si.laterality})
-        return {'state': replace(state, section=plane).as_dict(),
-                'plane': plane,
-                'crosses': sorted(crossed, key=lambda c: c['entity']),
-                'note': ('Entities crossed are computed from spatial '
-                         'identities, so a structure with no geometry is still '
-                         'reported. Absence of a mesh is not absence from the '
-                         'body.')}
+                'laterality': si.laterality,
+                'crossing': 'not_computable'})
+        with_geometry = sum(1 for c in candidates if c['has_geometry'])
+        return {
+            'state': replace(state, section=plane).as_dict(),
+            'plane': plane,
+            'crossing_computed': False,
+            'candidates': sorted(candidates, key=lambda c: c['entity']),
+            'candidates_with_geometry': with_geometry,
+            'statement': (
+                f'A cut plane was recorded on the view state, but which '
+                f'entities {plane!r} crosses cannot be determined in this '
+                f'release: {with_geometry} of {len(candidates)} entities with '
+                f'a spatial identity have geometry. The list returned is the '
+                f'candidate population a crossing test would run against, not '
+                f'a result. Sectioning operates on entities rather than meshes '
+                f'(FR-NAV-008), so this becomes computable when geometry binds '
+                f'in Phase 1 — the semantics do not change with it.'),
+        }
 
     # ---- graph navigation alongside the tree (FR-NAV-009) --------------
 
@@ -417,13 +480,24 @@ class NavigationService:
                 f'session is pinned to {self.release}. The pinned release '
                 f'answered. Switching is offered, never applied mid-session.')
 
+        requested = float(fields.get('m', 1.0))
+        magnification = min(requested, self.magnification_limit)
+        if magnification != requested:
+            notes.append(
+                f'The address requested {requested:g}x magnification; it was '
+                f'clamped to the {self.magnification_limit:g}x resolution '
+                f'limit of this release\'s assets. The limit is a property of '
+                f'the assets, so a hand-edited link does not raise it.')
+
         state = ViewState(
             entity=entity_id, level=level,
-            magnification=float(fields.get('m', 1.0)),
+            magnification=magnification,
             layers=Layers(
-                systems=frozenset(_csv(fields.get('sys'))),
-                tissue_classes=frozenset(_csv(fields.get('tis'))),
-                evidence_classes=frozenset(_csv(fields.get('evc')))),
+                systems=frozenset(unquote(v) for v in _csv(fields.get('sys'))),
+                tissue_classes=frozenset(
+                    unquote(v) for v in _csv(fields.get('tis'))),
+                evidence_classes=frozenset(
+                    unquote(v) for v in _csv(fields.get('evc')))),
             isolated=tuple(unquote(i) for i in _csv(fields.get('iso'))),
             section=unquote(fields['sec']) if fields.get('sec') else None,
             release=self.release)

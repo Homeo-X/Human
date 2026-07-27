@@ -56,7 +56,7 @@ src/homeo/          the reference implementation of the substrate services
   evals.py            the EV-RETR suites that gate a release
   release.py          build, validate, hash, atomic publish
   api.py, cli.py      the API and its command-line equivalent
-tests/              358 tests, each tagged with the FR ids it verifies
+tests/              370 tests, each tagged with the FR ids it verifies
 tools/
   check.sh            everything that must be green (--quick for pre-commit)
   curate_regions.py   adds the L1 regions through the real curation path

@@ -226,8 +226,12 @@ remains behind the Phase 1 entry gate.
 
 Navigation and projection are built although the viewer is gated: a view
 specification derived from the graph is testable with no renderer in existence,
-and D-015 records why the derivation runs in that direction. Nine mutations of
-those gates — letting magnification change a level, letting a level change reset
+and D-015 records why the derivation runs in that direction. A review of that
+first implementation found five defects, all now fixed and regression-tested
+(D-016): the projection ignored the level it claimed to honour, `section`
+asserted a crossing it had never computed, the magnification limit was
+bypassable by editing an address, out-of-range levels were accepted, and layer
+values were not escaped. Fifteen mutations of those gates — letting magnification change a level, letting a level change reset
 the camera, removing the hidden-count reporting, collapsing `described` into
 `asset_unavailable`, reporting the strongest evidence class instead of the
 weakest — each turn the suite red.
@@ -240,7 +244,7 @@ disabling the EVC-1 refusal, the budget ceiling, and the injection flag — each
 turn the suite red.
 
 Verification: `bash tools/check.sh` runs the substrate invariants, their negative
-tests, 358 unit tests, both static validators, the strict spec graph, the
+tests, 370 unit tests, both static validators, the strict spec graph, the
 implementation trace, and a release build. The trace holds *claimed-but-untested*
 Musts at zero; Musts with no implementation at all are expected for the unbuilt
 modules above and are listed by module rather than hidden.

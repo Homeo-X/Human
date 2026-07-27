@@ -249,11 +249,24 @@ class TestIsolationAndSectioning(unittest.TestCase):
         self.assertEqual(HEART, projection.focus.entity)
         self.assertNotIn(HEART, [e.entity for e in projection.entities])
 
-    def test_sectioning_reports_entities_without_geometry(self):
+    def test_sectioning_does_not_claim_a_crossing_it_cannot_compute(self):
+        """Crossing needs geometry, and no entity here has any.
+
+        This is the defect a review caught: the method returned the same list
+        under the key `crosses` for any plane, including a nonsense one, which
+        asserted an intersection that had never been computed.
+        """
         result = self.nav.section(self.nav.enter(HEART), 'transverse T8')
-        self.assertTrue(result['crosses'])
-        self.assertTrue(any(not c['has_geometry'] for c in result['crosses']))
-        self.assertIn('not absence from the body', result['note'])
+        self.assertFalse(result['crossing_computed'])
+        self.assertNotIn('crosses', result)
+        self.assertTrue(result['candidates'])
+        self.assertTrue(all(c['crossing'] == 'not_computable'
+                            for c in result['candidates']))
+        self.assertIn('cannot be determined', result['statement'])
+
+    def test_the_cut_plane_is_still_recorded_on_the_state(self):
+        result = self.nav.section(self.nav.enter(HEART), 'sagittal midline')
+        self.assertEqual('sagittal midline', result['state']['section'])
 
 
 class TestGraphNavigation(unittest.TestCase):
@@ -455,3 +468,98 @@ class TestNavigationEndpoints(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class TestReviewFindings(unittest.TestCase):
+    """Regression tests for defects a review of this module found.
+
+    Each of these passed silently before, which is the point of writing them
+    down: the implementations were plausible and wrong, and only a test that
+    varies the input the code ignored can tell the difference.
+    """
+
+    def setUp(self):
+        _, self.nav, self.proj = _services()
+
+    # --- the projection ignored the level it claimed to honour ---
+
+    def test_the_projection_honours_the_requested_level(self):
+        heart = self.nav.enter(HEART)                       # L3
+        at_l7 = self.nav.set_level(heart, 7).state
+        shallow = {e.entity for e in self.proj.project(heart).entities}
+        deep = {e.entity for e in self.proj.project(at_l7).entities}
+        self.assertNotEqual(shallow, deep,
+                            'the level was ignored: two resolutions produced '
+                            'the same view')
+        self.assertIn('CL:0000746', deep)                   # cardiomyocyte, L7
+        self.assertNotIn('CL:0000746', shallow)
+
+    def test_deeper_views_retain_the_focus_for_orientation(self):
+        at_l7 = self.nav.set_level(self.nav.enter(HEART), 7).state
+        projection = self.proj.project(at_l7)
+        self.assertIn(HEART, [e.entity for e in projection.entities])
+        self.assertTrue(any('retained for orientation' in n
+                            for n in projection.notes))
+
+    def test_a_level_with_no_content_says_so_rather_than_showing_the_wrong_set(self):
+        at_l10 = self.nav.set_level(self.nav.enter(HEART), 10).state
+        projection = self.proj.project(at_l10)
+        self.assertEqual([HEART], [e.entity for e in projection.entities])
+        self.assertTrue(any('Nothing is represented at L10' in n
+                            for n in projection.notes))
+
+    def test_ascending_reaches_the_ancestor_at_that_level(self):
+        at_l1 = self.nav.set_level(self.nav.enter(SARCOMERE), 1).state
+        projection = self.proj.project(at_l1)
+        self.assertEqual('UBERON:0000915', projection.entities[0].entity)
+        self.assertTrue(any('Ascended to L1' in n for n in projection.notes))
+
+    # --- the magnification limit was bypassable by editing a link ---
+
+    def test_an_address_cannot_raise_the_magnification_limit(self):
+        restoration = self.nav.restore(
+            f'homeo:v=1&rel=rel-test&e=UBERON%3A0000948&l=3&m=100000')
+        self.assertEqual(self.nav.magnification_limit,
+                         restoration.state.magnification)
+        self.assertTrue(any('does not raise it' in n
+                            for n in restoration.notes))
+
+    def test_a_magnification_within_the_limit_survives_unchanged(self):
+        restoration = self.nav.restore(
+            'homeo:v=1&rel=rel-test&e=UBERON%3A0000948&l=3&m=4')
+        self.assertEqual(4.0, restoration.state.magnification)
+        self.assertEqual((), restoration.notes)
+
+    def test_a_nonsense_magnification_is_a_malformed_address(self):
+        for bad in ('m=abc', 'm=-3', 'm=0'):
+            with self.assertRaises(AddressError, msg=bad):
+                self.nav.restore(
+                    f'homeo:v=1&e=UBERON%3A0000948&l=3&{bad}')
+
+    # --- levels outside the scale contract were accepted ---
+
+    def test_a_level_outside_the_scale_contract_is_refused(self):
+        for level in (11, 99, -1):
+            with self.assertRaises(AddressError, msg=str(level)):
+                self.nav.restore(f'homeo:v=1&e=UBERON%3A0000948&l={level}')
+
+    def test_both_ends_of_the_contract_are_valid(self):
+        for level in (0, 10):
+            self.assertTrue(self.nav.restore(
+                f'homeo:v=1&e=UBERON%3A0000948&l={level}').restored)
+
+    # --- layer values were not escaped, so a comma split a filter ---
+
+    def test_a_layer_value_containing_a_comma_survives_the_round_trip(self):
+        state = ViewState(entity=HEART, level=3, release='rel-test',
+                          layers=Layers(systems=frozenset({'a,b'})))
+        restored = self.nav.restore(encode(state)).state
+        self.assertEqual(frozenset({'a,b'}), restored.layers.systems,
+                         'the comma split one filter into two, hiding more '
+                         'content than the user asked to hide')
+
+    def test_an_isolated_id_containing_a_comma_survives(self):
+        state = ViewState(entity=HEART, level=3, release='rel-test',
+                          isolated=('HOX:x,y',))
+        self.assertEqual(('HOX:x,y',),
+                         self.nav.restore(encode(state)).state.isolated)

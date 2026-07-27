@@ -550,3 +550,54 @@ get entries._
 - **Affects:** PRD_FR_Navigation, PRD_FR_Spatial_Representation,
   TECH_UI_UX_Design, TECH_API_Specification
 - **Supersedes:** none
+
+### D-016 — Review findings on the navigation and projection layers (2026-07-27, orchestrator)
+- **Status:** active
+- **Context:** A review of the D-015 implementation, run immediately after it
+  was pushed, found five defects. Two of them were the specific failure this
+  project's rubric exists to catch — code that produces a plausible answer while
+  ignoring the input it claims to honour — and both had passed a 50-test suite
+  and a nine-mutation check, because every test exercised the paths the code got
+  right.
+- **Decision:** All five fixed, each with a regression test that varies the
+  input the implementation had been ignoring:
+  1. **The projection ignored the requested level.** It returned the focus and
+     its containment children whatever level was asked for, so a view at L3 and
+     a view at L7 were byte-identical while the docstring claimed "entities at
+     the requested ontological resolution". `_at_level` now walks down to the
+     requested level, up to the ancestor at it, or reports that nothing is
+     represented there — the one case that must never be silently the wrong set.
+  2. **`section` asserted a crossing it had never computed.** It returned every
+     spatial identity under the key `crosses` for any plane string, including
+     nonsense. Crossing needs geometry and no entity has any, so the method now
+     returns `crossing_computed: false` with the candidate population named as
+     such.
+  3. **The magnification limit was bypassable by editing an address.** It was
+     enforced in `magnify` and not in `restore`, so a hand-edited link produced
+     unbounded magnification — on precisely the surface (a shared link) where
+     the limit is a claim about the assets.
+  4. **Levels outside the scale contract were accepted.** `l=99` and `l=-7`
+     restored happily. An address outside L0–L10 is malformed input, not a
+     model limit, so it raises rather than answering.
+  5. **Layer values were not escaped.** `parse_qsl` percent-decoded a value
+     before its comma-separated members were split, so an escaped comma inside
+     a member decoded first and then split — turning one filter into two, in
+     the direction of hiding more than the user asked to hide. Parsing no
+     longer decodes before splitting.
+- **Alternatives:**
+  - Ship items 3–5 as known limitations — rejected_because: each is a few lines,
+    and a stated limitation that could have been a fix is how a limitations
+    section becomes a place to put defects.
+  - Treat item 2 as acceptable until geometry exists — rejected_because: it is
+    the exact shape of BRB-05, and it was written by the same process that
+    dispositioned BRB-05 as a flag two days earlier.
+- **Consequences:** + The level parameter now does what every surface reading
+  this API will assume it does. + The address is treated as untrusted input
+  rather than as a serialization of trusted state. − `_at_level` walks the
+  containment tree per projection, which is linear in the subtree and will need
+  an index when a subsystem carries thousands of entities at one level.
+  − Sectioning is now visibly unimplemented rather than invisibly wrong, which
+  is a worse-looking and more accurate state.
+- **Reversibility:** high.
+- **Affects:** PRD_FR_Navigation, PRD_FR_Spatial_Representation, MANIFEST.md
+- **Supersedes:** none
