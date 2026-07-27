@@ -172,7 +172,11 @@ class EvidenceService:
             population=c.population, conditions=c.conditions,
             date_asserted=c.date_asserted, limitations=c.limitations,
             conflicts_with=c.conflicts_with, assigned_by=c.assigned_by,
-            reviewed_by_human=c.assigned_by.startswith('human:'),
+            # Derived from the review state rather than from the shape of the
+            # assigner string. Inferring review from an identifier prefix is
+            # how a fabricated `human:` name passed for a review (D-017);
+            # INV-17 keeps the two fields in agreement.
+            reviewed_by_human=c.is_reviewed,
             provenance_source=c.provenance_source)
 
     def class_is_supported(self, claim: Claim) -> bool:

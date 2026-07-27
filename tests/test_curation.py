@@ -513,3 +513,105 @@ class TestReviewCommands(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class TestProvisionalAdmission(unittest.TestCase):
+    """[FR-CUR-001] [D-017] — a third state, so content can exist unreviewed.
+
+    The state exists because this project fabricated a human reviewer twice.
+    These tests attack the ways it could become a back door into the reviewed
+    set: naming a human, carrying a class only a human may certify, or
+    downgrading something a human already approved.
+    """
+
+    def setUp(self):
+        self.svc = _service()
+        self.task = self.svc.submit(_proposal(payload={'id': 'CLM:x'}))
+
+    def test_an_agent_may_admit_provisionally(self):
+        record = self.svc.admit_provisional(
+            self.task.id, 'agent:anatomy', 'TA division, UBERON resolves')
+        self.assertTrue(record.id.startswith('PROV:'))
+        self.assertEqual('agent:anatomy', record.admitted_by)
+        self.assertFalse(record.as_dict()['reviewed'])
+        self.assertEqual('provisional', self.svc.tasks[self.task.id].state)
+
+    def test_a_human_may_not_admit_provisionally(self):
+        """The one thing this path must never do is manufacture a review."""
+        with self.assertRaises(CurationError) as ctx:
+            self.svc.admit_provisional(self.task.id, CARDIO, 'looks fine')
+        self.assertIn('fabricate the review', str(ctx.exception))
+
+    def test_an_anonymous_actor_may_not_admit(self):
+        for actor in ('', 'someone', 'system', 'admin'):
+            task = self.svc.submit(_proposal(pid=f'P{actor}',
+                                             payload={'id': f'C{actor}'}))
+            with self.assertRaises(CurationError, msg=actor):
+                self.svc.admit_provisional(task.id, actor, 'reason')
+
+    def test_provisional_content_is_not_in_the_approved_set(self):
+        self.svc.admit_provisional(self.task.id, 'agent:anatomy', 'reason')
+        self.assertEqual([], self.svc.accepted_payloads())
+        self.assertEqual(1, len(self.svc.provisional_payloads()))
+        self.assertFalse(self.svc.provisional_payloads()[0]['reviewed'])
+
+    def test_a_class_above_the_agent_ceiling_is_refused(self):
+        for cls in ('EVC-1', 'EVC-2'):
+            task = self.svc.submit(_proposal(
+                pid=f'P{cls}', payload={'id': f'C{cls}',
+                                        'evidence_class': cls}))
+            with self.assertRaises(CurationError, msg=cls) as ctx:
+                self.svc.admit_provisional(task.id, 'agent:evidence', 'reason')
+            self.assertIn('BR-002', str(ctx.exception))
+
+    def test_the_ceiling_looks_inside_a_nested_claim(self):
+        """Region proposals carry {entity, claim}; the class hides one level in."""
+        task = self.svc.submit(_proposal(
+            pid='Pnest', payload={'entity': {'id': 'X'},
+                                  'claim': {'evidence_class': 'EVC-2'}}))
+        with self.assertRaises(CurationError):
+            self.svc.admit_provisional(task.id, 'agent:anatomy', 'reason')
+
+    def test_a_permitted_class_passes_the_ceiling(self):
+        task = self.svc.submit(_proposal(
+            pid='Pok', payload={'id': 'Cok', 'evidence_class': 'EVC-4'}))
+        self.assertIsNotNone(
+            self.svc.admit_provisional(task.id, 'agent:evidence', 'reason'))
+
+    def test_reviewed_content_is_never_downgraded(self):
+        self.svc.accept(self.task.id, CARDIO, 'reviewed properly')
+        with self.assertRaises(CurationError) as ctx:
+            self.svc.admit_provisional(self.task.id, 'agent:anatomy', 'reason')
+        self.assertIn('never downgraded', str(ctx.exception))
+
+    def test_provisional_admission_is_not_a_way_around_a_rejection(self):
+        payload = {'id': 'CLM:refused'}
+        first = self.svc.submit(_proposal(pid='Pr1', payload=payload))
+        self.svc.reject(first.id, CARDIO, 'source is a preprint')
+        second = self.svc.submit(_proposal(pid='Pr2', payload=payload))
+        with self.assertRaises(CurationError) as ctx:
+            self.svc.admit_provisional(second.id, 'agent:evidence', 'reason')
+        self.assertIn('not a way around a decision', str(ctx.exception))
+
+    def test_admission_requires_a_recorded_reason(self):
+        with self.assertRaises(CurationError):
+            self.svc.admit_provisional(self.task.id, 'agent:anatomy', '  ')
+
+    def test_the_review_deficit_is_published_as_a_number(self):
+        """[FR-CUR-008] RSK-02 stops being a worry and becomes a count."""
+        self.svc.admit_provisional(self.task.id, 'agent:anatomy', 'reason')
+        self.svc.submit(_proposal(pid='Pq', payload={'id': 'Cq'}))
+        summary = self.svc.admission_summary()
+        self.assertEqual(0, summary['reviewed'])
+        self.assertEqual(1, summary['provisional'])
+        self.assertEqual(1, summary['queued'])
+        self.assertEqual(2, summary['review_deficit'])
+
+    def test_provisional_records_survive_a_restart(self):
+        import tempfile
+        self.svc.admit_provisional(self.task.id, 'agent:anatomy', 'reason')
+        path = os.path.join(tempfile.mkdtemp(), 'queue.json')
+        self.svc.save(path)
+        back = CurationService.load(path)
+        self.assertEqual(1, len(back.provisional_payloads()))
+        self.assertFalse(back.tasks[self.task.id].reviewed)

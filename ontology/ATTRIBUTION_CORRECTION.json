@@ -1,0 +1,251 @@
+{
+ "note": "Eighteen claims named a human reviewer who does not exist. This file records every field changed and why (D-017). It is append-only in spirit: a later correction adds a record, it does not edit this one.",
+ "decision": "D-017",
+ "corrected_on": "2026-07-27",
+ "claims_corrected": 18,
+ "claims_capped": 12,
+ "review_backlog": [
+  {
+   "claim": "CLM:heart-function-pump",
+   "asserted": "EVC-4",
+   "assessed": "EVC-2"
+  },
+  {
+   "claim": "CLM:heart-two-pumps-series",
+   "asserted": "EVC-4",
+   "assessed": "EVC-2"
+  },
+  {
+   "claim": "CLM:sarcomere-resting-length",
+   "asserted": "EVC-4",
+   "assessed": "EVC-2"
+  },
+  {
+   "claim": "CLM:region-head-boundary",
+   "asserted": "EVC-4",
+   "assessed": "EVC-2"
+  },
+  {
+   "claim": "CLM:region-neck-boundary",
+   "asserted": "EVC-4",
+   "assessed": "EVC-2"
+  },
+  {
+   "claim": "CLM:region-thorax-boundary",
+   "asserted": "EVC-4",
+   "assessed": "EVC-2"
+  },
+  {
+   "claim": "CLM:region-abdomen-boundary",
+   "asserted": "EVC-4",
+   "assessed": "EVC-2"
+  },
+  {
+   "claim": "CLM:region-pelvis-boundary",
+   "asserted": "EVC-4",
+   "assessed": "EVC-2"
+  },
+  {
+   "claim": "CLM:region-upper-limb-boundary",
+   "asserted": "EVC-4",
+   "assessed": "EVC-2"
+  },
+  {
+   "claim": "CLM:region-lower-limb-boundary",
+   "asserted": "EVC-4",
+   "assessed": "EVC-2"
+  },
+  {
+   "claim": "CLM:region-back-boundary",
+   "asserted": "EVC-4",
+   "assessed": "EVC-2"
+  },
+  {
+   "claim": "CLM:region-trunk-boundary",
+   "asserted": "EVC-4",
+   "assessed": "EVC-2"
+  }
+ ],
+ "changes": [
+  {
+   "claim": "CLM:heart-function-pump",
+   "file": "ontology/cardiovascular/claims.json",
+   "was_assigned_by": "human:reviewer-cardio-01",
+   "now_assigned_by": "agent:evidence",
+   "was_class": "EVC-2",
+   "now_class": "EVC-4",
+   "proposed_class": "EVC-2",
+   "reason": "Assessed at EVC-2 by an automated actor from two independent admissible sources. BR-002 forbids an agent assigning EVC-1 or EVC-2, and BIO_Evidence_and_Provenance §Pipeline says the canonical graph admits nothing unreviewed at those classes. Asserted at EVC-4 (a deliberate simplification, which each claim's limitations field already states) with the EVC-2 assessment retained as proposed_class pending curator review."
+  },
+  {
+   "claim": "CLM:heart-two-pumps-series",
+   "file": "ontology/cardiovascular/claims.json",
+   "was_assigned_by": "human:reviewer-cardio-01",
+   "now_assigned_by": "agent:evidence",
+   "was_class": "EVC-2",
+   "now_class": "EVC-4",
+   "proposed_class": "EVC-2",
+   "reason": "Assessed at EVC-2 by an automated actor from two independent admissible sources. BR-002 forbids an agent assigning EVC-1 or EVC-2, and BIO_Evidence_and_Provenance §Pipeline says the canonical graph admits nothing unreviewed at those classes. Asserted at EVC-4 (a deliberate simplification, which each claim's limitations field already states) with the EVC-2 assessment retained as proposed_class pending curator review."
+  },
+  {
+   "claim": "CLM:myocardium-fibre-architecture",
+   "file": "ontology/cardiovascular/claims.json",
+   "was_assigned_by": "human:reviewer-cardio-01",
+   "now_assigned_by": "agent:evidence",
+   "was_class": "EVC-8",
+   "now_class": "EVC-8",
+   "proposed_class": null,
+   "reason": "Class unchanged — already within the class an automated actor may assert. Only the fabricated reviewer attribution was corrected."
+  },
+  {
+   "claim": "CLM:sarcomere-resting-length",
+   "file": "ontology/cardiovascular/claims.json",
+   "was_assigned_by": "human:reviewer-cardio-01",
+   "now_assigned_by": "agent:evidence",
+   "was_class": "EVC-2",
+   "now_class": "EVC-4",
+   "proposed_class": "EVC-2",
+   "reason": "Assessed at EVC-2 by an automated actor from two independent admissible sources. BR-002 forbids an agent assigning EVC-1 or EVC-2, and BIO_Evidence_and_Provenance §Pipeline says the canonical graph admits nothing unreviewed at those classes. Asserted at EVC-4 (a deliberate simplification, which each claim's limitations field already states) with the EVC-2 assessment retained as proposed_class pending curator review."
+  },
+  {
+   "claim": "CLM:cytosolic-ca-diastolic",
+   "file": "ontology/cardiovascular/claims.json",
+   "was_assigned_by": "human:reviewer-cardio-01",
+   "now_assigned_by": "agent:evidence",
+   "was_class": "EVC-3",
+   "now_class": "EVC-3",
+   "proposed_class": null,
+   "reason": "Class unchanged — already within the class an automated actor may assert. Only the fabricated reviewer attribution was corrected."
+  },
+  {
+   "claim": "CLM:cytosolic-ca-systolic",
+   "file": "ontology/cardiovascular/claims.json",
+   "was_assigned_by": "human:reviewer-cardio-01",
+   "now_assigned_by": "agent:evidence",
+   "was_class": "EVC-3",
+   "now_class": "EVC-3",
+   "proposed_class": null,
+   "reason": "Class unchanged — already within the class an automated actor may assert. Only the fabricated reviewer attribution was corrected."
+  },
+  {
+   "claim": "CLM:cross-bridge-cycle-duration",
+   "file": "ontology/cardiovascular/claims.json",
+   "was_assigned_by": "human:reviewer-cardio-01",
+   "now_assigned_by": "agent:evidence",
+   "was_class": "EVC-4",
+   "now_class": "EVC-4",
+   "proposed_class": null,
+   "reason": "Class unchanged — already within the class an automated actor may assert. Only the fabricated reviewer attribution was corrected."
+  },
+  {
+   "claim": "CLM:cross-bridge-atp-stoichiometry",
+   "file": "ontology/cardiovascular/claims.json",
+   "was_assigned_by": "human:reviewer-cardio-01",
+   "now_assigned_by": "agent:evidence",
+   "was_class": "EVC-3",
+   "now_class": "EVC-3",
+   "proposed_class": null,
+   "reason": "Class unchanged — already within the class an automated actor may assert. Only the fabricated reviewer attribution was corrected."
+  },
+  {
+   "claim": "CLM:cardiomyocyte-regional-heterogeneity",
+   "file": "ontology/cardiovascular/claims.json",
+   "was_assigned_by": "human:reviewer-cardio-01",
+   "now_assigned_by": "agent:evidence",
+   "was_class": "EVC-8",
+   "now_class": "EVC-8",
+   "proposed_class": null,
+   "reason": "Class unchanged — already within the class an automated actor may assert. Only the fabricated reviewer attribution was corrected."
+  },
+  {
+   "claim": "CLM:region-head-boundary",
+   "file": "ontology/regions/claims.json",
+   "was_assigned_by": "human:anatomy-reviewer-01",
+   "now_assigned_by": "agent:anatomy",
+   "was_class": "EVC-2",
+   "now_class": "EVC-4",
+   "proposed_class": "EVC-2",
+   "reason": "Assessed at EVC-2 by an automated actor from two independent admissible sources. BR-002 forbids an agent assigning EVC-1 or EVC-2, and BIO_Evidence_and_Provenance §Pipeline says the canonical graph admits nothing unreviewed at those classes. Asserted at EVC-4 (a deliberate simplification, which each claim's limitations field already states) with the EVC-2 assessment retained as proposed_class pending curator review."
+  },
+  {
+   "claim": "CLM:region-neck-boundary",
+   "file": "ontology/regions/claims.json",
+   "was_assigned_by": "human:anatomy-reviewer-01",
+   "now_assigned_by": "agent:anatomy",
+   "was_class": "EVC-2",
+   "now_class": "EVC-4",
+   "proposed_class": "EVC-2",
+   "reason": "Assessed at EVC-2 by an automated actor from two independent admissible sources. BR-002 forbids an agent assigning EVC-1 or EVC-2, and BIO_Evidence_and_Provenance §Pipeline says the canonical graph admits nothing unreviewed at those classes. Asserted at EVC-4 (a deliberate simplification, which each claim's limitations field already states) with the EVC-2 assessment retained as proposed_class pending curator review."
+  },
+  {
+   "claim": "CLM:region-thorax-boundary",
+   "file": "ontology/regions/claims.json",
+   "was_assigned_by": "human:anatomy-reviewer-01",
+   "now_assigned_by": "agent:anatomy",
+   "was_class": "EVC-2",
+   "now_class": "EVC-4",
+   "proposed_class": "EVC-2",
+   "reason": "Assessed at EVC-2 by an automated actor from two independent admissible sources. BR-002 forbids an agent assigning EVC-1 or EVC-2, and BIO_Evidence_and_Provenance §Pipeline says the canonical graph admits nothing unreviewed at those classes. Asserted at EVC-4 (a deliberate simplification, which each claim's limitations field already states) with the EVC-2 assessment retained as proposed_class pending curator review."
+  },
+  {
+   "claim": "CLM:region-abdomen-boundary",
+   "file": "ontology/regions/claims.json",
+   "was_assigned_by": "human:anatomy-reviewer-01",
+   "now_assigned_by": "agent:anatomy",
+   "was_class": "EVC-2",
+   "now_class": "EVC-4",
+   "proposed_class": "EVC-2",
+   "reason": "Assessed at EVC-2 by an automated actor from two independent admissible sources. BR-002 forbids an agent assigning EVC-1 or EVC-2, and BIO_Evidence_and_Provenance §Pipeline says the canonical graph admits nothing unreviewed at those classes. Asserted at EVC-4 (a deliberate simplification, which each claim's limitations field already states) with the EVC-2 assessment retained as proposed_class pending curator review."
+  },
+  {
+   "claim": "CLM:region-pelvis-boundary",
+   "file": "ontology/regions/claims.json",
+   "was_assigned_by": "human:anatomy-reviewer-01",
+   "now_assigned_by": "agent:anatomy",
+   "was_class": "EVC-2",
+   "now_class": "EVC-4",
+   "proposed_class": "EVC-2",
+   "reason": "Assessed at EVC-2 by an automated actor from two independent admissible sources. BR-002 forbids an agent assigning EVC-1 or EVC-2, and BIO_Evidence_and_Provenance §Pipeline says the canonical graph admits nothing unreviewed at those classes. Asserted at EVC-4 (a deliberate simplification, which each claim's limitations field already states) with the EVC-2 assessment retained as proposed_class pending curator review."
+  },
+  {
+   "claim": "CLM:region-upper-limb-boundary",
+   "file": "ontology/regions/claims.json",
+   "was_assigned_by": "human:anatomy-reviewer-01",
+   "now_assigned_by": "agent:anatomy",
+   "was_class": "EVC-2",
+   "now_class": "EVC-4",
+   "proposed_class": "EVC-2",
+   "reason": "Assessed at EVC-2 by an automated actor from two independent admissible sources. BR-002 forbids an agent assigning EVC-1 or EVC-2, and BIO_Evidence_and_Provenance §Pipeline says the canonical graph admits nothing unreviewed at those classes. Asserted at EVC-4 (a deliberate simplification, which each claim's limitations field already states) with the EVC-2 assessment retained as proposed_class pending curator review."
+  },
+  {
+   "claim": "CLM:region-lower-limb-boundary",
+   "file": "ontology/regions/claims.json",
+   "was_assigned_by": "human:anatomy-reviewer-01",
+   "now_assigned_by": "agent:anatomy",
+   "was_class": "EVC-2",
+   "now_class": "EVC-4",
+   "proposed_class": "EVC-2",
+   "reason": "Assessed at EVC-2 by an automated actor from two independent admissible sources. BR-002 forbids an agent assigning EVC-1 or EVC-2, and BIO_Evidence_and_Provenance §Pipeline says the canonical graph admits nothing unreviewed at those classes. Asserted at EVC-4 (a deliberate simplification, which each claim's limitations field already states) with the EVC-2 assessment retained as proposed_class pending curator review."
+  },
+  {
+   "claim": "CLM:region-back-boundary",
+   "file": "ontology/regions/claims.json",
+   "was_assigned_by": "human:anatomy-reviewer-01",
+   "now_assigned_by": "agent:anatomy",
+   "was_class": "EVC-2",
+   "now_class": "EVC-4",
+   "proposed_class": "EVC-2",
+   "reason": "Assessed at EVC-2 by an automated actor from two independent admissible sources. BR-002 forbids an agent assigning EVC-1 or EVC-2, and BIO_Evidence_and_Provenance §Pipeline says the canonical graph admits nothing unreviewed at those classes. Asserted at EVC-4 (a deliberate simplification, which each claim's limitations field already states) with the EVC-2 assessment retained as proposed_class pending curator review."
+  },
+  {
+   "claim": "CLM:region-trunk-boundary",
+   "file": "ontology/regions/claims.json",
+   "was_assigned_by": "human:anatomy-reviewer-01",
+   "now_assigned_by": "agent:anatomy",
+   "was_class": "EVC-2",
+   "now_class": "EVC-4",
+   "proposed_class": "EVC-2",
+   "reason": "Assessed at EVC-2 by an automated actor from two independent admissible sources. BR-002 forbids an agent assigning EVC-1 or EVC-2, and BIO_Evidence_and_Provenance §Pipeline says the canonical graph admits nothing unreviewed at those classes. Asserted at EVC-4 (a deliberate simplification, which each claim's limitations field already states) with the EVC-2 assessment retained as proposed_class pending curator review."
+  }
+ ]
+}

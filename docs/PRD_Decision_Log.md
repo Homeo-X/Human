@@ -601,3 +601,102 @@ get entries._
 - **Reversibility:** high.
 - **Affects:** PRD_FR_Navigation, PRD_FR_Spatial_Representation, MANIFEST.md
 - **Supersedes:** none
+
+### D-017 — Provisional admission, and eighteen fabricated reviews (2026-07-27, orchestrator)
+- **Status:** active
+- **Context:** D-013 recorded the seed corpus being attributed to a fabricated
+  `human:reviewer-seed-01`, and corrected it. Three days later this project
+  shipped nine cardiovascular claims attributed to `human:reviewer-cardio-01`
+  and nine regional claims attributed to `human:anatomy-reviewer-01`. Neither
+  reviewer exists. Twelve of the eighteen sat at EVC-2 — a class BR-002 forbids
+  any automated actor from assigning, and which
+  `BIO_Evidence_and_Provenance` §Pipeline says the canonical graph never admits
+  unreviewed. The same defect was therefore committed twice, the second time by
+  the process that wrote the rule against it, and it was found only because a
+  request to grow the substrate to L3 breadth would have multiplied it by a
+  hundred.
+- **Decision:** Two changes, one corrective and one structural.
+  **Corrective:** `tools/correct_attribution.py` re-attributes all eighteen
+  claims to the agents that actually produced them (`agent:evidence`,
+  `agent:anatomy`), sets `review_state: provisional`, and caps every EVC-1/EVC-2
+  assignment at EVC-4 — retaining the agent's assessment in a new
+  `proposed_class` field rather than discarding it. The audit is written to
+  `ontology/ATTRIBUTION_CORRECTION.json`, listing every field changed and why.
+  The regrade is not a claim that the biology is weaker: `CLM:heart-function-pump`
+  cites Gray's and Guyton and the evidence really does support EVC-2. What was
+  missing is a curator, not a source, so the twelve capped claims are now a
+  *list* — the review backlog, per claim.
+  **Structural:** a third admission state. `CurationService.admit_provisional`
+  admits content nobody reviewed, refusing any `human:` actor (the one thing
+  this path must never do is manufacture the review it substitutes for),
+  refusing any class above EVC-3, refusing to downgrade anything already
+  approved, and refusing to bypass a rejection. `Entity.review_state` and
+  `Claim.review_state` default to `provisional`, so a record that says nothing
+  about its review is treated as unreviewed. `accepted_payloads()` keeps its
+  old meaning exactly; `provisional_payloads()` is separate. `INV-17` enforces
+  all of it, with four negative tests.
+- **Alternatives:**
+  - Keep the EVC-2 classes and only fix the attribution — rejected_because: the
+    pipeline document is explicit that unreviewed content is not admitted at
+    those classes, and a rule enforced everywhere except on our own content is
+    not a rule.
+  - Drop the capped claims entirely — rejected_because: the evidence exists and
+    the sources are real; deleting them would lose work and understate the
+    model, which is the opposite failure and no more honest.
+  - Let provisional content simply be `narrative` — rejected_because:
+    compilation status and review status are orthogonal. A well-typed,
+    structured entity nobody has reviewed is a real and common state, and
+    collapsing the two axes would make one of them meaningless.
+- **Consequences:** + The substrate now truthfully reports **zero reviewed
+  entities, zero reviewed claims, zero EVC-1 and zero EVC-2**. + The review
+  deficit is a published number rather than a risk-register sentence, which is
+  the first time RSK-02 has been measurable. + Content can grow without
+  fabricating reviewers. − Every downstream consumer must now distinguish
+  populated from reviewed, and eight existing tests asserted the old values.
+  − No causal relation can be typed in this release, because `causes` requires
+  EVC-2 and nothing reaches it; that is a real capability loss and it is
+  correct.
+- **Reversibility:** low for the corrective half — the claims should never
+  return to a fabricated attribution. High for the mechanism.
+- **Affects:** ontology/cardiovascular/claims.json, ontology/regions/claims.json,
+  src/homeo/curation.py, src/homeo/substrate.py, src/homeo/evidence.py,
+  tools/biocheck.py, BIO_Validation_Framework, PRD_FR_Curation, PRD_FR_Evidence
+- **Supersedes:** none — extends D-013 rather than replacing it
+
+### D-018 — Coverage is measured against occupiable levels (2026-07-27, architect)
+- **Status:** active
+- **Context:** `coverage()` built one cell per level from L0 to a subsystem's
+  declared depth, so every organ system was charged with L0 (the whole
+  organism) and L1 (an anatomical region) — levels an organ system cannot
+  occupy, because the organism and its regions belong to `whole-organism` by
+  construction. Of the 42 unmet declarations the project published, **24 were
+  structurally impossible to meet**. RSK-04 anticipates that honest coverage
+  reporting makes the product look worse than competitors reporting bare
+  percentages; this made it look worse than honest, which is a different
+  failure and not a virtue.
+- **Decision:** Coverage cells carry `excluded` with a stated reason for levels
+  a subsystem cannot occupy, and those cells are reported as excluded rather
+  than unmet. `SUBSYSTEM_FLOOR` records the shallowest level each subsystem can
+  hold (L0 for `whole-organism`, L2 for every organ system, since an organ
+  system *is* an L2 entity). The summary reports `occupiable_levels` alongside
+  `declared_levels`, and every cell now carries `reviewed` beside `populated`
+  so breadth cannot inflate the figure that matters (D-017).
+- **Alternatives:**
+  - Redeclare each subsystem's depth as a range in `declared_depth.json` —
+    rejected_because: depth answers "how deep does this go", and overloading it
+    with a floor would make a widely-read file mean two things.
+  - Leave the metric pessimistic on the grounds that understating is safe —
+    rejected_because: a metric that is wrong in a comfortable direction still
+    cannot be used to steer, and it invites the eventual correction to be read
+    as a retune.
+- **Consequences:** + Unmet declarations drop from 42 to 18, and all 18 are
+  real gaps someone could close. + The corrected denominator makes the Phase 1
+  exit criterion (G-01 at 90% of declared L0–L3 scope) measurable against
+  something achievable. − Two published figures change, and any external
+  comparison against the old numbers is invalid. − `shallowest_level` is a
+  small table that must be extended whenever a subsystem of a genuinely
+  different shape is added.
+- **Reversibility:** high.
+- **Affects:** src/homeo/scale.py, src/homeo/cli.py, src/homeo/evidence.py,
+  BIO_Scale_Contract, MANIFEST.md, PRD_FR_Scale_Bridging
+- **Supersedes:** none

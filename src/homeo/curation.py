@@ -26,11 +26,17 @@ import json
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 
-TASK_STATES = ('queued', 'in_review', 'accepted', 'rejected', 'blocked',
-               'escalated')
+TASK_STATES = ('queued', 'in_review', 'accepted', 'provisional', 'rejected',
+               'blocked', 'escalated')
 # Kinds of change that reach canonical content. Each needs an Approval.
 CHANGE_KINDS = ('entity', 'claim', 'relationship', 'process', 'promotion',
                 'retype', 'adjudication')
+
+# The strongest class an automated actor may put into the substrate. BR-002
+# forbids agents at EVC-1 and EVC-2 at the point of proposal; this is the same
+# ceiling enforced again at the point of admission, because an admission path
+# that trusted the proposal path would inherit its bugs.
+PROVISIONAL_CLASS_CEILING = 'EVC-3'
 
 
 def _now() -> str:
@@ -136,14 +142,59 @@ class Approval:
 
 
 @dataclass
+class ProvisionalAdmission:
+    """Content admitted to the substrate that **no human has reviewed**.
+
+    Deliberately not an `Approval`, and deliberately not a subclass of one. The
+    two are different facts and the type system should not let a caller confuse
+    them: an Approval names a human who was competent to give it, and this
+    names an agent and the absence of that human.
+
+    Provisional content exists because the alternative was worse. Growing the
+    substrate in an environment with no domain reviewers left three options —
+    fabricate a reviewer (which D-013 exists to forbid, and which this project
+    did anyway to nine anatomical regions), stay empty, or admit content that
+    says plainly what it is. This is the third.
+
+    It is not a weaker approval and it never becomes one by ageing. A human
+    review of provisional content produces an Approval and moves the record;
+    nothing promotes on a timer or by accumulation of readers.
+    """
+    id: str
+    task_id: str
+    admitted_by: str                   # an agent: identity, never a human
+    kind: str
+    payload_digest: str
+    evidence_ceiling: str = PROVISIONAL_CLASS_CEILING
+    at: str = field(default_factory=_now)
+    statement: str = (
+        'Admitted without human review. This content is visible and queryable '
+        'because absence would be its own distortion, but no domain expert has '
+        'examined it and it is excluded from every reviewed-coverage figure.')
+
+    def as_dict(self) -> dict:
+        return {'id': self.id, 'task': self.task_id,
+                'admitted_by': self.admitted_by, 'kind': self.kind,
+                'payload_digest': self.payload_digest,
+                'evidence_ceiling': self.evidence_ceiling, 'at': self.at,
+                'reviewed': False, 'statement': self.statement}
+
+
+@dataclass
 class Task:
     id: str
     proposal: Proposal
     state: str = 'queued'
     reviews: list[Review] = field(default_factory=list)
     approval: Approval | None = None
+    provisional: ProvisionalAdmission | None = None
     blocked_reason: str = ''
     held_by: str | None = None
+
+    @property
+    def reviewed(self) -> bool:
+        """The single question every consumer of this record needs answered."""
+        return self.approval is not None
 
     def as_dict(self) -> dict:
         return {
@@ -154,6 +205,9 @@ class Task:
             'derivation': self.proposal.derivation,
             'reviews': [r.as_dict() for r in self.reviews],
             'approval': self.approval.as_dict() if self.approval else None,
+            'provisional': (self.provisional.as_dict() if self.provisional
+                            else None),
+            'reviewed': self.reviewed,
             'blocked_reason': self.blocked_reason,
             'held_by': self.held_by,
         }
@@ -281,6 +335,67 @@ class CurationService:
             payload_digest=digest(task.proposal.payload))
         task.state = 'accepted'
         return task.approval
+
+    def admit_provisional(self, task_id: str, actor: str,
+                          reason: str) -> ProvisionalAdmission:
+        """Admit content that no human has reviewed, saying so (D-017).
+
+        The refusals here are the whole point. An actor that looks human is
+        refused, because the one thing this path must never do is manufacture
+        the review it exists to substitute for. An evidence class above the
+        agent ceiling is refused, because provisional content that claimed to
+        be measured would be worse than no content. And a task that already
+        carries an Approval is refused, because downgrading reviewed content to
+        unreviewed would silently discard a human's work.
+        """
+        task = self._task(task_id)
+        if actor.startswith('human:'):
+            raise CurationError(
+                f'{actor} looks like a human reviewer. Provisional admission '
+                f'is the path for content nobody reviewed; a human decision '
+                f'goes through accept() and produces an Approval. Recording a '
+                f'human here would fabricate the review this path exists to '
+                f'do without (D-013, D-017)')
+        if not actor.startswith('agent:'):
+            raise CurationError(
+                f'provisional admission requires an agent: identity naming '
+                f'what produced the content; got {actor!r}')
+        if task.approval is not None:
+            raise CurationError(
+                f'{task_id} carries an Approval from {task.approval.reviewer}; '
+                f'reviewed content is never downgraded to provisional')
+        if task.state in ('rejected', 'blocked'):
+            raise CurationError(
+                f'{task_id} is {task.state}: {task.blocked_reason or "rejected"}. '
+                f'Provisional admission is not a way around a decision')
+        if not reason.strip():
+            raise CurationError(
+                'provisional admission requires a recorded reason: a reader '
+                'must be able to see why unreviewed content was admitted')
+
+        cls = self._payload_class(task.proposal.payload)
+        if cls is not None and cls < PROVISIONAL_CLASS_CEILING:
+            raise CurationError(
+                f'{task_id} carries evidence class {cls}, stronger than the '
+                f'{PROVISIONAL_CLASS_CEILING} ceiling for unreviewed content. '
+                f'{cls} asserts a standard of evidence only a human reviewer '
+                f'may certify (BR-002)')
+
+        task.provisional = ProvisionalAdmission(
+            id=self._next_id('PROV'), task_id=task.id, admitted_by=actor,
+            kind=task.proposal.kind,
+            payload_digest=digest(task.proposal.payload))
+        task.reviews.append(Review(actor, 'provisional', reason))
+        task.state = 'provisional'
+        return task.provisional
+
+    @staticmethod
+    def _payload_class(payload: dict) -> str | None:
+        """The evidence class a payload asserts, wherever it carries one."""
+        for candidate in (payload, payload.get('claim') or {}):
+            if isinstance(candidate, dict) and candidate.get('evidence_class'):
+                return candidate['evidence_class']
+        return None
 
     def reject(self, task_id: str, reviewer: str, reason: str) -> Task:
         """Reject with a reason that persists against the proposal (FR-CUR-003)."""
@@ -447,6 +562,13 @@ class CurationService:
                 task.approval = Approval(appr['id'], appr['task'],
                                          appr['reviewer'], appr['kind'],
                                          appr['payload_digest'], appr['at'])
+            prov = row.get('provisional')
+            if prov:
+                task.provisional = ProvisionalAdmission(
+                    prov['id'], prov['task'], prov['admitted_by'],
+                    prov['kind'], prov['payload_digest'],
+                    prov.get('evidence_ceiling', PROVISIONAL_CLASS_CEILING),
+                    prov['at'])
             svc.tasks[task.id] = task
         svc._rejections = {k: [tuple(v) for v in vs]
                            for k, vs in data.get('rejections', {}).items()}
@@ -456,13 +578,50 @@ class CurationService:
         return [t.approval for t in self.tasks.values() if t.approval]
 
     def accepted_payloads(self, kind: str | None = None) -> list[dict]:
-        """Content cleared for canonical admission — approval-gated by
-        construction, since only accepted tasks carry one."""
+        """Content cleared by a human — approval-gated by construction.
+
+        Its meaning is unchanged by the introduction of provisional admission,
+        and that is deliberate: every existing caller keeps returning exactly
+        what it returned before. A new state must never widen an old accessor,
+        because the callers were written against the old meaning and will not
+        be re-read.
+        """
         out = []
         for t in self.tasks.values():
             if t.state == 'accepted' and t.approval is not None:
                 if kind is None or t.proposal.kind == kind:
                     out.append({'payload': t.proposal.payload,
                                 'approval': t.approval.as_dict(),
-                                'task': t.id})
+                                'task': t.id, 'reviewed': True})
         return out
+
+    def provisional_payloads(self, kind: str | None = None) -> list[dict]:
+        """Content admitted without human review. A separate accessor by design."""
+        out = []
+        for t in self.tasks.values():
+            if t.state == 'provisional' and t.provisional is not None:
+                if kind is None or t.proposal.kind == kind:
+                    out.append({'payload': t.proposal.payload,
+                                'provisional': t.provisional.as_dict(),
+                                'task': t.id, 'reviewed': False})
+        return out
+
+    def admission_summary(self) -> dict:
+        """Reviewed against unreviewed — the RSK-02 deficit, in units.
+
+        Until now the review-capacity risk was an assertion in a risk register.
+        The gap between these two numbers is what it actually costs, and it is
+        published rather than inferred.
+        """
+        reviewed = sum(1 for t in self.tasks.values() if t.reviewed)
+        provisional = sum(1 for t in self.tasks.values()
+                          if t.state == 'provisional')
+        return {
+            'reviewed': reviewed, 'provisional': provisional,
+            'queued': self.queue_depth(),
+            'review_deficit': provisional + self.queue_depth(),
+            'note': ('`review_deficit` is the count of admitted-or-waiting '
+                     'records that no domain expert has examined. It is the '
+                     'RSK-02 backlog expressed as a number rather than as a '
+                     'concern.'),
+        }

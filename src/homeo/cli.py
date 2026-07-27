@@ -212,16 +212,30 @@ def main(argv: list[str] | None = None) -> int:
     svc = Service(args.substrate, release=args.release)
     if args.command == 'coverage' and args.table:
         rows = svc.scale.coverage(args.subsystem)
-        print('COVERAGE — populated against declared depth')
+        print('COVERAGE — populated (reviewed) against declared depth')
         for row in rows:
-            cells = ' '.join(f'L{c.level}:{c.populated}' for c in row.cells)
+            cells = ' '.join(
+                f'L{c.level}:--' if c.excluded
+                else f'L{c.level}:{c.populated}({c.reviewed})'
+                for c in row.cells)
             unmet = (('  UNPOPULATED: '
                       + ', '.join(f'L{n}' for n in row.unmet_levels))
                      if row.unmet_levels else '')
             print(f'  {row.subsystem:<18} declared L{row.declared_depth}  '
                   f'{cells}{unmet}')
-        print('\nA declared level with zero entities is an unmet declaration,')
-        print('and is shown rather than implied.')
+        summary = svc.scale.coverage_summary()
+        print(f'\n{summary["populated_entities"]} entities across '
+              f'{summary["occupiable_levels"]} occupiable levels; '
+              f'{summary["reviewed_entities"]} reviewed, '
+              f'{summary["unreviewed_entities"]} not.')
+        print('A declared level with zero entities is an unmet declaration and '
+              'is shown rather than implied.')
+        print('`--` marks a level the subsystem cannot occupy: an organ system '
+              'has no L0 or L1 content,')
+        print('because the organism and its regions are not cardiovascular or '
+              'digestive. Those were never')
+        print('promises, so counting them unmet reported worse than the truth '
+              '(D-018).')
         return 0
 
     dispatch_map = {

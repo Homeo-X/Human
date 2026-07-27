@@ -56,6 +56,7 @@ class ProjectedEntity:
     evidence_classes: tuple[str, ...] = ()
     weakest_class: str | None = None
     unknown_claims: int = 0
+    review_state: str = 'provisional'
     address: str = ''
     note: str = ''
 
@@ -72,6 +73,8 @@ class ProjectedEntity:
             'evidence_classes': list(self.evidence_classes),
             'weakest_class': self.weakest_class,
             'unknown_claims': self.unknown_claims,
+            'review_state': self.review_state,
+            'reviewed': self.review_state == 'reviewed',
             'address': self.address, 'note': self.note,
         }
 
@@ -325,6 +328,7 @@ class ProjectionService:
             # neither (CH-06).
             weakest_class=max(classes) if classes else None,
             unknown_claims=sum(1 for c in claims if c.is_unknown),
+            review_state=(entity.review_state if entity else 'provisional'),
             address=encode(ViewState(
                 entity=entity_id,
                 level=(entity.shallowest_level if entity else state.level),

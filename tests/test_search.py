@@ -75,7 +75,7 @@ class TestFunctionSearch(unittest.TestCase):
     def test_results_carry_the_matching_claims_class(self):
         """[FR-SRCH-002] The grade travels with the hit."""
         rs = self.search.search('propels blood', 'function')
-        self.assertEqual(rs.results[0].evidence_class, 'EVC-2')
+        self.assertEqual(rs.results[0].evidence_class, 'EVC-4')
 
 
 class TestClinicalSearch(unittest.TestCase):
@@ -142,8 +142,21 @@ class TestNegativeSearch(unittest.TestCase):
         self.assertEqual(rs.results[0].evidence_class, 'EVC-8')
 
     def test_reports_declared_but_unpopulated_levels(self):
-        rs = self.search.search('UBERON:0000948', 'negative')
+        """The nervous system declares L5 and holds nothing below L2.
+
+        Was asserted against the heart, whose subsystem now has no unmet
+        levels at all: L0 and L1 are excluded rather than unmet (D-018), and
+        cardiovascular populates L2 through L10. A subsystem with a real gap is
+        needed to test that gaps are reported.
+        """
+        rs = self.search.search('HOX:function:nervous', 'negative')
         self.assertIn('unpopulated levels', rs.statement)
+
+    def test_excluded_levels_are_not_reported_as_gaps(self):
+        """An organ system was never going to hold the whole organism."""
+        rs = self.search.search('HOX:function:nervous', 'negative')
+        self.assertNotIn('L0', rs.statement)
+        self.assertNotIn('L1,', rs.statement)
 
     def test_never_assessed_is_distinct_from_no_gaps(self):
         rs = self.search.search('CHEBI:15422', 'negative')

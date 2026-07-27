@@ -1,7 +1,7 @@
 ---
 doc: MANIFEST
 tier: light+
-version: 1.2.0
+version: 1.3.0
 status: draft
 owner: orchestrator
 last_updated: 2026-07-27
@@ -193,14 +193,14 @@ the vendored baseline and every delta applied, including the new `bio` profile.
 | Artifact | State |
 |---|---|
 | Specification set | 44 files in `docs/`, all `status: draft`, validating clean |
-| Decisions | D-001 … D-015, append-only, integrity-hashed |
+| Decisions | D-001 … D-018, append-only, integrity-hashed |
 | Rubric pass | 30 BRB items dispositioned; 3 flags raised, 2 applied, 1 carried to UX pass B by design |
 | Red team | 13 challenges; 8 accepted, 4 acknowledged, 1 refuted with evidence; 2 S1 escalated verbatim |
 | Schemas | 7 JSON Schemas in `schemas/` |
 | Substrate | 392 records: cardiovascular vertical slice spanning L0–L10 (15 entities, 9 claims, 19 relations, 1 process, 3 spatial identities) + 9 L1 region entities with 9 claims + 306 seed records. **Containment now runs unbroken L0→L1→L3→L4→L5→L6→L7→L8** — the regions were added through the curation path and the heart re-attached as `part_of` thorax and `member_of` the cardiovascular system (D-014). L2 is absent by design (membership, not containment); L9–L10 attach by participation (D-013) |
-| Evidence state | no EVC-1 claims exist: nothing has had domain review, and the two claims previously graded EVC-1 rested on reference texts, which the ladder forbids for that class (D-013) |
-| Invariants | INV-01 … INV-16; 15 executable, all fail when violated; INV-14 is runtime-enforced |
-| Coverage | published per subsystem per level; only cardiovascular has depth, and the matrix says so. 42 of 62 declared levels (68%) are empty |
+| Evidence state | **no EVC-1 or EVC-2 claims exist, and nothing is reviewed.** Eighteen claims named reviewers who do not exist; they are re-attributed to the agents that produced them and capped at EVC-4, with the agent's assessment retained in `proposed_class` (D-017). 12 claims are queued for a curator decision — the review backlog, per claim |
+| Invariants | INV-01 … INV-17; 16 executable, 20 negative tests, all fail when violated; INV-14 is runtime-enforced |
+| Coverage | published per subsystem per level, populated **and reviewed** separately. Only cardiovascular has depth, and the matrix says so. **18 of 39 occupiable levels are empty**; the previously published "42 of 62" charged every organ system with L0 and L1, which no organ system can occupy (D-018) |
 
 ## Implementation State (D-011)
 The substrate services are implemented in `src/homeo/`; the presentation layer

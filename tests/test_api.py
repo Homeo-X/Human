@@ -149,7 +149,7 @@ class TestStatusCodePosture(unittest.TestCase):
                       'assertions': [{'text': 'It propels blood.',
                                       'claims': ['CLM:heart-function-pump']}]})
         self.assertEqual(r.body['status'], 'grounded')
-        self.assertEqual(r.body['assertions'][0]['evidence_classes'], ['EVC-2'])
+        self.assertEqual(r.body['assertions'][0]['evidence_classes'], ['EVC-4'])
 
     def test_clinical_question_is_declined_at_200(self):
         """[FR-RETR-005] Declining is an answer, not an error."""

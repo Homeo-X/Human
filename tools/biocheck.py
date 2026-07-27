@@ -447,6 +447,52 @@ def check(data, ladder=None, minimums=None):
                               f'{p["id"]} at status {p["representation_status"]} depends on '
                               f'narrative {ref}'))
 
+    # INV-17 review-state integrity. The failure this guards against has now
+    # happened twice in this project's own history (D-013, D-017): content that
+    # no human examined, attributed to a human who does not exist, at a class
+    # only a human may certify. Each clause below is one of the ways that
+    # showed up.
+    for c in claims:
+        state = c.get('review_state', 'provisional')
+        assigner = c.get('assigned_by', '')
+        if state not in ('reviewed', 'provisional'):
+            f.append(('error', 'INV-17',
+                      f'{c["id"]}: review_state {state!r} is neither reviewed '
+                      f'nor provisional'))
+        if state == 'provisional' and assigner.startswith('human:'):
+            f.append(('error', 'INV-17',
+                      f'{c["id"]}: provisional but assigned_by {assigner} — an '
+                      f'unreviewed claim naming a human reviewer is a '
+                      f'fabricated review (D-013, D-017)'))
+        if state == 'reviewed' and not assigner.startswith('human:'):
+            f.append(('error', 'INV-17',
+                      f'{c["id"]}: marked reviewed but assigned_by {assigner!r} '
+                      f'names no human; review is something a person did'))
+        if state != 'reviewed' and c.get('evidence_class') in ('EVC-1', 'EVC-2'):
+            f.append(('error', 'INV-17',
+                      f'{c["id"]}: unreviewed at {c["evidence_class"]}. The '
+                      f'canonical graph admits nothing unreviewed at EVC-1 or '
+                      f'EVC-2 (BR-002, BIO_Evidence_and_Provenance §Pipeline). '
+                      f'Record the assessment in proposed_class instead'))
+        proposed = c.get('proposed_class')
+        if proposed and proposed > c.get('evidence_class', 'EVC-8'):
+            f.append(('error', 'INV-17',
+                      f'{c["id"]}: proposed_class {proposed} is weaker than the '
+                      f'asserted {c["evidence_class"]}. proposed_class records '
+                      f'an assessment awaiting confirmation, never a downgrade'))
+    for e in ents:
+        state = e.get('review_state', 'provisional')
+        if state not in ('reviewed', 'provisional'):
+            f.append(('error', 'INV-17',
+                      f'{e["id"]}: review_state {state!r} is neither reviewed '
+                      f'nor provisional'))
+        if state == 'reviewed' and not str(
+                e.get('admitted_by', '')).startswith(('human:', 'APPR:')):
+            f.append(('error', 'INV-17',
+                      f'{e["id"]}: marked reviewed with admitted_by '
+                      f'{e.get("admitted_by")!r} — a reviewed entity names the '
+                      f'approval or the human behind it'))
+
     # SCL completeness
     for s in scls:
         for fld in ('representation_mode', 'evidence_model', 'resolution_limit'):
@@ -533,9 +579,15 @@ SELFTESTS = [
     ('INV-13', 'an entity claiming enumerated at a typed level',
      lambda d: _find(d['entities'], 'id', 'CL:0000746')
                     .update({'representation_mode': 'enumerated'})),
+    # No EVC-2 claim survives in the substrate after D-017, so this one is
+    # constructed: a reviewed claim (which alone may sit at EVC-2) resting on a
+    # single source, which the ladder forbids at that class.
     ('INV-07', 'an EVC-2 claim reduced to a single source',
      lambda d: _find(d['claims'], 'id', 'CLM:sarcomere-resting-length')
-                    .update({'sources': [{'citation': 'one', 'identifier': 'DOI:1'}]})),
+                    .update({'evidence_class': 'EVC-2', 'review_state': 'reviewed',
+                             'assigned_by': 'human:reviewer-cardio-01',
+                             'proposed_class': None,
+                             'sources': [{'citation': 'one', 'identifier': 'DOI:1'}]})),
     ('INV-15', 'a mechanistic relationship pointing at a narrative endpoint',
      lambda d: d['relationships'].append(
          {'id': 'REL:bad15', 'source': 'CL:0000746',
@@ -543,6 +595,18 @@ SELFTESTS = [
           'compilation_status': 'mechanistic',
           'skip_justification': 'test fixture',
           'provenance_claim': 'CLM:heart-function-pump'})),
+    ('INV-17', 'an unreviewed claim attributed to a human reviewer',
+     lambda d: _find(d['claims'], 'id', 'CLM:heart-function-pump')
+                    .update({'assigned_by': 'human:reviewer-cardio-01'})),
+    ('INV-17', 'unreviewed content sitting at EVC-2',
+     lambda d: _find(d['claims'], 'id', 'CLM:region-thorax-boundary')
+                    .update({'evidence_class': 'EVC-2'})),
+    ('INV-17', 'an entity marked reviewed with no approval behind it',
+     lambda d: _find(d['entities'], 'id', 'UBERON:0000948')
+                    .update({'review_state': 'reviewed'})),
+    ('INV-17', 'a proposed_class weaker than the class asserted',
+     lambda d: _find(d['claims'], 'id', 'CLM:cytosolic-ca-diastolic')
+                    .update({'proposed_class': 'EVC-6'})),
 ]
 
 

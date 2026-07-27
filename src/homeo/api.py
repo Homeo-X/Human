@@ -92,6 +92,11 @@ class Service:
             # Never optional: status and grade are part of what a thing is here,
             # not metadata about it (FR-ONTO-006, FR-EVID-002).
             'compilation_status': e.compilation_status,
+            # Never optional either: whether a human checked this is part of
+            # what the record is, not metadata about it (D-017, INV-17).
+            'review_state': e.review_state,
+            'reviewed': e.is_reviewed,
+            'admitted_by': e.admitted_by,
             'representation_mode': e.representation_mode,
             'minted': e.minted, 'minted_reason': e.minted_reason,
             'synonyms': list(e.synonyms), 'xrefs': list(e.xrefs),
@@ -100,6 +105,9 @@ class Service:
             'claim_summary': {
                 'count': len(claims),
                 'classes': sorted({c.evidence_class for c in claims}),
+                'reviewed': sum(1 for c in claims if c.is_reviewed),
+                'awaiting_curator': sum(1 for c in claims
+                                        if c.awaiting_upgrade),
                 'unknown': sum(1 for c in claims if c.is_unknown)},
             'spatial_identity': (None if si is None else {
                 'id': si.id, 'coordinate_frame': si.coordinate_frame,

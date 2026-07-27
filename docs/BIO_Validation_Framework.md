@@ -31,6 +31,7 @@ that enforces it and the failure it produces; a rule with no check is a finding
 | INV-13 | Representation honesty | no entity claims a representation mode its level's `SCL` row does not offer; schematic geometry is flagged as schematic wherever it is bound | `biocheck --scale` | `entity <id> claims mode <m> unavailable at L<n>` | advisory |
 | INV-14 | Retrieval groundedness | every generated claim in a retrieval response resolves to a graph claim id; unresolvable content is refused, not rendered | runtime guard in PRD_FR_Knowledge_Retrieval, tested by EV-RETR-001 | `ungrounded assertion in response` | blocking |
 | INV-16 | Rule/checker agreement | the class table in `tools/biocheck.py` must agree with the EVC ladder in BIO_Evidence_and_Provenance; the document is the authority and the checker derives from it | `biocheck` (always, before any other check) | `INV-16 EVC-n: checker admits X but the document admits Y` | blocking |
+| INV-17 | Review-state integrity | every entity and claim declares `reviewed` or `provisional`; provisional content never names a `human:` assigner; reviewed content always does; nothing unreviewed sits at EVC-1 or EVC-2; a `proposed_class` is never weaker than the class asserted | `biocheck` (every run) | `INV-17 <id>: provisional but assigned_by human:… — an unreviewed claim naming a human reviewer is a fabricated review` | blocking |
 | INV-15 | Compilation-status coherence | a `mechanistic` or `parameterized` relationship or process may not depend on a `narrative` endpoint; status is a capability constraint, not only a label | `biocheck --status` | `INV-15 <id> at status <s> depends on narrative <ref>` | blocking |
 
 ## Validation Layers
@@ -125,6 +126,10 @@ that cannot fail is not a validator._
 | an entity claiming `enumerated` at a `typed` level | INV-13 | mode unavailable |
 | an EVC-2 claim reduced to a single source | INV-07 | insufficient independent sources |
 | the checker's class table edited to diverge from the ladder | INV-16 | rule/checker divergence |
+| an unreviewed claim attributed to a human reviewer | INV-17 | fabricated review |
+| unreviewed content sitting at EVC-2 | INV-17 | uncertified strong class |
+| an entity marked reviewed with no approval behind it | INV-17 | review asserted without a reviewer |
+| a `proposed_class` weaker than the class asserted | INV-17 | assessment used as a downgrade |
 | a mechanistic relationship pointing at a narrative endpoint | INV-15 | mixed compilation status |
 | a retrieval response asserting a claim with no graph id | INV-14 | ungrounded assertion |
 

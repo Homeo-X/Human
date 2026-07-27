@@ -31,6 +31,30 @@ def _svc():
     return g, s, EvidenceService(g, s)
 
 
+def _retype_fixture(**claim_fields):
+    """A substrate with one extra claim, for gates the real substrate cannot open.
+
+    Used where a test needs evidence stronger than anything the substrate
+    contains — which, after D-017, means anything a human certified. Building
+    it explicitly keeps the substrate honest and the gate testable at once.
+    """
+    from homeo.substrate import Claim
+    graph = Graph(load(SUBSTRATE))
+    base = dict(subject='HOX:function:autonomicregulation',
+                predicate='causes', object='cardiac cycle modulation',
+                source_type='primary research', species='Homo sapiens',
+                population='adult', date_asserted='2026-07-27',
+                limitations='fixture', assigned_by='human:curator-1',
+                sources=({'citation': 'a', 'identifier': 'DOI:1'},
+                         {'citation': 'b', 'identifier': 'DOI:2'}))
+    base.update(claim_fields)
+    base['id'] = base.pop('claim_id', base.get('id'))
+    graph.substrate.claims.append(Claim(**base))
+    graph = Graph(graph.substrate)
+    scale = ScaleService(graph)
+    return graph, PromotionService(graph, EvidenceService(graph, scale))
+
+
 class TestEntityClassification(unittest.TestCase):
     """[FR-ONTO-002] [FR-ONTO-003]"""
 
@@ -147,10 +171,38 @@ class TestRetyping(unittest.TestCase):
         self.assertTrue(any('contributes_to' in r for r in d.reasons))
 
     def test_causal_retype_on_a_strong_independent_claim_is_permitted(self):
-        d = self.svc.retype_association(
-            self.assoc, 'causes', 'human:curator-1',
-            'CLM:sarcomere-resting-length')             # EVC-2, independent
+        """[FR-REL-005] The gate opens for evidence that clears the bar.
+
+        After D-017 the substrate contains no EVC-2 claim at all — every class
+        an agent assigned was capped, and nothing has been reviewed. So the
+        qualifying claim is constructed here rather than borrowed. That is not
+        a workaround: it is the finding. **No causal relation can be typed in
+        this release**, because typing one requires evidence a human certified
+        and no human has certified anything. The gate is closed by the state of
+        the substrate, not by a defect.
+        """
+        graph, svc = _retype_fixture(
+            claim_id='CLM:reviewed-causal-evidence',
+            evidence_class='EVC-2', review_state='reviewed',
+            assigned_by='human:curator-1')
+        d = svc.retype_association(self.assoc, 'causes', 'human:curator-1',
+                                   'CLM:reviewed-causal-evidence')
         self.assertTrue(d.allowed, d.reasons)
+
+    def test_no_causal_relation_can_be_typed_in_this_release(self):
+        """[FR-REL-005] [D-017] The consequence, asserted rather than implied.
+
+        Every claim in the substrate is provisional and capped at EVC-3 or
+        weaker. `causes` needs EVC-2. So the count of claims that could support
+        a causal retype is zero, and that is worth failing loudly if it ever
+        silently changes — a claim reaching EVC-2 means a human reviewed it,
+        which is a substantive event.
+        """
+        qualifying = [c for c in self.svc.evidence.all_claims()
+                      if c.evidence_class <= 'EVC-2']
+        self.assertEqual([], qualifying,
+                         'a claim reached EVC-2; if a human reviewed it, this '
+                         'test should be updated deliberately')
 
     def test_demotion_to_association_is_refused(self):
         d = self.svc.retype_association(self.assoc, 'associated_with',
@@ -378,3 +430,57 @@ class TestTombstones(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class TestReviewState(unittest.TestCase):
+    """[D-017] [INV-17] — what the substrate honestly claims about itself.
+
+    These assert the *state*, not a mechanism: nothing here has been reviewed,
+    and every surface that could imply otherwise must agree. They exist because
+    the two mutations that survived an earlier round were both of this shape —
+    a default flipped, a count computed wrongly — and no test noticed, since
+    every other test asked about behaviour rather than about the substrate.
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        cls.graph, cls.scale, cls.ev = _svc()
+
+    def test_no_entity_in_this_release_is_reviewed(self):
+        reviewed = [e.id for e in self.graph.entities() if e.is_reviewed]
+        self.assertEqual([], reviewed,
+                         'an entity claims review; no domain expert has '
+                         'examined anything in this substrate')
+
+    def test_no_claim_in_this_release_is_reviewed(self):
+        reviewed = [c.id for c in self.ev.all_claims() if c.is_reviewed]
+        self.assertEqual([], reviewed)
+
+    def test_an_absent_review_state_reads_as_provisional(self):
+        """The safe default is the pessimistic one (INV-17)."""
+        for e in self.graph.entities():
+            self.assertEqual('provisional', e.review_state, e.id)
+
+    def test_coverage_reports_zero_reviewed_against_a_populated_matrix(self):
+        """[FR-SCAL-010] Breadth must not read as progress."""
+        summary = self.scale.coverage_summary()
+        self.assertGreater(summary['populated_entities'], 100)
+        self.assertEqual(0, summary['reviewed_entities'])
+        self.assertEqual(summary['populated_entities'],
+                         summary['unreviewed_entities'])
+
+    def test_coverage_excludes_levels_no_organ_system_can_occupy(self):
+        """[D-018] 24 of the 42 previously published unmet cells were these."""
+        summary = self.scale.coverage_summary()
+        self.assertEqual(24, summary['excluded_levels'])
+        self.assertEqual(18, summary['unmet_declarations'])
+        self.assertEqual(summary['declared_levels'] - summary['excluded_levels'],
+                         summary['occupiable_levels'])
+
+    def test_the_capped_claims_retain_the_assessment_awaiting_a_curator(self):
+        """[D-017] The backlog is a list, not a feeling."""
+        awaiting = [c for c in self.ev.all_claims() if c.awaiting_upgrade]
+        self.assertEqual(12, len(awaiting))
+        for claim in awaiting:
+            self.assertEqual('EVC-2', claim.proposed_class)
+            self.assertEqual('EVC-4', claim.evidence_class)

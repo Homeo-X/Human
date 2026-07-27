@@ -4,13 +4,13 @@
   "subject": "UBERON:0000948",
   "predicate": "has_function",
   "object": "Propels blood through the pulmonary and systemic circulations by rhythmic contraction",
-  "evidence_class": "EVC-2",
+  "evidence_class": "EVC-4",
   "source_type": "reference textbook",
   "species": "Homo sapiens",
   "population": "adult, healthy",
   "date_asserted": "2026-07-26",
   "limitations": "Describes the organ-level function only; regional wall-motion heterogeneity is not represented. Graded EVC-2 rather than EVC-1: the sources are reference texts in agreement, not independent human in-vivo measurement (D-013).",
-  "assigned_by": "human:reviewer-cardio-01",
+  "assigned_by": "agent:evidence",
   "sources": [
    {
     "citation": "Standring S (ed.), Gray's Anatomy, 42nd ed.",
@@ -23,20 +23,22 @@
     "licence_tier": "T2"
    }
   ],
-  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+  "review_state": "provisional",
+  "proposed_class": "EVC-2"
  },
  {
   "id": "CLM:heart-two-pumps-series",
   "subject": "UBERON:0000948",
   "predicate": "has_property",
   "object": "The right and left sides function as two pumps in series, not in parallel",
-  "evidence_class": "EVC-2",
+  "evidence_class": "EVC-4",
   "source_type": "reference textbook",
   "species": "Homo sapiens",
   "population": "adult, healthy",
   "date_asserted": "2026-07-26",
   "limitations": "A functional description; it does not capture ventricular interdependence through the shared septum. Graded EVC-2 rather than EVC-1: the sources are reference texts in agreement, not independent human in-vivo measurement (D-013).",
-  "assigned_by": "human:reviewer-cardio-01",
+  "assigned_by": "agent:evidence",
   "sources": [
    {
     "citation": "Standring S (ed.), Gray's Anatomy, 42nd ed.",
@@ -49,7 +51,9 @@
     "licence_tier": "T2"
    }
   ],
-  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)"
+  "provenance_source": "A Map of the Human Body (seed corpus, ingested 2026-07-26)",
+  "review_state": "provisional",
+  "proposed_class": "EVC-2"
  },
  {
   "id": "CLM:myocardium-fibre-architecture",
@@ -62,7 +66,8 @@
   "population": "adult",
   "date_asserted": "2026-07-26",
   "limitations": "This is an asserted gap, not missing data. The arrangement is documented in the literature; the model holds composition only, per SCL-05.",
-  "assigned_by": "human:reviewer-cardio-01"
+  "assigned_by": "agent:evidence",
+  "review_state": "provisional"
  },
  {
   "id": "CLM:sarcomere-resting-length",
@@ -72,13 +77,13 @@
    "min": 1.8,
    "max": 2.2
   },
-  "evidence_class": "EVC-2",
+  "evidence_class": "EVC-4",
   "source_type": "primary research",
   "species": "Homo sapiens",
   "population": "adult ventricular myocardium",
   "date_asserted": "2026-07-26",
   "limitations": "The Frank-Starling operating range. Values outside it occur but are not the reference range.",
-  "assigned_by": "human:reviewer-cardio-01",
+  "assigned_by": "agent:evidence",
   "sources": [
    {
     "citation": "Bers DM, Cardiac excitation-contraction coupling, Nature 415:198-205",
@@ -95,7 +100,9 @@
   "conditions": {
    "preparation": "ex vivo",
    "notes": "isolated trabeculae and skinned fibre preparations"
-  }
+  },
+  "review_state": "provisional",
+  "proposed_class": "EVC-2"
  },
  {
   "id": "CLM:cytosolic-ca-diastolic",
@@ -111,7 +118,7 @@
   "population": "isolated ventricular myocytes",
   "date_asserted": "2026-07-26",
   "limitations": "Human in-vivo measurement at this resolution does not exist. Presented as a modelled value, not a measured human one.",
-  "assigned_by": "human:reviewer-cardio-01",
+  "assigned_by": "agent:evidence",
   "sources": [
    {
     "citation": "Bers DM, Cardiac excitation-contraction coupling, Nature 415:198-205",
@@ -125,7 +132,8 @@
    "temperature_c": 37,
    "notes": "fluorescent indicator, isolated myocytes"
   },
-  "transfer_justification": "Calcium handling is mechanistically conserved across mammalian ventricular myocytes; absolute concentrations differ between species and the value is therefore graded EVC-3 rather than transferred as a human measurement."
+  "transfer_justification": "Calcium handling is mechanistically conserved across mammalian ventricular myocytes; absolute concentrations differ between species and the value is therefore graded EVC-3 rather than transferred as a human measurement.",
+  "review_state": "provisional"
  },
  {
   "id": "CLM:cytosolic-ca-systolic",
@@ -138,7 +146,7 @@
   "population": "isolated ventricular myocytes",
   "date_asserted": "2026-07-26",
   "limitations": "Order-of-magnitude value. A more precise figure would be false precision.",
-  "assigned_by": "human:reviewer-cardio-01",
+  "assigned_by": "agent:evidence",
   "sources": [
    {
     "citation": "Bers DM, Cardiac excitation-contraction coupling, Nature 415:198-205",
@@ -151,7 +159,8 @@
    "preparation": "in vitro",
    "temperature_c": 37
   },
-  "transfer_justification": "As CLM:cytosolic-ca-diastolic: mechanism conserved, absolute values species-dependent."
+  "transfer_justification": "As CLM:cytosolic-ca-diastolic: mechanism conserved, absolute values species-dependent.",
+  "review_state": "provisional"
  },
  {
   "id": "CLM:cross-bridge-cycle-duration",
@@ -167,7 +176,7 @@
   "population": "isolated cardiac preparations",
   "date_asserted": "2026-07-26",
   "limitations": "An approximation stated as an order of magnitude. Rates depend on load, temperature and species, and precise human in-vivo values do not exist.",
-  "assigned_by": "human:reviewer-cardio-01",
+  "assigned_by": "agent:evidence",
   "sources": [
    {
     "citation": "Bers DM, Cardiac excitation-contraction coupling, Nature 415:198-205",
@@ -181,7 +190,8 @@
    "temperature_c": 22,
    "notes": "sub-physiological temperature; rates at 37 C are faster"
   },
-  "transfer_justification": "Cross-bridge cycling is mechanistically conserved across mammalian striated muscle; rate constants are NOT conserved, which is why this is graded APPROXIMATED."
+  "transfer_justification": "Cross-bridge cycling is mechanistically conserved across mammalian striated muscle; rate constants are NOT conserved, which is why this is graded APPROXIMATED.",
+  "review_state": "provisional"
  },
  {
   "id": "CLM:cross-bridge-atp-stoichiometry",
@@ -194,7 +204,7 @@
   "population": "not applicable",
   "date_asserted": "2026-07-26",
   "limitations": "Derived from the stoichiometry of the cycle rather than measured; a single source, so EVC-2 is unavailable (D-013).",
-  "assigned_by": "human:reviewer-cardio-01",
+  "assigned_by": "agent:evidence",
   "sources": [
    {
     "citation": "Bers DM, Cardiac excitation-contraction coupling, Nature 415:198-205",
@@ -206,7 +216,8 @@
   "conditions": {
    "preparation": "in vitro",
    "notes": "Stoichiometric rather than measured under conditions; one ATP is hydrolysed per cycle by the chemistry of the cycle itself."
-  }
+  },
+  "review_state": "provisional"
  },
  {
   "id": "CLM:cardiomyocyte-regional-heterogeneity",
@@ -219,6 +230,7 @@
   "population": "adult",
   "date_asserted": "2026-07-26",
   "limitations": "An asserted gap. SCL-07 declares 'typed' mode: one exemplar per type, and real cells vary continuously.",
-  "assigned_by": "human:reviewer-cardio-01"
+  "assigned_by": "agent:evidence",
+  "review_state": "provisional"
  }
 ]

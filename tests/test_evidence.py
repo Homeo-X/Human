@@ -97,11 +97,18 @@ class TestProvenance(unittest.TestCase):
     def test_provenance_marks_who_assigned_the_class(self):
         """[FR-EVID-004] The assigner is part of the record, not a side note."""
         rec = self.ev.provenance('CLM:heart-function-pump')
-        self.assertTrue(rec.reviewed_by_human)
-        seed = self.ev.provenance(
-            'CLM:seed-cardiaccycle-definition')
-        self.assertFalse(seed.reviewed_by_human,
-                         'seed content was ingested, not reviewed')
+        self.assertEqual('agent:evidence', rec.assigned_by)
+        seed = self.ev.provenance('CLM:seed-cardiaccycle-definition')
+        self.assertEqual('agent:seed-ingest', seed.assigned_by)
+
+    def test_no_claim_in_the_substrate_asserts_a_human_review(self):
+        """[FR-EVID-004] [D-017] Eighteen claims once named reviewers who do
+        not exist. Nothing here is reviewed, and every record says so."""
+        for c in self.ev.all_claims():
+            self.assertFalse(
+                c.assigned_by.startswith('human:'),
+                f'{c.id} names a human reviewer; none has reviewed anything')
+            self.assertEqual('provisional', c.review_state)
 
     def test_no_claim_is_graded_verified(self):
         """[FR-EVID-003] No domain reviewer has examined this substrate, and a
@@ -172,9 +179,19 @@ class TestNegativeSpace(unittest.TestCase):
 
     def test_negative_space_reports_unpopulated_declared_levels(self):
         """[FR-SRCH-004] Scope gaps count as things the model does not hold."""
-        ns = self.ev.negative_space('UBERON:0000948')
-        self.assertEqual(ns.declared_depth, 10)
-        self.assertIn(0, ns.unpopulated_levels)
+        ns = self.ev.negative_space('HOX:function:nervous')
+        self.assertEqual(ns.declared_depth, 5)
+        self.assertEqual([3, 4, 5], ns.unpopulated_levels)
+
+    def test_levels_a_subsystem_cannot_occupy_are_not_gaps(self):
+        """[FR-SRCH-004] [D-018] An organ system was never going to hold the
+        whole organism, so reporting L0 as a gap overstated what was missing."""
+        ns = self.ev.negative_space('HOX:function:nervous')
+        self.assertNotIn(0, ns.unpopulated_levels)
+        self.assertNotIn(1, ns.unpopulated_levels)
+        heart = self.ev.negative_space('UBERON:0000948')
+        self.assertEqual([], heart.unpopulated_levels,
+                         'cardiovascular populates every level it can occupy')
 
 
 class TestConflicts(unittest.TestCase):

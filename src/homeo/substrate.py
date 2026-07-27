@@ -86,6 +86,17 @@ class Entity:
     provenance_source: str | None = None
     retired_at: str | None = None
     successor_id: str | None = None
+    # Whether a human with declared competence has examined this record.
+    # Defaults to `provisional`, so content that says nothing about its review
+    # is treated as unreviewed rather than as reviewed. The safe default here is
+    # the pessimistic one: an unreviewed record mistaken for a reviewed one is
+    # the failure D-013 and D-017 both record (INV-17).
+    review_state: str = 'provisional'
+    admitted_by: str | None = None      # the agent or approval that admitted it
+
+    @property
+    def is_reviewed(self) -> bool:
+        return self.review_state == 'reviewed'
 
     @property
     def is_spanning(self) -> bool:
@@ -134,6 +145,30 @@ class Claim:
     conflicts_with: tuple[str, ...] = ()
     provenance_source: str | None = None
     prompted_by: str | None = None
+    review_state: str = 'provisional'
+    # What an automated actor assessed the evidence to be, when that is
+    # stronger than the class it is permitted to assert.
+    #
+    # BIO_Evidence_and_Provenance's pipeline is explicit: the Evidence Agent
+    # *proposes* a class and the curator *decides* it, and the canonical graph
+    # never admits anything unreviewed at EVC-1 or EVC-2. So an agent that
+    # correctly reads two independent sources cannot simply write EVC-2 — but
+    # discarding its assessment would throw away the only signal that says
+    # which claims are worth a reviewer's scarce attention first. Both are
+    # kept: `evidence_class` is what the system asserts, `proposed_class` is
+    # what is waiting to be confirmed.
+    proposed_class: str | None = None
+
+    @property
+    def is_reviewed(self) -> bool:
+        return self.review_state == 'reviewed'
+
+    @property
+    def awaiting_upgrade(self) -> bool:
+        """A claim whose evidence may support more than it currently asserts."""
+        return (self.proposed_class is not None
+                and self.proposed_class < self.evidence_class
+                and not self.is_reviewed)
 
     @property
     def is_unknown(self) -> bool:
@@ -257,7 +292,9 @@ def _entity(d: dict) -> Entity:
         part_of=d.get('part_of'), variant_of=d.get('variant_of'),
         promotion_blocked=d.get('promotion_blocked', False),
         provenance_source=d.get('provenance_source'),
-        retired_at=d.get('retired_at'), successor_id=d.get('successor_id'))
+        retired_at=d.get('retired_at'), successor_id=d.get('successor_id'),
+        review_state=d.get('review_state', 'provisional'),
+        admitted_by=d.get('admitted_by'))
 
 
 def _claim(d: dict) -> Claim:
@@ -270,6 +307,8 @@ def _claim(d: dict) -> Claim:
         sources=_tup(d.get('sources')),
         transfer_justification=d.get('transfer_justification'),
         conditions=d.get('conditions', {}),
+        review_state=d.get('review_state', 'provisional'),
+        proposed_class=d.get('proposed_class'),
         conflicts_with=_tup(d.get('conflicts_with')),
         provenance_source=d.get('provenance_source'),
         prompted_by=d.get('prompted_by'))

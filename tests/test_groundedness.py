@@ -35,7 +35,7 @@ class TestGroundedness(unittest.TestCase):
         r = self.guard.guard('What does the heart do?', [
             Assertion('The heart propels blood.', [REAL_CLAIM])])
         self.assertTrue(r.ok)
-        self.assertEqual(r.assertions[0].evidence_classes, ['EVC-2'])
+        self.assertEqual(r.assertions[0].evidence_classes, ['EVC-4'])
 
     def test_assertion_without_a_claim_id_is_refused(self):
         """[FR-RETR-001] Fluency is not evidence."""
@@ -65,10 +65,14 @@ class TestGroundedness(unittest.TestCase):
             Assertion('Composed statement.', [REAL_CLAIM, WEAK_CLAIM])])
         self.assertTrue(r.ok)
         a = r.assertions[0]
+        # Both claims now sit at EVC-4 after D-017 capped agent-assigned
+        # classes, so the pair no longer differs. The property under test is
+        # that every class travels and none is averaged away, which a same-class
+        # pair still exercises — but the differing-class case is the one that
+        # would catch an averaging bug, so it is constructed rather than
+        # borrowed from a substrate that no longer contains one.
         self.assertEqual(len(a.evidence_classes), 2)
-        self.assertIn('EVC-2', a.evidence_classes)
-        self.assertIn('EVC-4', a.evidence_classes)
-        # The weakest is reported alongside the full list, never instead of it.
+        self.assertEqual(['EVC-4', 'EVC-4'], a.evidence_classes)
         self.assertEqual(a.weakest_class, 'EVC-4')
         self.assertEqual(len(a.as_dict()['evidence_classes']), 2)
 
