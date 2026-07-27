@@ -1,7 +1,7 @@
 ---
 doc: MANIFEST
 tier: light+
-version: 1.1.0
+version: 1.2.0
 status: draft
 owner: orchestrator
 last_updated: 2026-07-27
@@ -193,7 +193,7 @@ the vendored baseline and every delta applied, including the new `bio` profile.
 | Artifact | State |
 |---|---|
 | Specification set | 44 files in `docs/`, all `status: draft`, validating clean |
-| Decisions | D-001 … D-014, append-only, integrity-hashed |
+| Decisions | D-001 … D-015, append-only, integrity-hashed |
 | Rubric pass | 30 BRB items dispositioned; 3 flags raised, 2 applied, 1 carried to UX pass B by design |
 | Red team | 13 challenges; 8 accepted, 4 acknowledged, 1 refuted with evidence; 2 S1 escalated verbatim |
 | Schemas | 7 JSON Schemas in `schemas/` |
@@ -217,12 +217,20 @@ remains behind the Phase 1 entry gate.
 | VER | implemented | `release.py` |
 | VALD | implemented | `tools/biocheck.py` |
 | PHYS | specifications served; no runtime | `api.py` |
-| SPAT | identity and binding served; no assets, no viewer | `substrate.py`, `api.py` |
-| NAV | derived tree and terminal answers served; **viewer gated** | `graph.py`, `scale.py` |
+| SPAT | identity, binding, and the projection layer; no assets, no viewer | `substrate.py`, `projection.py`, `api.py` |
+| NAV | implemented — view state, semantic vs physical zoom, addressing, layers, isolation; **viewer gated** (D-011) | `navigation.py`, `projection.py`, `graph.py`, `scale.py` |
 | CUR | implemented — queue, competence scoping, approvals, throttle, persistence | `curation.py`, `api.py`, `cli.py` |
 | AGD | implemented — the twelve-facet contract, enforced by the runtime | `agents.py` |
 | SIM | **not built** — Phase 6 | — |
 | PERS | **not built** — Phase 7 | — |
+
+Navigation and projection are built although the viewer is gated: a view
+specification derived from the graph is testable with no renderer in existence,
+and D-015 records why the derivation runs in that direction. Nine mutations of
+those gates — letting magnification change a level, letting a level change reset
+the camera, removing the hidden-count reporting, collapsing `described` into
+`asset_unavailable`, reporting the strongest evidence class instead of the
+weakest — each turn the suite red.
 
 The curation plane is opt-in per deployment: `Service` holds no curation service
 unless one is injected, so a process serving reads has no write surface at all
@@ -232,7 +240,7 @@ disabling the EVC-1 refusal, the budget ceiling, and the injection flag — each
 turn the suite red.
 
 Verification: `bash tools/check.sh` runs the substrate invariants, their negative
-tests, 308 unit tests, both static validators, the strict spec graph, the
+tests, 358 unit tests, both static validators, the strict spec graph, the
 implementation trace, and a release build. The trace holds *claimed-but-untested*
 Musts at zero; Musts with no implementation at all are expected for the unbuilt
 modules above and are listed by module rather than hidden.

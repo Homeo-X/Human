@@ -23,6 +23,9 @@ from .curation import CurationError, CurationService
 from .evidence import EvidenceService
 from .graph import EntityRetired, Graph
 from .groundedness import Assertion, GroundednessGuard
+from .navigation import AddressError, NavigationService
+from .navigation import encode as nav_encode
+from .projection import ProjectionService
 from .scale import ScaleService, TerminalAnswer
 from .search import QuerySyntaxError, SearchService
 from .substrate import load
@@ -56,6 +59,10 @@ class Service:
         self.search = SearchService(self.graph, self.evidence, self.scale)
         self.guard = GroundednessGuard(self.graph, self.evidence, self.scale,
                                        release=release)
+        self.navigation = NavigationService(self.graph, self.scale,
+                                            self.evidence, release=release)
+        self.projection = ProjectionService(self.graph, self.scale,
+                                            self.evidence)
         self.release = release
 
     # ---- envelope ------------------------------------------------------
@@ -363,6 +370,77 @@ class Service:
         return Reply(200, self._envelope(
             self.guard.guard(question, parsed).as_dict()))
 
+    # ---- navigation ----------------------------------------------------
+
+    def view(self, ref: str, level: int | None, magnification: float,
+             systems: set | None, tissue_classes: set | None,
+             evidence_classes: set | None, isolate: str | None) -> Reply:
+        """Project a view of an entity: what is in view, and why.
+
+        The view specification is computed from the graph. A renderer consumes
+        it; it never queries the substrate itself, which is what makes geometry
+        an attribute of an entity rather than the other way round.
+        """
+        try:
+            state = self.navigation.enter(ref)
+        except EntityRetired as exc:
+            return Reply(200, self._envelope({
+                'status': 'MOVED', 'requested': ref,
+                'retired_at': exc.retired_at, 'successor': exc.successor,
+                'statement': (f'{ref} was retired on {exc.retired_at}'
+                              + (f' and is succeeded by {exc.successor}.'
+                                 if exc.successor else ' with no successor.'))}))
+        except KeyError:
+            return error('NOT_FOUND', 404,
+                         f'{ref} is not an entity in this release')
+        if level is not None:
+            state = self.navigation.set_level(state, level).state
+        if magnification != 1.0:
+            state = self.navigation.magnify(state, magnification).state
+        state = self.navigation.with_layers(
+            state, systems=systems, tissue_classes=tissue_classes,
+            evidence_classes=evidence_classes)
+        if isolate:
+            try:
+                state = self.navigation.isolate(state, isolate)
+            except (KeyError, EntityRetired):
+                return error('NOT_FOUND', 404,
+                             f'{isolate} cannot be isolated: not an entity in '
+                             f'this release')
+        payload = self.projection.project(state).as_dict()
+        payload['address'] = nav_encode(state)
+        return Reply(200, self._envelope(payload))
+
+    def zoom(self, ref: str, kind: str, amount: float) -> Reply:
+        """Zoom, semantically or physically — never ambiguously (FR-NAV-001).
+
+        The two are different endpoints taking different parameters, so a
+        client cannot express "zoom" without saying which kind it means.
+        """
+        try:
+            state = self.navigation.enter(ref)
+        except (KeyError, EntityRetired):
+            return error('NOT_FOUND', 404,
+                         f'{ref} is not an entity in this release')
+        if kind == 'physical':
+            return Reply(200, self._envelope(
+                self.navigation.magnify(state, amount).as_dict()))
+        if kind == 'semantic':
+            return Reply(200, self._envelope(
+                self.navigation.set_level(state, int(amount)).as_dict()))
+        return error('QUERY_SYNTAX', 422,
+                     "zoom kind must be 'physical' (magnification) or "
+                     "'semantic' (ontological resolution); they are different "
+                     "operations and the API will not guess")
+
+    def restore(self, address: str) -> Reply:
+        """Restore a shared or reloaded navigation address (FR-NAV-006)."""
+        try:
+            restoration = self.navigation.restore(address)
+        except AddressError as exc:
+            return error('QUERY_SYNTAX', 422, str(exc))
+        return Reply(200, self._envelope(restoration.as_dict()))
+
     # ---- release -------------------------------------------------------
 
     # ---- curation (authenticated) --------------------------------------
@@ -456,6 +534,9 @@ ROUTES = [
     (re.compile(rf'^/{API_VERSION}/search$'), 'search'),
     (re.compile(rf'^/{API_VERSION}/ask$'), 'ask'),
     (re.compile(rf'^/{API_VERSION}/release$'), 'release'),
+    (re.compile(rf'^/{API_VERSION}/view/([^/]+)$'), 'view'),
+    (re.compile(rf'^/{API_VERSION}/zoom/([^/]+)$'), 'zoom'),
+    (re.compile(rf'^/{API_VERSION}/restore$'), 'restore'),
     (re.compile(rf'^/{API_VERSION}/curation/queue$'), 'curation_queue'),
     (re.compile(rf'^/{API_VERSION}/curation/tasks/([^/]+)/review$'),
      'curation_review'),
@@ -511,6 +592,25 @@ def dispatch(service: Service, path: str, query: dict,
                                payload.get('assertions', []))
         if name == 'release':
             return service.release_info()
+        if name == 'view':
+            def _set(key):
+                raw = query.get(key)
+                return set(raw[0].split(',')) if raw else None
+            level = query.get('level', [None])[0]
+            return service.view(
+                args[0], int(level) if level is not None else None,
+                float(query.get('magnification', ['1'])[0]),
+                _set('systems'), _set('tissue_classes'), _set('evidence'),
+                query.get('isolate', [None])[0])
+        if name == 'zoom':
+            return service.zoom(args[0], query.get('kind', [''])[0],
+                                float(query.get('amount', ['1'])[0]))
+        if name == 'restore':
+            address = query.get('address', [None])[0]
+            if not address:
+                return error('QUERY_SYNTAX', 422,
+                             'restore requires an address= parameter')
+            return service.restore(address)
         if name == 'curation_queue':
             return service.curation_queue(query.get('reviewer', [None])[0])
         if name == 'curation_operator':

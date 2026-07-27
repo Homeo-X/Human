@@ -49,12 +49,14 @@ src/homeo/          the reference implementation of the substrate services
   search.py           name, function, clinical, spatial, negative, structured
   groundedness.py     the INV-14 guard — refuses ungrounded output
   promotion.py        the compilation ladder and its gates
+  navigation.py       view state, semantic vs physical zoom, addressing
+  projection.py       the view specification derived from the graph
   curation.py         the review queue, competence scoping, approval records
   agents.py           the agent runtime — the twelve-facet contract, enforced
   evals.py            the EV-RETR suites that gate a release
   release.py          build, validate, hash, atomic publish
   api.py, cli.py      the API and its command-line equivalent
-tests/              308 tests, each tagged with the FR ids it verifies
+tests/              358 tests, each tagged with the FR ids it verifies
 tools/
   check.sh            everything that must be green (--quick for pre-commit)
   curate_regions.py   adds the L1 regions through the real curation path
@@ -77,6 +79,9 @@ python3 -m homeo.cli descend GO:0030017           # one level down, or the limit
 python3 -m homeo.cli unknowns UBERON:0002349      # what the model does not know
 python3 -m homeo.cli search cor --mode name       # synonyms, eponyms, registers
 python3 -m homeo.cli path UBERON:0000468 GO:0030017   # cross-scale path
+python3 -m homeo.cli view heart --evidence EVC-2  # what is in view, and why
+python3 -m homeo.cli zoom heart semantic 5        # change ontological resolution
+python3 -m homeo.cli zoom heart physical 4        # change magnification only
 python3 -m homeo.cli coverage --table             # declared vs populated
 python3 -m homeo.cli publish rel-2026-07-26 --out releases
 python3 -m homeo.cli serve --port 8080            # the read API, no write surface
@@ -126,8 +131,8 @@ python3 tools/specgraph.py docs/ --trace src tests tools   # FR to code and test
 violated and must be detected. A validator that cannot fail is not a validator.
 
 The trace report distinguishes two things. A Must with **no** implementation is
-expected for the modules not yet built (personalization, simulation, and the two
-viewer requirements — D-011). A Must that is *claimed* —
+expected for the modules not yet built (personalization and simulation).
+A Must that is *claimed* —
 code exists but no test verifies it — is a failure, and `check.sh` holds that
 count at zero.
 
@@ -176,7 +181,8 @@ domain reviewer has yet examined any of it, so the substrate currently contains
 Built: entity resolution, typed traversal, the derived navigation view, scale
 contracts and terminal answers, evidence and provenance, five search modes, the
 groundedness guard, the compilation ladder, the EV-RETR suites, the release
-pipeline, the read API, the curation plane, and the agent runtime.
+pipeline, the read API, the curation plane, the agent runtime, and the
+navigation and projection layers.
 
 The last two are the ones that determine whether anything else can be trusted,
 so they are enforced rather than documented. No proposal becomes canonical
@@ -191,3 +197,14 @@ Not built, deliberately: the 3D viewer and the study UI (behind the Phase 1
 entry gate, D-011), the simulation runtime (Phase 6), and personalization
 (Phase 7). Roadmap phases 1–7 are specified in
 `docs/PRD_Scope_and_Roadmap.md`.
+
+The viewer being gated is why the *navigation model underneath it* was built
+instead (D-015). A `ViewState` is immutable and its two zoom axes are separate
+operations, so magnifying cannot change a level and changing a level cannot move
+the camera; `ProjectionService` computes, from the graph, what is in view —
+entities at the requested ontological resolution, their positions, whether
+geometry exists, the relations among them, and the evidence behind each. A
+renderer consumes that specification and never queries the substrate. Geometry is
+therefore an attribute of an entity rather than the condition of its existing:
+an entity with no mesh is `described`, positioned, and navigable, and a failed
+asset is reported as a pipeline failure rather than as thin anatomy.

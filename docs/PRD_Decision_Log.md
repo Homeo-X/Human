@@ -508,3 +508,45 @@ get entries._
 - **Valid while:** unconditional.
 - **Affects:** BIO_Scale_Contract, MANIFEST.md, PRD_FR_Scale_Bridging
 - **Supersedes:** none
+
+### D-015 — The view is a projection of the graph, not the other way round (2026-07-27, architect)
+- **Status:** active
+- **Context:** FR-NAV-001 and FR-NAV-006 were the last two unbuilt Must
+  requirements outside the Phase 6/7 modules, and both are navigation-state
+  concerns rather than rendering concerns. Building them forced the question the
+  brief raised at the start: is geometry an attribute of an entity, or is the
+  entity a label attached to a mesh? Every anatomy product of the usual kind
+  answers the second way — a mesh is authored, a paragraph is attached, and
+  anything nobody has modelled does not exist.
+- **Decision:** A renderer never queries the substrate. `ProjectionService`
+  computes a **view specification** from a `ViewState` — the in-view entity set
+  at the requested ontological resolution, each entity's spatial identity,
+  depiction status, evidence summary, the relations among the in-view set, and
+  the lineage — and a viewer consumes only that. Depiction is a four-valued
+  attribute (`depicted` / `described` / `asset_unavailable` / `unplaced`), so an
+  entity with no mesh is present, positioned, and navigable, and a failed asset
+  is distinguishable from anatomy that was never modelled.
+  Correspondingly, semantic zoom and physical zoom are separate operations on
+  separate fields of an immutable `ViewState`: `magnify` cannot reach `level`
+  and `set_level` does not touch magnification. The API exposes them as
+  different endpoints that refuse an unqualified "zoom".
+- **Alternatives:**
+  - Let the viewer query the graph directly and decide visibility —
+    rejected_because: visibility rules would then live in the renderer, where
+    they are untestable without a renderer and would diverge per surface.
+  - One zoom operation with a mode flag — rejected_because: a flag defaults, and
+    a default is how the two collapse back into one. Two endpoints cannot.
+  - Represent missing geometry as absence — rejected_because: it makes the model
+    look thin exactly where the asset pipeline, not the biology, is incomplete.
+- **Consequences:** + The navigation model is fully testable with no viewer in
+  existence, which is what allows it to be built while D-011 keeps the viewer
+  gated; a future renderer inherits the honesty rules rather than reimplementing
+  them. − A view specification is more verbose than a mesh list, and a renderer
+  must handle four depiction states rather than one. − `magnification_limit` is
+  currently a service-level constant; per-asset limits belong to Phase 1 and are
+  not yet expressible.
+- **Reversibility:** high — the projection is derived and disposable, like every
+  other view in this system.
+- **Affects:** PRD_FR_Navigation, PRD_FR_Spatial_Representation,
+  TECH_UI_UX_Design, TECH_API_Specification
+- **Supersedes:** none

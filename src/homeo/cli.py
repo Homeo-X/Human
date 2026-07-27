@@ -18,6 +18,10 @@ from .release import ReleaseBuilder, diff, load_manifest, verify_rebuild
 DEFAULT_QUEUE = 'curation/queue.json'
 
 
+def _csv(value: str | None) -> set[str] | None:
+    return set(value.split(',')) if value else None
+
+
 def _print(payload) -> None:
     print(json.dumps(payload, indent=1, ensure_ascii=False))
 
@@ -100,6 +104,28 @@ def main(argv: list[str] | None = None) -> int:
     s.add_argument('--mode', default='name')
     s.add_argument('--class', dest='cls', default=None)
     s.add_argument('--limit', type=int, default=20)
+
+    vw = sub.add_parser('view', help='project a view: what is in view, and why')
+    vw.add_argument('ref')
+    vw.add_argument('--level', type=int, default=None)
+    vw.add_argument('--magnification', type=float, default=1.0)
+    vw.add_argument('--systems', default=None)
+    vw.add_argument('--tissue-classes', dest='tissue_classes', default=None)
+    vw.add_argument('--evidence', default=None,
+                    help='show only entities carrying these evidence classes; '
+                         'what is hidden is counted, never silently dropped')
+    vw.add_argument('--isolate', default=None)
+
+    zm = sub.add_parser('zoom', help='semantic or physical zoom — never both')
+    zm.add_argument('ref')
+    zm.add_argument('kind', choices=('semantic', 'physical'),
+                    help='semantic changes ontological resolution; physical '
+                         'changes magnification and changes no claim')
+    zm.add_argument('amount', type=float,
+                    help='a level for semantic, a factor for physical')
+
+    rs = sub.add_parser('restore', help='restore a navigation address')
+    rs.add_argument('address')
 
     pa = sub.add_parser('path', help='cross-scale path between two entities')
     pa.add_argument('start')
@@ -208,6 +234,12 @@ def main(argv: list[str] | None = None) -> int:
         'search': lambda: svc.do_search(args.query, args.mode, args.cls,
                                         args.limit),
         'path': lambda: svc.path(args.start, args.end),
+        'view': lambda: svc.view(
+            args.ref, args.level, args.magnification,
+            _csv(args.systems), _csv(args.tissue_classes), _csv(args.evidence),
+            args.isolate),
+        'zoom': lambda: svc.zoom(args.ref, args.kind, args.amount),
+        'restore': lambda: svc.restore(args.address),
         'coverage': lambda: svc.coverage(args.subsystem),
         'levels': svc.levels,
         'processes': svc.processes,
