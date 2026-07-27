@@ -96,13 +96,13 @@ class TestBlockingBehaviour(unittest.TestCase):
             data.append({
                 'id': 'HOX:celltype:test-beta-cell', 'minted': True,
                 'minted_reason': 'test fixture', 'entity_class': 'CellType',
-                'level': 7, 'subsystem': 'endocrine',
+                'level': 7, 'subsystem': 'immune',
                 'preferred_term': 'Test beta cell',
                 'compilation_status': 'structured'})
         self._mutate('seed/entities.json', add)
         r = run(self.root)
         self.assertEqual(r.returncode, 1)
-        self.assertIn('exceeds declared depth L3 for endocrine', r.stdout)
+        self.assertIn('exceeds declared depth L3 for immune', r.stdout)
 
     def test_missing_unit_blocks(self):
         def strip(data):

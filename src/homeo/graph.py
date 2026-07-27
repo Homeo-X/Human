@@ -10,7 +10,7 @@ FR-REL-003, FR-REL-006, FR-REL-009, FR-REL-010, FR-NAV-004, FR-NAV-005.
 """
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Iterator
 
 from .substrate import (CONTAINMENT, MEMBERSHIP, Entity, Relationship, Substrate,
@@ -66,6 +66,10 @@ class TreeNode:
     compilation_status: str
     children: tuple['TreeNode', ...]
     other_memberships: tuple[str, ...]
+    # `{child_id: 'contains' | 'member'}`. An organ is *in* a region and
+    # *belongs to* a system; both are navigable and they are not the same
+    # relation, so the view says which is which rather than flattening them.
+    child_kinds: dict = field(default_factory=dict)
 
     @property
     def is_view(self) -> bool:
@@ -216,10 +220,34 @@ class Graph:
         return None
 
     def children(self, entity_id: str) -> list[str]:
+        """What this entity contains. Containment only — never membership."""
         kids = [e.id for e in self.substrate.entities if e.part_of == entity_id]
         kids += [r.source for r in self._in.get(entity_id, [])
                  if r.type == CONTAINMENT and r.source not in kids]
         return sorted(set(kids))
+
+    def descendants(self, entity_id: str) -> list[str]:
+        """What is reachable one step down, by containment **or** membership.
+
+        The distinction from `children` is the pancreas test's first finding.
+        A system contains nothing — an organ is `part_of` a body region and a
+        `member_of` a system — so a tree built from containment alone reaches no
+        organ from any system, and navigating from the digestive system found
+        nothing at all. FR-NAV-005 requires the pancreas to be reachable from
+        every system it belongs to, and it was not: memberships were reported
+        on a node and were not traversable.
+
+        Each edge keeps its kind, so a caller can still tell "inside" from
+        "belongs to". Collapsing them would trade one wrong answer for another.
+        """
+        return sorted(set(self.children(entity_id)) | set(self.members(entity_id)))
+
+    def descendant_kinds(self, entity_id: str) -> dict[str, str]:
+        """`{child_id: 'contains' | 'member'}` for one step down."""
+        kinds = {c: 'contains' for c in self.children(entity_id)}
+        for m in self.members(entity_id):
+            kinds.setdefault(m, 'member')
+        return kinds
 
     def lineage(self, entity_id: str) -> list[str]:
         """Containment path from the entity up to its root, entity first.
@@ -247,15 +275,46 @@ class Graph:
         return sorted({r.source for r in self._in.get(system_id, [])
                        if r.type == MEMBERSHIP})
 
+    def in_subsystem(self, entity_id: str, subsystem: str) -> bool:
+        """Whether an entity belongs to a subsystem, by field **or** by edge.
+
+        `Entity.subsystem` is single-valued — a tree-shaped field on a model
+        whose whole thesis is that biology is a graph. The pancreas test found
+        the consequence: filed as `digestive`, the pancreas was invisible to
+        every endocrine query, so the endocrine system reported zero organs
+        while containing one.
+
+        Changing the field to a list would ripple through declared depth,
+        competence scoping, and every schema. Consulting the graph instead
+        costs nothing and is more correct anyway: membership edges are the
+        canonical statement of what belongs where (D-006), and the field is
+        best read as the entity's primary filing rather than as the whole
+        truth about it.
+        """
+        entity = self._by_id.get(entity_id)
+        if entity is not None and entity.subsystem == subsystem:
+            return True
+        systems = {self._by_id[m].subsystem for m in self.memberships(entity_id)
+                   if m in self._by_id}
+        return subsystem in systems
+
     # ---- the derived navigation view -----------------------------------
 
     def navigation_tree(self, root: str | None = None, *,
                         max_depth: int = 12) -> TreeNode:
-        """Compute the navigation tree from containment edges.
+        """Compute the navigation tree from containment **and** membership.
 
         Derived on every call and never stored (D-006). Each node carries the
         memberships the tree cannot express, so a reader who follows the tree
-        still sees that a structure participates elsewhere (FR-NAV-005).
+        still sees that a structure participates elsewhere (FR-NAV-005), and
+        each child records whether it was reached by containment or by
+        membership.
+
+        Built from containment alone until the pancreas test: no organ was
+        reachable from any system, because a system contains nothing. The tree
+        was structurally incapable of satisfying the acceptance criterion the
+        project was founded on — and no test caught it, because the substrate
+        held no organ with a system membership to reach.
         """
         if root is None:
             roots = [e.id for e in self.substrate.entities
@@ -268,13 +327,15 @@ class Graph:
         entity = self._by_id.get(entity_id)
         seen = seen | {entity_id}
         kids: tuple[TreeNode, ...] = ()
+        kinds = self.descendant_kinds(entity_id)
         if depth > 0:
             kids = tuple(self._build_node(c, depth - 1, seen)
-                         for c in self.children(entity_id) if c not in seen)
+                         for c in sorted(kinds) if c not in seen)
         return TreeNode(
             entity_id=entity_id,
             label=entity.preferred_term if entity else entity_id,
             level=entity.shallowest_level if entity else None,
             compilation_status=entity.compilation_status if entity else 'narrative',
             children=kids,
-            other_memberships=tuple(self.memberships(entity_id)))
+            other_memberships=tuple(self.memberships(entity_id)),
+            child_kinds=dict(kinds))

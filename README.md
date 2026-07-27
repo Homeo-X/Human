@@ -56,10 +56,12 @@ src/homeo/          the reference implementation of the substrate services
   evals.py            the EV-RETR suites that gate a release
   release.py          build, validate, hash, atomic publish
   api.py, cli.py      the API and its command-line equivalent
-tests/              370 tests, each tagged with the FR ids it verifies
+tests/              414 tests, each tagged with the FR ids it verifies
 tools/
   check.sh            everything that must be green (--quick for pre-commit)
   curate_regions.py   adds the L1 regions through the real curation path
+  curate_pancreas.py  the multi-membership test case (D-019)
+  correct_attribution.py  the D-017 attribution correction, auditable
   biocheck.py         executes the BIO_Validation_Framework invariants (INV-NN)
   specgraph.py        spec-graph validator (framework, extended for the bio profile)
   validate.sh         static checker for the framework tree and generated docs

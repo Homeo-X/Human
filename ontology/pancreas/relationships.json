@@ -1,0 +1,33 @@
+[
+ {
+  "id": "REL:pancreas-member-digestive",
+  "source": "UBERON:0001264",
+  "target": "HOX:function:digestive",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "prose_justification": "The exocrine mass secretes digestive enzymes into the duodenum. This membership is not more or less real than the endocrine one.",
+  "provenance_claim": "CLM:pancreas-definition"
+ },
+ {
+  "id": "REL:pancreas-member-endocrine",
+  "source": "UBERON:0001264",
+  "target": "HOX:function:endocrine",
+  "type": "member_of",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "prose_justification": "The islets secrete insulin and glucagon into the portal blood. Filing the pancreas under one system and cross-referencing the other would make the model disagree with the anatomy.",
+  "provenance_claim": "CLM:pancreas-definition"
+ },
+ {
+  "id": "REL:betacell-produces-insulin",
+  "source": "CL:0000169",
+  "target": "CHEBI:145810",
+  "type": "produces",
+  "compilation_status": "structured",
+  "review_state": "provisional",
+  "prose_justification": "Type B cells synthesize proinsulin, cleave it, and secrete insulin with C-peptide in equimolar amounts.",
+  "provenance_claim": "CLM:pancreas-definition",
+  "skip_justification": "L8 (organelle) is skipped deliberately. Insulin biosynthesis does traverse organelles — rough ER, Golgi, secretory granule — and none is modelled here. The claim is that the cell secretes the molecule, which holds at cell level; the organelle pathway is not represented and this edge does not imply it is."
+ }
+]

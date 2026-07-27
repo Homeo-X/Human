@@ -48,7 +48,7 @@ class TestDeclaredDepth(unittest.TestCase):
     def test_declared_depth_is_enforced_not_advisory(self):
         """[FR-SCAL-002] L7 content in an L3 subsystem is out of contract."""
         self.assertTrue(self.scale.within_declared_depth('cardiovascular', 7))
-        self.assertFalse(self.scale.within_declared_depth('endocrine', 7))
+        self.assertFalse(self.scale.within_declared_depth('immune', 7))
 
     def test_no_entity_exceeds_its_subsystems_declaration(self):
         """[FR-SCAL-002] Holds across the whole substrate, seed included."""
@@ -93,7 +93,7 @@ class TestTerminalAnswer(unittest.TestCase):
 
     def test_terminal_answer_is_about_the_model_not_the_biology(self):
         """[FR-SCAL-003] The wording distinction is the whole point."""
-        result = self.scale.terminal_answer('endocrine', 7)
+        result = self.scale.terminal_answer('immune', 7)
         self.assertIn('statement about the model', result.statement)
         self.assertIn('not about the biology', result.statement)
         self.assertEqual(result.declared_level, 3)

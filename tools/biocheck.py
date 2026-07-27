@@ -547,7 +547,7 @@ SELFTESTS = [
     ('INV-05', 'an L7 entity in an L3-declared subsystem',
      lambda d: d['entities'].append({'id': 'HOX:celltype:islet-beta-cell', 'minted': True,
                                      'minted_reason': 'test', 'entity_class': 'CellType',
-                                     'level': 7, 'subsystem': 'endocrine',
+                                     'level': 7, 'subsystem': 'immune',
                                      'preferred_term': 'Beta cell',
                                      'compilation_status': 'structured'})),
     ('INV-06', 'a process with its timescale domain removed',

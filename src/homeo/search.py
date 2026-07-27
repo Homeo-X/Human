@@ -323,7 +323,10 @@ class SearchService:
                 continue
             if 'class' in filters and e.entity_class != filters['class']:
                 continue
-            if 'subsystem' in filters and e.subsystem != filters['subsystem']:
+            # By edge as well as by field: an organ belonging to two systems
+            # must be findable from both (FR-NAV-005, D-019).
+            if ('subsystem' in filters
+                    and not self.graph.in_subsystem(e.id, filters['subsystem'])):
                 continue
             if 'status' in filters and e.compilation_status != filters['status']:
                 continue

@@ -366,11 +366,21 @@ class ScaleService:
         for e in self.graph.entities():
             if e.is_retired:
                 continue
-            for lvl in e.levels:
-                counts.setdefault(e.subsystem, {}).setdefault(lvl, 0)
-                counts[e.subsystem][lvl] += 1
-                reviewed.setdefault(e.subsystem, {}).setdefault(lvl, 0)
-                reviewed[e.subsystem][lvl] += int(e.is_reviewed)
+            # An entity counts in every subsystem it belongs to, not only in
+            # the one its field names. The pancreas is a digestive organ and an
+            # endocrine organ; a matrix that counted it once left the endocrine
+            # system reporting zero organs while containing one (D-019).
+            #
+            # This does mean a multi-system organ appears in more than one
+            # column. That is not double-counting a total: each column answers
+            # "what does this system have", and the pancreas is a true answer
+            # to both.
+            for owner in self._subsystems_of(e):
+                for lvl in e.levels:
+                    counts.setdefault(owner, {}).setdefault(lvl, 0)
+                    counts[owner][lvl] += 1
+                    reviewed.setdefault(owner, {}).setdefault(lvl, 0)
+                    reviewed[owner][lvl] += int(e.is_reviewed)
         out: list[SubsystemCoverage] = []
         names = ([subsystem] if subsystem else sorted(self.declared_depth))
         for name in names:
@@ -395,6 +405,14 @@ class ScaleService:
             out.append(SubsystemCoverage(subsystem=name, declared_depth=cap,
                                          cells=cells, shallowest_declared=floor))
         return out
+
+    def _subsystems_of(self, entity) -> set[str]:
+        systems = {entity.subsystem}
+        for member_of in self.graph.memberships(entity.id):
+            target = self.graph.get(member_of)
+            if target is not None:
+                systems.add(target.subsystem)
+        return systems
 
     def shallowest_level(self, subsystem: str) -> int:
         """The shallowest level a subsystem can occupy.

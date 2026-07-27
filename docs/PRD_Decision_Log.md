@@ -700,3 +700,100 @@ get entries._
 - **Affects:** src/homeo/scale.py, src/homeo/cli.py, src/homeo/evidence.py,
   BIO_Scale_Contract, MANIFEST.md, PRD_FR_Scale_Bridging
 - **Supersedes:** none
+
+### D-019 — The pancreas test: three of six probes failed (2026-07-27, orchestrator)
+- **Status:** active
+- **Context:** "Biology is a graph, not a tree; the pancreas belongs to both the
+  digestive and the endocrine system" is the claim this project was founded on,
+  and the architecture answered it from the start: containment and membership
+  are separate relations (D-006), the tree is derived and never stored, and
+  `memberships()` returns a list with no primary. None of it had ever met a case
+  that could break it. The substrate held **zero entities with more than one
+  membership** and exactly one `member_of` edge, so every test of the founding
+  claim ran over a structure containing no instance of the thing being tested.
+  `tools/curate_pancreas.py` added one: the pancreas at L3, member of both
+  systems, with the exocrine branch (acinus → acinar cell → zymogen granule)
+  and the endocrine branch (islet → beta cell → insulin) modelled far enough
+  apart to diverge. Six probes were run. **Three failed.**
+- **Decision:** Both root causes fixed, and the probes frozen as
+  `tests/test_multisystem.py` against the real substrate rather than a fixture
+  — a fixture would have passed all six from the beginning, which is exactly
+  how the gap survived.
+  **Root cause 1 — the derived tree was containment-only.** A system *contains*
+  nothing: an organ is `part_of` a body region and a `member_of` a system. So
+  navigating from the digestive system reached no organ at all, and the tree
+  was structurally incapable of satisfying FR-NAV-005's own acceptance
+  criterion ("navigating from the digestive system and from the endocrine
+  system, both paths reach it"). `Graph.descendants` now walks containment and
+  membership, `TreeNode.child_kinds` records which edge each child was reached
+  by, and `ProjectionService._at_level` walks both. Containment stays
+  single-parent, so `lineage()` is unchanged and no system ever appears in a
+  containment chain.
+  **Root cause 2 — `Entity.subsystem` is single-valued**, a tree-shaped field
+  in a graph-shaped model. Filed as `digestive`, the pancreas was invisible to
+  every endocrine query: coverage reported the endocrine system as having zero
+  organs while it contained one, and search by subsystem found it under one
+  name only. Rather than make the field a list — which would ripple through
+  declared depth, competence scoping, and every schema — membership queries now
+  consult the graph via `Graph.in_subsystem`, which is the canonical source for
+  membership anyway. The field is now read as the entity's primary filing, not
+  as the whole truth about it.
+- **Alternatives:**
+  - Make `subsystem` multi-valued — rejected_because: it duplicates in a field
+    what the `member_of` edges already state, and two sources of the same truth
+    is how they come to disagree. Reconsider if a use case needs membership
+    without an edge.
+  - Add memberships to the tree as a separate "also in" list rather than as
+    children — rejected_because: that is what `other_memberships` already did,
+    and it is precisely what failed. A link a user cannot follow is a footnote.
+  - Accept that a system is not navigable — rejected_because: FR-NAV-005 is a
+    Must, and "navigate the body by system" is the first thing any user of an
+    anatomy model tries.
+- **Consequences:** + The founding claim is now tested against content that
+  could falsify it, and six probes hold. + A multi-system organ appears in both
+  systems' coverage columns; this is not double-counting a total, since each
+  column answers "what does this system have" and the pancreas is a true answer
+  to both. − Coverage columns no longer sum to the entity count, and anything
+  reading them as a partition will be wrong. − Two subsystems were deepened to
+  hold the new content: endocrine L3→L9 (hormones are L9 entities and the
+  endocrine system's function is molecular) and digestive L3→L8. Both are Scope
+  Reopens under §9 clause 2. − The seven pancreatic entities are provisional and
+  unreviewed, like everything else (D-017).
+- **Reversibility:** high for the mechanism; medium for the depth declarations,
+  which would need tombstones to narrow.
+- **Affects:** src/homeo/graph.py, src/homeo/scale.py, src/homeo/search.py,
+  src/homeo/projection.py, ontology/pancreas/, PRD_FR_Navigation,
+  PRD_FR_Scale_Bridging, BIO_Anatomical_Ontology, MANIFEST.md
+- **Supersedes:** none — extends D-006
+
+### D-020 — Content population reopened at L3 (2026-07-27, orchestrator)
+- **Status:** active
+- **Context:** D-011 split the Phase 1 entry gate: substrate services proceed,
+  but the 3D viewer, the study UI, and **L0–L3 content population** stay behind
+  RSK-01 (educator validation). Growing the substrate to organ breadth was then
+  requested directly. Stepping over the gate silently would make it decorative,
+  which is the failure CH-01 identified and D-011 was written to avoid.
+- **Decision:** Scope Reopen under AGENTS.md §9 clause 2, superseding **only**
+  D-011's content clause. Content population at L0–L3 proceeds; the 3D viewer
+  and the study UI remain gated. The split is the same one D-011 made: RSK-01
+  asks whether users want evidence grading *surfaced to them*, which is a
+  presentation question. It does not ask whether the substrate should contain
+  organs. A reference model with no organs cannot be validated by anyone,
+  including the educators whose opinion the gate is waiting for.
+  All such content is admitted **provisionally** (D-017): agent-proposed,
+  human-unreviewed, marked so at every surface, and excluded from every
+  reviewed-coverage figure. Breadth therefore cannot be mistaken for progress
+  against G-01, whose denominator is reviewed content.
+- **Alternatives:**
+  - Keep the gate closed — rejected_because: the requester is the stakeholder
+    the gate protects, and they asked for the content directly.
+  - Open the whole gate including the viewer — rejected_because: the viewer is
+    the expensive artifact RSK-01 could invalidate, and nothing about content
+    population requires it.
+- **Consequences:** + The substrate can hold enough anatomy to be worth an
+  educator's time, which makes resolving RSK-01 easier rather than harder.
+  − The provisional/reviewed gap widens with every organ added; that gap is
+  RSK-02 made visible, and it is reported as a number.
+- **Reversibility:** high — provisional content is separable by its own field.
+- **Affects:** PRD_Scope_and_Roadmap, MANIFEST.md, PRD_Risks_and_Constraints
+- **Supersedes:** D-011 (content clause only; the presentation gate stands)

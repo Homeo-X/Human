@@ -216,10 +216,15 @@ class ProjectionService:
 
         Three cases, all explicit:
 
-        - at the focus's own level — the focus and what it directly contains;
+        - at the focus's own level — the focus and what it directly holds;
         - deeper — the descendants that sit at the requested level, found by
-          walking containment, with the focus retained for orientation;
-        - shallower — the ancestor at that level and what it contains.
+          walking containment *and membership*, with the focus retained for
+          orientation;
+        - shallower — the ancestor at that level and what it holds.
+
+        Membership is walked as well as containment because a system contains
+        nothing: projecting the digestive system found no organs at all until
+        the pancreas test made that visible (D-019).
 
         When nothing exists at the requested level the view says so and falls
         back to the focus alone. An empty view would be indistinguishable from
@@ -227,14 +232,14 @@ class ProjectionService:
         """
         here = focus.shallowest_level
         if here is None or level == here:
-            return [focus.id] + list(self.graph.children(focus.id)), ''
+            return [focus.id] + list(self.graph.descendants(focus.id)), ''
 
         if level > here:
             found, frontier, seen = [], [focus.id], {focus.id}
             while frontier:
                 nxt = []
                 for eid in frontier:
-                    for child in self.graph.children(eid):
+                    for child in self.graph.descendants(eid):
                         if child in seen:
                             continue
                         seen.add(child)
@@ -259,7 +264,7 @@ class ProjectionService:
             ancestor = self.graph.get(ancestor_id)
             if ancestor and ancestor.shallowest_level == level:
                 return ([ancestor_id]
-                        + list(self.graph.children(ancestor_id))), (
+                        + list(self.graph.descendants(ancestor_id))), (
                     f'Ascended to L{level}: {ancestor.preferred_term}, which '
                     f'contains {focus.preferred_term}.')
         return [focus.id], (

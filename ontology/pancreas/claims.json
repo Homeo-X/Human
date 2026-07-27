@@ -1,0 +1,149 @@
+[
+ {
+  "id": "CLM:pancreas-definition",
+  "subject": "UBERON:0001264",
+  "predicate": "has_definition",
+  "object": "A retroperitoneal gland lying transversely across the posterior abdominal wall, with an exocrine acinar mass secreting digestive enzymes into the duodenum and endocrine islets secreting hormones into the portal blood.",
+  "evidence_class": "EVC-4",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Standring S (ed.), Gray's Anatomy, 42nd ed.",
+    "identifier": "ISBN:9780702077050",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, both sexes",
+  "date_asserted": "2026-07-27",
+  "review_state": "provisional",
+  "assigned_by": "agent:anatomy",
+  "limitations": "A structural description at one level of detail. No human reviewer has examined this record."
+ },
+ {
+  "id": "CLM:pancreatic-acinus-definition",
+  "subject": "UBERON:0001263",
+  "predicate": "has_definition",
+  "object": "The exocrine secretory unit: a cluster of pyramidal cells around a central lumen draining into an intercalated duct.",
+  "evidence_class": "EVC-4",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Standring S (ed.), Gray's Anatomy, 42nd ed.",
+    "identifier": "ISBN:9780702077050",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, both sexes",
+  "date_asserted": "2026-07-27",
+  "review_state": "provisional",
+  "assigned_by": "agent:anatomy",
+  "limitations": "A structural description at one level of detail. No human reviewer has examined this record."
+ },
+ {
+  "id": "CLM:pancreatic-acinar-cell-definition",
+  "subject": "CL:0002064",
+  "predicate": "has_definition",
+  "object": "A polarized zymogen-secreting epithelial cell with basal rough endoplasmic reticulum and apical secretory granules.",
+  "evidence_class": "EVC-4",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Standring S (ed.), Gray's Anatomy, 42nd ed.",
+    "identifier": "ISBN:9780702077050",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, both sexes",
+  "date_asserted": "2026-07-27",
+  "review_state": "provisional",
+  "assigned_by": "agent:anatomy",
+  "limitations": "A structural description at one level of detail. No human reviewer has examined this record."
+ },
+ {
+  "id": "CLM:zymogen-granule-definition",
+  "subject": "GO:0042589",
+  "predicate": "has_definition",
+  "object": "A membrane-bound apical granule storing digestive proenzymes until secretagogue-triggered exocytosis.",
+  "evidence_class": "EVC-4",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall JE & Hall ME, Guyton and Hall Textbook of Medical Physiology, 14th ed.",
+    "identifier": "ISBN:9780323597128",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, both sexes",
+  "date_asserted": "2026-07-27",
+  "review_state": "provisional",
+  "assigned_by": "agent:anatomy",
+  "limitations": "A structural description at one level of detail. No human reviewer has examined this record."
+ },
+ {
+  "id": "CLM:islet-of-langerhans-definition",
+  "subject": "UBERON:0000006",
+  "predicate": "has_definition",
+  "object": "A vascularized endocrine micro-organ dispersed through the exocrine mass, comprising several hormone-secreting cell types.",
+  "evidence_class": "EVC-4",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Standring S (ed.), Gray's Anatomy, 42nd ed.",
+    "identifier": "ISBN:9780702077050",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, both sexes",
+  "date_asserted": "2026-07-27",
+  "review_state": "provisional",
+  "assigned_by": "agent:anatomy",
+  "limitations": "A structural description at one level of detail. No human reviewer has examined this record."
+ },
+ {
+  "id": "CLM:type-b-pancreatic-cell-definition",
+  "subject": "CL:0000169",
+  "predicate": "has_definition",
+  "object": "The insulin-secreting islet cell; the majority cell type in the human islet, though proportions vary between individuals and islet size.",
+  "evidence_class": "EVC-4",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall JE & Hall ME, Guyton and Hall Textbook of Medical Physiology, 14th ed.",
+    "identifier": "ISBN:9780323597128",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, both sexes",
+  "date_asserted": "2026-07-27",
+  "review_state": "provisional",
+  "assigned_by": "agent:anatomy",
+  "limitations": "A structural description at one level of detail. No human reviewer has examined this record."
+ },
+ {
+  "id": "CLM:insulin-definition",
+  "subject": "CHEBI:145810",
+  "predicate": "has_definition",
+  "object": "A 51-residue peptide hormone of two chains linked by disulfide bonds, secreted by type B pancreatic cells in response to raised plasma glucose.",
+  "evidence_class": "EVC-4",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall JE & Hall ME, Guyton and Hall Textbook of Medical Physiology, 14th ed.",
+    "identifier": "ISBN:9780323597128",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "adult, both sexes",
+  "date_asserted": "2026-07-27",
+  "review_state": "provisional",
+  "assigned_by": "agent:anatomy",
+  "limitations": "A structural description at one level of detail. No human reviewer has examined this record."
+ }
+]

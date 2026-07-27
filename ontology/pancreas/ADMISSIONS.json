@@ -1,0 +1,121 @@
+{
+ "note": "Every record here was admitted provisionally: proposed by AGT-3, admitted by agent:anatomy, reviewed by nobody. It is in the substrate because absence would be its own distortion, and it is marked unreviewed at every surface (D-017).",
+ "runs": [
+  "RUN:00001",
+  "RUN:00002"
+ ],
+ "reviewed": 0,
+ "provisional": 10,
+ "admissions": [
+  {
+   "id": "PROV:00011",
+   "task": "TASK:00001",
+   "admitted_by": "agent:anatomy",
+   "kind": "entity",
+   "payload_digest": "313b33805eb7631c",
+   "evidence_ceiling": "EVC-3",
+   "at": "2026-07-27T11:26:19+00:00",
+   "reviewed": false,
+   "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
+  },
+  {
+   "id": "PROV:00012",
+   "task": "TASK:00002",
+   "admitted_by": "agent:anatomy",
+   "kind": "entity",
+   "payload_digest": "d81cba85c2b7ce18",
+   "evidence_ceiling": "EVC-3",
+   "at": "2026-07-27T11:26:19+00:00",
+   "reviewed": false,
+   "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
+  },
+  {
+   "id": "PROV:00013",
+   "task": "TASK:00003",
+   "admitted_by": "agent:anatomy",
+   "kind": "entity",
+   "payload_digest": "5e60aec0fd876213",
+   "evidence_ceiling": "EVC-3",
+   "at": "2026-07-27T11:26:19+00:00",
+   "reviewed": false,
+   "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
+  },
+  {
+   "id": "PROV:00014",
+   "task": "TASK:00004",
+   "admitted_by": "agent:anatomy",
+   "kind": "entity",
+   "payload_digest": "3d383d268297db9f",
+   "evidence_ceiling": "EVC-3",
+   "at": "2026-07-27T11:26:19+00:00",
+   "reviewed": false,
+   "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
+  },
+  {
+   "id": "PROV:00015",
+   "task": "TASK:00005",
+   "admitted_by": "agent:anatomy",
+   "kind": "entity",
+   "payload_digest": "388c100d6119210d",
+   "evidence_ceiling": "EVC-3",
+   "at": "2026-07-27T11:26:19+00:00",
+   "reviewed": false,
+   "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
+  },
+  {
+   "id": "PROV:00016",
+   "task": "TASK:00006",
+   "admitted_by": "agent:anatomy",
+   "kind": "entity",
+   "payload_digest": "b4eaa2da48164ae6",
+   "evidence_ceiling": "EVC-3",
+   "at": "2026-07-27T11:26:19+00:00",
+   "reviewed": false,
+   "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
+  },
+  {
+   "id": "PROV:00017",
+   "task": "TASK:00007",
+   "admitted_by": "agent:anatomy",
+   "kind": "entity",
+   "payload_digest": "0e0b14d9c8a2500f",
+   "evidence_ceiling": "EVC-3",
+   "at": "2026-07-27T11:26:19+00:00",
+   "reviewed": false,
+   "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
+  },
+  {
+   "id": "PROV:00018",
+   "task": "TASK:00008",
+   "admitted_by": "agent:anatomy",
+   "kind": "relationship",
+   "payload_digest": "120957b7d6fabe95",
+   "evidence_ceiling": "EVC-3",
+   "at": "2026-07-27T11:26:19+00:00",
+   "reviewed": false,
+   "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
+  },
+  {
+   "id": "PROV:00019",
+   "task": "TASK:00009",
+   "admitted_by": "agent:anatomy",
+   "kind": "relationship",
+   "payload_digest": "538ff05766410a66",
+   "evidence_ceiling": "EVC-3",
+   "at": "2026-07-27T11:26:19+00:00",
+   "reviewed": false,
+   "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
+  },
+  {
+   "id": "PROV:00020",
+   "task": "TASK:00010",
+   "admitted_by": "agent:anatomy",
+   "kind": "relationship",
+   "payload_digest": "e500f987e919b2d2",
+   "evidence_ceiling": "EVC-3",
+   "at": "2026-07-27T11:26:19+00:00",
+   "reviewed": false,
+   "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
+  }
+ ]
+}

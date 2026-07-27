@@ -1,0 +1,141 @@
+[
+ {
+  "id": "UBERON:0001264",
+  "minted": false,
+  "entity_class": "Organ",
+  "level": 3,
+  "subsystem": "digestive",
+  "preferred_term": "Pancreas",
+  "compilation_status": "structured",
+  "representation_mode": "enumerated",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001264",
+    "pinned_version": "2026-01-15"
+   }
+  ],
+  "part_of": "UBERON:0000916"
+ },
+ {
+  "id": "UBERON:0001263",
+  "minted": false,
+  "entity_class": "TissueType",
+  "level": 5,
+  "subsystem": "digestive",
+  "preferred_term": "Pancreatic acinus",
+  "compilation_status": "structured",
+  "representation_mode": "typed",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0001263",
+    "pinned_version": "2026-01-15"
+   }
+  ],
+  "part_of": "UBERON:0001264"
+ },
+ {
+  "id": "CL:0002064",
+  "minted": false,
+  "entity_class": "CellType",
+  "level": 7,
+  "subsystem": "digestive",
+  "preferred_term": "Pancreatic acinar cell",
+  "compilation_status": "structured",
+  "representation_mode": "typed",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "xrefs": [
+   {
+    "authority": "CL",
+    "id": "CL:0002064",
+    "pinned_version": "2026-01-15"
+   }
+  ],
+  "part_of": "UBERON:0001263"
+ },
+ {
+  "id": "GO:0042589",
+  "minted": false,
+  "entity_class": "Organelle",
+  "level": 8,
+  "subsystem": "digestive",
+  "preferred_term": "Zymogen granule",
+  "compilation_status": "structured",
+  "representation_mode": "typed",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "xrefs": [
+   {
+    "authority": "GO",
+    "id": "GO:0042589",
+    "pinned_version": "2026-01-15"
+   }
+  ],
+  "part_of": "CL:0002064"
+ },
+ {
+  "id": "UBERON:0000006",
+  "minted": false,
+  "entity_class": "TissueType",
+  "level": 5,
+  "subsystem": "endocrine",
+  "preferred_term": "Islet of Langerhans",
+  "compilation_status": "structured",
+  "representation_mode": "typed",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "xrefs": [
+   {
+    "authority": "UBERON",
+    "id": "UBERON:0000006",
+    "pinned_version": "2026-01-15"
+   }
+  ],
+  "part_of": "UBERON:0001264"
+ },
+ {
+  "id": "CL:0000169",
+  "minted": false,
+  "entity_class": "CellType",
+  "level": 7,
+  "subsystem": "endocrine",
+  "preferred_term": "Type B pancreatic cell",
+  "compilation_status": "structured",
+  "representation_mode": "typed",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "xrefs": [
+   {
+    "authority": "CL",
+    "id": "CL:0000169",
+    "pinned_version": "2026-01-15"
+   }
+  ],
+  "part_of": "UBERON:0000006"
+ },
+ {
+  "id": "CHEBI:145810",
+  "minted": false,
+  "entity_class": "Biomolecule",
+  "level": 9,
+  "subsystem": "endocrine",
+  "preferred_term": "Insulin",
+  "compilation_status": "structured",
+  "representation_mode": "exemplar",
+  "review_state": "provisional",
+  "admitted_by": "agent:anatomy",
+  "xrefs": [
+   {
+    "authority": "CHEBI",
+    "id": "CHEBI:145810",
+    "pinned_version": "2026-01-15"
+   }
+  ]
+ }
+]
