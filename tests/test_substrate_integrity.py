@@ -551,3 +551,51 @@ class TestSubsumptionIsNotContainment(unittest.TestCase):
         self.assertEqual(1, len(edges))
         self.assertEqual(self.SUPERCLASS, edges[0].other)
         self.assertFalse(edges[0].is_untyped_association)
+
+
+class TestContainmentIsIndexed(unittest.TestCase):
+    """[D-028] `children()` is served from an index, not from a scan.
+
+    It used to filter `substrate.entities` on every call. That is invisible at
+    276 entities and quadratic in a tree walk: `navigation_tree` from the root
+    took 3.9 s at 10,012 entities against NFR-002's 800 ms budget, and would
+    have taken roughly six minutes at 100,000. The benchmark that found it is
+    `tools/bench.py`; the numbers are in `bench/RESULTS.json`.
+
+    The test asserts the property rather than a timing, because a timing
+    assertion in a shared CI container is a flake generator. If someone
+    reintroduces the scan, iterating the sentinel raises.
+    """
+
+    class _Explodes(list):
+        def __iter__(self):
+            raise AssertionError(
+                'children() scanned every entity — the containment index was '
+                'bypassed, and every tree walk just became quadratic (D-028)')
+
+    def setUp(self):
+        self.graph = Graph(load('ontology'))
+
+    def test_children_does_not_scan_the_entity_list(self):
+        expected = self.graph.children('UBERON:0000948')
+        self.graph.substrate.entities = self._Explodes()
+        self.assertEqual(expected, self.graph.children('UBERON:0000948'))
+
+    def test_the_index_agrees_with_an_honest_scan(self):
+        """The fast answer must be the same answer."""
+        substrate = load('ontology')
+        graph = Graph(substrate)
+        for entity in list(graph.entities())[:80]:
+            scanned = sorted({e.id for e in substrate.entities
+                              if e.part_of == entity.id}
+                             | {r.source for r in substrate.relationships
+                                if r.type == 'part_of' and r.target == entity.id})
+            self.assertEqual(scanned, graph.children(entity.id), entity.id)
+
+    def test_containment_from_a_relationship_is_indexed_too(self):
+        """Both sources of containment feed the index, not just `part_of`."""
+        contained = [r for r in self.graph.substrate.relationships
+                     if r.type == 'part_of']
+        self.assertTrue(contained, 'no part_of relationship to check against')
+        for rel in contained[:20]:
+            self.assertIn(rel.source, self.graph.children(rel.target))

@@ -1169,3 +1169,66 @@ get entries._
 - **Affects:** src/homeo/importers/obo.py, tools/import_l3.py,
   ontology/imported/IMPORT_REPORT.json, README.md
 - **Supersedes:** none
+
+### D-028 — The first measurement, and the quadratic it found (2026-07-27, architect)
+- **Status:** active
+- **Context:** Thirty-one NFR rows carried a number and a measurement method.
+  None carried a measurement, and nothing in this project had ever run above
+  **276 entities** — while NFR-008 promises Phase 5 volumetrics (10⁵ entities,
+  10⁶ claims) "without architectural change". A performance requirement nobody
+  has executed is not a requirement; it is a sentence everyone agreed to.
+  `tools/synth.py` generates a substrate with the real one's *measured* shape
+  (claims/entity 1.53, relationships/entity 0.74, the real level skew, 14%
+  multi-membership organs — a fixture without one would benchmark only the
+  single-parent path, which is how D-019 stayed hidden). `tools/bench.py` runs
+  the register against it.
+  **The hypothesis was stated before the run:** `Graph.children()` filtered
+  `substrate.entities` on every call, so every tree walk was quadratic. It was
+  correct, and worse than predicted. Walking the navigation tree from the root
+  took **26 ms at 1,012 entities and 3,866 ms at 10,012** — ten times the
+  content for 146 times the time, against NFR-002's 800 ms budget. Extrapolated
+  to 100,000 entities: about six minutes for one navigation.
+  This was invisible at 276 entities and would have been invisible until the
+  first real content release. FR-NAV-005 — reaching an organ from a system — is
+  the operation it breaks.
+- **Decision:** Build the containment index once at load (`Graph._index()`) and
+  serve `children()` from it. Same answer, different cost:
+  **3,866 ms → 63 ms at 10,012 entities (61×)**, and 892 ms at 100,012 where the
+  scan would have taken minutes. Growth is now roughly linear.
+  Guarded by a property, not a timing: `tests/test_substrate_integrity.py`
+  replaces `substrate.entities` with a list that raises on iteration, so
+  reintroducing the scan fails the suite. A timing assertion in a shared
+  container is a flake generator; this is deterministic. Verified by mutation —
+  reverting the index turns the suite red.
+  Measurements recorded in `bench/RESULTS.json` and folded into the NFR register
+  with their date and the container caveat. **Twelve rows that cannot be
+  honestly measured here are listed as unmeasurable with what each needs, rather
+  than estimated** — a plausible invented number is worse than the blank it
+  replaces.
+- **Alternatives:**
+  - Cache `children()` lazily per entity — rejected_because: the substrate is
+    immutable after load, so a lazy cache is a more complicated way to reach the
+    same state, with an invalidation question nobody needs to answer.
+  - Raise the NFR-002 target to match what was measured — rejected_because:
+    tuning a target until the implementation passes is how a register stops
+    measuring anything. The target held; the implementation was wrong.
+  - Defer the benchmark until real content exists at volume — rejected_because:
+    that is exactly the schedule under which this defect would have shipped.
+- **Consequences:** + NFR-001, 002, 003, 009 and 026 are now measured and met,
+  with dates. + The navigation tree is usable at Phase 3 volumes; it was not.
+  + Every future change has a baseline to regress against. − **NFR-008 is
+  reached but at ~3 GB resident** (100,012 entities, 1,000,098 claims, 27.4 s
+  load), because the substrate loads wholly into memory. That is fine on a
+  server and **contradicts NFR-013**, which promises the full model offline on
+  an 8 GB reference device; the two rows had never been checked against each
+  other, and reconciling them is a Phase 4 architectural question (streaming or
+  partitioned load), not something to close here. − The numbers come from
+  synthetic content in a headless container; they are architectural, not a
+  production claim. − `tools/synth.py` fabricates plausible anatomy, which makes
+  it the most dangerous tool in the repository: it is guarded by a content-based
+  refusal (never a path allowlist) and by a test asserting no `SYN:` id is
+  reachable from `ontology/`.
+- **Reversibility:** high — the index is an internal detail; no record changed.
+- **Affects:** src/homeo/graph.py, tools/synth.py, tools/bench.py,
+  bench/RESULTS.json, PRD_Non_Functional_Requirements, tests/test_synth.py
+- **Supersedes:** none

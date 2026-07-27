@@ -1,0 +1,327 @@
+{
+ "measured_on": "2026-07-27",
+ "caveat": "Measured in a headless container against synthetic substrates of the real one's shape. These are relative and architectural numbers, not a claim about production hardware; the rows requiring a browser, a GPU, geometry, or a deployed service are listed as unmeasurable rather than estimated.",
+ "unmeasurable": {
+  "NFR-004": "client instrumentation \u2014 needs the viewer (Phase 1)",
+  "NFR-005": "frame-time capture on real hardware \u2014 needs geometry and a GPU",
+  "NFR-006": "as NFR-005",
+  "NFR-007": "synthetic network test against a deployed build",
+  "NFR-011": "uptime monitoring over a month of real operation",
+  "NFR-012": "chaos test with a language model and index deployed",
+  "NFR-013": "offline test on the reference device, needs geometry",
+  "NFR-015": "WCAG audit of surfaces that do not exist yet",
+  "NFR-016": "manual audit with an assistive-technology user",
+  "NFR-019": "browser matrix",
+  "NFR-020": "browser matrix",
+  "NFR-024": "needs a retrieval model in the loop"
+ },
+ "before_containment_index": {
+  "note": "Graph.children() scanned every entity on every call. Kept because the curve is the finding: 10x the entities cost 146x the time.",
+  "rows": [
+   {
+    "entities": 1012,
+    "claims": 1516,
+    "relationships": 1416,
+    "load_s": 0.035,
+    "index_s": 0.001,
+    "rss_mb": 8.6,
+    "disk_mb": 0.0,
+    "entity_view_p50_ms": 0.0,
+    "entity_view_p95_ms": 0.0,
+    "three_hop_p95_ms": 0.17,
+    "negative_space_p95_ms": 0.02,
+    "descendants_p95_ms": 0.06,
+    "navigation_tree_ms": 26.4,
+    "biocheck_s": 0.14,
+    "exit": 1
+   },
+   {
+    "entities": 10012,
+    "claims": 15276,
+    "relationships": 14285,
+    "load_s": 0.371,
+    "index_s": 0.033,
+    "rss_mb": 77.3,
+    "disk_mb": 0.0,
+    "entity_view_p50_ms": 0.0,
+    "entity_view_p95_ms": 0.0,
+    "three_hop_p95_ms": 1.83,
+    "negative_space_p95_ms": 0.02,
+    "descendants_p95_ms": 0.58,
+    "navigation_tree_ms": 3866.1,
+    "biocheck_s": 0.84,
+    "exit": 1
+   }
+  ]
+ },
+ "rows": [
+  {
+   "entities": 1012,
+   "claims": 1516,
+   "relationships": 1416,
+   "load_s": 0.041,
+   "index_s": 0.001,
+   "rss_mb": 8.6,
+   "disk_mb": 2.2,
+   "entity_view_p50_ms": 0.0,
+   "entity_view_p95_ms": 0.0,
+   "three_hop_p95_ms": 0.19,
+   "negative_space_p95_ms": 0.02,
+   "descendants_p95_ms": 0.02,
+   "navigation_tree_ms": 5.5,
+   "biocheck_s": 0.13,
+   "exit": 1
+  },
+  {
+   "entities": 10012,
+   "claims": 15276,
+   "relationships": 14285,
+   "load_s": 0.382,
+   "index_s": 0.041,
+   "rss_mb": 77.2,
+   "disk_mb": 22.4,
+   "entity_view_p50_ms": 0.0,
+   "entity_view_p95_ms": 0.01,
+   "three_hop_p95_ms": 1.89,
+   "negative_space_p95_ms": 0.02,
+   "descendants_p95_ms": 0.02,
+   "navigation_tree_ms": 70.6,
+   "biocheck_s": 0.89,
+   "exit": 1
+  },
+  {
+   "entities": 100012,
+   "claims": 152870,
+   "relationships": 142732,
+   "load_s": 6.066,
+   "index_s": 1.01,
+   "rss_mb": 719.1,
+   "disk_mb": 223.4,
+   "entity_view_p50_ms": 0.01,
+   "entity_view_p95_ms": 0.01,
+   "three_hop_p95_ms": 37.36,
+   "negative_space_p95_ms": 0.03,
+   "descendants_p95_ms": 0.03,
+   "navigation_tree_ms": 891.5,
+   "biocheck_s": 11.42,
+   "exit": 1
+  }
+ ],
+ "nfr_008_at_stated_volumetrics": [
+  {
+   "entities": 100012,
+   "claims": 1000098,
+   "relationships": 142732,
+   "load_s": 27.409,
+   "index_s": 0.526,
+   "rss_mb": 2962.1,
+   "disk_mb": 766.7,
+   "entity_view_p50_ms": 0.01,
+   "entity_view_p95_ms": 0.01,
+   "three_hop_p95_ms": 44.08,
+   "negative_space_p95_ms": 0.05,
+   "descendants_p95_ms": 0.03,
+   "navigation_tree_ms": 982.9,
+   "biocheck_s": 38.61,
+   "exit": 1
+  }
+ ],
+ "verdicts": [
+  {
+   "nfr": "NFR-001",
+   "target": "p95 \u2264 300 ms, p50 \u2264 100 ms",
+   "measured": "p95 0.0 ms, p50 0.0 ms",
+   "met": true,
+   "at_entities": 1012
+  },
+  {
+   "nfr": "NFR-002",
+   "target": "p95 \u2264 800 ms over \u2264 3 hops",
+   "measured": "p95 0.19 ms",
+   "met": true,
+   "at_entities": 1012
+  },
+  {
+   "nfr": "NFR-002b",
+   "target": "one step down the navigation tree, same p95 \u2264 800 ms budget",
+   "measured": "p95 0.02 ms",
+   "met": true,
+   "at_entities": 1012
+  },
+  {
+   "nfr": "NFR-002c",
+   "target": "whole navigation tree from the root, same p95 \u2264 800 ms budget",
+   "measured": "5.5 ms",
+   "met": true,
+   "at_entities": 1012
+  },
+  {
+   "nfr": "NFR-003",
+   "target": "p95 \u2264 1.5 s",
+   "measured": "p95 0.02 ms",
+   "met": true,
+   "at_entities": 1012
+  },
+  {
+   "nfr": "NFR-008",
+   "target": "10\u2075 entities, 10\u2076 claims, no architectural change",
+   "measured": "1012 entities, 1516 claims, load 0.041 s, 8.6 MB resident",
+   "met": null,
+   "at_entities": 1012
+  },
+  {
+   "nfr": "NFR-026",
+   "target": "\u2264 5 GB excluding geometry at Phase 5",
+   "measured": "2.2 MB",
+   "met": true,
+   "at_entities": 1012
+  },
+  {
+   "nfr": "NFR-001",
+   "target": "p95 \u2264 300 ms, p50 \u2264 100 ms",
+   "measured": "p95 0.01 ms, p50 0.0 ms",
+   "met": true,
+   "at_entities": 10012
+  },
+  {
+   "nfr": "NFR-002",
+   "target": "p95 \u2264 800 ms over \u2264 3 hops",
+   "measured": "p95 1.89 ms",
+   "met": true,
+   "at_entities": 10012
+  },
+  {
+   "nfr": "NFR-002b",
+   "target": "one step down the navigation tree, same p95 \u2264 800 ms budget",
+   "measured": "p95 0.02 ms",
+   "met": true,
+   "at_entities": 10012
+  },
+  {
+   "nfr": "NFR-002c",
+   "target": "whole navigation tree from the root, same p95 \u2264 800 ms budget",
+   "measured": "70.6 ms",
+   "met": true,
+   "at_entities": 10012
+  },
+  {
+   "nfr": "NFR-003",
+   "target": "p95 \u2264 1.5 s",
+   "measured": "p95 0.02 ms",
+   "met": true,
+   "at_entities": 10012
+  },
+  {
+   "nfr": "NFR-008",
+   "target": "10\u2075 entities, 10\u2076 claims, no architectural change",
+   "measured": "10012 entities, 15276 claims, load 0.382 s, 77.2 MB resident",
+   "met": null,
+   "at_entities": 10012
+  },
+  {
+   "nfr": "NFR-026",
+   "target": "\u2264 5 GB excluding geometry at Phase 5",
+   "measured": "22.4 MB",
+   "met": true,
+   "at_entities": 10012
+  },
+  {
+   "nfr": "NFR-001",
+   "target": "p95 \u2264 300 ms, p50 \u2264 100 ms",
+   "measured": "p95 0.01 ms, p50 0.01 ms",
+   "met": true,
+   "at_entities": 100012
+  },
+  {
+   "nfr": "NFR-002",
+   "target": "p95 \u2264 800 ms over \u2264 3 hops",
+   "measured": "p95 37.36 ms",
+   "met": true,
+   "at_entities": 100012
+  },
+  {
+   "nfr": "NFR-002b",
+   "target": "one step down the navigation tree, same p95 \u2264 800 ms budget",
+   "measured": "p95 0.03 ms",
+   "met": true,
+   "at_entities": 100012
+  },
+  {
+   "nfr": "NFR-002c",
+   "target": "whole navigation tree from the root, same p95 \u2264 800 ms budget",
+   "measured": "891.5 ms",
+   "met": false,
+   "at_entities": 100012
+  },
+  {
+   "nfr": "NFR-003",
+   "target": "p95 \u2264 1.5 s",
+   "measured": "p95 0.03 ms",
+   "met": true,
+   "at_entities": 100012
+  },
+  {
+   "nfr": "NFR-008",
+   "target": "10\u2075 entities, 10\u2076 claims, no architectural change",
+   "measured": "100012 entities, 152870 claims, load 6.066 s, 719.1 MB resident",
+   "met": null,
+   "at_entities": 100012
+  },
+  {
+   "nfr": "NFR-026",
+   "target": "\u2264 5 GB excluding geometry at Phase 5",
+   "measured": "223.4 MB",
+   "met": true,
+   "at_entities": 100012
+  },
+  {
+   "nfr": "NFR-001",
+   "target": "p95 \u2264 300 ms, p50 \u2264 100 ms",
+   "measured": "p95 0.01 ms, p50 0.01 ms",
+   "met": true,
+   "at_entities": 100012
+  },
+  {
+   "nfr": "NFR-002",
+   "target": "p95 \u2264 800 ms over \u2264 3 hops",
+   "measured": "p95 44.08 ms",
+   "met": true,
+   "at_entities": 100012
+  },
+  {
+   "nfr": "NFR-002b",
+   "target": "one step down the navigation tree, same p95 \u2264 800 ms budget",
+   "measured": "p95 0.03 ms",
+   "met": true,
+   "at_entities": 100012
+  },
+  {
+   "nfr": "NFR-002c",
+   "target": "whole navigation tree from the root, same p95 \u2264 800 ms budget",
+   "measured": "982.9 ms",
+   "met": false,
+   "at_entities": 100012
+  },
+  {
+   "nfr": "NFR-003",
+   "target": "p95 \u2264 1.5 s",
+   "measured": "p95 0.05 ms",
+   "met": true,
+   "at_entities": 100012
+  },
+  {
+   "nfr": "NFR-008",
+   "target": "10\u2075 entities, 10\u2076 claims, no architectural change",
+   "measured": "100012 entities, 1000098 claims, load 27.409 s, 2962.1 MB resident",
+   "met": null,
+   "at_entities": 100012
+  },
+  {
+   "nfr": "NFR-026",
+   "target": "\u2264 5 GB excluding geometry at Phase 5",
+   "measured": "766.7 MB",
+   "met": true,
+   "at_entities": 100012
+  }
+ ]
+}

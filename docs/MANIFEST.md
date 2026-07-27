@@ -195,7 +195,7 @@ the vendored baseline and every delta applied, including the new `bio` profile.
 | Artifact | State |
 |---|---|
 | Specification set | 44 files in `docs/`, all `status: draft`, validating clean |
-| Decisions | D-001 … D-027, append-only, integrity-hashed |
+| Decisions | D-001 … D-028, append-only, integrity-hashed |
 | Rubric pass | 30 BRB items dispositioned; 3 flags raised, 2 applied, 1 carried to UX pass B by design |
 | Red team | 13 challenges; 8 accepted, 4 acknowledged, 1 refuted with evidence; 2 S1 escalated verbatim |
 | Schemas | 7 JSON Schemas in `schemas/` |
@@ -246,7 +246,7 @@ disabling the EVC-1 refusal, the budget ceiling, and the injection flag — each
 turn the suite red.
 
 Verification: `bash tools/check.sh` runs the substrate invariants, their negative
-tests, 454 unit tests, both static validators, the strict spec graph, the
+tests, 467 unit tests, both static validators, the strict spec graph, the
 implementation trace, and a release build. The trace holds *claimed-but-untested*
 Musts at zero; Musts with no implementation at all are expected for the unbuilt
 modules above and are listed by module rather than hidden.

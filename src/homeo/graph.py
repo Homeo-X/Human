@@ -93,6 +93,10 @@ class Graph:
         self._out: dict[str, list[Relationship]] = {}
         self._in: dict[str, list[Relationship]] = {}
         self._spatial: dict[str, SpatialIdentity] = {}
+        # Containment children, indexed once. Built here rather than scanned
+        # per call because `children()` is the inner loop of every tree walk —
+        # see the note there (D-028).
+        self._children: dict[str, list[str]] = {}
         self._index()
 
     # ---- indexing ------------------------------------------------------
@@ -110,9 +114,13 @@ class Graph:
                 if term:
                     self._alias(term.lower(), e.id)
             self._alias(e.preferred_term.lower(), e.id)
+            if e.part_of:
+                self._children.setdefault(e.part_of, []).append(e.id)
         for r in self.substrate.relationships:
             self._out.setdefault(r.source, []).append(r)
             self._in.setdefault(r.target, []).append(r)
+            if r.type == CONTAINMENT:
+                self._children.setdefault(r.target, []).append(r.source)
         for s in self.substrate.spatial_identities:
             self._spatial[s.entity] = s
 
@@ -220,11 +228,16 @@ class Graph:
         return None
 
     def children(self, entity_id: str) -> list[str]:
-        """What this entity contains. Containment only — never membership."""
-        kids = [e.id for e in self.substrate.entities if e.part_of == entity_id]
-        kids += [r.source for r in self._in.get(entity_id, [])
-                 if r.type == CONTAINMENT and r.source not in kids]
-        return sorted(set(kids))
+        """What this entity contains. Containment only — never membership.
+
+        Served from an index built once at load. It used to scan every entity
+        on every call, which is invisible at 276 entities and quadratic at any
+        real size: walking the tree from the root took 3.9 s at 10,012 entities
+        against NFR-002's 800 ms budget, and would have taken about six minutes
+        at 100,000 (D-028). The measurement is in `bench/RESULTS.json`; nothing
+        about the answer changed, only what it costs.
+        """
+        return sorted(set(self._children.get(entity_id, ())))
 
     def descendants(self, entity_id: str) -> list[str]:
         """What is reachable one step down, by containment **or** membership.

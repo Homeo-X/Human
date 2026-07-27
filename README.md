@@ -56,6 +56,15 @@ one that flatters.
 A model that reports this honestly is more useful than one that does not report
 it, which is the whole wager of the project.
 
+The same rule now applies to the performance targets. Thirty-one NFR rows
+carried a number and **no measurement** until `tools/bench.py` ran them against
+synthetic substrates at 1,012 → 100,012 entities (`bench/RESULTS.json`, D-028).
+Five rows pass with room to spare; one is a finding — the substrate reaches
+NFR-008's Phase 5 volumetrics at **~3 GB resident**, which a server can do and
+the offline classroom profile in NFR-013 cannot. Twelve rows needing a browser,
+a GPU, geometry or a deployed service are listed as unmeasurable with what each
+needs, rather than filled in with a plausible number.
+
 ## Repository layout
 
 ```
@@ -83,7 +92,7 @@ src/homeo/          the reference implementation of the substrate services
   release.py          build, validate, hash, atomic publish
   importers/obo.py    OBO/OBO-JSON import, and the six gates it refuses at
   api.py, cli.py      the API and its command-line equivalent
-tests/              454 tests, each tagged with the FR ids it verifies
+tests/              467 tests, each tagged with the FR ids it verifies
 tools/
   check.sh            everything that must be green (--quick for pre-commit)
   curate_regions.py   adds the L1 regions through the real curation path
@@ -92,6 +101,8 @@ tools/
   split_claim_kinds.py  separates definitions from findings (D-021)
   fetch_authorities.py  pins UBERON/CL/ECO snapshots by SHA-256 (D-024)
   import_l3.py        imports L3 organs by rule from the pinned snapshot
+  synth.py            synthetic substrates at volume — refuses to touch real data
+  bench.py            the NFR register, measured (bench/RESULTS.json)
   biocheck.py         executes the BIO_Validation_Framework invariants (INV-NN)
   specgraph.py        spec-graph validator (framework, extended for the bio profile)
   validate.sh         static checker for the framework tree and generated docs

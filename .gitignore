@@ -4,3 +4,4 @@ docs/INTEGRITY.json
 releases/
 .pytest_cache/
 vendor/
+bench/substrates*/
