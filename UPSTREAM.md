@@ -71,9 +71,24 @@ Not a framework file. Executes the `INV-NN` invariants from
 idiom (finding levels, `--strict`, exit codes) so both validators behave
 identically, and carries `--selftest` negative tests.
 
+### D7 — `tools/specgraph.py`: **upstream defect fix** — `affects:` outside the doc set
+The `affects:` check warns for any token ending in `.md` that is not in the docs
+directory. AGENTS.md §3 defines `affects:` as "files or IDs", and decisions
+routinely affect Markdown that lives beside `docs/` rather than in it —
+`README.md`, `AGENTS.md`, a profile README. Upstream reports every one of those
+as a missing file, which trains authors to delete true entries from `affects:`
+to get a clean run. Since `affects:` is precisely what makes a changed decision
+re-reviewable ("whatever it lists is what gets re-read"), a checker that
+penalizes completeness is worse than no checker.
+
+Fixed here by also accepting a file that exists one level above the docs
+directory before warning. Non-existent files still warn, verified both ways.
+**Defect in the upstream framework, not a project-specific need** (D-022).
+
 ## Re-applying an upstream update
 
 1. Diff the new upstream tree against the vendored baseline.
-2. Re-apply D1–D5 (D3 first — check whether upstream fixed it; if so, drop it).
+2. Re-apply D1–D5 and D7 (D3 and D7 first — check whether upstream fixed them;
+   if so, drop them).
 3. Re-run `bash tools/validate.sh` and `bash tools/validate.sh --docs docs/`.
 4. Record the new vendored date and baseline above.

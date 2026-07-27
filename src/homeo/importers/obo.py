@@ -390,8 +390,16 @@ class OboImporter:
                 f'the covered subsets a class and level, and a guessed level is '
                 f'invisible once it is in the graph')
         if self.placement(term) is None:
+            # The placement rule knows *why* it declined — no human warrant, a
+            # system with no anchor, no mapped system at all. Reporting all
+            # three as "unplaced" made the summary say the importer could not
+            # file the term when in fact it had refused it for a different and
+            # more interesting reason, and 67 non-human refusals disappeared
+            # into that one bucket (D-027).
+            stated = getattr(self.placement, 'refusals', {}).get(term.id)
             return Refusal(
                 term.id, term.label,
+                stated or
                 'unplaced: no subsystem rule covers this term. An ontology '
                 'knows what a structure is, not which system this project '
                 'files it under; placing it on a guess would assert curation '

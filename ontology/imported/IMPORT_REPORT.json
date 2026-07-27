@@ -14,7 +14,8 @@
   "relationships": 156,
   "refused": 99,
   "refused_by_reason": {
-   "unplaced": 88,
+   "non-human": 67,
+   "unplaced": 21,
    "scaffolding": 9,
    "already present": 2
   },
@@ -26,27 +27,27 @@
   {
    "term": "UBERON:0000018",
    "label": "compound eye",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0000171",
    "label": "respiration organ",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0000359",
    "label": "preputial gland",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0000409",
    "label": "serous gland",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "unplaced: UBERON puts this term under no system this project models — it reaches only abstractions like \"anatomical system\", which locate nothing"
   },
   {
    "term": "UBERON:0000414",
    "label": "mucous gland",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "unplaced: UBERON puts this term under no system this project models — it reaches only abstractions like \"anatomical system\", which locate nothing"
   },
   {
    "term": "UBERON:0000489",
@@ -66,32 +67,32 @@
   {
    "term": "UBERON:0001038",
    "label": "chordotonal organ",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0001053",
    "label": "arthropod neurohemal organ",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0001100",
    "label": "pectoralis minor",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "unplaced: UBERON puts this term under no system this project models — it reaches only abstractions like \"anatomical system\", which locate nothing"
   },
   {
    "term": "UBERON:0001121",
    "label": "longus colli muscle",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "unplaced: UBERON puts this term under no system this project models — it reaches only abstractions like \"anatomical system\", which locate nothing"
   },
   {
    "term": "UBERON:0001220",
    "label": "quadratus lumborum",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "unplaced: UBERON puts this term under no system this project models — it reaches only abstractions like \"anatomical system\", which locate nothing"
   },
   {
    "term": "UBERON:0001221",
    "label": "transversus abdominis muscle",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "unplaced: UBERON puts this term under no system this project models — it reaches only abstractions like \"anatomical system\", which locate nothing"
   },
   {
    "term": "UBERON:0001264",
@@ -101,22 +102,22 @@
   {
    "term": "UBERON:0001327",
    "label": "coccygeus muscle",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "unplaced: UBERON puts this term under no system this project models — it reaches only abstractions like \"anatomical system\", which locate nothing"
   },
   {
    "term": "UBERON:0001339",
    "label": "ischiocavernosus muscle",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "unplaced: UBERON puts this term under no system this project models — it reaches only abstractions like \"anatomical system\", which locate nothing"
   },
   {
    "term": "UBERON:0001484",
    "label": "articular capsule",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "unplaced: UBERON puts this term under no system this project models — it reaches only abstractions like \"anatomical system\", which locate nothing"
   },
   {
    "term": "UBERON:0001630",
    "label": "muscle organ",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "unplaced: UBERON puts this term under no system this project models — it reaches only abstractions like \"anatomical system\", which locate nothing"
   },
   {
    "term": "UBERON:0002075",
@@ -126,27 +127,27 @@
   {
    "term": "UBERON:0002365",
    "label": "exocrine gland",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "unplaced: UBERON puts this term under no system this project models — it reaches only abstractions like \"anatomical system\", which locate nothing"
   },
   {
    "term": "UBERON:0002381",
    "label": "pectoralis major",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "unplaced: UBERON puts this term under no system this project models — it reaches only abstractions like \"anatomical system\", which locate nothing"
   },
   {
    "term": "UBERON:0002382",
    "label": "rectus abdominis muscle",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "unplaced: UBERON puts this term under no system this project models — it reaches only abstractions like \"anatomical system\", which locate nothing"
   },
   {
    "term": "UBERON:0002404",
    "label": "transversus thoracis",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "unplaced: UBERON puts this term under no system this project models — it reaches only abstractions like \"anatomical system\", which locate nothing"
   },
   {
    "term": "UBERON:0002518",
    "label": "otolith organ",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0003103",
@@ -156,127 +157,127 @@
   {
    "term": "UBERON:0003133",
    "label": "reproductive organ",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0003134",
    "label": "female reproductive organ",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0003135",
    "label": "male reproductive organ",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0003250",
    "label": "rectus capitis lateralis muscle",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "unplaced: UBERON puts this term under no system this project models — it reaches only abstractions like \"anatomical system\", which locate nothing"
   },
   {
    "term": "UBERON:0003410",
    "label": "oropharyngeal gland",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0003484",
    "label": "eye sebaceous gland",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0003485",
    "label": "vagina sebaceous gland",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0003547",
    "label": "brain meninx",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0003555",
    "label": "spinal cord pia mater",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0003560",
    "label": "spinal cord arachnoid mater",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0003605",
    "label": "eye skin gland",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0003668",
    "label": "synovial bursa",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "unplaced: UBERON puts this term under no system this project models — it reaches only abstractions like \"anatomical system\", which locate nothing"
   },
   {
    "term": "UBERON:0003903",
    "label": "bursa of Fabricius",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0003937",
    "label": "reproductive gland",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0004187",
    "label": "Harderian gland",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0004757",
    "label": "rectal salt gland",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0004758",
    "label": "salt gland",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0004759",
    "label": "cranial salt gland",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0004765",
    "label": "skeletal element",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0004790",
    "label": "skin mucous gland",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0004859",
    "label": "eye gland",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0005052",
    "label": "gizzard",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0005057",
    "label": "immune organ",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0005058",
    "label": "hemolymphoid system gland",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0005067",
    "label": "amphid sensory organ",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0005175",
@@ -296,52 +297,52 @@
   {
    "term": "UBERON:0005204",
    "label": "larynx submucosa gland",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0005250",
    "label": "stomatodeum gland",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0005398",
    "label": "female reproductive gland",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0005399",
    "label": "male reproductive gland",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0005442",
    "label": "abdominal external oblique muscle",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "unplaced: UBERON puts this term under no system this project models — it reaches only abstractions like \"anatomical system\", which locate nothing"
   },
   {
    "term": "UBERON:0005454",
    "label": "abdominal internal oblique muscle",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "unplaced: UBERON puts this term under no system this project models — it reaches only abstractions like \"anatomical system\", which locate nothing"
   },
   {
    "term": "UBERON:0006583",
    "label": "statocyst",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0006856",
    "label": "interrenal gland",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0006858",
    "label": "adrenal/interrenal gland",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0006860",
    "label": "swim bladder",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0006868",
@@ -351,62 +352,62 @@
   {
    "term": "UBERON:0006925",
    "label": "digestive system gland",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0006976",
    "label": "peptonephridium",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0007132",
    "label": "head kidney",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0007357",
    "label": "proventriculus",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0007358",
    "label": "abomasum",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0007359",
    "label": "ruminant forestomach",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0007770",
    "label": "osphradium",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0007773",
    "label": "scrotal sweat gland",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0007801",
    "label": "pygostyle",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0007802",
    "label": "uropygial gland",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0008246",
    "label": "pyloric stomach",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0008250",
    "label": "cardiac stomach",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0008811",
@@ -416,107 +417,107 @@
   {
    "term": "UBERON:0008812",
    "label": "hemipenis",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0008815",
    "label": "pharyngeal slit",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0008855",
    "label": "placenta metrial gland",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0008917",
    "label": "ampullary organ",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0008918",
    "label": "ampulla of Lorenzini",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0008974",
    "label": "apocrine gland",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "unplaced: UBERON puts this term under no system this project models — it reaches only abstractions like \"anatomical system\", which locate nothing"
   },
   {
    "term": "UBERON:0009014",
    "label": "lower back skin",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0009071",
    "label": "mesobronchus",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0009072",
    "label": "ventrobronchus",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0009074",
    "label": "syrinx organ",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0009102",
    "label": "supraneural body",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0009114",
    "label": "cervical thymus",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0009115",
    "label": "thoracic thymus",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0009116",
    "label": "thymoid",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0009117",
    "label": "indifferent gonad",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0009196",
    "label": "indifferent external genitalia",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0009708",
    "label": "dorsal pancreas",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "unplaced: UBERON puts this term under no system this project models — it reaches only abstractions like \"anatomical system\", which locate nothing"
   },
   {
    "term": "UBERON:0009709",
    "label": "ventral pancreas",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "unplaced: UBERON puts this term under no system this project models — it reaches only abstractions like \"anatomical system\", which locate nothing"
   },
   {
    "term": "UBERON:0009717",
    "label": "coronal organ",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0009756",
    "label": "spermaceti organ",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   },
   {
    "term": "UBERON:0009866",
    "label": "Hatschek's nephridium",
-   "reason": "unplaced: no subsystem rule covers this term. An ontology knows what a structure is, not which system this project files it under; placing it on a guess would assert curation nobody did"
+   "reason": "non-human: no FMA cross-reference and not in the human reference atlas, so this vertebrate-general class has no warrant for a human reference model"
   }
  ],
  "placement_refusals": {

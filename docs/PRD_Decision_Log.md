@@ -852,6 +852,72 @@ get entries._
   ontology/CLAIM_KIND_SPLIT.json
 - **Supersedes:** none
 
+### D-022 — The substrate is the product; every surface is a client (2026-07-27, orchestrator)
+- **Status:** active
+- **Context:** The documents and the code had drifted apart in emphasis. What is
+  built is an evidence substrate and the machinery that refuses ungrounded
+  output — the groundedness guard, the curation plane, the agent contract, the
+  importer's refusal gates — while the top of the specification still read as a
+  3D anatomy product with a rigorous backend: the vision sentence led with
+  "explored spatially", the value proposition led with rendered structure, and
+  the roadmap's phase names described a viewer being filled in. Anyone reading
+  the spec to decide what to build next would have optimized for the projection
+  and treated the substrate as its backing store, which inverts the dependency
+  the whole project rests on.
+  A second, plainer problem: the README's current-state figures were stale after
+  the L3 import (it claimed 90% narrative against an actual 51%, and 171
+  entities against 276), and the negative space — 0 reviewed records, 9 findings
+  against 414 definitions, 0 geometry — sat in the last third of the document
+  phrased as a caveat.
+- **Decision:** Reorder the framing so the graded substrate and its negative
+  space lead, and every surface — spatial viewer, read API, CLI, retrieval
+  agents, importers, simulation runtime — is named as a client of it. `README.md`
+  gains a "What the model does not know" section immediately after the goal
+  table, with each figure derived from `ontology/` and the command that produces
+  it beside it. The Executive Summary's value proposition leads with claim
+  grading; its alternatives paragraph compares against the ontologies first.
+  Scope & Roadmap states once, at the head of the roadmap, that the phases
+  advance the substrate and that a phase slipping on geometry does not stall the
+  phases that need none of it.
+  **Emphasis and accuracy only. No capability claim changed, no gate weakened,
+  no requirement added or removed.**
+- **Alternatives:**
+  - Leave the framing and fix only the stale numbers — rejected_because: the
+    numbers were stale *because* they lived in a section written as an
+    afterthought. A figure nobody leads with is a figure nobody re-derives.
+  - Rewrite the roadmap's phase names to drop their anatomical framing —
+    rejected_because: the phase names describe the content each phase adds,
+    which is correct; the missing statement was about what consumes that
+    content, and one paragraph says it without churning every downstream
+    reference.
+  - Soften Phase 1's mesh and licence exit criteria while editing that section
+    — rejected_because: relaxing a gate under cover of a framing edit is
+    precisely the failure mode this project exists to prevent. Every clause is
+    kept verbatim.
+- **Consequences:** + The document set now says what was actually built, in the
+  order that makes the dependency legible. + The negative space is checkable
+  rather than rhetorical: each README figure names the command that produces it,
+  so a stale number becomes a bug with an owner. + A reader deciding what to
+  build next sees the review bottleneck before the missing viewer. − The
+  README's honest numbers make the project look earlier in its life than the
+  previous framing did, which is the accurate impression. − Emphasis in prose is
+  not machine-checkable; nothing prevents this drift from recurring except
+  re-deriving the figures at each review, which `prd-review` now has reason to
+  do.
+- **Note (a validator defect surfaced by this entry):** listing `README.md` under
+  `affects:` produced a specgraph warning, because the check resolves `.md`
+  tokens against the doc set only and the README lives beside `docs/`, not in
+  it. The wrong fix is to drop the entry — `affects:` is what makes a changed
+  decision re-reviewable, so a checker that penalizes a complete list trains
+  authors to write incomplete ones. Fixed in `tools/specgraph.py` (files one
+  level above the docs directory now resolve; genuinely missing files still
+  warn, verified both ways) and recorded as upstream delta **D7** in
+  `UPSTREAM.md`. This is the only code change made under this decision.
+- **Reversibility:** high — prose, plus one two-line validator fix.
+- **Affects:** README.md, PRD_Executive_Summary, PRD_Scope_and_Roadmap,
+  MANIFEST.md, tools/specgraph.py, UPSTREAM.md
+- **Supersedes:** none
+
 ### D-023 — Subsumption is a relation; the vocabulary had no guard (2026-07-27, architect)
 - **Status:** active
 - **Context:** UBERON carries 19,387 `is_a` edges and the relation vocabulary
@@ -983,4 +1049,123 @@ get entries._
 - **Reversibility:** high.
 - **Affects:** src/homeo/importers/obo.py, tools/import_l3.py,
   tools/biocheck.py, BIO_Validation_Framework
+- **Supersedes:** none
+
+### D-026 — Certified pipelines: the intended answer to RSK-02, recorded and not built (2026-07-27, orchestrator)
+- **Status:** active
+- **Context:** RSK-02 named review throughput as the project's principal risk
+  before there was anything to review. There is now: the substrate holds 276
+  entities and 423 claims, **none of them reviewed**, and the unreviewed count
+  across the coverage table rose from 173 to 293 as the L3 import landed
+  (D-024). The import is what made the risk measurable — it produced a hundred
+  organs in an afternoon and moved the review deficit in the wrong direction,
+  which is the honest shape of the problem: proposal is cheap and approval is
+  not.
+  Record-by-record review does not close that gap and does not scale with the
+  ambition. Eleven organ systems to L5, then L7, is five figures of records; at
+  any plausible reviewer-hours-per-record the arithmetic says the queue is never
+  emptied, and BR-023's throttle — correctly — then holds generation down to
+  that rate forever. A gate that can only be satisfied by work nobody can
+  perform degrades into a rubber stamp while all thirty invariants pass green,
+  exactly as RSK-02 predicts.
+  What D-024 demonstrated in passing is the shape of the way out. The hundred
+  organs were not judged individually by the importer; they were admitted by a
+  **rule** — `RULES` in `src/homeo/importers/obo.py`, `SYSTEM_MAP` in
+  `tools/import_l3.py` — over a **pinned, hash-verified source**, and that rule
+  produced 98 refusals it reported rather than concealed. A reviewer looking at
+  that run has a tractable object: one source, one extraction method, one class
+  assignment rule, and a countable output with its refusals.
+- **Decision:** Record **certified pipelines (H1)** as the intended structural
+  answer, and **do not build it in this phase**. The proposal: a reviewer with
+  declared competence certifies a *pipeline* — the triple of source, extraction
+  method, and class-assignment rule — after auditing a **sample** of its output,
+  and records that certification the way an Approval is recorded today. Records
+  produced by a certified pipeline are admitted at the class the certification
+  warrants; the sample audit, its size, and its error rate are part of the
+  record; a pipeline whose sample fails is not certified and its output stays
+  provisional. Expert time goes from O(claims) to O(sources × methods), which is
+  the only change of order available.
+  What this decision does **not** do: it does not admit anything, does not
+  change any current gate, does not raise any ceiling, and does not weaken
+  BR-002 — no automated actor assigns EVC-1 or EVC-2 under a certified pipeline
+  any more than it does today; certification is a human act about a rule, not a
+  delegation of grading to the rule. Until it is built, everything imported
+  remains provisional (D-017).
+- **Alternatives:**
+  - Continue record-by-record review — rejected_because: it is the current
+    design and it is what produced a 293-record deficit from one afternoon's
+    import. It remains correct at small scale and is the fallback for anything
+    no pipeline covers; it is not a plan for eleven systems.
+  - Lower the review bar so provisional content counts as reviewed —
+    rejected_because: this is the rubber stamp RSK-02 describes, with the added
+    harm that the metrics would improve. The distinction between proposed and
+    reviewed is the correctness story; deleting it to make a number move is the
+    one change that would make the project worthless while looking like
+    progress.
+  - Build it now, before any pipeline has been reviewed by a human at all —
+    rejected_because: certification means a competent human audits a sample, and
+    this project has had no domain reviewer at any point. Building the machinery
+    for an act nobody has yet performed would encode guesses about sample size,
+    error tolerance, and scope-of-warrant that only a reviewer can supply. The
+    first certified pipeline must be designed with the person who would sign it.
+- **Consequences:** + The principal risk now has a named, recorded intended
+  response rather than an implicit hope that reviewers appear. + The two import
+  rule tables become the worked example the design starts from, not a
+  throwaway. + Anyone reading the roadmap sees the bottleneck before the missing
+  viewer. − Nothing improves today: the deficit is still 293 and every record is
+  still provisional. − A certified pipeline is a strictly weaker guarantee than
+  per-record review, traded for tractability; the sample size and the
+  scope-of-warrant are where that trade can go wrong, and neither is specified
+  here. − Recording an unbuilt mechanism risks it being cited as though it
+  exists; the status line and this consequence exist to make that misreading
+  hard.
+- **Reversibility:** high — nothing is built, and the record is a proposal.
+- **Affects:** PRD_Risks_and_Constraints, PRD_FR_Curation, BIO_Validation_Framework,
+  src/homeo/importers/obo.py, tools/import_l3.py
+- **Supersedes:** none
+
+### D-027 — Sixty-seven refusals were reported under the wrong reason (2026-07-27, architect)
+- **Status:** active
+- **Context:** Re-deriving the README's figures from `ontology/` rather than
+  copying them (D-022) found the import report disagreeing with the import.
+  `Placement` distinguishes three grounds for declining a term — no human
+  warrant, a system with no L2 anchor, no mapped system at all — and records the
+  specific one. `OboImporter` then discarded it: any placement returning `None`
+  was reported as `unplaced`. The published summary therefore read
+  *"unplaced: 88"* when the truth was *"non-human: 67, unplaced: 21"*.
+  The distinction is not cosmetic. "Unplaced" says this project has not decided
+  where a structure files, which is curation work. "Non-human" says the term is
+  a vertebrate-general class with no warrant for a human reference model, which
+  is INV-12 doing exactly what it exists to do — and it was the single largest
+  category of refusal, invisible in the summary anyone would read.
+  D-024's own prose carried the right breakdown (67 / 22 / 9) while the artifact
+  it describes carried the wrong one, so the numbers in the decision log and the
+  numbers in the file had already diverged, and nothing checked them against
+  each other.
+- **Decision:** When a placement declines, the importer reports the placement's
+  own stated reason and falls back to the generic one only when none is given.
+  The import was re-run against the same pinned snapshot: entities, claims and
+  relationships are **byte-identical**, and `IMPORT_REPORT.json` is the only file
+  that changed — which is also a live check of the determinism G-07 requires.
+  Two tests pin it: a placement that states a reason has that reason reported,
+  and a placement that states none still refuses generically. Deleting the
+  lookup turns the suite red.
+- **Alternatives:**
+  - Correct the README and leave the artifact — rejected_because: the artifact
+    is what a reader downloads and what a future review reads; a correct README
+    over a misleading report is the drift this project treats as a defect.
+  - Report both the generic and the specific reason — rejected_because: the
+    summary buckets on the reason's prefix, so two reasons per refusal produces
+    a count that no longer sums to the refusals.
+- **Consequences:** + The refusal summary now distinguishes a curation gap from
+  an evidence gap, which are different problems with different owners. + The
+  re-run demonstrated byte-identical rebuild on real content rather than on a
+  fixture. − The published refusal breakdown changed shape between releases;
+  anyone who parsed `refused_by_reason` sees a new key. − It remains true that
+  nothing cross-checks a decision entry's numbers against the artifact it
+  describes; this was found by hand, and only because D-022 required
+  re-deriving.
+- **Reversibility:** high.
+- **Affects:** src/homeo/importers/obo.py, tools/import_l3.py,
+  ontology/imported/IMPORT_REPORT.json, README.md
 - **Supersedes:** none

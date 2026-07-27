@@ -113,6 +113,32 @@ class TestRefusals(unittest.TestCase):
         self.assertEqual([], r.entities)
         self.assertIn('already present', r.refusals[0].reason)
 
+    def test_a_placement_states_its_own_reason_for_refusing(self):
+        """[D-027] Three different refusals landed in one bucket.
+
+        `Placement` distinguishes non-human, unanchored and unplaced; the
+        importer overwrote all three with "unplaced", so the import report said
+        88 terms could not be filed when 67 of them had been refused for having
+        no human warrant — the more interesting fact, and the one INV-12 is
+        about.
+        """
+        class Stated:
+            refusals = {'UBERON:0000001': 'non-human: no FMA cross-reference'}
+
+            def __call__(self, term):
+                return None
+
+        r = self._result([_term(subsets=frozenset({'organ_slim'}))],
+                         placement=Stated())
+        self.assertEqual('non-human: no FMA cross-reference',
+                         r.refusals[0].reason)
+
+    def test_a_placement_with_nothing_to_say_still_refuses(self):
+        """The generic reason remains for a placement that states none."""
+        r = self._result([_term(subsets=frozenset({'organ_slim'}))],
+                         placement=lambda term: None)
+        self.assertIn('unplaced', r.refusals[0].reason)
+
     def test_an_undefined_term_yields_an_entity_and_no_claim(self):
         """Naming something is not defining it, and inventing the definition
         would be fabricating the record's own content."""

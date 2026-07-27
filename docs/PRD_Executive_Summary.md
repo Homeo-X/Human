@@ -1,23 +1,26 @@
 ---
 doc: PRD_Executive_Summary
 tier: standard+
-version: 1.0.0
+version: 1.0.1
 status: draft
 owner: pm
-last_updated: 2026-07-26
+last_updated: 2026-07-27
 ---
 
 # Executive Summary & Product Foundation
 
 ## Product Vision
-A continuously extensible, evidence-grounded, multiscale computational
-representation of the human organism that can be explored spatially, queried
-semantically, reasoned about mechanistically, simulated selectively, and
-eventually personalized through individual data without corrupting the canonical
-reference model.
+A continuously extensible, multiscale computational representation of the human
+organism in which every claim carries its evidence and its grade — queryable
+semantically, reasoned about mechanistically, projected spatially, simulated
+selectively, and eventually personalized through individual data without
+corrupting the canonical reference model.
 
 The 3D model is not the product. It is one projection of a structured biological
-substrate, and the substrate is what makes the projection trustworthy.
+substrate, and the substrate is what makes the projection trustworthy. The same
+holds for every other surface: the spatial view, the read API, the retrieval
+agents, and the simulation runtime are clients of one graded knowledge
+substrate, and none of them may answer around it.
 
 ## Problem Statement
 Anatomical software today separates the two things a learner or researcher needs
@@ -50,21 +53,27 @@ trigger and a Phase 1 gate, not a settled fact.
 ## Value Proposition
 Three properties, none of which existing tools combine:
 
-1. **Structure and mechanism are one navigable object.** Every rendered entity
-   resolves to a graph node carrying function, mechanism, relationships, and
-   evidence; every mechanism resolves back to where it happens.
-2. **Every claim carries its grade.** A user can always see whether they are
-   looking at a measurement, a model, an approximation, or an admission of
-   ignorance — and `UNKNOWN` is a displayed answer, not a blank.
+1. **Every claim carries its grade, and ignorance is representable.** A user can
+   always see whether they are looking at a measurement, a model, an
+   approximation, or an admission of ignorance — and `UNKNOWN` is a displayed
+   answer, not a blank. A definition is held separately from a finding (D-021),
+   so naming a structure can never be cited as evidence about it.
+2. **Structure and mechanism are one navigable object.** Every entity — rendered
+   or not — resolves to a graph node carrying function, mechanism,
+   relationships, and evidence; every mechanism resolves back to where it
+   happens.
 3. **The reference model cannot be corrupted by individual data.** Personalization
    is an overlay, enforced structurally (D-004), so the canonical model stays a
    fixed point that a personalized view can always be reduced to.
 
-Against named alternatives: Complete Anatomy and Visible Body render better and
-will continue to; neither exposes claim-level provenance nor a queryable
-mechanism graph. UBERON and the Human Reference Atlas hold rigorous structured
-biology; neither offers a spatial or dynamic surface. This project's contribution
-is the binding between them, and the honesty machinery that binding requires.
+Against named alternatives: UBERON, FMA and the Human Reference Atlas hold
+rigorous structured biology, and this project consumes them directly rather than
+competing with them — but they carry no evidence grading for physiological
+claims, no mechanism layer, and no spatial or dynamic surface. Complete Anatomy
+and Visible Body render better and will continue to; neither exposes claim-level
+provenance nor a queryable mechanism graph. This project's contribution is the
+binding between the two worlds, and the honesty machinery that binding requires
+— which is why the substrate and its validators are built before any renderer.
 
 ## Goals & Success Metrics
 _Every FR module's Success Metrics section traces back to a KPI id here. Baselines

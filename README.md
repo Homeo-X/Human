@@ -20,7 +20,7 @@ The project separates three goals that are routinely conflated:
 
 | Goal | What it means here | Status |
 |---|---|---|
-| **A — Knowledge representation** | represent what is known about the human body, with evidence grading | Phase 0 substrate built (one vertical slice seeded) |
+| **A — Knowledge representation** | represent what is known about the human body, with evidence grading | Phase 0 substrate built; one vertical slice and 107 organs seeded, none reviewed |
 | **B — Visualization** | show the body and its structures in 3D | specified, not built |
 | **C — Simulation** | model how the body behaves over time | specified, not built |
 
@@ -31,6 +31,31 @@ that claims never exceed their evidence.
 
 **This is not a medical device.** Nothing here diagnoses, treats, or advises.
 
+## What the model does not know
+
+The negative space is the point, so it goes here rather than in a footnote.
+Every figure below is derived from `ontology/`, not asserted — the command that
+produces it is beside it, and a stale number is a bug.
+
+| | count | how to check |
+|---|---|---|
+| entities **reviewed by a human** | **0 of 276** | `python3 -m homeo.cli coverage --table` |
+| claims that are **findings** rather than definitions | **9 of 423** | `python3 tools/biocheck.py ontology/ --strict` |
+| entities carrying **geometry** | **0** | `python3 -m homeo.cli view heart` — every entity reports `depiction: described` |
+| entities still `narrative` — described, not modelled | **140 of 276** | `python3 -m homeo.cli entity <id>` reports its compilation status |
+
+Read those together: the substrate currently knows that a liver exists, what two
+systems it belongs to, and which authority named it — and almost nothing about
+what it *does*. 414 of its 423 claims are terminological (D-021): they record
+what a word means on the authority of a source, which is not evidence about a
+body and is deliberately kept off the evidence ladder so it can never be cited
+as one. No content has been through domain review, so there are **no EVC-1
+claims at all**, and the release manifest publishes that number rather than the
+one that flatters.
+
+A model that reports this honestly is more useful than one that does not report
+it, which is the whole wager of the project.
+
 ## Repository layout
 
 ```
@@ -40,7 +65,8 @@ docs/               the specification set — PRD, TECH, and BIO documents
   PRD_FR_*.md         15 functional-requirement modules
   CHALLENGE_REGISTER.md  red-team findings and their dispositions
 schemas/            JSON Schemas for the substrate (entity, claim, process, …)
-ontology/           canonical data — the L0→L10 vertical slice + the narrative seed
+ontology/           canonical data — the L0→L10 vertical slice, the narrative seed
+  imported/           organs imported by rule, with the refusals they produced
 src/homeo/          the reference implementation of the substrate services
   substrate.py        typed loading of the canonical files
   graph.py            resolution, typed traversal, the derived navigation view
@@ -55,9 +81,9 @@ src/homeo/          the reference implementation of the substrate services
   agents.py           the agent runtime — the twelve-facet contract, enforced
   evals.py            the EV-RETR suites that gate a release
   release.py          build, validate, hash, atomic publish
-  importers/obo.py    OBO/OBO-JSON import with its four refusal gates
+  importers/obo.py    OBO/OBO-JSON import, and the six gates it refuses at
   api.py, cli.py      the API and its command-line equivalent
-tests/              452 tests, each tagged with the FR ids it verifies
+tests/              454 tests, each tagged with the FR ids it verifies
 tools/
   check.sh            everything that must be green (--quick for pre-commit)
   curate_regions.py   adds the L1 regions through the real curation path
@@ -156,10 +182,22 @@ intended to be more trustworthy *because* it represents what it does not know.
 
 Phase 0, with the substrate services implemented.
 
-The specification set is complete and validated. The substrate holds a cardiovascular **vertical slice** spanning L0 to L10 —
-organism, system, heart, left ventricle, myocardium, cardiomyocyte population,
-cardiomyocyte, sarcomere, actin/myosin, cross-bridge cycle — plus the narrative
-seed corpus.
+The specification set is complete and validated. The substrate holds **276
+entities**: a cardiovascular **vertical slice** spanning L0 to L10 — organism,
+system, heart, left ventricle, myocardium, cardiomyocyte population,
+cardiomyocyte, sarcomere, actin/myosin, cross-bridge cycle — the narrative seed
+corpus, and **107 organs at L3** across ten organ systems.
+
+Those organs arrived by rule rather than by hand (D-024): `tools/import_l3.py`
+walks a **pinned UBERON snapshot**, verified by SHA-256, and admits only terms a
+stated rule covers. It refused 99 — 67 without a human warrant, 21 it could not
+place in a system, 9 grouping classes, 2 already curated — and reported every
+refusal with its reason rather than guessing. Fifteen of the admitted organs belong to more than one system (the
+pancreas to digestive and endocrine, the pituitary to three), which is why the
+107 organs are counted 123 times across the coverage table and why containment
+and membership had to be separate relations from the start. Everything imported
+is **provisional**: proposed by an agent, reviewed by nobody, and marked so at
+every surface it appears on.
 
 Two things about that slice are worth stating precisely, because the first
 version of this README overclaimed them:
@@ -180,9 +218,12 @@ version of this README overclaimed them:
   containment sense — but it means the slice is not one unbroken parent chain
   from top to bottom.
 
-**90% of entities are still `narrative`** — described, not modelled — and no
-domain reviewer has yet examined any of it, so the substrate currently contains
-**no EVC-1 claims at all**. The release manifest publishes both figures.
+**140 of the 276 entities are still `narrative`** — described, not modelled —
+and no domain reviewer has examined any of it. The import made that deficit
+larger, not smaller: it went from 173 unreviewed records to 293, and the honest
+reading is that breadth is cheap and review is the constraint (RSK-02). D-026
+records the intended answer — certify the *rule* rather than each record — as a
+proposal, not as something built.
 
 Built: entity resolution, typed traversal, the derived navigation view, scale
 contracts and terminal answers, evidence and provenance, five search modes, the
@@ -209,8 +250,13 @@ instead (D-015). A `ViewState` is immutable and its two zoom axes are separate
 operations, so magnifying cannot change a level and changing a level cannot move
 the camera; `ProjectionService` computes, from the graph, what is in view —
 entities at the requested ontological resolution, their positions, whether
-geometry exists, the relations among them, and the evidence behind each. A
-renderer consumes that specification and never queries the substrate. Geometry is
-therefore an attribute of an entity rather than the condition of its existing:
-an entity with no mesh is `described`, positioned, and navigable, and a failed
+geometry exists, the relations among them, and the evidence behind each.
+
+**The renderer is one client of that specification, not its owner.** The same
+substrate answers the read API, the CLI, the agent runtime, the importers, and
+the release pipeline, and none of them queries around the projection to get a
+different answer. That ordering is what makes the 3D view worth trusting when it
+exists, and it is also why its absence costs the project nothing structural:
+geometry is an attribute of an entity rather than the condition of its existing,
+so an entity with no mesh is `described`, positioned, and navigable, and a failed
 asset is reported as a pipeline failure rather than as thin anatomy.

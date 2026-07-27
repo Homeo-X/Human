@@ -1,10 +1,10 @@
 ---
 doc: PRD_Scope_and_Roadmap
 tier: standard+
-version: 1.0.0
+version: 1.0.1
 status: draft
 owner: pm
-last_updated: 2026-07-26
+last_updated: 2026-07-27
 ---
 
 # Scope & Product Roadmap
@@ -42,6 +42,18 @@ document is the place that distinction is kept.
 | Clinical decision support | out of scope permanently, not temporarily — see Non-Goals | never; a different product with different obligations |
 
 ## Roadmap
+
+**What the phases advance is the substrate.** Each phase below is named for the
+content and validation it adds to one graded knowledge base; the surfaces —
+spatial viewer, read API, command line, retrieval agents, importers, simulation
+runtime — are clients of that base, specified alongside it and built when their
+content exists. Two consequences follow, and both are deliberate. A phase that
+slips on geometry does not stall the phases that need none of it, which is why
+the Phase 1 gate could hold the viewer while navigation, projection, curation
+and L3 content were built underneath it (D-011, D-015, D-020, D-022). And no
+surface may answer a question the substrate cannot: a client that queries around
+the graph to produce a better-looking answer is a defect, not a feature, and the
+groundedness guard (INV-14) exists to make that failure loud.
 
 ### Phase 0 — Foundation (this delivery)
 - **Modules:** ONTO, REL, EVID, SCAL, VALD, VER (substrate); all others specified.

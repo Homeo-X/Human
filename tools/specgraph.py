@@ -383,7 +383,13 @@ def main(argv):
             tok = tok.strip().rstrip('.')
             if tok.endswith('.md') or tok.startswith(('PRD_', 'TECH_')):
                 base = tok if tok.endswith('.md') else tok + '.md'
-                if base not in files:
+                # A decision may affect a Markdown file outside the doc set —
+                # README.md, AGENTS.md and the like live beside docs/, not in
+                # it. Reporting those as missing taught authors to drop real
+                # entries from `affects:` to silence the checker, which is the
+                # opposite of what the field is for.
+                if base not in files and not os.path.isfile(
+                        os.path.join(docs, os.pardir, base)):
                     findings.append(('warn', f'{fn}:{ln} decision affects missing file {base}'))
     if any(fn.startswith('PRD_Decision_Log') for fn in files):
         entries = parse_decisions(docs)
