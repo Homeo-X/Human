@@ -391,6 +391,35 @@ def main(argv):
                 if base not in files and not os.path.isfile(
                         os.path.join(docs, os.pardir, base)):
                     findings.append(('warn', f'{fn}:{ln} decision affects missing file {base}'))
+    # MANIFEST's File Inventory is a hand-maintained copy of every doc's
+    # front-matter, and AGENTS.md §7 makes it authoritative. A copy nobody
+    # checks drifts: this one sat listing all 44 files at 1.0.0 while four had
+    # moved on, so the record that is supposed to win a disagreement was the
+    # one that was wrong (D-029). Cheap to check, and the check is what makes
+    # the copy trustworthy rather than decorative.
+    if 'MANIFEST.md' in files:
+        recorded = {}
+        for i, line in enumerate(open(os.path.join(docs, 'MANIFEST.md'),
+                                      encoding='utf-8'), 1):
+            m = re.match(r'\|\s*([A-Za-z0-9_]+\.md)\s*\|[^|]*\|\s*'
+                         r'([0-9]+\.[0-9]+\.[0-9]+)\s*\|', line)
+            if m:
+                recorded[m.group(1)] = (m.group(2), i)
+        for name, (version, line_no) in sorted(recorded.items()):
+            path = os.path.join(docs, name)
+            if not os.path.isfile(path):
+                findings.append(('warn', f'MANIFEST.md:{line_no} inventories '
+                                         f'{name}, which does not exist'))
+                continue
+            m = re.search(r'^version:\s*(\S+)', open(path, encoding='utf-8')
+                          .read(600), re.M)
+            actual = m.group(1) if m else '(none)'
+            if actual != version:
+                findings.append((
+                    'warn', f'MANIFEST.md:{line_no} inventories {name} at '
+                            f'{version}, the file says {actual} — the '
+                            f'inventory is authoritative and is the copy that '
+                            f'drifted'))
     if any(fn.startswith('PRD_Decision_Log') for fn in files):
         entries = parse_decisions(docs)
         ipath = os.path.join(docs, 'INTEGRITY.json')

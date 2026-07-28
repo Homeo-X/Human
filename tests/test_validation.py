@@ -24,10 +24,22 @@ def run(*args):
 class TestHarness(unittest.TestCase):
     """[FR-VALD-001] [FR-VALD-003] [FR-VALD-004] [FR-VALD-009]"""
 
-    def test_clean_substrate_passes(self):
-        """[FR-VALD-004] The pipeline's gate is green on the shipped substrate."""
-        r = run(SUBSTRATE, '--strict')
+    def test_clean_substrate_passes_as_the_pipeline_invokes_it(self):
+        """[FR-VALD-004] The pipeline's gate is green on the shipped substrate.
+
+        `--accept INV-21` is what `tools/check.sh` runs, and the flag is part
+        of the assertion rather than a convenience: 98 organs are placed by
+        membership and not by containment (D-029), so under bare `--strict`
+        the shipped substrate is legitimately red.
+        """
+        r = run(SUBSTRATE, '--strict', '--accept', 'INV-21')
         self.assertEqual(r.returncode, 0, r.stdout)
+
+    def test_the_standing_finding_still_fails_a_bare_strict_run(self):
+        """An accepted finding is acknowledged, never fixed by acknowledgement."""
+        r = run(SUBSTRATE, '--strict')
+        self.assertEqual(r.returncode, 1, r.stdout)
+        self.assertIn('INV-21', r.stdout)
 
     def test_exit_codes_match_specgraphs_idiom(self):
         """[FR-VALD-009] Two validators with different conventions is one
@@ -235,3 +247,50 @@ class TestVocabularyDivergenceIsWiredIn(unittest.TestCase):
         self.assertEqual(set(documented), set(INVERSES))
         self.assertIn('is_a', documented)
         self.assertEqual('subsumes', documented['is_a'])
+
+
+class TestAcceptIsNotAMuteButton(unittest.TestCase):
+    """[FR-VALD-003] [D-029] A suppression you cannot see is not a validator.
+
+    `--accept` exists because INV-21 reports a standing property of the content
+    — 98 organs placed by membership rather than containment — that `--strict`
+    would otherwise turn red on every run, and a build that is always red gets
+    ignored. That is a real risk of turning the flag into a general mute, so
+    the three properties below are the ones that keep it honest.
+    """
+
+    def setUp(self):
+        self.tmp = tempfile.mkdtemp()
+        self.root = os.path.join(self.tmp, 'ontology')
+        shutil.copytree(SUBSTRATE, self.root)
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def _duplicate_an_id(self):
+        path = os.path.join(self.root, 'regions', 'entities.json')
+        with open(path, encoding='utf-8') as fh:
+            data = json.load(fh)
+        data.append(dict(data[0]))
+        with open(path, 'w', encoding='utf-8') as fh:
+            json.dump(data, fh)
+
+    def test_an_accepted_finding_is_still_printed_in_full(self):
+        r = run(SUBSTRATE, '--strict', '--accept', 'INV-21')
+        self.assertIn('INV-21', r.stdout)
+        self.assertIn('98 entities', r.stdout)
+        self.assertIn('NOTED', r.stdout)
+
+    def test_accept_cannot_clear_a_blocking_invariant(self):
+        """The one that matters. INV-20 is blocking; accepting it must fail."""
+        self._duplicate_an_id()
+        r = run(self.root, '--strict', '--accept', 'INV-20')
+        self.assertEqual(r.returncode, 1, r.stdout)
+        self.assertIn('not acceptable by flag', r.stdout)
+
+    def test_accepting_one_invariant_does_not_accept_another(self):
+        """A flag that widens past what it names is a mute button."""
+        self._duplicate_an_id()
+        r = run(self.root, '--strict', '--accept', 'INV-21')
+        self.assertEqual(r.returncode, 1, r.stdout)
+        self.assertIn('INV-20', r.stdout)

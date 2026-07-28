@@ -1232,3 +1232,65 @@ get entries._
 - **Affects:** src/homeo/graph.py, tools/synth.py, tools/bench.py,
   bench/RESULTS.json, PRD_Non_Functional_Requirements, tests/test_synth.py
 - **Supersedes:** none
+
+### D-029 — G-04 reads 2%, and two copies had drifted (2026-07-28, orchestrator)
+- **Status:** active
+- **Context:** An accounting against the PRD, measured rather than recalled,
+  turned up three things no status report had said.
+  **First and worst: G-04 — "proportion of L3 entities reachable from L0 by
+  containment", target 100% — reads 2%.** Two of 107 organs reach the organism.
+  **98 have no containment parent at all.** This follows directly and
+  defensibly from D-024: UBERON's `part_of` does not give this project's
+  containment (the heart is `part_of` "heart plus pericardium"), so the import
+  placed organs by *membership* only. Every organ is reachable from its system,
+  every per-entity query answers correctly, and `cross_scale_path` reports the
+  gap honestly when asked about one entity. Nothing ever asked about all of
+  them. The README's "the containment chain now runs unbroken from L0 to L8" is
+  true of the curated slice and false of the other 98 organs.
+  **Second:** `MANIFEST.md`'s File Inventory listed all 44 documents at
+  `1.0.0 / draft` while four had moved on — the file that AGENTS.md §7 makes
+  authoritative in a disagreement was itself the stale copy.
+  **Third:** `BIO_Evidence_and_Provenance` (which gained the TRM register and
+  the ECO mapping) and `BIO_Validation_Framework` (which gained INV-17 through
+  INV-20) both still read `1.0.0`. Those are minor bumps under §3 — new
+  requirements — and the editing role owed them.
+- **Decision:** Three fixes, each closing the class rather than the instance.
+  **INV-21** reports entities between L3 and the deepest level the `part_of`
+  table admits that have no containment parent. The band is derived from
+  `ADMISSIBLE['part_of']` rather than restated, so it cannot drift from the
+  documented vocabulary. **Advisory, not blocking**, and deliberately: 98
+  organs are unplaced today, and a gate that fails on arrival gets disabled or
+  routed around — it becomes blocking when the placement curation lands.
+  **`specgraph`** now checks the MANIFEST inventory against each file's own
+  front-matter. **The inventory is regenerated from the files**, never hand-
+  edited. Both BIO documents bumped to 1.1.0.
+  The 98 organs are **not** placed here. Assigning a body region to each is
+  curation with a review requirement, not a scripted fix, and doing it by rule
+  would repeat the mistake D-024 avoided.
+- **Alternatives:**
+  - Make INV-21 blocking — rejected_because: an invariant that is red from the
+    day it ships trains everyone to ignore the validator, and this project's
+    validators only work because they are believed.
+  - Place the organs by a region-inference rule now — rejected_because: UBERON
+    does not carry this containment (that is what D-024 found), so any rule
+    would be my guess wearing a citation. Unplaced and counted beats placed and
+    wrong.
+  - Exempt anything holding a participation edge, an earlier version of INV-21
+    — rejected_because: it let an organ that secretes a hormone escape the
+    check entirely. Placement is owed by every organ regardless of what else it
+    does. Caught by writing the negative tests, not by review.
+- **Consequences:** + G-04's real number is visible in every `biocheck` run
+  instead of being computable-but-uncomputed. + The MANIFEST copy is checked,
+  so §7's "this file wins" is now a property rather than an aspiration. + Five
+  negative tests pin INV-21's two boundaries and both placement clauses; four
+  separate mutations of them each turn the suite red. − The substrate now emits
+  a standing warning, which is the honest state and is also the kind of thing
+  teams learn to scroll past. − Nothing about the 98 organs improved: they are
+  counted, not placed. − G-01 remains unmeasurable as specified: its
+  denominator is "the declared per-subsystem entity scope", and
+  BIO_Scale_Contract declares depths, not entity counts. Naming that gap here
+  rather than reporting a percentage against a denominator nobody defined.
+- **Reversibility:** high.
+- **Affects:** tools/biocheck.py, tools/specgraph.py, BIO_Validation_Framework,
+  BIO_Evidence_and_Provenance, MANIFEST.md, README.md
+- **Supersedes:** none

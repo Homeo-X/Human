@@ -40,10 +40,14 @@ class ValidationResult:
     passed: bool
     errors: list[str] = field(default_factory=list)
     warnings: list[str] = field(default_factory=list)
+    # Advisory findings the release acknowledges rather than blocks on. They
+    # ship *in the manifest*: a consumer reading the release learns that 98
+    # organs are not located in the body, which is the point (D-029).
+    accepted: list[str] = field(default_factory=list)
 
     def as_dict(self) -> dict:
         return {'passed': self.passed, 'errors': self.errors,
-                'warnings': self.warnings}
+                'warnings': self.warnings, 'accepted': self.accepted}
 
 
 @dataclass
@@ -137,9 +141,19 @@ def content_hash(substrate: Substrate) -> str:
 class ReleaseBuilder:
     """Build → validate → hash → publish, in that order and no other."""
 
-    def __init__(self, substrate_root: str, tools_dir: str = 'tools'):
+    # Advisory invariants whose finding is a known standing property of the
+    # content rather than a regression. A release does not hide these — it
+    # **publishes** them, in the manifest, with their full message (D-029).
+    # Blocking invariants can never appear here: `biocheck --accept` refuses a
+    # blocking id outright, so this list cannot be widened into a way of
+    # shipping past a real failure.
+    ACCEPTED = ('INV-21',)
+
+    def __init__(self, substrate_root: str, tools_dir: str = 'tools',
+                 accepted: tuple[str, ...] | None = None):
         self.substrate_root = substrate_root
         self.tools_dir = tools_dir
+        self.accepted = self.ACCEPTED if accepted is None else accepted
         self.substrate = load(substrate_root)
 
     # ---- validation ----------------------------------------------------
@@ -158,13 +172,17 @@ class ReleaseBuilder:
         cmd = [sys.executable, script, self.substrate_root]
         if strict:
             cmd.append('--strict')
+        for inv in self.accepted:
+            cmd += ['--accept', inv]
         proc = subprocess.run(cmd, capture_output=True, text=True, check=False)
         errors = [ln[7:].strip() for ln in proc.stdout.splitlines()
                   if ln.startswith('ERROR:')]
         warnings = [ln[6:].strip() for ln in proc.stdout.splitlines()
                     if ln.startswith('WARN:')]
+        noted = [ln[6:].strip() for ln in proc.stdout.splitlines()
+                 if ln.startswith('NOTED:')]
         return ValidationResult(passed=proc.returncode == 0, errors=errors,
-                                warnings=warnings)
+                                warnings=warnings, accepted=noted)
 
     # ---- manifest ------------------------------------------------------
 

@@ -1,10 +1,10 @@
 ---
 doc: MANIFEST
 tier: light+
-version: 1.3.0
+version: 1.4.0
 status: draft
 owner: orchestrator
-last_updated: 2026-07-27
+last_updated: 2026-07-28
 ---
 
 # MANIFEST — Project Human Organism
@@ -46,7 +46,7 @@ wins; cross-review re-syncs the copies from here._
   obligations, health-adjacent personal data in a later phase, an agentic
   subsystem, 15 modules, and scientific claims that require explicit sign-off.
 - **Scope state:** locked (D-001) — per AGENTS.md §9
-- **Generated:** 2026-07-26 · **Last cross-review:** 2026-07-26
+- **Generated:** 2026-07-26 · **Last cross-review:** 2026-07-28
 
 ## FR Modules & Area Registry
 | Module | File | AREA | Source | Rationale |
@@ -114,52 +114,56 @@ placed in a host document rather than given its own file._
 | Onboarding and empty states | TECH_UI_UX_Design §Key Screens |
 
 ## File Inventory
+_Regenerated from the files' own front-matter at cross-review, never
+edited by hand — the previous version drifted to listing all 44 files at
+1.0.0 while four had moved on (D-029)._
+
 | File | Owner | Version | Status |
 |---|---|---|---|
-| MANIFEST.md | orchestrator | 1.0.0 | draft |
-| PRD_Decision_Log.md | orchestrator | 1.0.0 | draft |
-| PRD_Executive_Summary.md | pm | 1.0.0 | draft |
-| PRD_Scope_and_Roadmap.md | pm | 1.0.0 | draft |
-| PRD_Business_Rules.md | pm | 1.0.0 | draft |
-| PRD_FR_Overview.md | pm | 1.0.0 | draft |
-| PRD_Risks_and_Constraints.md | pm | 1.0.0 | draft |
-| PRD_Acceptance_Criteria_and_DoD.md | pm | 1.0.0 | draft |
-| PRD_Glossary_and_References.md | pm | 1.0.0 | draft |
-| PRD_Information_Architecture.md | ux | 1.0.0 | draft |
-| PRD_User_Flows_and_Use_Cases.md | ux | 1.0.0 | draft |
-| PRD_Data_Overview.md | architect | 1.0.0 | draft |
-| PRD_External_Integrations.md | architect | 1.0.0 | draft |
-| PRD_Non_Functional_Requirements.md | architect | 1.0.0 | draft |
-| PRD_Security_Requirements.md | architect | 1.0.0 | draft |
-| TECH_System_Architecture.md | architect | 1.0.0 | draft |
-| TECH_Data_Design.md | architect | 1.0.0 | draft |
-| TECH_API_Specification.md | architect | 1.0.0 | draft |
-| TECH_UI_UX_Design.md | ux | 1.0.0 | draft |
+| BIO_Anatomical_Ontology.md | pm | 1.0.0 | draft |
+| BIO_Cell_and_Molecular_Model.md | pm | 1.0.0 | draft |
+| BIO_Evidence_and_Provenance.md | architect | 1.1.0 | draft |
+| BIO_Model_Review.md | ux | 1.0.0 | draft |
+| BIO_Personalization_Model.md | pm | 1.0.0 | draft |
+| BIO_Physiological_Processes.md | pm | 1.0.0 | draft |
 | BIO_Research_Charter.md | pm | 1.0.0 | draft |
 | BIO_Scale_Contract.md | pm | 1.0.0 | draft |
-| BIO_Anatomical_Ontology.md | pm | 1.0.0 | draft |
-| BIO_Physiological_Processes.md | pm | 1.0.0 | draft |
-| BIO_Cell_and_Molecular_Model.md | pm | 1.0.0 | draft |
-| BIO_Evidence_and_Provenance.md | architect | 1.0.0 | draft |
-| BIO_Validation_Framework.md | architect | 1.0.0 | draft |
-| BIO_Personalization_Model.md | pm | 1.0.0 | draft |
-| BIO_Model_Review.md | ux | 1.0.0 | draft |
-| PRD_FR_Ontology.md | pm | 1.0.0 | draft |
-| PRD_FR_Relationship_Graph.md | pm | 1.0.0 | draft |
-| PRD_FR_Evidence.md | pm | 1.0.0 | draft |
-| PRD_FR_Scale_Bridging.md | pm | 1.0.0 | draft |
-| PRD_FR_Spatial_Representation.md | pm | 1.0.0 | draft |
-| PRD_FR_Navigation.md | pm | 1.0.0 | draft |
-| PRD_FR_Search.md | pm | 1.0.0 | draft |
-| PRD_FR_Process_Models.md | pm | 1.0.0 | draft |
-| PRD_FR_Simulation.md | pm | 1.0.0 | draft |
-| PRD_FR_Personalization.md | pm | 1.0.0 | draft |
-| PRD_FR_Validation.md | pm | 1.0.0 | draft |
-| PRD_FR_Knowledge_Retrieval.md | pm | 1.0.0 | draft |
+| BIO_Validation_Framework.md | architect | 1.1.0 | draft |
+| CHALLENGE_REGISTER.md | redteam | 1.0.0 | draft |
+| MANIFEST.md | orchestrator | 1.4.0 | draft |
+| PRD_Acceptance_Criteria_and_DoD.md | pm | 1.0.0 | draft |
+| PRD_Business_Rules.md | pm | 1.0.0 | draft |
+| PRD_Data_Overview.md | architect | 1.0.0 | draft |
+| PRD_Decision_Log.md | orchestrator | 1.0.0 | draft |
+| PRD_Executive_Summary.md | pm | 1.0.1 | draft |
+| PRD_External_Integrations.md | architect | 1.0.0 | draft |
 | PRD_FR_Agent_Definition.md | pm | 1.0.0 | draft |
 | PRD_FR_Curation.md | pm | 1.0.0 | draft |
+| PRD_FR_Evidence.md | pm | 1.0.0 | draft |
+| PRD_FR_Knowledge_Retrieval.md | pm | 1.0.0 | draft |
+| PRD_FR_Navigation.md | pm | 1.0.0 | draft |
+| PRD_FR_Ontology.md | pm | 1.0.0 | draft |
+| PRD_FR_Overview.md | pm | 1.0.0 | draft |
+| PRD_FR_Personalization.md | pm | 1.0.0 | draft |
+| PRD_FR_Process_Models.md | pm | 1.0.0 | draft |
+| PRD_FR_Relationship_Graph.md | pm | 1.0.0 | draft |
+| PRD_FR_Scale_Bridging.md | pm | 1.0.0 | draft |
+| PRD_FR_Search.md | pm | 1.0.0 | draft |
+| PRD_FR_Simulation.md | pm | 1.0.0 | draft |
+| PRD_FR_Spatial_Representation.md | pm | 1.0.0 | draft |
+| PRD_FR_Validation.md | pm | 1.0.0 | draft |
 | PRD_FR_Versioning.md | pm | 1.0.0 | draft |
-| CHALLENGE_REGISTER.md | redteam | 1.0.0 | draft |
+| PRD_Glossary_and_References.md | pm | 1.0.0 | draft |
+| PRD_Information_Architecture.md | ux | 1.0.0 | draft |
+| PRD_Non_Functional_Requirements.md | architect | 1.1.0 | draft |
+| PRD_Risks_and_Constraints.md | pm | 1.0.0 | draft |
+| PRD_Scope_and_Roadmap.md | pm | 1.0.1 | draft |
+| PRD_Security_Requirements.md | architect | 1.0.0 | draft |
+| PRD_User_Flows_and_Use_Cases.md | ux | 1.0.0 | draft |
+| TECH_API_Specification.md | architect | 1.0.0 | draft |
+| TECH_Data_Design.md | architect | 1.0.0 | draft |
+| TECH_System_Architecture.md | architect | 1.0.0 | draft |
+| TECH_UI_UX_Design.md | ux | 1.0.0 | draft |
 
 ## Tooling (generation provenance — see INTEGRATIONS.md)
 | Tool | Detected | Used For |
@@ -195,7 +199,7 @@ the vendored baseline and every delta applied, including the new `bio` profile.
 | Artifact | State |
 |---|---|
 | Specification set | 44 files in `docs/`, all `status: draft`, validating clean |
-| Decisions | D-001 … D-028, append-only, integrity-hashed |
+| Decisions | D-001 … D-029, append-only, integrity-hashed |
 | Rubric pass | 30 BRB items dispositioned; 3 flags raised, 2 applied, 1 carried to UX pass B by design |
 | Red team | 13 challenges; 8 accepted, 4 acknowledged, 1 refuted with evidence; 2 S1 escalated verbatim |
 | Schemas | 7 JSON Schemas in `schemas/` |
@@ -246,7 +250,7 @@ disabling the EVC-1 refusal, the budget ceiling, and the injection flag — each
 turn the suite red.
 
 Verification: `bash tools/check.sh` runs the substrate invariants, their negative
-tests, 467 unit tests, both static validators, the strict spec graph, the
+tests, 474 unit tests, both static validators, the strict spec graph, the
 implementation trace, and a release build. The trace holds *claimed-but-untested*
 Musts at zero; Musts with no implementation at all are expected for the unbuilt
 modules above and are listed by module rather than hidden.

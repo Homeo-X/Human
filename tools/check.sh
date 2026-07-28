@@ -17,7 +17,12 @@ step() { printf '\n=== %s ===\n' "$1"; }
 check() { if [ "$1" -ne 0 ]; then echo "FAILED: $2"; FAIL=1; fi; }
 
 step "substrate invariants (biocheck --strict)"
-python3 tools/biocheck.py ontology/ --strict
+# INV-21 is accepted, not silenced: 98 organs are placed by system membership
+# and not by containment, which is the known state of the content recorded in
+# D-029, not a regression. It still prints in full on every run, and --accept
+# cannot touch a blocking invariant. Remove this flag when the placement
+# curation lands — the build going red is then the correct outcome.
+python3 tools/biocheck.py ontology/ --strict --accept INV-21
 check $? "biocheck"
 
 step "negative tests (every invariant must be able to fail)"

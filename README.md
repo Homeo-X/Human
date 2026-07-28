@@ -43,6 +43,7 @@ produces it is beside it, and a stale number is a bug.
 | claims that are **findings** rather than definitions | **9 of 423** | `python3 tools/biocheck.py ontology/ --strict` |
 | entities carrying **geometry** | **0** | `python3 -m homeo.cli view heart` — every entity reports `depiction: described` |
 | entities still `narrative` — described, not modelled | **140 of 276** | `python3 -m homeo.cli entity <id>` reports its compilation status |
+| organs **located in the body** by containment | **2 of 107** | `python3 tools/biocheck.py ontology/` — INV-21 reports the rest |
 
 Read those together: the substrate currently knows that a liver exists, what two
 systems it belongs to, and which authority named it — and almost nothing about
@@ -92,7 +93,7 @@ src/homeo/          the reference implementation of the substrate services
   release.py          build, validate, hash, atomic publish
   importers/obo.py    OBO/OBO-JSON import, and the six gates it refuses at
   api.py, cli.py      the API and its command-line equivalent
-tests/              467 tests, each tagged with the FR ids it verifies
+tests/              474 tests, each tagged with the FR ids it verifies
 tools/
   check.sh            everything that must be green (--quick for pre-commit)
   curate_regions.py   adds the L1 regions through the real curation path
@@ -213,7 +214,15 @@ every surface it appears on.
 Two things about that slice are worth stating precisely, because the first
 version of this README overclaimed them:
 
-- **The containment chain now runs unbroken from L0 to L8**: organism → thorax →
+- **The containment chain runs unbroken from L0 to L8 for the curated slice —
+  and for almost nothing else.** 98 of the 107 organs have no containment
+  parent at all: the import placed them by system membership, because UBERON's
+  own `part_of` does not supply this project's containment (D-024), and putting
+  each organ in a body region is curation nobody has done. They are reachable,
+  queryable and correctly graded; they are not *located*. G-04 measures exactly
+  this and reads **2%** against a target of 100%, INV-21 reports it on every
+  run, and D-029 records why it is counted rather than guessed at. The chain
+  below is the seeded path, not the general case: organism → thorax →
   heart → left ventricle → myocardium → cardiomyocyte population → cardiomyocyte
   → sarcomere. It did not before. L1 was empty across the whole substrate, so
   the chain jumped organism straight to organ; the nine anatomical regions were

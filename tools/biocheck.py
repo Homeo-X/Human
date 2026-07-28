@@ -64,12 +64,20 @@ ADMISSIBLE = {
     'realizes':         [(9, 10)],
     'participates_in':  None,
     'causes':           None,
+    # (the functional subset of this table is named below as PARTICIPATION)
     'contributes_to':   None,
     'associated_with':  None,
     # A class and its superclass describe the same kind of thing at the same
     # granularity. A cross-level `is_a` is a classification error (D-023).
     'is_a':             'same-level',
 }
+
+# The levels at which containment is even defined, derived from the `part_of`
+# admissibility rows above rather than restated: the deepest child level any
+# row permits. Beyond it a biomolecule is not `part_of` anything — it attaches
+# by participation, which is correct biology (D-013) and not a placement gap.
+CONTAINABLE_MAX = max(child for child, _ in ADMISSIBLE['part_of'])
+
 HUMAN = ('Homo sapiens', 'not applicable')
 STRONG = ('EVC-1', 'EVC-2')
 
@@ -328,6 +336,39 @@ def is_quantity(v):
     if isinstance(v, dict):
         return any(isinstance(x, (int, float)) and not isinstance(x, bool) for x in v.values())
     return False
+
+
+def containment_orphans(ents, rels):
+    """Entities below L2 that hang off nothing — ids, sorted.
+
+    An organ with no containment parent is not *in* the body. It can still be
+    reached through its system membership, which is why this stayed invisible:
+    every per-entity query answers, `cross_scale_path` reports the gap
+    honestly, and no aggregate ever asked how many. The answer was 98 of 107
+    organs, putting G-04 — "L3 entities reachable from L0 by containment" — at
+    **2%** against a target of 100% (D-029).
+
+    The band is L3 to `CONTAINABLE_MAX`, and both ends are taken from the
+    documented `part_of` table rather than chosen:
+
+    - **L2 and above** are exempt because no row makes a system or a region a
+      contained thing at that level; a system is not inside anything, and the
+      narrative seed's topic nodes are not anatomy.
+    - **Below the deepest `part_of` row** is exempt because the vocabulary
+      itself stops there. A biomolecule is not `part_of` a sarcomere — insulin
+      is `produced` by a beta cell, calcium is `consumed` by the cross-bridge
+      cycle. That is correct biology (D-013), and counting it would make the
+      invariant report the model's design back as an error.
+
+    An earlier version exempted anything holding a participation edge, which
+    was wrong in a way worth recording: an organ that secretes a hormone would
+    have escaped the check entirely. Placement is owed by every organ,
+    regardless of what else it does.
+    """
+    placed = {r['source'] for r in rels if r.get('type') == 'part_of'}
+    return sorted(e['id'] for e in ents
+                  if 2 < (e.get('level') or 0) <= CONTAINABLE_MAX
+                  and not e.get('part_of') and e['id'] not in placed)
 
 
 def check(data, ladder=None, minimums=None):
@@ -619,6 +660,20 @@ def check(data, ladder=None, minimums=None):
                           f'one thing; whichever record loads last would '
                           f'silently win'))
 
+    # INV-21 containment placement. Reported rather than blocking: 98 organs
+    # are unplaced today, and a gate that fails on arrival gets disabled or
+    # routed around, which is worse than a number nobody can miss. It becomes
+    # blocking when the placement curation lands, not before.
+    orphans = containment_orphans(ents, rels)
+    if orphans:
+        deep = [o for o in orphans if (by_id.get(o, {}).get('level') or 0) == 3]
+        sample = ', '.join(orphans[:3])
+        f.append(('warn', 'INV-21',
+                  f'{len(orphans)} entities below L2 have no containment '
+                  f'parent ({len(deep)} of them organs) — reachable through '
+                  f'system membership, but not located in the body. G-04 '
+                  f'measures this and reads 2%. e.g. {sample}'))
+
     # INV-17 review-state integrity. The failure this guards against has now
     # happened twice in this project's own history (D-013, D-017): content that
     # no human examined, attributed to a human who does not exist, at a class
@@ -909,9 +964,49 @@ def selftest(root):
         print(f'  INV-19  {"detected" if ok19 else "NOT DETECTED"}  — {desc}')
         if not ok19:
             failed += 1
+    # INV-21 already fires on the real substrate — 98 organs are unplaced — so
+    # the ordinary "mutate and expect a finding" loop would pass vacuously
+    # whatever the mutation did. It is tested on the function instead: an
+    # entity that IS placed must be absent from the orphan set, and must appear
+    # the moment its containment is taken away. Two directions, because a
+    # function that returns everything detects nothing.
+    # Each case isolates ONE clause. The first version tested only the heart,
+    # and both mutations of the boundary survived: widening the level band and
+    # deleting the `part_of` field check left the heart's answer unchanged, so
+    # the test certified a check that was no longer doing its job. Same failure
+    # the INV-19 cases were rewritten for.
+    ents21 = [dict(e) for e in base.get('entities', [])]
+    rels21 = [dict(r) for r in base.get('relationships', [])]
+    for desc, eid, want_orphan, mutate21 in (
+            # Both placement clauses are exercised on entities *inside* the
+            # level band, so they test placement rather than the level bound —
+            # the abdomen would have passed the first case for the wrong
+            # reason, being L1 and exempt whatever its placement.
+            ('an organ placed by its `part_of` field (the pancreas)',
+             'UBERON:0001264', False, None),
+            ('an organ placed by a `part_of` relationship only (the uterus)',
+             'UBERON:0000995', False, None),
+            ('an L2 node, which nothing contains by design',
+             'HOX:function:chemicallevel', False, None),
+            ('an L9 biomolecule, below where containment is defined',
+             'CHEBI:29108', False, None),
+            ('an organ whose containment was taken away (the heart)',
+             'UBERON:0000948', True, 'strip')):
+        es = [dict(e) for e in ents21]
+        rs = [dict(r) for r in rels21]
+        if mutate21 == 'strip':
+            _find(es, 'id', eid).pop('part_of', None)
+            rs = [r for r in rs if not (r.get('source') == eid
+                                        and r.get('type') == 'part_of')]
+        is_orphan = eid in containment_orphans(es, rs)
+        ok21 = is_orphan == want_orphan
+        print(f'  INV-21  {"detected" if ok21 else "NOT DETECTED"}  — {desc}')
+        if not ok21:
+            failed += 1
+
     # INV-14 is enforced at runtime in the retrieval pipeline, not over the substrate
     print('  INV-14  n/a here — enforced at runtime by the groundedness guard (EV-RETR-001)')
-    print(f'\nselftest: {len(SELFTESTS) + 6} invariants exercised, '
+    print(f"\nselftest: {len(SELFTESTS) + 11} invariants exercised, "
           f'{failed} not detected')
     return 1 if failed else 0
 
@@ -949,12 +1044,30 @@ def main(argv):
     findings += relation_divergence(load_relations(relations_path),
                                     path=relations_path)
     findings += check(data, doc_sources, doc_minimums)
+    # `--accept INV-NN` acknowledges a standing advisory finding: a known state
+    # of the content, recorded in a Decision, that `--strict` would otherwise
+    # turn into a red build every run. Two constraints keep it from becoming a
+    # mute button. It may **never** accept an error — a blocking invariant is
+    # blocking — and accepted findings are still printed, in full, on every
+    # run. A suppression you cannot see is how a validator stops being one.
+    accepted = {argv[i + 1] for i, a in enumerate(argv) if a == '--accept'}
     errs = [(i, m) for lv, i, m in findings if lv == 'error']
-    warns = [(i, m) for lv, i, m in findings if lv == 'warn']
+    warns = [(i, m) for lv, i, m in findings
+             if lv == 'warn' and i not in accepted]
+    noted = [(i, m) for lv, i, m in findings
+             if lv == 'warn' and i in accepted]
+    bad_accept = sorted({i for i, _ in errs} & accepted)
+    for i in bad_accept:
+        print(f'ERROR: [{i}] --accept names a blocking invariant; a blocking '
+              f'finding is not acceptable by flag')
     for i, m in errs:
         print(f'ERROR: [{i}] {m}')
     for i, m in warns:
         print(f'WARN:  [{i}] {m}')
+    for i, m in noted:
+        print(f'NOTED: [{i}] {m}')
+        print(f'       accepted by --accept {i}: a known standing finding, '
+              f'not a fixed one')
     if '--json' in argv:
         out = argv[argv.index('--json') + 1]
         json.dump({'findings': [{'level': lv, 'invariant': i, 'message': m}
@@ -962,10 +1075,11 @@ def main(argv):
     n = sum(len(v) for k, v in data.items() if not k.startswith('_'))
     strict = '--strict' in argv
     print(f'biocheck: {n} records, {len(errs)} errors, {len(warns)} warnings'
+          + (f', {len(noted)} accepted' if noted else '')
           + (' (strict)' if strict else ''))
     print('Consistency is not correctness — see BIO_Validation_Framework '
           '"What Validation Does Not Establish".')
-    return 1 if errs or (strict and warns) else 0
+    return 1 if errs or bad_accept or (strict and warns) else 0
 
 
 if __name__ == '__main__':

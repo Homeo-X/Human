@@ -212,3 +212,37 @@ class TestDiff(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class TestAcceptedFindingsArePublished(unittest.TestCase):
+    """[FR-VER-006] [D-029] A release states the content's known limits.
+
+    The alternative was a release pipeline blocked forever by an advisory
+    finding it could describe perfectly well — 98 organs placed by system
+    membership rather than by containment. Blocking would have produced no
+    releases; hiding it would have produced dishonest ones. Publishing the
+    finding in the manifest is the only option that matches what the rest of
+    this project does with things it does not know.
+    """
+
+    def setUp(self):
+        self.builder = ReleaseBuilder('ontology')
+
+    def test_the_manifest_records_the_accepted_finding_in_full(self):
+        manifest = self.builder.build('rel-accepted')
+        accepted = manifest.validation['accepted']
+        self.assertTrue(accepted, 'the standing finding vanished from the manifest')
+        self.assertTrue(any('INV-21' in a for a in accepted))
+        self.assertTrue(any('not located in the body' in a for a in accepted),
+                        'the manifest kept the id but dropped what it means')
+
+    def test_validation_still_passes_with_it(self):
+        self.assertTrue(self.builder.validate().passed)
+
+    def test_a_builder_accepting_nothing_does_not_pass(self):
+        """Acceptance is a stated choice, never the default behaviour."""
+        strict = ReleaseBuilder('ontology', accepted=())
+        result = strict.validate()
+        self.assertFalse(result.passed)
+        self.assertTrue(any('INV-21' in w for w in result.warnings))
+        self.assertEqual([], result.accepted)

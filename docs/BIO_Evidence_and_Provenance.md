@@ -1,10 +1,10 @@
 ---
 doc: BIO_Evidence_and_Provenance
 tier: light+
-version: 1.0.0
+version: 1.1.0
 status: draft
 owner: architect
-last_updated: 2026-07-26
+last_updated: 2026-07-28
 ---
 
 # Evidence and Provenance
