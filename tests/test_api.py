@@ -57,11 +57,23 @@ class TestEntityEndpoints(unittest.TestCase):
         self.assertTrue(r.body['claim_summary']['classes'])
 
     def test_entity_without_geometry_is_described_not_broken(self):
-        """[FR-SPAT-002] Described, not depicted, is a designed state."""
-        r = dispatch(self.svc, '/v1/entities/UBERON:0000948', {})
+        """[FR-SPAT-002] Described, not depicted, is a designed state.
+
+        The subject was the heart until the heart acquired a mesh (D-031).
+        A sarcomere has a spatial identity and no geometry, which is the state
+        this test is actually about — and will be the state of almost every
+        entity for a long time.
+        """
+        r = dispatch(self.svc, '/v1/entities/GO:0030017', {})
         note = r.body['spatial_identity']['note']
         self.assertIn('Described, not depicted', note)
         self.assertIn('not about the anatomy', note)
+
+    def test_the_entity_with_geometry_reports_having_it(self):
+        """The positive case, unreachable until one mesh was bound."""
+        r = dispatch(self.svc, '/v1/entities/UBERON:0000948', {})
+        self.assertTrue(r.body['spatial_identity']['has_geometry'])
+        self.assertIsNone(r.body['spatial_identity']['note'])
 
     def test_memberships_appear_on_the_entity(self):
         """[FR-NAV-005] Multi-system participation travels with the entity."""

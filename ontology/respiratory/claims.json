@@ -1,0 +1,538 @@
+[
+ {
+  "id": "CLM:lung-function-gas-exchange",
+  "subject": "UBERON:0002048",
+  "predicate": "has_function",
+  "object": "Exchanges oxygen and carbon dioxide between alveolar gas and pulmonary capillary blood by passive diffusion across the blood-gas barrier",
+  "kind": "biological",
+  "evidence_class": "EVC-4",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "West JB & Luks AM, West's Respiratory Physiology: The Essentials, 11th ed.",
+    "identifier": "ISBN:9781975139186",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "healthy adult, both sexes, at rest, sea level",
+  "date_asserted": "2026-07-28",
+  "review_state": "provisional",
+  "assigned_by": "agent:physiology",
+  "limitations": "A statement of the organ's principal function. Ventilation, perfusion and diffusion each have their own limiting conditions, none represented here."
+ },
+ {
+  "id": "CLM:lung-tidal-volume",
+  "subject": "UBERON:0002048",
+  "predicate": "has_quantity",
+  "object": 500,
+  "kind": "biological",
+  "evidence_class": "EVC-4",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall JE & Hall ME, Guyton and Hall Textbook of Medical Physiology, 14th ed.",
+    "identifier": "ISBN:9780323597128",
+    "licence_tier": "T2"
+   },
+   {
+    "citation": "West JB & Luks AM, West's Respiratory Physiology: The Essentials, 11th ed.",
+    "identifier": "ISBN:9781975139186",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "healthy adult, both sexes, at rest, sea level",
+  "date_asserted": "2026-07-28",
+  "review_state": "provisional",
+  "assigned_by": "agent:physiology",
+  "limitations": "A rounded reference value for quiet breathing. Tidal volume varies with body size, posture and metabolic demand; ~7 mL/kg is the size-scaled form and is not represented as a separate claim.",
+  "unit": "mL",
+  "conditions": {
+   "preparation": "in vivo",
+   "notes": "quiet breathing, upright, breathing air at sea level"
+  }
+ },
+ {
+  "id": "CLM:lung-respiratory-rate",
+  "subject": "UBERON:0002048",
+  "predicate": "has_quantity",
+  "object": 14,
+  "kind": "biological",
+  "evidence_class": "EVC-4",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall JE & Hall ME, Guyton and Hall Textbook of Medical Physiology, 14th ed.",
+    "identifier": "ISBN:9780323597128",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "healthy adult, both sexes, at rest, sea level",
+  "date_asserted": "2026-07-28",
+  "review_state": "provisional",
+  "assigned_by": "agent:physiology",
+  "limitations": "A midpoint of the commonly cited 12-16/min resting range. The range is the honest form; the midpoint is recorded because the claim record holds a single value, which is a limitation of the record, not of the biology.",
+  "unit": "/min",
+  "conditions": {
+   "preparation": "in vivo",
+   "notes": "awake, at rest, upright, normocapnic"
+  }
+ },
+ {
+  "id": "CLM:lung-anatomical-dead-space",
+  "subject": "UBERON:0007196",
+  "predicate": "has_quantity",
+  "object": 150,
+  "kind": "biological",
+  "evidence_class": "EVC-4",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "West JB & Luks AM, West's Respiratory Physiology: The Essentials, 11th ed.",
+    "identifier": "ISBN:9781975139186",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "healthy adult, both sexes, at rest, sea level",
+  "date_asserted": "2026-07-28",
+  "review_state": "provisional",
+  "assigned_by": "agent:physiology",
+  "limitations": "The conducting-airway volume that does not participate in gas exchange, approximated as 2.2 mL per kg body weight. Physiological dead space is a different quantity, measured by a different method, and is not this value.",
+  "unit": "mL",
+  "conditions": {
+   "preparation": "in vivo",
+   "notes": "Fowler's single-breath nitrogen washout; scales with body weight"
+  }
+ },
+ {
+  "id": "CLM:lung-frc",
+  "subject": "UBERON:0002048",
+  "predicate": "has_quantity",
+  "object": 2400,
+  "kind": "biological",
+  "evidence_class": "EVC-4",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall JE & Hall ME, Guyton and Hall Textbook of Medical Physiology, 14th ed.",
+    "identifier": "ISBN:9780323597128",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "healthy adult, both sexes, at rest, sea level",
+  "date_asserted": "2026-07-28",
+  "review_state": "provisional",
+  "assigned_by": "agent:physiology",
+  "limitations": "Functional residual capacity: the volume remaining after a quiet expiration, where inward lung recoil balances outward chest-wall recoil. Posture-dependent; supine values are substantially lower and are not represented.",
+  "unit": "mL",
+  "conditions": {
+   "preparation": "in vivo",
+   "notes": "upright, end of a quiet expiration; helium dilution or body plethysmography"
+  }
+ },
+ {
+  "id": "CLM:lung-tlc-male",
+  "subject": "UBERON:0002048",
+  "predicate": "has_quantity",
+  "object": 6000,
+  "kind": "biological",
+  "evidence_class": "EVC-4",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall JE & Hall ME, Guyton and Hall Textbook of Medical Physiology, 14th ed.",
+    "identifier": "ISBN:9780323597128",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "healthy adult male, 20-40 years, at rest, sea level",
+  "date_asserted": "2026-07-28",
+  "review_state": "provisional",
+  "assigned_by": "agent:physiology",
+  "limitations": "Total lung capacity for the stated population. Scales with standing height more strongly than with sex alone; height is not represented in the population field, which is a limit of this record.",
+  "unit": "mL",
+  "conditions": {
+   "preparation": "in vivo",
+   "notes": "maximal inspiration, upright, body plethysmography"
+  }
+ },
+ {
+  "id": "CLM:lung-tlc-female",
+  "subject": "UBERON:0002048",
+  "predicate": "has_quantity",
+  "object": 4200,
+  "kind": "biological",
+  "evidence_class": "EVC-4",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall JE & Hall ME, Guyton and Hall Textbook of Medical Physiology, 14th ed.",
+    "identifier": "ISBN:9780323597128",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "healthy adult female, 20-40 years, at rest, sea level",
+  "date_asserted": "2026-07-28",
+  "review_state": "provisional",
+  "assigned_by": "agent:physiology",
+  "limitations": "Total lung capacity for the stated population. Differs from the male reference by roughly 30%, largely through body size. This is a different population, not a competing measurement.",
+  "unit": "mL",
+  "conditions": {
+   "preparation": "in vivo",
+   "notes": "maximal inspiration, upright, body plethysmography"
+  }
+ },
+ {
+  "id": "CLM:lung-alveolar-surface-classic",
+  "subject": "UBERON:0002048",
+  "predicate": "has_quantity",
+  "object": 70,
+  "kind": "biological",
+  "evidence_class": "EVC-7",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "West JB & Luks AM, West's Respiratory Physiology: The Essentials, 11th ed.",
+    "identifier": "ISBN:9781975139186",
+    "licence_tier": "T2"
+   },
+   {
+    "citation": "Hall JE & Hall ME, Guyton and Hall Textbook of Medical Physiology, 14th ed.",
+    "identifier": "ISBN:9780323597128",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "healthy adult, both sexes, at rest, sea level",
+  "date_asserted": "2026-07-28",
+  "review_state": "provisional",
+  "assigned_by": "agent:physiology",
+  "limitations": "The classic textbook estimate of the alveolar gas-exchange surface. Design-based stereology gives roughly twice this figure; the disagreement is methodological and unresolved, so both are retained.",
+  "unit": "m2",
+  "conflicts_with": [
+   "CLM:lung-alveolar-surface-stereology"
+  ],
+  "conditions": {
+   "preparation": "ex vivo",
+   "notes": "fixed lung, light-microscopic morphometry; the fixation and shrinkage assumptions are where this diverges from the stereological figure"
+  }
+ },
+ {
+  "id": "CLM:lung-alveolar-surface-stereology",
+  "subject": "UBERON:0002048",
+  "predicate": "has_quantity",
+  "object": 130,
+  "kind": "biological",
+  "evidence_class": "EVC-7",
+  "source_type": "primary research",
+  "sources": [
+   {
+    "citation": "Gehr P, Bachofen M, Weibel ER, The normal human lung: ultrastructure and morphometric estimation of diffusion capacity, Respir Physiol 32:121-140, 1978",
+    "identifier": "PMID:644146",
+    "licence_tier": "T2"
+   },
+   {
+    "citation": "Ochs M et al., The number of alveoli in the human lung, Am J Respir Crit Care Med 169:120-124, 2004",
+    "identifier": "PMID:14512270",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "healthy adult, both sexes, at rest, sea level",
+  "date_asserted": "2026-07-28",
+  "review_state": "provisional",
+  "assigned_by": "agent:physiology",
+  "limitations": "Morphometric estimate from design-based stereology on fixed lungs. Depends on fixation and on the assumed shrinkage correction, which is the substance of the disagreement with the classic figure.",
+  "unit": "m2",
+  "conflicts_with": [
+   "CLM:lung-alveolar-surface-classic"
+  ],
+  "conditions": {
+   "preparation": "ex vivo",
+   "notes": "perfusion-fixed lung, design-based stereology with shrinkage correction"
+  }
+ },
+ {
+  "id": "CLM:lung-alveolar-number",
+  "subject": "UBERON:0002048",
+  "predicate": "has_quantity",
+  "object": 480000000,
+  "kind": "biological",
+  "evidence_class": "EVC-5",
+  "source_type": "primary research",
+  "sources": [
+   {
+    "citation": "Ochs M et al., The number of alveoli in the human lung, Am J Respir Crit Care Med 169:120-124, 2004",
+    "identifier": "PMID:14512270",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "healthy adult, both sexes, at rest, sea level",
+  "date_asserted": "2026-07-28",
+  "review_state": "provisional",
+  "assigned_by": "agent:physiology",
+  "limitations": "Mean alveolar number from design-based stereology in six adult lungs (range 274-790 million). The mean is recorded because the record holds one value; the spread is wider than the mean is precise, and the value should not be read as a population constant.",
+  "unit": "1",
+  "conditions": {
+   "preparation": "ex vivo",
+   "notes": "perfusion-fixed lungs, design-based stereology, physical disector; n=6"
+  }
+ },
+ {
+  "id": "CLM:diaphragm-function-inspiration",
+  "subject": "UBERON:0001103",
+  "predicate": "has_function",
+  "object": "The principal muscle of quiet inspiration: contraction flattens the dome, increasing thoracic volume and lowering intrapleural pressure",
+  "kind": "biological",
+  "evidence_class": "EVC-4",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "West JB & Luks AM, West's Respiratory Physiology: The Essentials, 11th ed.",
+    "identifier": "ISBN:9781975139186",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "healthy adult, both sexes, at rest, sea level",
+  "date_asserted": "2026-07-28",
+  "review_state": "provisional",
+  "assigned_by": "agent:physiology",
+  "limitations": "Accessory muscles contribute increasingly with effort and are not represented. The claim is about quiet breathing only."
+ },
+ {
+  "id": "CLM:diaphragm-tidal-contribution",
+  "subject": "UBERON:0001103",
+  "predicate": "has_quantity",
+  "object": 70,
+  "kind": "biological",
+  "evidence_class": "EVC-5",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "West JB & Luks AM, West's Respiratory Physiology: The Essentials, 11th ed.",
+    "identifier": "ISBN:9781975139186",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "healthy adult, both sexes, at rest, sea level",
+  "date_asserted": "2026-07-28",
+  "review_state": "provisional",
+  "assigned_by": "agent:physiology",
+  "limitations": "Approximate share of resting tidal volume attributable to diaphragmatic descent. Inferred from the commonly cited 60-80% range; posture and abdominal compliance both move it.",
+  "unit": "%",
+  "conditions": {
+   "preparation": "in vivo",
+   "notes": "supine and upright quiet breathing; the share moves with posture"
+  }
+ },
+ {
+  "id": "CLM:diaphragm-innervation-phrenic",
+  "subject": "UBERON:0001103",
+  "predicate": "has_property",
+  "object": "Innervated by the phrenic nerve, arising from cervical roots C3-C5",
+  "kind": "biological",
+  "evidence_class": "EVC-4",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall JE & Hall ME, Guyton and Hall Textbook of Medical Physiology, 14th ed.",
+    "identifier": "ISBN:9780323597128",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "healthy adult, both sexes, at rest, sea level",
+  "date_asserted": "2026-07-28",
+  "review_state": "provisional",
+  "assigned_by": "agent:physiology",
+  "limitations": "A structural fact of gross anatomy stated at nerve-root resolution. Contributions from C3 and C5 vary between individuals."
+ },
+ {
+  "id": "CLM:bronchial-tree-generations",
+  "subject": "UBERON:0007196",
+  "predicate": "has_quantity",
+  "object": 23,
+  "kind": "biological",
+  "evidence_class": "EVC-4",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "West JB & Luks AM, West's Respiratory Physiology: The Essentials, 11th ed.",
+    "identifier": "ISBN:9781975139186",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "healthy adult, both sexes, at rest, sea level",
+  "date_asserted": "2026-07-28",
+  "review_state": "provisional",
+  "assigned_by": "agent:physiology",
+  "limitations": "Weibel symmetric-branching model: airway generations from trachea to alveolar sacs. Real branching is asymmetric, and the count is a property of the model rather than of any particular lung.",
+  "unit": "1",
+  "conditions": {
+   "preparation": "ex vivo",
+   "notes": "Weibel symmetric-branching model of a resin cast; a model property, not a measurement of one lung"
+  }
+ },
+ {
+  "id": "CLM:bronchial-tree-conducting-generations",
+  "subject": "UBERON:0007196",
+  "predicate": "has_quantity",
+  "object": 16,
+  "kind": "biological",
+  "evidence_class": "EVC-4",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "West JB & Luks AM, West's Respiratory Physiology: The Essentials, 11th ed.",
+    "identifier": "ISBN:9781975139186",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "healthy adult, both sexes, at rest, sea level",
+  "date_asserted": "2026-07-28",
+  "review_state": "provisional",
+  "assigned_by": "agent:physiology",
+  "limitations": "Generations 0-16 conduct without gas exchange; 17-23 are the respiratory zone. Same model dependence as the total generation count.",
+  "unit": "1",
+  "conditions": {
+   "preparation": "ex vivo",
+   "notes": "as above — the conducting/respiratory boundary is a feature of the same model"
+  }
+ },
+ {
+  "id": "CLM:main-bronchus-asymmetry",
+  "subject": "UBERON:0002182",
+  "predicate": "has_property",
+  "object": "The right main bronchus is wider, shorter and more vertical than the left, which is why inhaled material reaches the right lung preferentially",
+  "kind": "biological",
+  "evidence_class": "EVC-4",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall JE & Hall ME, Guyton and Hall Textbook of Medical Physiology, 14th ed.",
+    "identifier": "ISBN:9780323597128",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "healthy adult, both sexes, at rest, sea level",
+  "date_asserted": "2026-07-28",
+  "review_state": "provisional",
+  "assigned_by": "agent:physiology",
+  "limitations": "A structural asymmetry with a well-known consequence. Stated as anatomy; no clinical inference is drawn from it here."
+ },
+ {
+  "id": "CLM:lung-diffusion-capacity-co",
+  "subject": "UBERON:0002048",
+  "predicate": "has_quantity",
+  "object": 25,
+  "kind": "biological",
+  "evidence_class": "EVC-4",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "West JB & Luks AM, West's Respiratory Physiology: The Essentials, 11th ed.",
+    "identifier": "ISBN:9781975139186",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "healthy adult, both sexes, at rest, sea level",
+  "date_asserted": "2026-07-28",
+  "review_state": "provisional",
+  "assigned_by": "agent:physiology",
+  "limitations": "Diffusing capacity for carbon monoxide at rest — the standard proxy for the blood-gas barrier's conductance, because CO uptake is diffusion-limited. Rises severalfold with exercise; the resting value is not a maximum.",
+  "unit": "mL/min/mmHg",
+  "conditions": {
+   "preparation": "in vivo",
+   "notes": "single-breath carbon monoxide method, at rest, seated"
+  }
+ },
+ {
+  "id": "CLM:lung-alveolar-ventilation",
+  "subject": "UBERON:0002048",
+  "predicate": "has_quantity",
+  "object": 4200,
+  "kind": "biological",
+  "evidence_class": "EVC-5",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "Hall JE & Hall ME, Guyton and Hall Textbook of Medical Physiology, 14th ed.",
+    "identifier": "ISBN:9780323597128",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "healthy adult, both sexes, at rest, sea level",
+  "date_asserted": "2026-07-28",
+  "review_state": "provisional",
+  "assigned_by": "agent:physiology",
+  "limitations": "Derived as (tidal volume - dead space) x respiratory rate from the reference values above. Inferred rather than measured, and it inherits every approximation in its inputs — which is why it is EVC-5 and its components are EVC-4.",
+  "unit": "mL/min",
+  "conditions": {
+   "preparation": "in vivo",
+   "notes": "derived, not measured: computed from the resting tidal volume, dead space and rate recorded here"
+  }
+ },
+ {
+  "id": "CLM:blood-gas-barrier-thickness",
+  "subject": "UBERON:0002048",
+  "predicate": "has_quantity",
+  "object": 0.3,
+  "kind": "biological",
+  "evidence_class": "EVC-4",
+  "source_type": "primary research",
+  "sources": [
+   {
+    "citation": "Gehr P, Bachofen M, Weibel ER, The normal human lung: ultrastructure and morphometric estimation of diffusion capacity, Respir Physiol 32:121-140, 1978",
+    "identifier": "PMID:644146",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "healthy adult, both sexes, at rest, sea level",
+  "date_asserted": "2026-07-28",
+  "review_state": "provisional",
+  "assigned_by": "agent:physiology",
+  "limitations": "Harmonic mean thickness of the tissue barrier between alveolar gas and capillary blood in its thinnest regions. The barrier is not uniform, and a single thickness is a deliberate simplification of a distribution.",
+  "unit": "um",
+  "conditions": {
+   "preparation": "ex vivo",
+   "notes": "perfusion-fixed lung, electron-microscopic morphometry; harmonic mean over the thin portions of the barrier"
+  }
+ },
+ {
+  "id": "CLM:lung-perfusion-cardiac-output",
+  "subject": "UBERON:0002048",
+  "predicate": "has_property",
+  "object": "Receives the entire cardiac output, unlike any other organ, so pulmonary blood flow equals systemic blood flow in the steady state",
+  "kind": "biological",
+  "evidence_class": "EVC-4",
+  "source_type": "reference textbook",
+  "sources": [
+   {
+    "citation": "West JB & Luks AM, West's Respiratory Physiology: The Essentials, 11th ed.",
+    "identifier": "ISBN:9781975139186",
+    "licence_tier": "T2"
+   }
+  ],
+  "species": "Homo sapiens",
+  "population": "healthy adult, both sexes, at rest, sea level",
+  "date_asserted": "2026-07-28",
+  "review_state": "provisional",
+  "assigned_by": "agent:physiology",
+  "limitations": "True in the steady state and at the whole-organ level. Bronchial circulation and physiological shunt are small exceptions not represented here."
+ }
+]

@@ -336,8 +336,13 @@ class TestProjection(unittest.TestCase):
 
     def test_an_entity_without_geometry_is_projected_not_omitted(self):
         """The inversion: geometry is an attribute, not the condition of
-        existing."""
-        projection = self.proj.project(self.nav.enter(HEART))
+        existing.
+
+        Asserted on the sarcomere rather than the heart since D-031 bound a
+        mesh to the heart. The claim under test is unchanged; the example had
+        to move because the substrate finally has a counter-example.
+        """
+        projection = self.proj.project(self.nav.enter('GO:0030017'))
         focus = projection.focus
         self.assertEqual(DESCRIBED, focus.depiction)
         self.assertTrue(focus.position, 'a described entity still has a place')

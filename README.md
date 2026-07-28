@@ -40,19 +40,25 @@ produces it is beside it, and a stale number is a bug.
 | | count | how to check |
 |---|---|---|
 | entities **reviewed by a human** | **0 of 276** | `python3 -m homeo.cli coverage --table` |
-| claims that are **findings** rather than definitions | **9 of 423** | `python3 tools/biocheck.py ontology/ --strict` |
-| entities carrying **geometry** | **0** | `python3 -m homeo.cli view heart` — every entity reports `depiction: described` |
+| claims that are **findings** rather than definitions | **29 of 443** | `python3 tools/biocheck.py ontology/ --strict` |
+| entities carrying **geometry** | **1 of 276** | `python3 -m homeo.cli view heart` reports `depicted`; everything else `described` or `unplaced` |
 | entities still `narrative` — described, not modelled | **140 of 276** | `python3 -m homeo.cli entity <id>` reports its compilation status |
 | organs **located in the body** by containment | **2 of 107** | `python3 tools/biocheck.py ontology/` — INV-21 reports the rest |
 
-Read those together: the substrate currently knows that a liver exists, what two
-systems it belongs to, and which authority named it — and almost nothing about
-what it *does*. 414 of its 423 claims are terminological (D-021): they record
-what a word means on the authority of a source, which is not evidence about a
-body and is deliberately kept off the evidence ladder so it can never be cited
-as one. No content has been through domain review, so there are **no EVC-1
-claims at all**, and the release manifest publishes that number rather than the
-one that flatters.
+Read those together: the substrate mostly knows that a liver exists, what two
+systems it belongs to, and which authority named it — and little about what it
+*does*. 414 of its 443 claims are terminological (D-021): they record what a
+word means on the authority of a source, which is not evidence about a body and
+is deliberately kept off the evidence ladder so it can never be cited as one.
+The respiratory system is the exception and the template: 20 findings with
+units, measurement conditions, discriminating populations, and one genuine
+unresolved conflict retained rather than resolved (D-030). No content has been
+through domain review, so there are **no EVC-1 claims at all**, and the release
+manifest publishes that number rather than the one that flatters.
+
+The single bound mesh is an artist's exemplar, pinned by hash and marked
+`reference_exemplar` — **this project holds no measured geometry**, and the
+asset manifest refuses to let anything call itself `measured`.
 
 A model that reports this honestly is more useful than one that does not report
 it, which is the whole wager of the project.
@@ -93,7 +99,7 @@ src/homeo/          the reference implementation of the substrate services
   release.py          build, validate, hash, atomic publish
   importers/obo.py    OBO/OBO-JSON import, and the six gates it refuses at
   api.py, cli.py      the API and its command-line equivalent
-tests/              474 tests, each tagged with the FR ids it verifies
+tests/              499 tests, each tagged with the FR ids it verifies
 tools/
   check.sh            everything that must be green (--quick for pre-commit)
   curate_regions.py   adds the L1 regions through the real curation path
@@ -102,6 +108,8 @@ tools/
   split_claim_kinds.py  separates definitions from findings (D-021)
   fetch_authorities.py  pins UBERON/CL/ECO snapshots by SHA-256 (D-024)
   import_l3.py        imports L3 organs by rule from the pinned snapshot
+  curate_respiratory.py  the first findings — units, conditions, one conflict
+  fetch_assets.py     pins geometry by hash, licence and tier; bytes stay out
   synth.py            synthetic substrates at volume — refuses to touch real data
   bench.py            the NFR register, measured (bench/RESULTS.json)
   biocheck.py         executes the BIO_Validation_Framework invariants (INV-NN)

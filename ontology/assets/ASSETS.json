@@ -1,0 +1,23 @@
+{
+ "note": "Pinned geometry assets. The bytes are NOT in this repository — they are fetched into a gitignored cache and verified against these hashes. Every asset declares its representation kind, and none of them is `measured`: this project holds no measured geometry at all.",
+ "cache": "vendor/assets",
+ "assets": {
+  "ASSET:heart-exemplar-001": {
+   "entity": "UBERON:0000948",
+   "spatial_identity": "SPI:heart",
+   "file": "heart-exemplar-001.stl",
+   "format": "stl",
+   "licence": "CC BY 4.0",
+   "licence_tier": "T0",
+   "representation_kind": "reference_exemplar",
+   "level": 3,
+   "attribution": "\"Realistic Human Heart\" by neshallads, licensed CC BY 4.0, via Wikimedia Commons.",
+   "source": "https://commons.wikimedia.org/wiki/File:3D_model_of_a_human_heart.stl",
+   "note": "An artist-authored exemplar, not a measurement of any individual and not derived from imaging. Bound as `reference_exemplar` so that no surface can present its shape as evidence: the model knows the heart is in the thorax and roughly this shape, and it does not know any dimension from this file.",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/3D_model_of_a_human_heart.stl",
+   "sha256": "dcc3e6063f243f00f13b838455428134f96ffff8d9ec466ed0d5f6a6b33eefef",
+   "bytes": 1128184,
+   "fetched": "2026-07-28"
+  }
+ }
+}

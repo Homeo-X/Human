@@ -126,11 +126,19 @@ class ProjectionService:
     """Derives view specifications. Renders nothing."""
 
     def __init__(self, graph: Graph, scale: ScaleService,
-                 evidence: EvidenceService, page_size: int = 200):
+                 evidence: EvidenceService, page_size: int = 200,
+                 available_assets: set[str] | None = None):
         self.graph = graph
         self.scale = scale
         self.evidence = evidence
         self.page_size = page_size
+        # Asset ids whose bytes are present and hash as pinned, or None for
+        # "not checked". `None` is not "everything is fine" — an entity in that
+        # state reports `depicted` *and says the check was not run*, so the
+        # caveat travels with the answer instead of being silently assumed.
+        # The composition roots (api.py, cli.py) supply the real set from
+        # tools/fetch_assets.py's manifest.
+        self.available_assets = available_assets
 
     # ---- the projection ------------------------------------------------
 
@@ -340,8 +348,21 @@ class ProjectionService:
                 release=state.release)),
             note=note)
 
-    @staticmethod
-    def _depiction(si) -> tuple[str, str]:
+    def _depiction(self, si) -> tuple[str, str]:
+        """Which of the four states this entity is in, and why.
+
+        The availability check reads **`asset_id`**, which is what the schema
+        defines and what `release.py` and `biocheck.py` both use. It read
+        `asset` until the first real mesh was bound, and since no schema-valid
+        binding carries that key, `depicted` was unreachable: every bound
+        entity would have reported `asset_unavailable` forever, and the
+        message would have called a naming mistake a pipeline failure (D-031).
+
+        Whether the bytes exist is a fact about a *deployment*, not about the
+        model, so the resolvable set is supplied by the caller. When none is
+        supplied the service says so rather than guessing — see the note on
+        `available_assets`.
+        """
         if si is None:
             return UNPLACED, (
                 'No spatial identity in this release: the model does not yet '
@@ -351,12 +372,23 @@ class ProjectionService:
             return DESCRIBED, (
                 'Described, not depicted: position and relations are known, no '
                 'geometry has been authored.')
-        missing = [g for g in si.geometry if not g.get('asset')]
-        if missing:
+        unnamed = [g for g in si.geometry if not g.get('asset_id')]
+        if unnamed:
             return UNAVAILABLE, (
-                'Geometry is declared for this entity but the asset is not '
-                'resolvable in this release. This is a pipeline failure, not '
-                'an absence of anatomy.')
+                'A geometry binding names no asset. The binding is malformed, '
+                'which is a pipeline failure, not an absence of anatomy.')
+        if self.available_assets is None:
+            return DEPICTED, (
+                'Geometry is bound. Whether its bytes are present in this '
+                'deployment was not checked — no asset manifest was supplied '
+                'to this service.')
+        unresolved = [g['asset_id'] for g in si.geometry
+                      if g['asset_id'] not in self.available_assets]
+        if unresolved:
+            return UNAVAILABLE, (
+                f'Geometry is declared for this entity but '
+                f'{", ".join(unresolved)} is not resolvable in this release. '
+                f'This is a pipeline failure, not an absence of anatomy.')
         return DEPICTED, ''
 
     # ---- relations among what is in view -------------------------------

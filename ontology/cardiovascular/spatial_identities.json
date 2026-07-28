@@ -15,7 +15,17 @@
    "base",
    "coronary sulcus"
   ],
-  "geometry": []
+  "geometry": [
+   {
+    "asset_id": "ASSET:heart-exemplar-001",
+    "representation_kind": "reference_exemplar",
+    "level": 3,
+    "licence": "CC BY 4.0",
+    "licence_tier": "T0",
+    "attribution": "\"Realistic Human Heart\" by neshallads, licensed CC BY 4.0, via Wikimedia Commons.",
+    "source": "https://commons.wikimedia.org/wiki/File:3D_model_of_a_human_heart.stl"
+   }
+  ]
  },
  {
   "id": "SPI:left-ventricle",

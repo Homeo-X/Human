@@ -13,7 +13,9 @@ FR-SCAL-*, FR-SRCH-*, FR-PHYS-*, FR-VER-*, FR-RETR-*.
 """
 from __future__ import annotations
 
+import hashlib
 import json
+import os
 import re
 from dataclasses import dataclass
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -48,6 +50,38 @@ def error(code: str, http: int, message: str, **detail) -> Reply:
 class Service:
     """The API's logic, independent of transport so it is directly testable."""
 
+    @staticmethod
+    def _available_assets(substrate_root: str) -> set[str] | None:
+        """Which pinned geometry assets are actually present, or None.
+
+        Read here rather than inside `ProjectionService` because availability
+        is a property of the deployment, not of the model. `None` propagates
+        honestly: the projection then reports that it did not check, instead of
+        asserting a mesh is there because a record says it should be.
+        """
+        manifest = os.path.join(substrate_root, 'assets', 'ASSETS.json')
+        if not os.path.isfile(manifest):
+            return None
+        try:
+            with open(manifest, encoding='utf-8') as fh:
+                assets = json.load(fh).get('assets', {})
+            cache = json.load(open(manifest, encoding='utf-8')).get(
+                'cache', os.path.join('vendor', 'assets'))
+        except (OSError, ValueError):
+            return None
+        present = set()
+        for asset_id, record in assets.items():
+            path = os.path.join(cache, record.get('file', ''))
+            if not os.path.isfile(path):
+                continue
+            digest = hashlib.sha256()
+            with open(path, 'rb') as fh:
+                for block in iter(lambda: fh.read(1 << 20), b''):
+                    digest.update(block)
+            if digest.hexdigest() == record.get('sha256'):
+                present.add(asset_id)
+        return present
+
     def __init__(self, substrate_root: str, release: str = 'unpinned',
                  curation: CurationService | None = None):
         self.graph = Graph(load(substrate_root))
@@ -61,8 +95,9 @@ class Service:
                                        release=release)
         self.navigation = NavigationService(self.graph, self.scale,
                                             self.evidence, release=release)
-        self.projection = ProjectionService(self.graph, self.scale,
-                                            self.evidence)
+        self.projection = ProjectionService(
+            self.graph, self.scale, self.evidence,
+            available_assets=self._available_assets(substrate_root))
         self.release = release
 
     # ---- envelope ------------------------------------------------------

@@ -156,8 +156,8 @@ edited by hand — the previous version drifted to listing all 44 files at
 | PRD_Glossary_and_References.md | pm | 1.0.0 | draft |
 | PRD_Information_Architecture.md | ux | 1.0.0 | draft |
 | PRD_Non_Functional_Requirements.md | architect | 1.1.0 | draft |
-| PRD_Risks_and_Constraints.md | pm | 1.0.0 | draft |
-| PRD_Scope_and_Roadmap.md | pm | 1.0.1 | draft |
+| PRD_Risks_and_Constraints.md | pm | 1.1.0 | draft |
+| PRD_Scope_and_Roadmap.md | pm | 1.1.0 | draft |
 | PRD_Security_Requirements.md | architect | 1.0.0 | draft |
 | PRD_User_Flows_and_Use_Cases.md | ux | 1.0.0 | draft |
 | TECH_API_Specification.md | architect | 1.0.0 | draft |
@@ -199,7 +199,7 @@ the vendored baseline and every delta applied, including the new `bio` profile.
 | Artifact | State |
 |---|---|
 | Specification set | 44 files in `docs/`, all `status: draft`, validating clean |
-| Decisions | D-001 … D-029, append-only, integrity-hashed |
+| Decisions | D-001 … D-031, append-only, integrity-hashed |
 | Rubric pass | 30 BRB items dispositioned; 3 flags raised, 2 applied, 1 carried to UX pass B by design |
 | Red team | 13 challenges; 8 accepted, 4 acknowledged, 1 refuted with evidence; 2 S1 escalated verbatim |
 | Schemas | 7 JSON Schemas in `schemas/` |
@@ -250,7 +250,7 @@ disabling the EVC-1 refusal, the budget ceiling, and the injection flag — each
 turn the suite red.
 
 Verification: `bash tools/check.sh` runs the substrate invariants, their negative
-tests, 474 unit tests, both static validators, the strict spec graph, the
+tests, 499 unit tests, both static validators, the strict spec graph, the
 implementation trace, and a release build. The trace holds *claimed-but-untested*
 Musts at zero; Musts with no implementation at all are expected for the unbuilt
 modules above and are listed by module rather than hidden.

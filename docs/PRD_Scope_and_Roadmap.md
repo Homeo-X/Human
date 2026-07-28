@@ -1,10 +1,10 @@
 ---
 doc: PRD_Scope_and_Roadmap
 tier: standard+
-version: 1.0.1
+version: 1.1.0
 status: draft
 owner: pm
-last_updated: 2026-07-27
+last_updated: 2026-07-28
 ---
 
 # Scope & Product Roadmap
@@ -62,10 +62,19 @@ groundedness guard (INV-14) exists to make that failure loud.
   the full document set; the BIO rubric pass has no unresolved flags.
 
 ### Phase 1 — Anatomical skeleton
-- **Entry gate (CH-01, D-010):** educator validation of the problem statement
-  (RSK-01) must resolve **before build begins**. This is a gate, not a milestone:
-  the prior arrangement scheduled the validation alongside the work it would
+- **Entry gate (CH-01, D-010; re-shaped by D-030):** educator validation of the
+  problem statement (RSK-01) governs the **expensive** Phase 1 build — the 3D
+  viewer, the study UI, the mesh pipeline, and content population at scale.
+  Those do not begin until it resolves. This is a gate, not a milestone: the
+  original arrangement scheduled the validation alongside the work it would
   invalidate.
+  **What D-030 changed:** the gate was also blocking the only thing that could
+  end it. RSK-01 asks whether people want evidence grading *surfaced to them*,
+  and that is unanswerable about a substrate with nothing to look at. A bounded
+  artifact — one subsystem's physiological findings, one organ depicted — is
+  therefore built first, and the validation is pointed at it. The gate keeps its
+  scope over everything else. **RSK-01 is not resolved and this ordering does
+  not resolve it.**
 - **Modules:** SPAT, NAV (first surfaces), ONTO and REL populated to L3.
 - **Content:** body, regions, organ systems, major organs, major bones, major
   muscles, major vessels, major nerves, major glands.

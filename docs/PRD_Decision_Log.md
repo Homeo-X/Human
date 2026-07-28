@@ -1294,3 +1294,134 @@ get entries._
 - **Affects:** tools/biocheck.py, tools/specgraph.py, BIO_Validation_Framework,
   BIO_Evidence_and_Provenance, MANIFEST.md, README.md
 - **Supersedes:** none
+
+### D-030 — The artifact is the instrument: Phase 1's gate re-shaped, not waived (2026-07-28, orchestrator)
+- **Status:** active
+- **Context:** D-010 made educator validation a Phase 1 **entry gate** because
+  CH-01 found the whole product resting on an unvalidated premise — that
+  educators want claim-level evidence grading. D-011 then split the gate by what
+  RSK-01 actually threatens, let the substrate proceed, and said of itself that
+  on resolution it would be superseded "by one that either opens the
+  presentation gate or re-scopes the product".
+  Nine months of specification later the gate has produced a deadlock rather
+  than the caution it was designed for. RSK-01 asks whether people want evidence
+  grading **surfaced to them**. Nobody can answer that about a system holding 9
+  findings against 414 definitions, zero geometry, and no surface at all. The
+  gate is protecting a question from the only thing that could answer it:
+  **you cannot validate an artifact nobody can see.**
+  It is also worth stating what the gate was *not* protecting. Grading is load-
+  bearing below the surface — the release manifest, the promotion ladder, the
+  groundedness guard and six invariants all read evidence classes. Even under
+  the worst answer to RSK-01, the substrate keeps them.
+- **Decision:** Re-shape the gate; do not waive it. Build the smallest honest
+  artifact that makes the question *askable* — **one subsystem carrying real
+  physiological findings, and one organ actually depicted** — and re-point
+  RSK-01's validation at feedback on that artifact rather than at a description
+  of one.
+  - **No validation has occurred.** RSK-01 stays open, rated medium/high, owned
+    by the Biology Lead. Nothing in this entry retires it, and no surface may
+    describe the premise as validated.
+  - **What opens:** biological findings for one subsystem; a single geometry
+    binding, with its licence tier, on an existing spatial identity.
+  - **What stays gated:** the 3D viewer, the study UI, the mesh pipeline beyond
+    one asset, and L0–L3 content population at scale — the expensive work the
+    gate exists to protect.
+  - **What would falsify the premise, stated now rather than after the answer
+    arrives:** if reviewers find the grades are noise, **the surface changes and
+    the substrate does not.** Grading stays, because the validators and the
+    release manifest depend on it; what moves is how much of it a reader is
+    shown by default. Writing this down in advance is the point — an unstated
+    falsification condition gets interpreted to taste once the evidence is in.
+- **Alternatives:**
+  - Waive the gate and open Phase 1 outright — rejected_because: recording
+    "resolved" for a validation that never happened is the same act as an
+    unreviewed claim naming a human reviewer (D-013, D-017). The project has
+    made that mistake twice and built invariants against it; doing it in a
+    Decision entry rather than in a data file would not make it different.
+  - Keep waiting for educators — rejected_because: it is not a schedule
+    problem. There is nothing to show them, and the gate as written blocks
+    producing the thing that would end it.
+  - Re-scope the audience to researchers, for whom provenance is
+    unconditionally wanted — rejected_because: it dissolves RSK-01 by changing
+    the subject, and the educator persona is load-bearing in the Executive
+    Summary, the flows and the UI design. A real option, and a larger decision
+    than this one; not taken by default.
+- **Consequences:** + The premise becomes testable for the first time: there
+  will be an organ with graded physiological claims behind it that a domain
+  reader can react to. + The bounded scope keeps the gate's meaning — the
+  viewer, the UI and mass content population remain behind it. − The artifact is
+  built before the premise is validated, which is the exact ordering CH-01
+  attacked; the mitigation is that the bounded build is cheap and the expensive
+  work still waits. − RSK-01's mitigation text changes from "validate before
+  Phase 1 build" to "validate against the Phase 1 artifact", which is a weaker
+  guarantee honestly stated rather than a stronger one quietly kept. − Everything
+  produced under this decision is provisional and reviewed by nobody; the review
+  deficit grows again.
+- **Reversibility:** high — the artifact is separable content and one asset
+  binding.
+- **Valid while:** RSK-01 is unresolved. On feedback, superseded by an entry
+  that opens the presentation gate, re-scopes the product, or changes what the
+  surface shows by default.
+- **Affects:** PRD_Scope_and_Roadmap, PRD_Risks_and_Constraints,
+  PRD_Executive_Summary, ontology/respiratory/, ontology/assets/
+- **Supersedes:** D-011
+
+### D-031 — `depicted` was unreachable, and only real content could show it (2026-07-28, architect)
+- **Status:** active
+- **Context:** D-030's bounded artifact was two things: one subsystem's
+  findings, one organ depicted. Both were built against machinery that had
+  existed for months and had never met real content, and both broke the moment
+  it arrived.
+  **The geometry defect.** `ProjectionService._depiction` decided a binding was
+  resolvable by reading a key called `asset`. The schema
+  (`schemas/spatial_identity.schema.json`) defines the field as **`asset_id`**,
+  with `additionalProperties: false`, and both `release.py` and `biocheck.py`
+  read `asset_id`. So no schema-valid binding could ever satisfy the check:
+  every bound entity would have reported `asset_unavailable` forever, and its
+  message would have called a naming mistake "a pipeline failure, not an
+  absence of anatomy". The state `depicted` was unreachable and the tests
+  passed, because with zero geometry in the substrate the branch was never
+  taken.
+  **The findings defect.** The first pass wrote fifteen quantities with UCUM
+  units and no measurement conditions. INV-07 asked for them on every one and
+  was right to: 500 mL is not a fact about a body until it says *at rest,
+  upright, breathing air at sea level*. The validator knew something the author
+  did not.
+- **Decision:** `_depiction` reads `asset_id`, and **availability is supplied by
+  the caller** rather than inferred from a field's presence. Whether an asset's
+  bytes exist is a fact about a *deployment*, not about the model, so
+  `ProjectionService` takes `available_assets`; `api.py` computes it by hashing
+  the pinned cache against `ontology/assets/ASSETS.json`.
+  `available_assets=None` means "not checked", and an entity in that state
+  reports `depicted` **and says the check was not run** — the caveat travels
+  with the answer instead of being silently assumed. Every quantitative finding
+  carries `conditions`.
+  Four mutations of the depiction logic — neutering the availability check,
+  forcing the unchecked branch, reverting the key name, collapsing `depicted`
+  into `described` — each turn the suite red.
+- **Alternatives:**
+  - Add `asset` to the schema so the code becomes right — rejected_because: the
+    code was the only place using that name, and widening a schema to match one
+    caller's typo is how a vocabulary rots. The schema was correct.
+  - Have `ProjectionService` read the manifest itself — rejected_because: it
+    would make a pure derivation service depend on the filesystem, and the
+    question "are the bytes here" belongs to whoever assembled the deployment.
+  - Default `available_assets` to "everything declared is present" —
+    rejected_because: that is optimism about what the system has, which is the
+    one thing this project never does. Not knowing is reportable; assuming is
+    not.
+- **Consequences:** + `depicted`, `asset_unavailable`, `described` and
+  `unplaced` are now each produced by real content rather than asserted in
+  prose. + The bound mesh is `reference_exemplar` and the manifest refuses to
+  let anything be `measured`: this project holds no measured geometry, and now
+  says so per-asset. + Quantities carry the conditions that make them usable.
+  − One organ has geometry; 275 entities do not. − The mesh is an artist's model
+  from Wikimedia (CC BY 4.0, T0), fetched and hash-pinned but **not vendored** —
+  the manifest ships, the bytes do not, so a clone with no cache correctly
+  reports `asset_unavailable` rather than pretending. − The T1 share-alike path
+  is still untested against a real asset; the licence tier machinery has only
+  met a permissive one.
+- **Reversibility:** high.
+- **Affects:** src/homeo/projection.py, src/homeo/api.py, tools/fetch_assets.py,
+  tools/curate_respiratory.py, ontology/assets/, PRD_FR_Spatial_Representation
+- **Supersedes:** none

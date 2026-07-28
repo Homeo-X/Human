@@ -1,10 +1,10 @@
 ---
 doc: PRD_Risks_and_Constraints
 tier: standard+
-version: 1.0.0
+version: 1.1.0
 status: draft
 owner: pm
-last_updated: 2026-07-26
+last_updated: 2026-07-28
 ---
 
 # Risks & Constraints
@@ -12,7 +12,7 @@ last_updated: 2026-07-26
 ## Risk Register
 | ID | Risk | Type | Likelihood | Impact | Mitigation | Owner | Trigger to Re-assess |
 |---|---|---|---|---|---|---|---|
-| RSK-01 | The stated user problem is asserted from the structure of available tools, not from research. If educators do not actually want evidence grading, the product's central differentiator is a cost with no benefit | adoption | medium | high — invalidates the value proposition, not a feature | validate with 5–8 medical educators before Phase 1 build; the Phase 1 gate depends on it | Biology Lead | before Phase 1 build |
+| RSK-01 | The stated user problem is asserted from the structure of available tools, not from research. If educators do not actually want evidence grading, the product's central differentiator is a cost with no benefit | adoption | medium | high — invalidates the value proposition, not a feature | validate with 5–8 medical educators **against the Phase 1 artifact** — one subsystem of graded findings and one depicted organ (D-030), because the premise is about what users see and was unanswerable while there was nothing to show. The gate still holds the viewer, the study UI, the mesh pipeline and content population at scale. **Still open; building the artifact is not validating it** | Biology Lead | before the gated Phase 1 build |
 | RSK-02 | Curation throughput is the binding constraint. Expert review cannot keep pace with what agents can propose, and the queue becomes a rubber stamp | delivery | **high** | high — the review gate is the correctness story; if it degrades, nothing else holds | BR-023 throttling; queue depth published; review capacity treated as the planning unit rather than agent capacity. **This is the project's principal risk (CH-02) and is not resolvable by specification:** reviewer-hours are an organizational fact. If capacity is inadequate, every gate degrades to a rubber stamp *while all fourteen invariants continue to pass green* — the validators cannot detect it | Biology Lead | continuously from Phase 2 |
 | RSK-03 | External ontology dependency: upstream deprecations, splits, and merges create unbounded maintenance, or an authority becomes unmaintained or changes licence | tech | medium | high | authority pinning per release; splits block promotion rather than silently resolving; minted-id count tracked as a drift signal. **Named limitation (CH-12):** pinning protects against upstream *change*, not against an authority being abandoned, relicensed, or community-forked. That failure has no mitigation that preserves the interoperability D-002 was chosen for, and is accepted as residual | Research Engineer | each upstream release |
 | RSK-04 | Honest coverage reporting makes the product look worse than competitors who report bare percentages against undisclosed denominators | business | **high** | medium | `n / declared_n` reporting is a rule (BR-021), not a preference; the denominator's visibility is positioned as the differentiator rather than defended as a limitation | Biology Lead | at each public release |
@@ -41,7 +41,7 @@ last_updated: 2026-07-26
 ## Open Questions
 | Question | Blocks | Owner | Needed By |
 |---|---|---|---|
-| Do medical educators actually want evidence grading, or is it a cost they will not pay for? | the value proposition (RSK-01) | Biology Lead | before Phase 1 build |
+| Do medical educators actually want evidence grading, or is it a cost they will not pay for? | the value proposition (RSK-01) | Biology Lead | against the Phase 1 artifact, before the gated build (D-030) |
 | What review capacity exists per subsystem, and does it support the declared depths? | Phase 4 depth declarations (RSK-06) | Biology Lead | Phase 3 |
 | What is the admissible transfer justification for animal-derived mechanism data? | Phase 5 (BIO_Research_Charter) | Biology Lead | Phase 5 |
 | Where does variation stop being a variant and become a separate entity? | Phase 3 (PRD_FR_Ontology) | Biology Lead | Phase 3 |
