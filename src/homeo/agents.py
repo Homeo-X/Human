@@ -317,7 +317,15 @@ class AgentRuntime:
             self._block(run, 'TOOL-05', {'evidence_class': cls},
                         f'{run.agent} attempted to propose a claim at {cls}; '
                         f'no agent may assign EVC-1 or EVC-2 (BR-002)')
-        tool = 'TOOL-03' if kind == 'entity' else 'TOOL-04'
+        # Structural proposals go to TOOL-03, evidential ones to TOOL-04. The
+        # mapping was `entity or else claim`, which routed a spatial identity —
+        # a statement about where a structure is, not about what is known of it
+        # — to the claim tool, and the Anatomy agent was correctly refused a
+        # tool it does not hold. The contract was right; the routing was wrong,
+        # and the fix is to classify the record, never to widen a permission
+        # (D-032).
+        tool = ('TOOL-03' if kind in ('entity', 'spatial_identity')
+                else 'TOOL-04')
         self.call(run, tool, kind=kind, subsystem=subsystem)
         proposal = Proposal(
             id=f'PROP:{run.id}:{len(run.artifacts) + 1}', kind=kind,

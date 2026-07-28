@@ -66,6 +66,74 @@ ASSETS = {
     },
 }
 
+# ---- rule-based sources ----------------------------------------------------
+#
+# A source is admitted **once**, by its licence, its identifier scheme and its
+# production method — not mesh by mesh (D-026's shape, D-032's application).
+# What a reviewer signs off is this record; what the rule then produces is
+# countable, and its refusals are reported.
+BODYPARTS3D = {
+    'name': 'BodyParts3D',
+    'repo': 'Kevin-Mattheus-Moerman/BodyParts3D',
+    'base': ('https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/'
+             'BodyParts3D/main/assets/BodyParts3D_data'),
+    'id_scheme': 'FMA',
+    'format': 'stl',
+    'licence': 'CC BY-SA 2.1 Japan',
+    # Share-alike. Admitted but quarantined: never embedded in T0 ontology or
+    # evidence layers, referenced by id only (D-003, BR-013, INV-11).
+    'licence_tier': 'T1',
+    # Surface reconstructions of a reference body, not measurements of anyone
+    # and not artist-invented. `derived` is the honest slot (FR-SPAT-004).
+    'representation_kind': 'derived',
+    'attribution': ('BodyParts3D, © The Database Center for Life Science '
+                    'licensed under CC Attribution-Share Alike 2.1 Japan'),
+    'note': (
+        'Meshes are keyed by FMA id, which is why this source is usable at '
+        'all: an organ joins to its mesh by identifier rather than by matching '
+        'English names. Many organs have no single mesh because BodyParts3D '
+        'models them as composites of element parts — the heart is 38 files. '
+        'Those are refused here and reported, not silently skipped.'),
+}
+
+# The FMA -> English name index. Pinned as an asset in its own right: the join
+# depends on it, so a release that cannot reproduce the index cannot reproduce
+# the bindings either.
+BODYPARTS3D_INDEX = {
+    'asset_id': 'ASSET:bodyparts3d-parts-index',
+    'file': 'bodyparts3d-parts_list_e.txt',
+    'path': 'parts_list_e.txt',
+}
+
+
+def substrate_fma_targets(substrate_root: str = 'ontology') -> list[dict]:
+    """Every organ in the substrate that carries an FMA cross-reference.
+
+    Reads the substrate rather than a hand-kept list, so the set of candidate
+    bindings tracks the content instead of drifting behind it. Requires the
+    warrant to be structured — before it was persisted, this returned one row
+    (D-032).
+    """
+    sys.path.insert(0, 'src')
+    from homeo.graph import Graph                       # noqa: PLC0415
+    from homeo.substrate import load                    # noqa: PLC0415
+
+    graph = Graph(load(substrate_root))
+    targets = []
+    for entity in graph.entities():
+        if entity.level != 3:
+            continue
+        spatial = graph.spatial_identity(entity.id)
+        for xref in entity.xrefs:
+            ident = str(xref.get('id', ''))
+            if ident.startswith('FMA:'):
+                targets.append({
+                    'entity': entity.id, 'label': entity.preferred_term,
+                    'fma': ident.replace(':', ''),
+                    'spatial_identity': spatial.id if spatial else None})
+                break
+    return sorted(targets, key=lambda t: t['entity'])
+
 
 def sha256(path: str) -> str:
     digest = hashlib.sha256()
@@ -123,11 +191,81 @@ def verify() -> int:
     return 1 if failed else 0
 
 
+def _head(url: str) -> int:
+    """Content length, or 0 when the file is not there."""
+    request = urllib.request.Request(
+        url, method='HEAD',
+        headers={'User-Agent': 'project-human-organism/0.1'})
+    try:
+        with urllib.request.urlopen(request, timeout=60) as response:
+            return int(response.headers.get('Content-Length', 0))
+    except Exception:                                     # noqa: BLE001
+        return 0
+
+
+def resolve_bodyparts3d(substrate_root: str = 'ontology'
+                        ) -> tuple[dict, list[dict]]:
+    """Expand the source rule into concrete assets, and its refusals.
+
+    Returns `(assets, refusals)`. A refusal is a fact about **the source** — it
+    holds no single mesh for this structure — and nothing else. Whether *we*
+    have somewhere to put a mesh is a fact about our substrate, carried on each
+    asset as `spatial_identity: None` for `tools/bind_geometry.py` to act on.
+    An earlier version collapsed the two into one refusal list and deadlocked:
+    the resolver refused every organ for having no spatial identity, and the
+    tool that mints spatial identities asked the resolver what to mint.
+    """
+    source = BODYPARTS3D
+    assets, refusals = {}, []
+    for target in substrate_fma_targets(substrate_root):
+        url = f'{source["base"]}/stl/{target["fma"]}.stl'
+        size = _head(url)
+        if not size:
+            refusals.append({
+                'entity': target['entity'], 'label': target['label'],
+                'fma': target['fma'],
+                'reason': (
+                    'no single mesh: BodyParts3D models this structure as a '
+                    'composite of element parts, so binding it means binding a '
+                    'set rather than a file. Not attempted here.')})
+            continue
+        assets[f'ASSET:bp3d-{target["fma"].lower()}'] = {
+            'entity': target['entity'],
+            'spatial_identity': target['spatial_identity'],
+            'url': url,
+            'file': f'bp3d-{target["fma"].lower()}.stl',
+            'format': source['format'],
+            'licence': source['licence'],
+            'licence_tier': source['licence_tier'],
+            'representation_kind': source['representation_kind'],
+            'level': 3,
+            'attribution': source['attribution'],
+            'source': f'https://github.com/{source["repo"]}',
+            'note': f'{target["label"]} ({target["fma"]}). {source["note"]}',
+        }
+    assets[BODYPARTS3D_INDEX['asset_id']] = {
+        'entity': None, 'spatial_identity': None,
+        'url': f'{source["base"]}/{BODYPARTS3D_INDEX["path"]}',
+        'file': BODYPARTS3D_INDEX['file'], 'format': 'tsv',
+        'licence': source['licence'], 'licence_tier': source['licence_tier'],
+        'representation_kind': 'derived', 'level': None,
+        'attribution': source['attribution'],
+        'source': f'https://github.com/{source["repo"]}',
+        'note': ('The FMA -> name index. Pinned because every binding above '
+                 'depends on it: a release that cannot reproduce the index '
+                 'cannot reproduce the bindings.'),
+    }
+    return assets, refusals
+
+
 def fetch(force: bool) -> int:
     os.makedirs(CACHE, exist_ok=True)
     os.makedirs(os.path.dirname(MANIFEST), exist_ok=True)
     manifest = load_manifest()
-    for asset_id, spec in sorted(ASSETS.items()):
+    derived, refusals = resolve_bodyparts3d()
+    print(f'BodyParts3D: {len(derived) - 1} organ mesh(es) resolved by FMA id, '
+          f'{len(refusals)} refused')
+    for asset_id, spec in sorted({**ASSETS, **derived}.items()):
         path = os.path.join(CACHE, spec['file'])
         if os.path.isfile(path) and not force:
             print(f'  cached   {asset_id}')
@@ -154,6 +292,8 @@ def fetch(force: bool) -> int:
                      'and verified against these hashes. Every asset declares '
                      'its representation kind, and none of them is `measured`: '
                      'this project holds no measured geometry at all.'),
+            'sources': {BODYPARTS3D['name']: BODYPARTS3D},
+            'refusals': refusals,
             'cache': CACHE, 'assets': manifest}, fh, indent=1,
             ensure_ascii=False)
     print(f'\nwrote {MANIFEST} — {len(manifest)} asset(s) pinned')

@@ -1425,3 +1425,90 @@ get entries._
 - **Affects:** src/homeo/projection.py, src/homeo/api.py, tools/fetch_assets.py,
   tools/curate_respiratory.py, ontology/assets/, PRD_FR_Spatial_Representation
 - **Supersedes:** none
+
+### D-032 — Geometry source admission: one admitted, five refused (2026-07-28, orchestrator)
+- **Status:** active
+- **Context:** Six candidate repositories were proposed as geometry sources.
+  Each was checked against this project's own admission rules by fetching from
+  it, not by reading its README — which mattered, because two describe
+  themselves inaccurately. A source is admitted **once**, by its licence, its
+  identifier scheme and its production method; that is D-026's shape applied to
+  sources rather than to claims.
+- **Decision:**
+  - **Kevin-Mattheus-Moerman/BodyParts3D — ADMITTED at T1.** CC BY-SA 2.1
+    Japan; meshes keyed `FMA<id>.stl`; a `parts_list_e.txt` index; fetchable
+    per file. Share-alike, therefore quarantined per D-003 and BR-013: never
+    embedded in T0 layers, referenced by id, bytes never vendored. Bound as
+    `representation_kind: derived` — surface reconstructions of a reference
+    body, not measurements of anyone.
+  - **Biblioteca-Anatomica-3D/BodyParts3D — REFUSED.** A fork carrying the same
+    meshes, but `LICENSE_content` and `parts_list_e.txt` are both **absent**
+    (404, checked). Only an MIT `LICENSE` remains, copyright the upstream
+    author. The meshes are still CC BY-SA; the file that says so is gone. Using
+    it would misrepresent the licence while looking tidier than the original.
+  - **Z-Anatomy/Models-of-human-anatomy — REFUSED.** No README on `main` or
+    `master`; a `.blend` monolith. Fails identifier keying and per-file fetch.
+  - **RWTHmediTEC/VSDFullBodyBoneModels — REFUSED, with a re-entry condition.**
+    Surface models from **cadaver CT of 30 named subjects**, one `.mat` per
+    subject. This is per-individual human data, which BR-007 and BR-008 forbid
+    before Phase 7 and a completed privacy review — irrespective of licence,
+    and irrespective of the data being cadaveric and openly published. The
+    re-entry condition is stated because a flat rejection would be wrong: the
+    same database is a legitimate future source of **aggregate** claims about
+    population variation, which is how reference values are made in the first
+    place. Individual models in; a distribution out.
+  - **gbionics/human-model-generator — REFUSED as a geometry source.** BSD-3,
+    so it would be T0, but it generates URDF robotics models keyed by kinematic
+    link and `schematic` at best. Possibly relevant to Phase 6 musculoskeletal
+    simulation; not to an anatomical reference.
+  - **wspr/BodyParts3D-Matlab — REFUSED.** Contains no assets. MATLAB loaders
+    pointing at an `ftp://` download and a `dbarchive` URL that is already dead.
+- **Three defects surfaced by trying to use the admitted source, each a case of
+  machinery that had never met the thing it was for:**
+  1. **The human warrant was prose.** `obo.py` refuses a term with no FMA
+     cross-reference — 67 were refused on exactly that ground — and then
+     recorded the warrant only inside the claim's `limitations`, discarding the
+     identifier. **One organ of 107 carried an FMA xref.** The rule that
+     admitted a hundred organs as human was unauditable except by reading
+     sentences, and no mesh could join by id. Fixed: registered
+     cross-references are persisted on the entity, filtered to
+     `authorities.json` so INV-10 still holds, and pinned to *the UBERON
+     snapshot that asserted them* rather than to an FMA release nobody opened.
+     **1 → 103 of 107.**
+  2. **The curation plane had no `spatial_identity` change kind.** FR-SPAT-001
+     requires geometry to bind through a spatial identity, so the one record
+     type geometry depends on could only be hand-written into a file — which is
+     how the heart's got there. Added to `CHANGE_KINDS`.
+  3. **The agent runtime routed a spatial identity to the claim tool.** The
+     mapping was `entity, or else claim`, so the Anatomy agent was correctly
+     refused a tool it does not hold and could not place anatomy. The contract
+     was right and the routing was wrong; fixed by classifying the record, never
+     by widening a permission.
+- **Alternatives:**
+  - Take the Biblioteca fork, which looks MIT-licensed — rejected_because: the
+    licence of a work is not changed by a fork dropping the file that states
+    it. Shipping CC BY-SA meshes as MIT is the licensing failure BR-013 exists
+    to prevent, and it would be *harder* to detect for looking clean.
+  - Bind BodyParts3D by matching English names — rejected_because: it reached
+    26 of 107, and name matching across nomenclatures silently mismatches.
+    Fixing the id join was more work and is the only version that scales.
+  - Accept VSD because it is cadaveric and openly licensed — rejected_because:
+    the rule is about individual data, not about consent or licence, and it
+    exists so that this judgement is not made case by case under pressure.
+- **Consequences:** + The first **share-alike content** in the substrate, so
+  D-003's quarantine and `asset_tiers()` run on real assets for the first time:
+  a T0-only build now includes 1 asset and excludes 14. + 14 organs depicted,
+  each through a minted spatial identity that asserts **only a coordinate
+  frame** — position, laterality and containment are absent rather than
+  guessed. + The human warrant is machine-checkable. − **89 of 103 FMA-keyed
+  organs get no mesh**: BodyParts3D models them as composites (the heart is 38
+  element files), and assembling those is not attempted. The refusals are
+  recorded with their reason. − 14 more spatial identities that no human has
+  reviewed. − A T1 dependency now exists; a permissive-only build is
+  correspondingly thinner, which is visible rather than hidden.
+- **Reversibility:** high — imported xrefs, minted identities and pinned assets
+  are all separable, and no asset bytes are in the repository.
+- **Affects:** src/homeo/importers/obo.py, src/homeo/curation.py,
+  src/homeo/agents.py, tools/fetch_assets.py, tools/bind_geometry.py,
+  ontology/assets/, ontology/geometry/, PRD_External_Integrations
+- **Supersedes:** none

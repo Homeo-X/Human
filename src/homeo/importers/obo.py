@@ -66,6 +66,28 @@ TRANSFER_NOTE = (
 OBO_PART_OF = 'BFO_0000050'
 OBO_IS_A = 'is_a'
 
+# The authorities whose cross-references may be recorded (INV-10). Read from the
+# same file `tools/biocheck.py` checks against rather than restated here: a
+# registry written down twice is precisely the divergence INV-16 and INV-19 were
+# built to catch, and a third copy would earn a third guard.
+AUTHORITY_REGISTRY = os.path.join('ontology', 'vocabularies', 'authorities.json')
+
+
+def registered_authorities(path: str = AUTHORITY_REGISTRY) -> frozenset[str]:
+    """Authority prefixes admissible on an xref, or empty when unreadable.
+
+    Empty means *record no cross-references* — the conservative direction. An
+    unreadable registry must not become a licence to admit anything.
+    """
+    try:
+        with open(path, encoding='utf-8') as fh:
+            return frozenset(json.load(fh))
+    except (OSError, ValueError):
+        return frozenset()
+
+
+REGISTERED_AUTHORITIES = registered_authorities()
+
 
 @dataclass(frozen=True)
 class ImportRule:
@@ -423,8 +445,27 @@ class OboImporter:
             'representation_mode': rule.representation_mode,
             'review_state': 'provisional', 'admitted_by': self.agent,
             'provenance_source': f'{term.authority} {self.pinned_version}',
-            'xrefs': [{'authority': term.authority, 'id': term.id,
-                       'pinned_version': self.pinned_version}],
+            # The self-reference, plus every cross-reference to a *registered*
+            # authority (INV-10). The FMA one matters most: it is the human
+            # warrant this import runs on — 67 terms were refused for lacking
+            # it — and the first version recorded that warrant only as prose
+            # inside the claim's `limitations`, discarding the identifier. One
+            # of 107 organs ended up carrying an FMA xref, so nothing could be
+            # joined to it by id, and the rule that admitted each organ was
+            # unauditable except by reading sentences (D-032).
+            #
+            # `pinned_version` is deliberately the UBERON snapshot's, not
+            # FMA's: what is pinned is *UBERON asserting this cross-reference*.
+            # We never read an FMA release, and claiming one would be citing a
+            # source we have not opened.
+            'xrefs': ([{'authority': term.authority, 'id': term.id,
+                        'pinned_version': self.pinned_version}]
+                      + [{'authority': x.split(':', 1)[0], 'id': x,
+                          'pinned_version': self.pinned_version,
+                          'asserted_by': f'{term.authority} '
+                                         f'{self.pinned_version}'}
+                         for x in term.xrefs
+                         if x.split(':', 1)[0] in REGISTERED_AUTHORITIES]),
             'synonyms': [{'term': text, 'source': term.authority,
                           'register': _register(scope)}
                          for scope, text in term.synonyms if text],

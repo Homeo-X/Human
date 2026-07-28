@@ -1,20 +1,81 @@
 {
- "note": "Pinned geometry assets. The bytes are NOT in this repository — they are fetched into a gitignored cache and verified against these hashes. Every asset declares its representation kind, and none of them is `measured`: this project holds no measured geometry at all.",
- "sources": {
-  "BodyParts3D": {
-   "name": "BodyParts3D",
-   "repo": "Kevin-Mattheus-Moerman/BodyParts3D",
-   "base": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/main/assets/BodyParts3D_data",
-   "id_scheme": "FMA",
-   "format": "stl",
-   "licence": "CC BY-SA 2.1 Japan",
-   "licence_tier": "T1",
-   "representation_kind": "derived",
-   "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
-   "note": "Meshes are keyed by FMA id, which is why this source is usable at all: an organ joins to its mesh by identifier rather than by matching English names. Many organs have no single mesh because BodyParts3D models them as composites of element parts — the heart is 38 files. Those are refused here and reported, not silently skipped."
+ "note": "Spatial identities minted so that pinned meshes could bind (FR-SPAT-001, D-032). Each asserts a coordinate frame and nothing else: position, laterality and containment are curation nobody has done, and are absent rather than guessed. Every asset here is T1 share-alike and quarantined (D-003, BR-013) — the bytes are not in this repository.",
+ "run": "RUN:00001",
+ "reviewed": 0,
+ "provisional": 14,
+ "bound": [
+  {
+   "entity": "UBERON:0001103",
+   "asset": "ASSET:bp3d-fma13295",
+   "tier": "T1"
+  },
+  {
+   "entity": "UBERON:0000007",
+   "asset": "ASSET:bp3d-fma13889",
+   "tier": "T1"
+  },
+  {
+   "entity": "UBERON:0001154",
+   "asset": "ASSET:bp3d-fma14542",
+   "tier": "T1"
+  },
+  {
+   "entity": "UBERON:0001255",
+   "asset": "ASSET:bp3d-fma15900",
+   "tier": "T1"
+  },
+  {
+   "entity": "UBERON:0000057",
+   "asset": "ASSET:bp3d-fma19667",
+   "tier": "T1"
+  },
+  {
+   "entity": "UBERON:0001690",
+   "asset": "ASSET:bp3d-fma52780",
+   "tier": "T1"
+  },
+  {
+   "entity": "UBERON:0001905",
+   "asset": "ASSET:bp3d-fma62033",
+   "tier": "T1"
+  },
+  {
+   "entity": "UBERON:0001043",
+   "asset": "ASSET:bp3d-fma7131",
+   "tier": "T1"
+  },
+  {
+   "entity": "UBERON:0000945",
+   "asset": "ASSET:bp3d-fma7148",
+   "tier": "T1"
+  },
+  {
+   "entity": "UBERON:0002106",
+   "asset": "ASSET:bp3d-fma7196",
+   "tier": "T1"
+  },
+  {
+   "entity": "UBERON:0002107",
+   "asset": "ASSET:bp3d-fma7197",
+   "tier": "T1"
+  },
+  {
+   "entity": "UBERON:0002110",
+   "asset": "ASSET:bp3d-fma7202",
+   "tier": "T1"
+  },
+  {
+   "entity": "UBERON:0002185",
+   "asset": "ASSET:bp3d-fma7409",
+   "tier": "T1"
+  },
+  {
+   "entity": "UBERON:0002367",
+   "asset": "ASSET:bp3d-fma9600",
+   "tier": "T1"
   }
- },
- "refusals": [
+ ],
+ "refused_by_source_rule": [
   {
    "entity": "UBERON:0000016",
    "label": "endocrine pancreas",
@@ -549,280 +610,5 @@
    "fma": "FMA14920",
    "reason": "no single mesh: BodyParts3D models this structure as a composite of element parts, so binding it means binding a set rather than a file. Not attempted here."
   }
- ],
- "cache": "vendor/assets",
- "assets": {
-  "ASSET:heart-exemplar-001": {
-   "entity": "UBERON:0000948",
-   "spatial_identity": "SPI:heart",
-   "file": "heart-exemplar-001.stl",
-   "format": "stl",
-   "licence": "CC BY 4.0",
-   "licence_tier": "T0",
-   "representation_kind": "reference_exemplar",
-   "level": 3,
-   "attribution": "\"Realistic Human Heart\" by neshallads, licensed CC BY 4.0, via Wikimedia Commons.",
-   "source": "https://commons.wikimedia.org/wiki/File:3D_model_of_a_human_heart.stl",
-   "note": "An artist-authored exemplar, not a measurement of any individual and not derived from imaging. Bound as `reference_exemplar` so that no surface can present its shape as evidence: the model knows the heart is in the thorax and roughly this shape, and it does not know any dimension from this file.",
-   "url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/3D_model_of_a_human_heart.stl",
-   "sha256": "dcc3e6063f243f00f13b838455428134f96ffff8d9ec466ed0d5f6a6b33eefef",
-   "bytes": 1128184,
-   "fetched": "2026-07-28"
-  },
-  "ASSET:bodyparts3d-parts-index": {
-   "entity": null,
-   "spatial_identity": null,
-   "file": "bodyparts3d-parts_list_e.txt",
-   "format": "tsv",
-   "licence": "CC BY-SA 2.1 Japan",
-   "licence_tier": "T1",
-   "representation_kind": "derived",
-   "level": null,
-   "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
-   "source": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D",
-   "note": "The FMA -> name index. Pinned because every binding above depends on it: a release that cannot reproduce the index cannot reproduce the bindings.",
-   "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/main/assets/BodyParts3D_data/parts_list_e.txt",
-   "sha256": "824a34ed939a53375037d0d68b88ad2b63b1f0ae15a585632af2a63c2ab2e4af",
-   "bytes": 49357,
-   "fetched": "2026-07-28"
-  },
-  "ASSET:bp3d-fma13295": {
-   "entity": "UBERON:0001103",
-   "spatial_identity": "SPI:uberon-0001103",
-   "file": "bp3d-fma13295.stl",
-   "format": "stl",
-   "licence": "CC BY-SA 2.1 Japan",
-   "licence_tier": "T1",
-   "representation_kind": "derived",
-   "level": 3,
-   "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
-   "source": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D",
-   "note": "diaphragm (FMA13295). Meshes are keyed by FMA id, which is why this source is usable at all: an organ joins to its mesh by identifier rather than by matching English names. Many organs have no single mesh because BodyParts3D models them as composites of element parts — the heart is 38 files. Those are refused here and reported, not silently skipped.",
-   "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/main/assets/BodyParts3D_data/stl/FMA13295.stl",
-   "sha256": "c795e5300bf93f81805de8e2788449d9230da2c1bc93a005bb995c691b3fae84",
-   "bytes": 10533384,
-   "fetched": "2026-07-28"
-  },
-  "ASSET:bp3d-fma13889": {
-   "entity": "UBERON:0000007",
-   "spatial_identity": "SPI:uberon-0000007",
-   "file": "bp3d-fma13889.stl",
-   "format": "stl",
-   "licence": "CC BY-SA 2.1 Japan",
-   "licence_tier": "T1",
-   "representation_kind": "derived",
-   "level": 3,
-   "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
-   "source": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D",
-   "note": "pituitary gland (FMA13889). Meshes are keyed by FMA id, which is why this source is usable at all: an organ joins to its mesh by identifier rather than by matching English names. Many organs have no single mesh because BodyParts3D models them as composites of element parts — the heart is 38 files. Those are refused here and reported, not silently skipped.",
-   "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/main/assets/BodyParts3D_data/stl/FMA13889.stl",
-   "sha256": "23355459e7a025368378b5cc93488e1502921074ba0c2a9cb85b4531d245715c",
-   "bytes": 252684,
-   "fetched": "2026-07-28"
-  },
-  "ASSET:bp3d-fma14542": {
-   "entity": "UBERON:0001154",
-   "spatial_identity": "SPI:uberon-0001154",
-   "file": "bp3d-fma14542.stl",
-   "format": "stl",
-   "licence": "CC BY-SA 2.1 Japan",
-   "licence_tier": "T1",
-   "representation_kind": "derived",
-   "level": 3,
-   "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
-   "source": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D",
-   "note": "vermiform appendix (FMA14542). Meshes are keyed by FMA id, which is why this source is usable at all: an organ joins to its mesh by identifier rather than by matching English names. Many organs have no single mesh because BodyParts3D models them as composites of element parts — the heart is 38 files. Those are refused here and reported, not silently skipped.",
-   "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/main/assets/BodyParts3D_data/stl/FMA14542.stl",
-   "sha256": "a33df099870c84b9fa131d8b5167dda0f8efc8e56d2788b0061101fd10a7d370",
-   "bytes": 34584,
-   "fetched": "2026-07-28"
-  },
-  "ASSET:bp3d-fma15900": {
-   "entity": "UBERON:0001255",
-   "spatial_identity": "SPI:uberon-0001255",
-   "file": "bp3d-fma15900.stl",
-   "format": "stl",
-   "licence": "CC BY-SA 2.1 Japan",
-   "licence_tier": "T1",
-   "representation_kind": "derived",
-   "level": 3,
-   "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
-   "source": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D",
-   "note": "urinary bladder (FMA15900). Meshes are keyed by FMA id, which is why this source is usable at all: an organ joins to its mesh by identifier rather than by matching English names. Many organs have no single mesh because BodyParts3D models them as composites of element parts — the heart is 38 files. Those are refused here and reported, not silently skipped.",
-   "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/main/assets/BodyParts3D_data/stl/FMA15900.stl",
-   "sha256": "7a6badc84de63ac6c62acc8c2de1084c19885df1cbceb17ae02354c000a45b68",
-   "bytes": 200884,
-   "fetched": "2026-07-28"
-  },
-  "ASSET:bp3d-fma19667": {
-   "entity": "UBERON:0000057",
-   "spatial_identity": "SPI:uberon-0000057",
-   "file": "bp3d-fma19667.stl",
-   "format": "stl",
-   "licence": "CC BY-SA 2.1 Japan",
-   "licence_tier": "T1",
-   "representation_kind": "derived",
-   "level": 3,
-   "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
-   "source": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D",
-   "note": "urethra (FMA19667). Meshes are keyed by FMA id, which is why this source is usable at all: an organ joins to its mesh by identifier rather than by matching English names. Many organs have no single mesh because BodyParts3D models them as composites of element parts — the heart is 38 files. Those are refused here and reported, not silently skipped.",
-   "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/main/assets/BodyParts3D_data/stl/FMA19667.stl",
-   "sha256": "d92aaac6e29d06e0044c817fdc487b339fcbe371f93517fd33f5131542f45330",
-   "bytes": 59384,
-   "fetched": "2026-07-28"
-  },
-  "ASSET:bp3d-fma52780": {
-   "entity": "UBERON:0001690",
-   "spatial_identity": "SPI:uberon-0001690",
-   "file": "bp3d-fma52780.stl",
-   "format": "stl",
-   "licence": "CC BY-SA 2.1 Japan",
-   "licence_tier": "T1",
-   "representation_kind": "derived",
-   "level": 3,
-   "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
-   "source": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D",
-   "note": "ear (FMA52780). Meshes are keyed by FMA id, which is why this source is usable at all: an organ joins to its mesh by identifier rather than by matching English names. Many organs have no single mesh because BodyParts3D models them as composites of element parts — the heart is 38 files. Those are refused here and reported, not silently skipped.",
-   "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/main/assets/BodyParts3D_data/stl/FMA52780.stl",
-   "sha256": "a0c40d50a08a6803e8353c9650f2f4a78f15390864ec2ba728d2429beae8d26b",
-   "bytes": 1185784,
-   "fetched": "2026-07-28"
-  },
-  "ASSET:bp3d-fma62033": {
-   "entity": "UBERON:0001905",
-   "spatial_identity": "SPI:uberon-0001905",
-   "file": "bp3d-fma62033.stl",
-   "format": "stl",
-   "licence": "CC BY-SA 2.1 Japan",
-   "licence_tier": "T1",
-   "representation_kind": "derived",
-   "level": 3,
-   "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
-   "source": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D",
-   "note": "pineal body (FMA62033). Meshes are keyed by FMA id, which is why this source is usable at all: an organ joins to its mesh by identifier rather than by matching English names. Many organs have no single mesh because BodyParts3D models them as composites of element parts — the heart is 38 files. Those are refused here and reported, not silently skipped.",
-   "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/main/assets/BodyParts3D_data/stl/FMA62033.stl",
-   "sha256": "0197845b598e4f51525bc339bbe06263a4a1fe2567be9b5ce2fd1c15721e5a11",
-   "bytes": 126884,
-   "fetched": "2026-07-28"
-  },
-  "ASSET:bp3d-fma7131": {
-   "entity": "UBERON:0001043",
-   "spatial_identity": "SPI:uberon-0001043",
-   "file": "bp3d-fma7131.stl",
-   "format": "stl",
-   "licence": "CC BY-SA 2.1 Japan",
-   "licence_tier": "T1",
-   "representation_kind": "derived",
-   "level": 3,
-   "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
-   "source": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D",
-   "note": "esophagus (FMA7131). Meshes are keyed by FMA id, which is why this source is usable at all: an organ joins to its mesh by identifier rather than by matching English names. Many organs have no single mesh because BodyParts3D models them as composites of element parts — the heart is 38 files. Those are refused here and reported, not silently skipped.",
-   "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/main/assets/BodyParts3D_data/stl/FMA7131.stl",
-   "sha256": "7783e109c2f4c81936632e1662686c9081460f4be2b5f1f51f8ebd439d0e464f",
-   "bytes": 132184,
-   "fetched": "2026-07-28"
-  },
-  "ASSET:bp3d-fma7148": {
-   "entity": "UBERON:0000945",
-   "spatial_identity": "SPI:uberon-0000945",
-   "file": "bp3d-fma7148.stl",
-   "format": "stl",
-   "licence": "CC BY-SA 2.1 Japan",
-   "licence_tier": "T1",
-   "representation_kind": "derived",
-   "level": 3,
-   "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
-   "source": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D",
-   "note": "stomach (FMA7148). Meshes are keyed by FMA id, which is why this source is usable at all: an organ joins to its mesh by identifier rather than by matching English names. Many organs have no single mesh because BodyParts3D models them as composites of element parts — the heart is 38 files. Those are refused here and reported, not silently skipped.",
-   "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/main/assets/BodyParts3D_data/stl/FMA7148.stl",
-   "sha256": "a6764d20879cf7ba1acd8284c1b0255b20111d8bd3b92838cf97600e6f3d9065",
-   "bytes": 469284,
-   "fetched": "2026-07-28"
-  },
-  "ASSET:bp3d-fma7196": {
-   "entity": "UBERON:0002106",
-   "spatial_identity": "SPI:uberon-0002106",
-   "file": "bp3d-fma7196.stl",
-   "format": "stl",
-   "licence": "CC BY-SA 2.1 Japan",
-   "licence_tier": "T1",
-   "representation_kind": "derived",
-   "level": 3,
-   "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
-   "source": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D",
-   "note": "spleen (FMA7196). Meshes are keyed by FMA id, which is why this source is usable at all: an organ joins to its mesh by identifier rather than by matching English names. Many organs have no single mesh because BodyParts3D models them as composites of element parts — the heart is 38 files. Those are refused here and reported, not silently skipped.",
-   "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/main/assets/BodyParts3D_data/stl/FMA7196.stl",
-   "sha256": "72c0248b1e35490c66a0d0bde0ecdde6a362f3940a5bb6d3e770718ff5eeb94a",
-   "bytes": 450884,
-   "fetched": "2026-07-28"
-  },
-  "ASSET:bp3d-fma7197": {
-   "entity": "UBERON:0002107",
-   "spatial_identity": "SPI:uberon-0002107",
-   "file": "bp3d-fma7197.stl",
-   "format": "stl",
-   "licence": "CC BY-SA 2.1 Japan",
-   "licence_tier": "T1",
-   "representation_kind": "derived",
-   "level": 3,
-   "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
-   "source": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D",
-   "note": "liver (FMA7197). Meshes are keyed by FMA id, which is why this source is usable at all: an organ joins to its mesh by identifier rather than by matching English names. Many organs have no single mesh because BodyParts3D models them as composites of element parts — the heart is 38 files. Those are refused here and reported, not silently skipped.",
-   "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/main/assets/BodyParts3D_data/stl/FMA7197.stl",
-   "sha256": "cbd634ccfbb532b33c01b6a1361dd706e95955de67aa729169d7d68752b6a98d",
-   "bytes": 970884,
-   "fetched": "2026-07-28"
-  },
-  "ASSET:bp3d-fma7202": {
-   "entity": "UBERON:0002110",
-   "spatial_identity": "SPI:uberon-0002110",
-   "file": "bp3d-fma7202.stl",
-   "format": "stl",
-   "licence": "CC BY-SA 2.1 Japan",
-   "licence_tier": "T1",
-   "representation_kind": "derived",
-   "level": 3,
-   "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
-   "source": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D",
-   "note": "gallbladder (FMA7202). Meshes are keyed by FMA id, which is why this source is usable at all: an organ joins to its mesh by identifier rather than by matching English names. Many organs have no single mesh because BodyParts3D models them as composites of element parts — the heart is 38 files. Those are refused here and reported, not silently skipped.",
-   "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/main/assets/BodyParts3D_data/stl/FMA7202.stl",
-   "sha256": "10576dcce2d437622b5d951a0edaae53648d80814706b5b2fac1044627ce8d95",
-   "bytes": 692384,
-   "fetched": "2026-07-28"
-  },
-  "ASSET:bp3d-fma7409": {
-   "entity": "UBERON:0002185",
-   "spatial_identity": "SPI:uberon-0002185",
-   "file": "bp3d-fma7409.stl",
-   "format": "stl",
-   "licence": "CC BY-SA 2.1 Japan",
-   "licence_tier": "T1",
-   "representation_kind": "derived",
-   "level": 3,
-   "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
-   "source": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D",
-   "note": "bronchus (FMA7409). Meshes are keyed by FMA id, which is why this source is usable at all: an organ joins to its mesh by identifier rather than by matching English names. Many organs have no single mesh because BodyParts3D models them as composites of element parts — the heart is 38 files. Those are refused here and reported, not silently skipped.",
-   "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/main/assets/BodyParts3D_data/stl/FMA7409.stl",
-   "sha256": "05f5c75914a9aaba435d7f28e5de60ba9853665db5b02dcd309cf6fbbea132ac",
-   "bytes": 5781584,
-   "fetched": "2026-07-28"
-  },
-  "ASSET:bp3d-fma9600": {
-   "entity": "UBERON:0002367",
-   "spatial_identity": "SPI:uberon-0002367",
-   "file": "bp3d-fma9600.stl",
-   "format": "stl",
-   "licence": "CC BY-SA 2.1 Japan",
-   "licence_tier": "T1",
-   "representation_kind": "derived",
-   "level": 3,
-   "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
-   "source": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D",
-   "note": "prostate gland (FMA9600). Meshes are keyed by FMA id, which is why this source is usable at all: an organ joins to its mesh by identifier rather than by matching English names. Many organs have no single mesh because BodyParts3D models them as composites of element parts — the heart is 38 files. Those are refused here and reported, not silently skipped.",
-   "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/main/assets/BodyParts3D_data/stl/FMA9600.stl",
-   "sha256": "5d7c40ff0761ea8f467cff6e07391436ff8d0ae875d65badb50b5cee4a0c223b",
-   "bytes": 87784,
-   "fetched": "2026-07-28"
-  }
- }
+ ]
 }

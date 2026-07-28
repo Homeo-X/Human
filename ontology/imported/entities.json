@@ -16,6 +16,12 @@
     "authority": "UBERON",
     "id": "UBERON:0000007",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:13889",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -68,6 +74,12 @@
     "authority": "UBERON",
     "id": "UBERON:0000016",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:16018",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -110,6 +122,12 @@
     "authority": "UBERON",
     "id": "UBERON:0000017",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:16017",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -152,6 +170,12 @@
     "authority": "UBERON",
     "id": "UBERON:0000056",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:9704",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -179,6 +203,12 @@
     "authority": "UBERON",
     "id": "UBERON:0000057",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:19667",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": []
@@ -200,6 +230,12 @@
     "authority": "UBERON",
     "id": "UBERON:0000059",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:7201",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -227,6 +263,12 @@
     "authority": "UBERON",
     "id": "UBERON:0000080",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:72171",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -294,6 +336,12 @@
     "authority": "UBERON",
     "id": "UBERON:0000081",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:72172",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -341,6 +389,12 @@
     "authority": "UBERON",
     "id": "UBERON:0000325",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:14919",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": []
@@ -362,6 +416,12 @@
     "authority": "UBERON",
     "id": "UBERON:0000333",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:15052",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -564,6 +624,12 @@
     "authority": "UBERON",
     "id": "UBERON:0000382",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:59155",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -591,6 +657,12 @@
     "authority": "UBERON",
     "id": "UBERON:0000391",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:231515",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -638,6 +710,12 @@
     "authority": "UBERON",
     "id": "UBERON:0000423",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:59154",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -680,6 +758,12 @@
     "authority": "UBERON",
     "id": "UBERON:0000460",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:9598",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -742,6 +826,12 @@
     "authority": "UBERON",
     "id": "UBERON:0000461",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:20019",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -819,6 +909,12 @@
     "authority": "UBERON",
     "id": "UBERON:0000473",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:7210",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -876,6 +972,12 @@
     "authority": "UBERON",
     "id": "UBERON:0000945",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:7148",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -955,6 +1057,12 @@
     "authority": "UBERON",
     "id": "UBERON:0000982",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:7490",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -997,6 +1105,12 @@
     "authority": "UBERON",
     "id": "UBERON:0000989",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:9707",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -1029,6 +1143,12 @@
     "authority": "UBERON",
     "id": "UBERON:0000991",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:18250",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -1061,6 +1181,12 @@
     "authority": "UBERON",
     "id": "UBERON:0000992",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:7209",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -1208,6 +1334,12 @@
     "authority": "UBERON",
     "id": "UBERON:0000995",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:17558",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": []
@@ -1229,6 +1361,12 @@
     "authority": "UBERON",
     "id": "UBERON:0000998",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:19386",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -1306,6 +1444,12 @@
     "authority": "UBERON",
     "id": "UBERON:0001043",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:7131",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -1338,6 +1482,12 @@
     "authority": "UBERON",
     "id": "UBERON:0001044",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:9597",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -1370,6 +1520,12 @@
     "authority": "UBERON",
     "id": "UBERON:0001103",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:13295",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -1417,6 +1573,12 @@
     "authority": "UBERON",
     "id": "UBERON:0001132",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:13890",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -1454,6 +1616,12 @@
     "authority": "UBERON",
     "id": "UBERON:0001154",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:14542",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -1516,6 +1684,12 @@
     "authority": "UBERON",
     "id": "UBERON:0001173",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:14665",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -1543,6 +1717,12 @@
     "authority": "UBERON",
     "id": "UBERON:0001212",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:15060",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -1590,6 +1770,12 @@
     "authority": "UBERON",
     "id": "UBERON:0001237",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:15647",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -1632,6 +1818,12 @@
     "authority": "UBERON",
     "id": "UBERON:0001255",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:15900",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -1674,6 +1866,12 @@
     "authority": "UBERON",
     "id": "UBERON:0001338",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:19683",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -1716,6 +1914,12 @@
     "authority": "UBERON",
     "id": "UBERON:0001350",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:20229",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -1783,6 +1987,18 @@
     "authority": "UBERON",
     "id": "UBERON:0001474",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:30317",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:5018",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -1820,6 +2036,12 @@
     "authority": "UBERON",
     "id": "UBERON:0001629",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:50095",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -1852,6 +2074,12 @@
     "authority": "UBERON",
     "id": "UBERON:0001690",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:52780",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -1884,6 +2112,12 @@
     "authority": "UBERON",
     "id": "UBERON:0001723",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:54640",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -1911,6 +2145,12 @@
     "authority": "UBERON",
     "id": "UBERON:0001817",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:59101",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -1958,6 +2198,12 @@
     "authority": "UBERON",
     "id": "UBERON:0001818",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:59104",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -2005,6 +2251,12 @@
     "authority": "UBERON",
     "id": "UBERON:0001820",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:59152",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -2042,6 +2294,12 @@
     "authority": "UBERON",
     "id": "UBERON:0001821",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:59160",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -2079,6 +2337,12 @@
     "authority": "UBERON",
     "id": "UBERON:0001822",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:59328",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -2106,6 +2370,12 @@
     "authority": "UBERON",
     "id": "UBERON:0001829",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:59788",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": []
@@ -2127,6 +2397,12 @@
     "authority": "UBERON",
     "id": "UBERON:0001830",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:59789",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": []
@@ -2148,6 +2424,12 @@
     "authority": "UBERON",
     "id": "UBERON:0001849",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:61022",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -2175,6 +2457,12 @@
     "authority": "UBERON",
     "id": "UBERON:0001853",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:61113",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -2217,6 +2505,12 @@
     "authority": "UBERON",
     "id": "UBERON:0001854",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:61116",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -2264,6 +2558,12 @@
     "authority": "UBERON",
     "id": "UBERON:0001905",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:62033",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -2346,6 +2646,12 @@
     "authority": "UBERON",
     "id": "UBERON:0001911",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:286452",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -2418,6 +2724,12 @@
     "authority": "UBERON",
     "id": "UBERON:0001964",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:6283",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -2475,6 +2787,12 @@
     "authority": "UBERON",
     "id": "UBERON:0001983",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:63621",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -2562,6 +2880,12 @@
     "authority": "UBERON",
     "id": "UBERON:0001987",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:63934",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -2594,6 +2918,12 @@
     "authority": "UBERON",
     "id": "UBERON:0002041",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:68416",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": []
@@ -2615,6 +2945,12 @@
     "authority": "UBERON",
     "id": "UBERON:0002046",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:9603",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -2647,6 +2983,12 @@
     "authority": "UBERON",
     "id": "UBERON:0002048",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:7195",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -2674,6 +3016,12 @@
     "authority": "UBERON",
     "id": "UBERON:0002073",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:70660",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -2701,6 +3049,12 @@
     "authority": "UBERON",
     "id": "UBERON:0002093",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:71237",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -2743,6 +3097,12 @@
     "authority": "UBERON",
     "id": "UBERON:0002106",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:7196",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -2770,6 +3130,12 @@
     "authority": "UBERON",
     "id": "UBERON:0002107",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:7197",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -2802,6 +3168,12 @@
     "authority": "UBERON",
     "id": "UBERON:0002108",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:7200",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -2849,6 +3221,12 @@
     "authority": "UBERON",
     "id": "UBERON:0002110",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:7202",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -2918,6 +3296,12 @@
     "authority": "UBERON",
     "id": "UBERON:0002120",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:72170",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -2960,6 +3344,12 @@
     "authority": "UBERON",
     "id": "UBERON:0002182",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:7405",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -3017,6 +3407,12 @@
     "authority": "UBERON",
     "id": "UBERON:0002183",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:7406",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -3059,6 +3455,12 @@
     "authority": "UBERON",
     "id": "UBERON:0002184",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:7407",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -3086,6 +3488,12 @@
     "authority": "UBERON",
     "id": "UBERON:0002185",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:7409",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -3123,6 +3531,12 @@
     "authority": "UBERON",
     "id": "UBERON:0002232",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:75801",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -3165,6 +3579,12 @@
     "authority": "UBERON",
     "id": "UBERON:0002240",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:7647",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -3227,6 +3647,12 @@
     "authority": "UBERON",
     "id": "UBERON:0002255",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:77280",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -3274,6 +3700,12 @@
     "authority": "UBERON",
     "id": "UBERON:0002359",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:9586",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -3306,6 +3738,12 @@
     "authority": "UBERON",
     "id": "UBERON:0002360",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:9589",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -3343,6 +3781,12 @@
     "authority": "UBERON",
     "id": "UBERON:0002363",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:9592",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -3380,6 +3824,12 @@
     "authority": "UBERON",
     "id": "UBERON:0002364",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:9595",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -3442,6 +3892,12 @@
     "authority": "UBERON",
     "id": "UBERON:0002366",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:9599",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -3499,6 +3955,12 @@
     "authority": "UBERON",
     "id": "UBERON:0002367",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:9600",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -3536,6 +3998,12 @@
     "authority": "UBERON",
     "id": "UBERON:0002368",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:9602",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -3578,6 +4046,12 @@
     "authority": "UBERON",
     "id": "UBERON:0002369",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:9604",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -3660,6 +4134,12 @@
     "authority": "UBERON",
     "id": "UBERON:0002370",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:9607",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -3692,6 +4172,12 @@
     "authority": "UBERON",
     "id": "UBERON:0002393",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:9705",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -3754,6 +4240,12 @@
     "authority": "UBERON",
     "id": "UBERON:0002411",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:9909",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": []
@@ -3775,6 +4267,12 @@
     "authority": "UBERON",
     "id": "UBERON:0002419",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:71878",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -3869,6 +4367,12 @@
     "authority": "UBERON",
     "id": "UBERON:0003295",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:55075",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -3901,6 +4405,12 @@
     "authority": "UBERON",
     "id": "UBERON:0003699",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:16950",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -3948,6 +4458,12 @@
     "authority": "UBERON",
     "id": "UBERON:0003975",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:45654",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -3990,6 +4506,12 @@
     "authority": "UBERON",
     "id": "UBERON:0004053",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:45642",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -4027,6 +4549,12 @@
     "authority": "UBERON",
     "id": "UBERON:0004054",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:45655",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -4064,6 +4592,12 @@
     "authority": "UBERON",
     "id": "UBERON:0004175",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:45652",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -4106,6 +4640,12 @@
     "authority": "UBERON",
     "id": "UBERON:0004176",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:45643",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -4143,6 +4683,12 @@
     "authority": "UBERON",
     "id": "UBERON:0004177",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:7143",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -4225,6 +4771,12 @@
     "authority": "UBERON",
     "id": "UBERON:0004721",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:77714",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -4262,6 +4814,18 @@
     "authority": "UBERON",
     "id": "UBERON:0004760",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:15720",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:15724",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -4309,6 +4873,12 @@
     "authority": "UBERON",
     "id": "UBERON:0004772",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:59086",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -4356,6 +4926,12 @@
     "authority": "UBERON",
     "id": "UBERON:0005056",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:45649",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -4398,6 +4974,12 @@
     "authority": "UBERON",
     "id": "UBERON:0005203",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:7473",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -4435,6 +5017,12 @@
     "authority": "UBERON",
     "id": "UBERON:0006723",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:61278",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -4482,6 +5070,12 @@
     "authority": "UBERON",
     "id": "UBERON:0006749",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:55558",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -4514,6 +5108,12 @@
     "authority": "UBERON",
     "id": "UBERON:0006755",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:55559",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -4551,6 +5151,12 @@
     "authority": "UBERON",
     "id": "UBERON:0007196",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:7393",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -4583,6 +5189,12 @@
     "authority": "UBERON",
     "id": "UBERON:0007844",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:55107",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [
@@ -4625,6 +5237,12 @@
     "authority": "UBERON",
     "id": "UBERON:0008310",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:55076",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": []
@@ -4646,6 +5264,12 @@
     "authority": "UBERON",
     "id": "UBERON:0008859",
     "pinned_version": "2026-06-19"
+   },
+   {
+    "authority": "FMA",
+    "id": "FMA:14920",
+    "pinned_version": "2026-06-19",
+    "asserted_by": "UBERON 2026-06-19"
    }
   ],
   "synonyms": [

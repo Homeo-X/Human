@@ -29,8 +29,13 @@ from datetime import datetime, timezone
 TASK_STATES = ('queued', 'in_review', 'accepted', 'provisional', 'rejected',
                'blocked', 'escalated')
 # Kinds of change that reach canonical content. Each needs an Approval.
+# `spatial_identity` was absent until geometry was first bound at scale (D-032).
+# FR-SPAT-001 requires every mesh to bind through a spatial identity rather than
+# to an entity directly, so leaving the kind out meant the one record type that
+# geometry depends on had no route through the review gate at all — it could
+# only be hand-written into a file, which is how the heart's got there.
 CHANGE_KINDS = ('entity', 'claim', 'relationship', 'process', 'promotion',
-                'retype', 'adjudication')
+                'retype', 'adjudication', 'spatial_identity')
 
 # The strongest class an automated actor may put into the substrate. BR-002
 # forbids agents at EVC-1 and EVC-2 at the point of proposal; this is the same

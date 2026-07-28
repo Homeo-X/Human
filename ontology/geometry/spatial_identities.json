@@ -1,0 +1,226 @@
+[
+ {
+  "id": "SPI:uberon-0001103",
+  "entity": "UBERON:0001103",
+  "coordinate_frame": "HOX-REF-ADULT-2026",
+  "geometry": [
+   {
+    "asset_id": "ASSET:bp3d-fma13295",
+    "representation_kind": "derived",
+    "level": 3,
+    "licence": "CC BY-SA 2.1 Japan",
+    "licence_tier": "T1",
+    "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
+    "source": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D"
+   }
+  ]
+ },
+ {
+  "id": "SPI:uberon-0000007",
+  "entity": "UBERON:0000007",
+  "coordinate_frame": "HOX-REF-ADULT-2026",
+  "geometry": [
+   {
+    "asset_id": "ASSET:bp3d-fma13889",
+    "representation_kind": "derived",
+    "level": 3,
+    "licence": "CC BY-SA 2.1 Japan",
+    "licence_tier": "T1",
+    "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
+    "source": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D"
+   }
+  ]
+ },
+ {
+  "id": "SPI:uberon-0001154",
+  "entity": "UBERON:0001154",
+  "coordinate_frame": "HOX-REF-ADULT-2026",
+  "geometry": [
+   {
+    "asset_id": "ASSET:bp3d-fma14542",
+    "representation_kind": "derived",
+    "level": 3,
+    "licence": "CC BY-SA 2.1 Japan",
+    "licence_tier": "T1",
+    "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
+    "source": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D"
+   }
+  ]
+ },
+ {
+  "id": "SPI:uberon-0001255",
+  "entity": "UBERON:0001255",
+  "coordinate_frame": "HOX-REF-ADULT-2026",
+  "geometry": [
+   {
+    "asset_id": "ASSET:bp3d-fma15900",
+    "representation_kind": "derived",
+    "level": 3,
+    "licence": "CC BY-SA 2.1 Japan",
+    "licence_tier": "T1",
+    "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
+    "source": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D"
+   }
+  ]
+ },
+ {
+  "id": "SPI:uberon-0000057",
+  "entity": "UBERON:0000057",
+  "coordinate_frame": "HOX-REF-ADULT-2026",
+  "geometry": [
+   {
+    "asset_id": "ASSET:bp3d-fma19667",
+    "representation_kind": "derived",
+    "level": 3,
+    "licence": "CC BY-SA 2.1 Japan",
+    "licence_tier": "T1",
+    "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
+    "source": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D"
+   }
+  ]
+ },
+ {
+  "id": "SPI:uberon-0001690",
+  "entity": "UBERON:0001690",
+  "coordinate_frame": "HOX-REF-ADULT-2026",
+  "geometry": [
+   {
+    "asset_id": "ASSET:bp3d-fma52780",
+    "representation_kind": "derived",
+    "level": 3,
+    "licence": "CC BY-SA 2.1 Japan",
+    "licence_tier": "T1",
+    "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
+    "source": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D"
+   }
+  ]
+ },
+ {
+  "id": "SPI:uberon-0001905",
+  "entity": "UBERON:0001905",
+  "coordinate_frame": "HOX-REF-ADULT-2026",
+  "geometry": [
+   {
+    "asset_id": "ASSET:bp3d-fma62033",
+    "representation_kind": "derived",
+    "level": 3,
+    "licence": "CC BY-SA 2.1 Japan",
+    "licence_tier": "T1",
+    "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
+    "source": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D"
+   }
+  ]
+ },
+ {
+  "id": "SPI:uberon-0001043",
+  "entity": "UBERON:0001043",
+  "coordinate_frame": "HOX-REF-ADULT-2026",
+  "geometry": [
+   {
+    "asset_id": "ASSET:bp3d-fma7131",
+    "representation_kind": "derived",
+    "level": 3,
+    "licence": "CC BY-SA 2.1 Japan",
+    "licence_tier": "T1",
+    "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
+    "source": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D"
+   }
+  ]
+ },
+ {
+  "id": "SPI:uberon-0000945",
+  "entity": "UBERON:0000945",
+  "coordinate_frame": "HOX-REF-ADULT-2026",
+  "geometry": [
+   {
+    "asset_id": "ASSET:bp3d-fma7148",
+    "representation_kind": "derived",
+    "level": 3,
+    "licence": "CC BY-SA 2.1 Japan",
+    "licence_tier": "T1",
+    "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
+    "source": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D"
+   }
+  ]
+ },
+ {
+  "id": "SPI:uberon-0002106",
+  "entity": "UBERON:0002106",
+  "coordinate_frame": "HOX-REF-ADULT-2026",
+  "geometry": [
+   {
+    "asset_id": "ASSET:bp3d-fma7196",
+    "representation_kind": "derived",
+    "level": 3,
+    "licence": "CC BY-SA 2.1 Japan",
+    "licence_tier": "T1",
+    "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
+    "source": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D"
+   }
+  ]
+ },
+ {
+  "id": "SPI:uberon-0002107",
+  "entity": "UBERON:0002107",
+  "coordinate_frame": "HOX-REF-ADULT-2026",
+  "geometry": [
+   {
+    "asset_id": "ASSET:bp3d-fma7197",
+    "representation_kind": "derived",
+    "level": 3,
+    "licence": "CC BY-SA 2.1 Japan",
+    "licence_tier": "T1",
+    "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
+    "source": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D"
+   }
+  ]
+ },
+ {
+  "id": "SPI:uberon-0002110",
+  "entity": "UBERON:0002110",
+  "coordinate_frame": "HOX-REF-ADULT-2026",
+  "geometry": [
+   {
+    "asset_id": "ASSET:bp3d-fma7202",
+    "representation_kind": "derived",
+    "level": 3,
+    "licence": "CC BY-SA 2.1 Japan",
+    "licence_tier": "T1",
+    "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
+    "source": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D"
+   }
+  ]
+ },
+ {
+  "id": "SPI:uberon-0002185",
+  "entity": "UBERON:0002185",
+  "coordinate_frame": "HOX-REF-ADULT-2026",
+  "geometry": [
+   {
+    "asset_id": "ASSET:bp3d-fma7409",
+    "representation_kind": "derived",
+    "level": 3,
+    "licence": "CC BY-SA 2.1 Japan",
+    "licence_tier": "T1",
+    "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
+    "source": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D"
+   }
+  ]
+ },
+ {
+  "id": "SPI:uberon-0002367",
+  "entity": "UBERON:0002367",
+  "coordinate_frame": "HOX-REF-ADULT-2026",
+  "geometry": [
+   {
+    "asset_id": "ASSET:bp3d-fma9600",
+    "representation_kind": "derived",
+    "level": 3,
+    "licence": "CC BY-SA 2.1 Japan",
+    "licence_tier": "T1",
+    "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
+    "source": "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D"
+   }
+  ]
+ }
+]
