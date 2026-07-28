@@ -30,7 +30,7 @@
         "level": {"type": "integer", "minimum": 0, "maximum": 10},
         "lod": {"type": "integer", "minimum": 0},
         "licence": {"type": "string"},
-        "licence_tier": {"enum": ["T0", "T1", "T2"],
+        "licence_tier": {"enum": ["T0", "T1", "T1N", "T2"],
           "description": "T1/T2 never embedded in T0 layers (INV-11)"},
         "attribution": {"type": "string"},
         "source": {"type": "string"}

@@ -46,12 +46,37 @@ SOURCE = {
     'repo': 'philschatz/anatomy-book',
     'ref': 'master',
     'base': 'https://raw.githubusercontent.com/philschatz/anatomy-book/master',
+    'path': 'contents/{module}.md',
     'edition': '1e (2014)',
     'licence': 'CC BY 3.0',
     'licence_tier': 'T0',
     'attribution': ('OpenStax College, Anatomy & Physiology. OpenStax CNX, '
                     'licensed CC BY 3.0.'),
 }
+
+# The second edition, admitted under D-034. Its licence is **CC BY-NC-SA**, so
+# it sits at T1N: usable as content because this project is non-commercial and
+# educational by commitment, segregated anyway because share-alike propagates to
+# whoever reuses our output regardless of what we intend for it.
+#
+# It is here because it is *more complete*. 1e alone left ten of thirteen values
+# uncovered, and the earlier refusal of NC material was costing real coverage
+# for a restriction that does not bind this project.
+SOURCE_2E = {
+    'name': 'OpenStax Anatomy and Physiology 2e',
+    'repo': 'openstax/osbooks-anatomy-physiology',
+    'ref': 'main',
+    'base': ('https://raw.githubusercontent.com/openstax/'
+             'osbooks-anatomy-physiology/main'),
+    'path': 'modules/{module}/index.cnxml',
+    'edition': '2e',
+    'licence': 'CC BY-NC-SA 4.0',
+    'licence_tier': 'T1N',
+    'attribution': ('OpenStax, Anatomy and Physiology 2e, licensed '
+                    'CC BY-NC-SA 4.0.'),
+}
+
+SOURCES = (SOURCE, SOURCE_2E)
 
 # Chapters that plausibly carry our findings. Listed rather than crawled: the
 # book is 240 sections and a targeted read is honest about what was consulted.
@@ -93,16 +118,24 @@ def sha256_bytes(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
-def fetch_chapter(module: str) -> tuple[str, str]:
-    """Chapter text and its hash, from cache when present."""
+def fetch_chapter(module: str, source: dict) -> tuple[str, str] | None:
+    """Chapter text and its hash, from cache when present, or None if absent.
+
+    Module ids do not line up between editions — 1e's `m46549` is not
+    guaranteed to exist in 2e — so a 404 is an ordinary outcome, not an error.
+    """
     os.makedirs(CACHE, exist_ok=True)
-    path = os.path.join(CACHE, f'{module}.md')
+    tag = source['edition'].split()[0]
+    path = os.path.join(CACHE, f'{tag}-{module}.txt')
     if not os.path.isfile(path):
+        url = f'{source["base"]}/{source["path"].format(module=module)}'
         request = urllib.request.Request(
-            f'{SOURCE["base"]}/contents/{module}.md',
-            headers={'User-Agent': 'project-human-organism/0.1'})
-        with urllib.request.urlopen(request, timeout=120) as response:
-            data = response.read()
+            url, headers={'User-Agent': 'project-human-organism/0.1'})
+        try:
+            with urllib.request.urlopen(request, timeout=120) as response:
+                data = response.read()
+        except Exception:                                  # noqa: BLE001
+            return None
         with open(path, 'wb') as fh:
             fh.write(data)
     with open(path, 'rb') as fh:
@@ -120,13 +153,13 @@ NOISE = re.compile(r'!\[|\]\(|\.jpg|\.png|http')
 # defined term with `{: data-type="term"}`, so rejecting sentences containing it
 # threw away precisely the sentences that define the quantities — the second
 # version of this matcher confirmed 2 of 13 for that reason alone.
-MARKUP = re.compile(r'\{:[^}]*\}|</?[a-z]+>|\*\*|\[|\]')
+MARKUP = re.compile(r'\{:[^}]*\}|</?[a-z][^>]*>|\*\*|\[|\]')
 
 # A number only counts as a candidate value when a unit is attached to it. This
 # is what separates "the book states 500 mL" from "the book contains a 500".
 UNIT_ALTERNATIVES = (
     r'ml|millilit(?:er|re)s?|l\b|lit(?:er|re)s?|m2|m<sup>2</sup>|square met|'
-    r'%|percent|per minute|breaths per minute|/min|micromet|µm|um\b|'
+    r'%|percent|per minute|breaths per minute|/min|micromet|\u03bcm|\u00b5m|um\b|'
     r'mmhg|million|billion|generations?')
 VALUE = re.compile(r'(\d[\d,]*(?:\.\d+)?)\s*(?:to\s*\d[\d,]*\s*)?'
                    r'(' + UNIT_ALTERNATIVES + r')', re.I)
@@ -163,7 +196,7 @@ UNIT_FAMILY = {
     '/min': ('per minute', '/min', 'breaths per minute'),
     'm2': ('m2', 'square met', 'm<sup>2</sup>'),
     '%': ('%', 'percent'),
-    'um': ('micromet', 'µm', 'um'),
+    'um': ('micromet', '\u03bcm', '\u00b5m', 'um'),
     '1': ('million', 'billion', 'generations', 'generation'),
 }
 
@@ -186,13 +219,23 @@ def numbers_in(sentences: list[str], recorded_unit: str | None
 
 
 def verify(claims: dict) -> list[dict]:
-    """One record per finding: what we hold, what the book says, the verdict."""
+    """One record per finding: what we hold, what the books say, the verdict.
+
+    Both editions are read. They are separate sources with separate licences and
+    separate module ids, and a value present in one is routinely absent from the
+    other — so each record names the edition that answered it.
+    """
     chapters = {}
     hashes = {}
-    for module in CHAPTERS:
-        text, digest = fetch_chapter(module)
-        chapters[module] = text
-        hashes[module] = digest
+    editions = {}
+    for source in SOURCES:
+        for module in CHAPTERS:
+            got = fetch_chapter(module, source)
+            if got is None:
+                continue
+            key = f'{source["edition"].split()[0]}:{module}'
+            chapters[key], hashes[key] = got
+            editions[key] = source
 
     records = []
     for claim_id, (pattern, recorded, unit) in sorted(PROBES.items()):
@@ -204,24 +247,36 @@ def verify(claims: dict) -> list[dict]:
         # claims were answered from whichever section happened to come first in
         # dict order and the cardiac chapters were never read at all.
         hits, where = [], None
-        for module, text in chapters.items():
+        for key, text in chapters.items():
             found = sentences_about(text, pattern)
             if not found:
                 continue
             hits.extend(found)
-            if where is None:
-                where = module
+            # Prefer the section that actually yields a comparable value, not
+            # merely the first that mentions the words.
+            if where is None or (not numbers_in(
+                    sentences_about(chapters[where], pattern), unit)
+                    and numbers_in(found, unit)):
+                where = key
         if not hits:
             records.append({
                 'claim': claim_id, 'recorded': recorded, 'unit': unit,
                 'outcome': 'not covered',
-                'note': ('No sentence in the consulted chapters states this '
-                         'with a number. Not a refutation — an absence of '
-                         'coverage in this source.'),
-                'consulted': sorted(CHAPTERS.values())})
+                'note': ('No sentence in the consulted chapters of either '
+                         'edition states this with a number. Not a refutation '
+                         '— an absence of coverage in these sources.'),
+                'consulted': sorted(CHAPTERS.values()),
+                'editions_read': [s['edition'] for s in SOURCES]})
             continue
         values = numbers_in(hits, unit)
-        matched = any(abs(v - float(recorded)) <= max(1.0, 0.05 * abs(recorded))
+        # Purely relative, with no absolute floor. The floor was `max(1.0, 5%)`,
+        # which for a value of 0.3 µm admitted anything within ±1.0 — so the
+        # book's 0.5 µm was reported as *confirming* our 0.3, a false
+        # confirmation, which is the single worst thing this register can
+        # contain. It also let a child's respiratory rate of 14 confirm an
+        # adult value of 15. A tolerance must scale with the quantity or it
+        # stops being a tolerance.
+        matched = any(abs(v - float(recorded)) <= 0.05 * abs(float(recorded))
                       for v, _u in values)
         # Three outcomes, and the third one is the important one. A keyword
         # match cannot tell "the number of alveoli" from "97 percent of the
@@ -238,8 +293,9 @@ def verify(claims: dict) -> list[dict]:
         records.append({
             'claim': claim_id, 'recorded': recorded, 'unit': unit,
             'outcome': outcome,
-            'edition': SOURCE['edition'],
-            'section': f'{where} — {CHAPTERS[where]}',
+            'edition': editions[where]['edition'],
+            'licence_tier': editions[where]['licence_tier'],
+            'section': f'{where} — {CHAPTERS[where.split(":", 1)[1]]}',
             'section_sha256': hashes[where],
             'values_in_source': [f'{v} {u}' for v, u in values[:8]],
             'sentences': hits,
@@ -286,7 +342,7 @@ def main(argv: list[str]) -> int:
                 'before this ran. No claim may rise above EVC-3 on the strength '
                 'of it (BR-002, D-017, D-033).'),
             'verified_on': datetime.now(timezone.utc).strftime('%Y-%m-%d'),
-            'source': SOURCE,
+            'sources': list(SOURCES),
             'chapters_consulted': CHAPTERS,
             'summary': by_outcome,
             'records': records}, fh, indent=1, ensure_ascii=False)

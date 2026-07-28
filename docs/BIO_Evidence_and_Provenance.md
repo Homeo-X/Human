@@ -1,7 +1,7 @@
 ---
 doc: BIO_Evidence_and_Provenance
 tier: light+
-version: 1.1.0
+version: 1.2.0
 status: draft
 owner: architect
 last_updated: 2026-07-28
@@ -124,11 +124,22 @@ not require re-deriving the model (D-003)._
 |---|---|---|---|
 | **T0 — core** | any downstream use with attribution | ontology terms, project-authored content, project-derived geometry | the ontology and evidence layers are T0 only, always. No T1 or T2 content is ever embedded in a claim record or entity |
 | **T1 — share-alike** | use with attribution, derivatives inherit share-alike | BodyParts3D, Z-Anatomy and comparable geometry | separate asset package, per-asset licence metadata, referenced by entity id from T0 rather than embedded. A build selects tiers; T1 can be excluded without touching T0 |
+| **T1N — share-alike, non-commercial** | use with attribution in a **non-commercial** setting; derivatives inherit both obligations | OpenStax *Anatomy and Physiology 2e* (CC BY-NC-SA) and comparable teaching material | as T1, plus: admissible only while the project's non-commercial commitment holds (D-034). Excluded by selecting tiers, exactly as T1 is |
 | **T2 — reference-only** | citation, no redistribution | proprietary texts, Terminologia Anatomica | never stored as content. Only citations and the terms themselves enter the model |
 
 The consequence worth stating: a permissive-only build is a configuration, and it
 will have less geometry. Coverage in such a build is reported against the same
 declared denominator, so the reduction is visible rather than hidden.
+
+**On T1N, and what does not change with it.** This project is non-commercial and
+educational by commitment (D-034), which is what makes NonCommercial material
+admissible as content rather than merely citable. Two obligations travel anyway
+and are not softened by that commitment: **attribution** is required on every
+use, and **share-alike propagates** — mixing SA content into a layer encumbers
+that layer for everyone downstream, whatever our own intentions are. So T1N
+content is segregated like T1, for the same reason: not because we might sell
+it, but so that anyone reusing our T0 output knows exactly what they are and are
+not taking on.
 
 ## Conflict Handling
 _The system never silently resolves a disagreement._

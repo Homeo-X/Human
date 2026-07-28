@@ -1602,3 +1602,76 @@ get entries._
   ontology/VERIFICATION.json, ontology/respiratory/, tests/test_verification.py,
   PRD_External_Integrations
 - **Supersedes:** none
+
+### D-034 — The project is non-commercial; NonCommercial sources are admitted (2026-07-28, orchestrator)
+- **Status:** active
+- **Context:** D-033 refused OpenStax *Anatomy and Physiology* **2e** as content
+  because it is CC BY-**NC**-SA, on the reasoning that D-003 wanted a
+  commercially-licensed build to stay a configuration change. The owner's
+  answer: this project is for personal and educational use and will not be
+  commercialized. That is a product decision, it is theirs to make, and it is
+  correct — a NonCommercial licence restricts commercial use, and non-commercial
+  educational use is precisely what it grants. Refusing the material was costing
+  real coverage to protect an option nobody intends to exercise.
+  The cost was measurable: 1e alone left **ten of thirteen** probed values
+  uncovered, and 2e states several that 1e does not.
+- **Decision:** Record the non-commercial, educational commitment as a product
+  property, and admit NonCommercial material as content under a new tier.
+  - **T1N — share-alike, non-commercial.** Usable as content while the
+    commitment holds; segregated exactly as T1 is, and excluded by the same
+    tier selection. Added to the ladder in BIO_Evidence_and_Provenance and to
+    both schemas.
+  - **OpenStax A&P 2e admitted at T1N.** `tools/verify_findings.py` now reads
+    both editions and records which one answered each claim, because their
+    module ids and their contents differ.
+  - **Two obligations are not lifted, because they were never about commerce.**
+    **Attribution** is required on every use. **Share-alike propagates** — SA
+    content encumbers the layer it enters, for everyone downstream, whatever we
+    intend for it. That is why T1N is still segregated rather than merged into
+    T0: not because we might sell it, but so that anyone reusing our T0 output
+    knows exactly what they are taking on.
+  - **Unchanged, and not a licence question:** the refusal of
+    VSDFullBodyBoneModels stands. That was BR-007/BR-008 — per-individual human
+    data before Phase 7 and a privacy review. It is about people, not money, and
+    a non-commercial commitment does not touch it.
+- **What admitting 2e immediately found:** the second edition states the
+  respiratory membrane is "approximately 0.5 μm thick"; we hold **0.3 μm**
+  (Gehr's harmonic mean over the *thin* portions of the barrier). Those are
+  different quantities measured differently, so the register records **candidate
+  evidence, verdict withheld** rather than a disagreement — which is what that
+  outcome exists for.
+- **Two matcher defects surfaced in the same pass, both of which had been
+  producing silent errors:**
+  1. **A false confirmation.** The tolerance was `max(1.0, 5%)`. For a value of
+     0.3 µm that admits anything within ±1.0, so the book's 0.5 µm was reported
+     as *confirming* our 0.3. It also let a child's respiratory rate of 14
+     confirm an adult value of 15. Now purely relative: a tolerance that does
+     not scale with the quantity is not a tolerance. **A false confirmation is
+     the worst thing this register can contain**, and it had one.
+  2. **A silently missed unit.** `μ` (U+03BC GREEK SMALL LETTER MU) and `µ`
+     (U+00B5 MICRO SIGN) are different characters; the pattern had only the
+     latter, so every micrometre value in the textbook read as no value at all.
+     Both are now matched, along with CNXML's attribute-bearing tags.
+- **Alternatives:**
+  - Keep refusing NC material — rejected_because: it protects an option the
+    owner has declined to keep, at a measurable cost in coverage, and the
+    licence plainly permits what this project does.
+  - Admit NC content into T0 and drop the tiering — rejected_because:
+    share-alike does not care about our intentions. Merging it would silently
+    encumber every downstream consumer of what we publish, which is the
+    obligation-hiding D-003 was written to prevent.
+- **Consequences:** + A more complete source is available, and it immediately
+  contributed a value 1e does not carry. + The tier machinery absorbed the
+  change without restructuring — which is what it was built for. − **The
+  commercially-licensed build is now foreclosed** for any release containing
+  T1N content. That is the trade, made deliberately, and it is reversible only
+  by removing that content. − The non-commercial commitment is now
+  **load-bearing for licence compliance**, not merely a statement of intent: if
+  it ever changes, T1N content must be removed first.
+- **Reversibility:** medium — T1N content is separable by tier, but anything
+  derived from it is not.
+- **Affects:** BIO_Evidence_and_Provenance, PRD_Business_Rules,
+  PRD_Executive_Summary, schemas/claim.schema.json,
+  schemas/spatial_identity.schema.json, tools/verify_findings.py,
+  ontology/VERIFICATION.json
+- **Supersedes:** none

@@ -122,7 +122,7 @@ edited by hand — the previous version drifted to listing all 44 files at
 |---|---|---|---|
 | BIO_Anatomical_Ontology.md | pm | 1.0.0 | draft |
 | BIO_Cell_and_Molecular_Model.md | pm | 1.0.0 | draft |
-| BIO_Evidence_and_Provenance.md | architect | 1.1.0 | draft |
+| BIO_Evidence_and_Provenance.md | architect | 1.2.0 | draft |
 | BIO_Model_Review.md | ux | 1.0.0 | draft |
 | BIO_Personalization_Model.md | pm | 1.0.0 | draft |
 | BIO_Physiological_Processes.md | pm | 1.0.0 | draft |
@@ -132,10 +132,10 @@ edited by hand — the previous version drifted to listing all 44 files at
 | CHALLENGE_REGISTER.md | redteam | 1.0.0 | draft |
 | MANIFEST.md | orchestrator | 1.4.0 | draft |
 | PRD_Acceptance_Criteria_and_DoD.md | pm | 1.0.0 | draft |
-| PRD_Business_Rules.md | pm | 1.0.0 | draft |
+| PRD_Business_Rules.md | pm | 1.1.0 | draft |
 | PRD_Data_Overview.md | architect | 1.0.0 | draft |
 | PRD_Decision_Log.md | orchestrator | 1.0.0 | draft |
-| PRD_Executive_Summary.md | pm | 1.0.1 | draft |
+| PRD_Executive_Summary.md | pm | 1.1.0 | draft |
 | PRD_External_Integrations.md | architect | 1.0.0 | draft |
 | PRD_FR_Agent_Definition.md | pm | 1.0.0 | draft |
 | PRD_FR_Curation.md | pm | 1.0.0 | draft |
@@ -199,7 +199,7 @@ the vendored baseline and every delta applied, including the new `bio` profile.
 | Artifact | State |
 |---|---|
 | Specification set | 44 files in `docs/`, all `status: draft`, validating clean |
-| Decisions | D-001 … D-033, append-only, integrity-hashed |
+| Decisions | D-001 … D-034, append-only, integrity-hashed |
 | Rubric pass | 30 BRB items dispositioned; 3 flags raised, 2 applied, 1 carried to UX pass B by design |
 | Red team | 13 challenges; 8 accepted, 4 acknowledged, 1 refuted with evidence; 2 S1 escalated verbatim |
 | Schemas | 7 JSON Schemas in `schemas/` |
@@ -250,7 +250,7 @@ disabling the EVC-1 refusal, the budget ceiling, and the injection flag — each
 turn the suite red.
 
 Verification: `bash tools/check.sh` runs the substrate invariants, their negative
-tests, 526 unit tests, both static validators, the strict spec graph, the
+tests, 527 unit tests, both static validators, the strict spec graph, the
 implementation trace, and a release build. The trace holds *claimed-but-untested*
 Musts at zero; Musts with no implementation at all are expected for the unbuilt
 modules above and are listed by module rather than hidden.

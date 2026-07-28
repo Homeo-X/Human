@@ -19,7 +19,7 @@
       "type": "object", "required": ["citation", "identifier"], "additionalProperties": false,
       "properties": {"citation": {"type": "string"},
         "identifier": {"type": "string", "description": "DOI, ISBN, accession, or ontology term"},
-        "licence_tier": {"enum": ["T0", "T1", "T2"]}}},
+        "licence_tier": {"enum": ["T0", "T1", "T1N", "T2"]}}},
       "description": "Required unless evidence_class is EVC-8 (INV-07)"},
     "source_type": {"enum": ["primary research","systematic review","reference textbook",
       "anatomical atlas","imaging dataset","curated database","derived model","expert assertion"]},

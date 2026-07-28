@@ -1,10 +1,10 @@
 ---
 doc: PRD_Executive_Summary
 tier: standard+
-version: 1.0.1
+version: 1.1.0
 status: draft
 owner: pm
-last_updated: 2026-07-27
+last_updated: 2026-07-28
 ---
 
 # Executive Summary & Product Foundation
@@ -110,6 +110,11 @@ raised by deleting the things we do not know.
 - Multiplayer or collaborative editing of the reference model.
 - Competing on visual fidelity. Where realism and honesty conflict, honesty wins,
   and the simplification is declared.
+- **Commercial use.** This is a personal and educational project and will not
+  be commercialized (D-034). That is not only a statement of intent: it is
+  what makes NonCommercial source material admissible as content, so it is
+  load-bearing for licence compliance. Reversing it requires removing every
+  T1N asset and source first.
 
 ## Key Stakeholders
 | Name / Role | Responsibility | Sign-off Required? |

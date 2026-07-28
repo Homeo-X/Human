@@ -1,10 +1,10 @@
 ---
 doc: PRD_Business_Rules
 tier: standard+
-version: 1.0.0
+version: 1.1.0
 status: draft
 owner: pm
-last_updated: 2026-07-26
+last_updated: 2026-07-28
 ---
 
 # Business Rules
@@ -29,7 +29,7 @@ what the product is._
 | BR-010 | A reviewer may accept content only within their declared subsystem and level competence | Review | PRD_FR_Curation | escalation to the Biology Lead, recorded |
 | BR-011 | Conflicting claims are both retained; the system never silently selects between credible sources | Claim | BIO_Evidence_and_Provenance | adjudication creates a new claim citing both; it never deletes either |
 | BR-012 | Every biological claim carries a species field, and cross-species claims carry a transfer justification | Claim | INV-12 | none |
-| BR-013 | Share-alike (T1) and reference-only (T2) content never appears in the T0 ontology or evidence layers | GeometryAsset, Source | D-003 | none |
+| BR-013 | Share-alike (T1), share-alike-non-commercial (T1N) and reference-only (T2) content never appears in the T0 ontology or evidence layers | GeometryAsset, Source | D-003, D-034 | none |
 | BR-014 | Every generated natural-language assertion resolves to a graph claim id, or it is not rendered | RetrievalResponse | INV-14 | none |
 | BR-015 | An untyped association is never rendered, described, or traversed as a mechanism or a causal claim | Relationship | D-007 | none |
 | BR-016 | Compilation and representation status advance only through recorded, reviewed work — never by reformatting or re-ingest | Entity, Process | D-007 | none |

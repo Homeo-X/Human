@@ -80,13 +80,27 @@ class TestTheRegisterShowsItsWorking(unittest.TestCase):
         with open(REGISTER, encoding='utf-8') as fh:
             cls.register = json.load(fh)
 
-    def test_the_source_is_openly_licensed_and_identified(self):
-        source = self.register['source']
-        self.assertEqual('T0', source['licence_tier'])
-        self.assertIn('CC BY', source['licence'])
-        self.assertIn('1e', source['edition'],
-                      'the edition must be recorded — 1e and 2e differ, and '
-                      'the respiratory-rate correction came from that gap')
+    def test_both_editions_are_identified_with_their_licences(self):
+        """[D-034] Two sources at two tiers, each named.
+
+        1e is CC BY (T0). 2e is CC BY-NC-SA (T1N) — admissible because this
+        project is non-commercial by commitment, and recorded as a distinct
+        tier because share-alike still travels to whoever reuses our output.
+        """
+        sources = self.register['sources']
+        self.assertEqual(2, len(sources))
+        tiers = {s['licence_tier'] for s in sources}
+        self.assertEqual({'T0', 'T1N'}, tiers)
+        for source in sources:
+            self.assertIn('CC BY', source['licence'])
+            self.assertTrue(source['edition'])
+
+    def test_each_record_names_the_edition_that_answered_it(self):
+        """Editions differ — the barrier thickness came from 2e alone."""
+        for record in self.register['records']:
+            if record['outcome'] != 'not covered':
+                self.assertIn(record['edition'], ('1e (2014)', '2e'))
+                self.assertIn(record['licence_tier'], ('T0', 'T1N'))
 
     def test_every_confirmation_quotes_what_it_turned_on(self):
         confirmed = [r for r in self.register['records']
