@@ -52,7 +52,11 @@ word means on the authority of a source, which is not evidence about a body and
 is deliberately kept off the evidence ladder so it can never be cited as one.
 The respiratory system is the exception and the template: 20 findings with
 units, measurement conditions, discriminating populations, and one genuine
-unresolved conflict retained rather than resolved (D-030). No content has been
+unresolved conflict retained rather than resolved (D-030). Thirteen of those
+were then checked against an openly licensed textbook — **3 confirmed, 1
+corrected, 10 the textbook does not cover** (D-033). That last number is the
+useful one: most of our values rest on specialist works a reader cannot open.
+Checking is not reviewing, and the reviewed count is still zero. No content has been
 through domain review, so there are **no EVC-1 claims at all**, and the release
 manifest publishes that number rather than the one that flatters.
 
@@ -103,7 +107,7 @@ src/homeo/          the reference implementation of the substrate services
   release.py          build, validate, hash, atomic publish
   importers/obo.py    OBO/OBO-JSON import, and the six gates it refuses at
   api.py, cli.py      the API and its command-line equivalent
-tests/              518 tests, each tagged with the FR ids it verifies
+tests/              526 tests, each tagged with the FR ids it verifies
 tools/
   check.sh            everything that must be green (--quick for pre-commit)
   curate_regions.py   adds the L1 regions through the real curation path
@@ -113,6 +117,7 @@ tools/
   fetch_authorities.py  pins UBERON/CL/ECO snapshots by SHA-256 (D-024)
   import_l3.py        imports L3 organs by rule from the pinned snapshot
   curate_respiratory.py  the first findings — units, conditions, one conflict
+  verify_findings.py  checks findings against a CC-BY textbook (not review)
   fetch_assets.py     pins geometry by hash, licence and tier; bytes stay out
   bind_geometry.py    mints minimal spatial identities so a mesh can bind
   synth.py            synthetic substrates at volume — refuses to touch real data

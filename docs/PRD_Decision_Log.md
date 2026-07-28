@@ -1512,3 +1512,93 @@ get entries._
   src/homeo/agents.py, tools/fetch_assets.py, tools/bind_geometry.py,
   ontology/assets/, ontology/geometry/, PRD_External_Integrations
 - **Supersedes:** none
+
+### D-033 — Verification against open textbooks, and why it is not review (2026-07-28, architect)
+- **Status:** active
+- **Context:** The 29 findings had never been checked against anything. Five
+  OpenStax-derived repositories were proposed as sources. Checking them produced
+  two results: a usable source, and a licence trap.
+  **The licence trap.** All five are "OpenStax anatomy" and they are not the
+  same thing. `philschatz/anatomy-book` is A&P **1e** under **CC BY 3.0** — T0,
+  usable, quotable. The **official** `openstax/osbooks-anatomy-physiology`
+  carries A&P **2e** under **CC BY-NC-SA 4.0**, and NonCommercial sits outside
+  this project's tier scheme entirely: T0 is permissive, T1 is share-alike, T2
+  is reference-only, and none of them contemplates a use restriction that
+  forecloses the commercially-licensed build D-003 exists to keep possible.
+  `cnx-user-books/derived-from-osbooks-anatomy-physiology` is worse: it carries
+  **2e content under a CC BY 4.0 LICENSE**, which a derivative cannot do to
+  NonCommercial upstream material. That is the second fork in two days whose
+  licence file contradicts its content. The remaining two carry no licence.
+- **Decision:** `philschatz/anatomy-book` is admitted at **T0** as the
+  verification source; 2e is usable as **T2 reference-only**, because checking a
+  number against a book is not making a derivative work. The other three are
+  refused. `tools/verify_findings.py` pins each chapter by SHA-256 and records,
+  per claim, what we hold, which edition and section answered, the sentence it
+  turned on, and the verdict.
+  **The output is verification, never review.** Nothing sets
+  `review_state: reviewed`, nothing rises above EVC-3, and
+  `tests/test_verification.py` enforces both — four mutations of that boundary
+  (a header that stops disclaiming, a record naming a human reviewer, an
+  uncovered claim recorded as refuted, a confirmation with nothing quoted) each
+  turn the suite red.
+- **Results, 13 of 29 findings probed:**
+  - **3 confirmed** — tidal volume 500 mL ("about 500 milliliters"), alveolar
+    surface area 70 m² ("about 70 square meters", the classic side of the EVC-7
+    conflict pair), and the respiratory rate after correction.
+  - **1 corrected.** The rate was recorded as **14/min, "the midpoint of the
+    commonly cited 12–16 range"**. OpenStax states **"12 to 18 breaths per
+    minute"** for adults, so the stated range was wrong and the midpoint with
+    it. Now **15/min**, with both ranges and both sources named. Corrected by
+    re-running the curation tool, not by editing the file.
+  - **10 not covered.** The open textbook simply does not state dead space,
+    FRC, diffusing capacity, alveolar number, barrier thickness or the
+    sex-specific lung capacities numerically. **This is the uncomfortable
+    result and the most useful one:** most of our values rest on specialist
+    works — West, Guyton, two morphometry papers — that are real and citable
+    and that a reader cannot open. A test asserts the uncovered majority so the
+    finding cannot be quietly dropped as the register fills.
+  - **3 provenance upgrades** — tidal volume, alveolar surface and respiratory
+    rate now cite a **T0** source alongside their T2 ones.
+- **What the matcher taught, recorded because it is the argument for the
+  boundary:** four successive versions each produced confident false verdicts.
+  Version one read numbers out of an image filename
+  (`2301_Major_Respiratory_Organs.jpg`) and called the diaphragm's tidal
+  contribution disputed. Version two matched the **blood-brain** barrier for a
+  blood-gas barrier probe. Version three rejected every sentence containing
+  `{: data-type="term"}` — which is how OpenStax marks defined terms, so it
+  threw away exactly the sentences stating the quantities, and confirmed 2 of
+  13 for that reason alone. Version four offered "97 percent of the alveolar
+  surface area" as a rival figure for the *number* of alveoli. A process that
+  wrong that often may gather evidence; it may not approve anything.
+  The final matcher therefore has a third outcome — **candidate evidence,
+  verdict withheld** — for cases where it found comparable sentences but cannot
+  establish they concern the same quantity. A false "disputed" in this register
+  would be worse than no register.
+- **Alternatives:**
+  - Use the official OpenStax repo, since it is official — rejected_because:
+    it is the most restricted of the five. NonCommercial cannot be admitted as
+    content without silently narrowing what any downstream consumer may do.
+  - Use the CC BY 4.0 derivative of 2e, which looks cleanest — rejected_because:
+    a derivative cannot relicense NonCommercial upstream content, so its licence
+    file is making a claim it cannot support. Same failure as the Biblioteca
+    fork in D-032, and again the tidier-looking repo is the wrong one.
+  - Let the tool emit disputed/confirmed verdicts unattended and treat the
+    output as a review pass — rejected_because: it would be a fabricated review
+    with a machine's name on it, which is the exact failure D-013 and D-017
+    were written after. Also it would have been wrong four times.
+- **Consequences:** + One value is now right that was wrong, found by machine
+  rather than by a reader noticing. + Three claims cite a source anyone can
+  open. + The provenance gap is measured rather than suspected: **10 of 13
+  values cannot be checked against any freely available textbook.** + The
+  eventual human reviewer inherits a register with the sentences already
+  gathered, which is D-026's shape done honestly. − **The review deficit is
+  unchanged at 293.** Verification moved nothing. − 16 of 29 findings were not
+  probed at all, being qualitative or cardiovascular. − The matcher is a
+  keyword-and-unit heuristic and will keep needing a reader; it is a labour
+  saver, not a judge.
+- **Reversibility:** high — the register is derived, and the one content change
+  is a re-run of a deterministic tool.
+- **Affects:** tools/verify_findings.py, tools/curate_respiratory.py,
+  ontology/VERIFICATION.json, ontology/respiratory/, tests/test_verification.py,
+  PRD_External_Integrations
+- **Supersedes:** none

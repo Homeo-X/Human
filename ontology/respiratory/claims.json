@@ -31,6 +31,11 @@
   "source_type": "reference textbook",
   "sources": [
    {
+    "citation": "OpenStax College, Anatomy & Physiology 1e, OpenStax CNX (CC BY 3.0)",
+    "identifier": "https://github.com/philschatz/anatomy-book",
+    "licence_tier": "T0"
+   },
+   {
     "citation": "Hall JE & Hall ME, Guyton and Hall Textbook of Medical Physiology, 14th ed.",
     "identifier": "ISBN:9780323597128",
     "licence_tier": "T2"
@@ -57,11 +62,16 @@
   "id": "CLM:lung-respiratory-rate",
   "subject": "UBERON:0002048",
   "predicate": "has_quantity",
-  "object": 14,
+  "object": 15,
   "kind": "biological",
   "evidence_class": "EVC-4",
   "source_type": "reference textbook",
   "sources": [
+   {
+    "citation": "OpenStax College, Anatomy & Physiology 1e, OpenStax CNX (CC BY 3.0)",
+    "identifier": "https://github.com/philschatz/anatomy-book",
+    "licence_tier": "T0"
+   },
    {
     "citation": "Hall JE & Hall ME, Guyton and Hall Textbook of Medical Physiology, 14th ed.",
     "identifier": "ISBN:9780323597128",
@@ -73,7 +83,7 @@
   "date_asserted": "2026-07-28",
   "review_state": "provisional",
   "assigned_by": "agent:physiology",
-  "limitations": "A midpoint of the commonly cited 12-16/min resting range. The range is the honest form; the midpoint is recorded because the claim record holds a single value, which is a limitation of the record, not of the biology.",
+  "limitations": "Corrected by the verification pass (D-033). The first version recorded 14 as \"the midpoint of the commonly cited 12-16 range\"; OpenStax states \"12 to 18 breaths per minute\" for adults, so the range was wrong and the midpoint with it. Sources genuinely differ on the upper bound — Guyton gives 12-16, OpenStax 12-18 — and the recorded value is the midpoint of the wider, openly checkable range. The range is the honest form; a single value is a limitation of the claim record, not of the biology.",
   "unit": "/min",
   "conditions": {
    "preparation": "in vivo",
@@ -197,6 +207,11 @@
   "evidence_class": "EVC-7",
   "source_type": "reference textbook",
   "sources": [
+   {
+    "citation": "OpenStax College, Anatomy & Physiology 1e, OpenStax CNX (CC BY 3.0)",
+    "identifier": "https://github.com/philschatz/anatomy-book",
+    "licence_tier": "T0"
+   },
    {
     "citation": "West JB & Luks AM, West's Respiratory Physiology: The Essentials, 11th ed.",
     "identifier": "ISBN:9781975139186",

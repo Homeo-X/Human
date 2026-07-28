@@ -1,0 +1,257 @@
+{
+ "note": "VERIFICATION IS NOT REVIEW. Every record here was produced by an automated actor checking a value against an openly licensed textbook. It does not approve anything, it does not change any review state, and the review deficit is exactly what it was before this ran. No claim may rise above EVC-3 on the strength of it (BR-002, D-017, D-033).",
+ "verified_on": "2026-07-28",
+ "source": {
+  "name": "OpenStax Anatomy and Physiology 1e",
+  "repo": "philschatz/anatomy-book",
+  "ref": "master",
+  "base": "https://raw.githubusercontent.com/philschatz/anatomy-book/master",
+  "edition": "1e (2014)",
+  "licence": "CC BY 3.0",
+  "licence_tier": "T0",
+  "attribution": "OpenStax College, Anatomy & Physiology. OpenStax CNX, licensed CC BY 3.0."
+ },
+ "chapters_consulted": {
+  "m46549": "The Process of Breathing",
+  "m46551": "The Lungs",
+  "m46548": "Organs and Structures of the Respiratory System",
+  "m46521": "Gas Exchange",
+  "m46672": "Cardiac Physiology",
+  "m46676": "Heart Anatomy",
+  "m46661": "Cardiac Cycle",
+  "m46635": "Blood Flow, Blood Pressure, and Resistance",
+  "m46404": "Cardiac Muscle Tissue"
+ },
+ "summary": {
+  "not covered": 10,
+  "confirmed": 3
+ },
+ "records": [
+  {
+   "claim": "CLM:blood-gas-barrier-thickness",
+   "recorded": 0.3,
+   "unit": "um",
+   "outcome": "not covered",
+   "note": "No sentence in the consulted chapters states this with a number. Not a refutation — an absence of coverage in this source.",
+   "consulted": [
+    "Blood Flow, Blood Pressure, and Resistance",
+    "Cardiac Cycle",
+    "Cardiac Muscle Tissue",
+    "Cardiac Physiology",
+    "Gas Exchange",
+    "Heart Anatomy",
+    "Organs and Structures of the Respiratory System",
+    "The Lungs",
+    "The Process of Breathing"
+   ]
+  },
+  {
+   "claim": "CLM:bronchial-tree-generations",
+   "recorded": 23,
+   "unit": "1",
+   "outcome": "not covered",
+   "note": "No sentence in the consulted chapters states this with a number. Not a refutation — an absence of coverage in this source.",
+   "consulted": [
+    "Blood Flow, Blood Pressure, and Resistance",
+    "Cardiac Cycle",
+    "Cardiac Muscle Tissue",
+    "Cardiac Physiology",
+    "Gas Exchange",
+    "Heart Anatomy",
+    "Organs and Structures of the Respiratory System",
+    "The Lungs",
+    "The Process of Breathing"
+   ]
+  },
+  {
+   "claim": "CLM:diaphragm-tidal-contribution",
+   "recorded": 70,
+   "unit": "%",
+   "outcome": "not covered",
+   "note": "No sentence in the consulted chapters states this with a number. Not a refutation — an absence of coverage in this source.",
+   "consulted": [
+    "Blood Flow, Blood Pressure, and Resistance",
+    "Cardiac Cycle",
+    "Cardiac Muscle Tissue",
+    "Cardiac Physiology",
+    "Gas Exchange",
+    "Heart Anatomy",
+    "Organs and Structures of the Respiratory System",
+    "The Lungs",
+    "The Process of Breathing"
+   ]
+  },
+  {
+   "claim": "CLM:lung-alveolar-number",
+   "recorded": 480000000,
+   "unit": "1",
+   "outcome": "not covered",
+   "edition": "1e (2014)",
+   "section": "m46548 — Organs and Structures of the Respiratory System",
+   "section_sha256": "cc1b3e2deaff7421e7fef3d1ae6bcddbab98c5c0960eac935decce102d1484ae",
+   "values_in_source": [],
+   "sentences": [
+    "A type I alveolar cell is a squamous epithelial cell of the alveoli, which constitute up to 97 percent of the alveolar surface area."
+   ]
+  },
+  {
+   "claim": "CLM:lung-alveolar-surface-classic",
+   "recorded": 70,
+   "unit": "m2",
+   "outcome": "confirmed",
+   "edition": "1e (2014)",
+   "section": "m46551 — The Lungs",
+   "section_sha256": "fd0d67a723e4c4f66ba4319b32215494edbb05b4991eeabe255030a3695dd3a0",
+   "values_in_source": [
+    "70.0 square met"
+   ],
+   "sentences": [
+    "To this end, the lungs exchange respiratory gases across a very large epithelial surface area—about 70 square meters—that is highly permeable to gases.",
+    "An alveolus is approximately 200 μm in diameter with elastic walls that allow the alveolus to stretch during air intake, which greatly increases the surface area available for gas exchange.",
+    "A type I alveolar cell is a squamous epithelial cell of the alveoli, which constitute up to 97 percent of the alveolar surface area."
+   ]
+  },
+  {
+   "claim": "CLM:lung-alveolar-ventilation",
+   "recorded": 4200,
+   "unit": "mL/min",
+   "outcome": "not covered",
+   "note": "No sentence in the consulted chapters states this with a number. Not a refutation — an absence of coverage in this source.",
+   "consulted": [
+    "Blood Flow, Blood Pressure, and Resistance",
+    "Cardiac Cycle",
+    "Cardiac Muscle Tissue",
+    "Cardiac Physiology",
+    "Gas Exchange",
+    "Heart Anatomy",
+    "Organs and Structures of the Respiratory System",
+    "The Lungs",
+    "The Process of Breathing"
+   ]
+  },
+  {
+   "claim": "CLM:lung-anatomical-dead-space",
+   "recorded": 150,
+   "unit": "mL",
+   "outcome": "not covered",
+   "note": "No sentence in the consulted chapters states this with a number. Not a refutation — an absence of coverage in this source.",
+   "consulted": [
+    "Blood Flow, Blood Pressure, and Resistance",
+    "Cardiac Cycle",
+    "Cardiac Muscle Tissue",
+    "Cardiac Physiology",
+    "Gas Exchange",
+    "Heart Anatomy",
+    "Organs and Structures of the Respiratory System",
+    "The Lungs",
+    "The Process of Breathing"
+   ]
+  },
+  {
+   "claim": "CLM:lung-diffusion-capacity-co",
+   "recorded": 25,
+   "unit": null,
+   "outcome": "not covered",
+   "note": "No sentence in the consulted chapters states this with a number. Not a refutation — an absence of coverage in this source.",
+   "consulted": [
+    "Blood Flow, Blood Pressure, and Resistance",
+    "Cardiac Cycle",
+    "Cardiac Muscle Tissue",
+    "Cardiac Physiology",
+    "Gas Exchange",
+    "Heart Anatomy",
+    "Organs and Structures of the Respiratory System",
+    "The Lungs",
+    "The Process of Breathing"
+   ]
+  },
+  {
+   "claim": "CLM:lung-frc",
+   "recorded": 2400,
+   "unit": "mL",
+   "outcome": "not covered",
+   "note": "No sentence in the consulted chapters states this with a number. Not a refutation — an absence of coverage in this source.",
+   "consulted": [
+    "Blood Flow, Blood Pressure, and Resistance",
+    "Cardiac Cycle",
+    "Cardiac Muscle Tissue",
+    "Cardiac Physiology",
+    "Gas Exchange",
+    "Heart Anatomy",
+    "Organs and Structures of the Respiratory System",
+    "The Lungs",
+    "The Process of Breathing"
+   ]
+  },
+  {
+   "claim": "CLM:lung-respiratory-rate",
+   "recorded": 15,
+   "unit": "/min",
+   "outcome": "confirmed",
+   "edition": "1e (2014)",
+   "section": "m46549 — The Process of Breathing",
+   "section_sha256": "7d7280c0a1f2182a9eabeb29c690cf4730bdd83118923159ed878d4defdd8054",
+   "values_in_source": [
+    "60.0 breaths per minute",
+    "12.0 breaths per minute",
+    "14.0 breaths per minute"
+   ],
+   "sentences": [
+    "A child under 1 year of age has a normal respiratory rate between 30 and 60 breaths per minute, but by the time a child is about 10 years old, the normal rate is closer to 18 to 30.",
+    "By adolescence, the normal respiratory rate is similar to that of adults, 12 to 18 breaths per minute.",
+    "A typical resting respiratory rate is about 14 breaths per minute."
+   ]
+  },
+  {
+   "claim": "CLM:lung-tidal-volume",
+   "recorded": 500,
+   "unit": "mL",
+   "outcome": "confirmed",
+   "edition": "1e (2014)",
+   "section": "m46549 — The Process of Breathing",
+   "section_sha256": "7d7280c0a1f2182a9eabeb29c690cf4730bdd83118923159ed878d4defdd8054",
+   "values_in_source": [
+    "500.0 milliliters"
+   ],
+   "sentences": [
+    "Tidal volume (TV) is the amount of air that normally enters the lungs during quiet breathing, which is about 500 milliliters."
+   ]
+  },
+  {
+   "claim": "CLM:lung-tlc-female",
+   "recorded": 4200,
+   "unit": "mL",
+   "outcome": "not covered",
+   "note": "No sentence in the consulted chapters states this with a number. Not a refutation — an absence of coverage in this source.",
+   "consulted": [
+    "Blood Flow, Blood Pressure, and Resistance",
+    "Cardiac Cycle",
+    "Cardiac Muscle Tissue",
+    "Cardiac Physiology",
+    "Gas Exchange",
+    "Heart Anatomy",
+    "Organs and Structures of the Respiratory System",
+    "The Lungs",
+    "The Process of Breathing"
+   ]
+  },
+  {
+   "claim": "CLM:lung-tlc-male",
+   "recorded": 6000,
+   "unit": "mL",
+   "outcome": "not covered",
+   "note": "No sentence in the consulted chapters states this with a number. Not a refutation — an absence of coverage in this source.",
+   "consulted": [
+    "Blood Flow, Blood Pressure, and Resistance",
+    "Cardiac Cycle",
+    "Cardiac Muscle Tissue",
+    "Cardiac Physiology",
+    "Gas Exchange",
+    "Heart Anatomy",
+    "Organs and Structures of the Respiratory System",
+    "The Lungs",
+    "The Process of Breathing"
+   ]
+  }
+ ]
+}

@@ -18,7 +18,7 @@
    "kind": "claim",
    "payload_digest": "f1c9e5e69bfb4e4b",
    "evidence_ceiling": "EVC-3",
-   "at": "2026-07-28T00:24:51+00:00",
+   "at": "2026-07-28T06:07:42+00:00",
    "reviewed": false,
    "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
   },
@@ -27,9 +27,9 @@
    "task": "TASK:00002",
    "admitted_by": "agent:physiology",
    "kind": "claim",
-   "payload_digest": "1c247939c27f36a3",
+   "payload_digest": "c2b15df2827b24df",
    "evidence_ceiling": "EVC-3",
-   "at": "2026-07-28T00:24:51+00:00",
+   "at": "2026-07-28T06:07:42+00:00",
    "reviewed": false,
    "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
   },
@@ -38,9 +38,9 @@
    "task": "TASK:00003",
    "admitted_by": "agent:physiology",
    "kind": "claim",
-   "payload_digest": "c8a24e8d440b1c22",
+   "payload_digest": "89559ba7316e2f38",
    "evidence_ceiling": "EVC-3",
-   "at": "2026-07-28T00:24:51+00:00",
+   "at": "2026-07-28T06:07:42+00:00",
    "reviewed": false,
    "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
   },
@@ -51,7 +51,7 @@
    "kind": "claim",
    "payload_digest": "e2a8d543d842f24d",
    "evidence_ceiling": "EVC-3",
-   "at": "2026-07-28T00:24:51+00:00",
+   "at": "2026-07-28T06:07:42+00:00",
    "reviewed": false,
    "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
   },
@@ -62,7 +62,7 @@
    "kind": "claim",
    "payload_digest": "a47c7868d4c14c12",
    "evidence_ceiling": "EVC-3",
-   "at": "2026-07-28T00:24:51+00:00",
+   "at": "2026-07-28T06:07:42+00:00",
    "reviewed": false,
    "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
   },
@@ -73,7 +73,7 @@
    "kind": "claim",
    "payload_digest": "75c501abebe4c12b",
    "evidence_ceiling": "EVC-3",
-   "at": "2026-07-28T00:24:51+00:00",
+   "at": "2026-07-28T06:07:42+00:00",
    "reviewed": false,
    "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
   },
@@ -84,7 +84,7 @@
    "kind": "claim",
    "payload_digest": "8b0344ce3fc773e4",
    "evidence_ceiling": "EVC-3",
-   "at": "2026-07-28T00:24:51+00:00",
+   "at": "2026-07-28T06:07:42+00:00",
    "reviewed": false,
    "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
   },
@@ -93,9 +93,9 @@
    "task": "TASK:00008",
    "admitted_by": "agent:physiology",
    "kind": "claim",
-   "payload_digest": "8bd77eaa2fc730cb",
+   "payload_digest": "c3673c9f58211440",
    "evidence_ceiling": "EVC-3",
-   "at": "2026-07-28T00:24:51+00:00",
+   "at": "2026-07-28T06:07:42+00:00",
    "reviewed": false,
    "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
   },
@@ -106,7 +106,7 @@
    "kind": "claim",
    "payload_digest": "4f88fb0e89949e26",
    "evidence_ceiling": "EVC-3",
-   "at": "2026-07-28T00:24:51+00:00",
+   "at": "2026-07-28T06:07:42+00:00",
    "reviewed": false,
    "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
   },
@@ -117,7 +117,7 @@
    "kind": "claim",
    "payload_digest": "869137f3d2b82ed1",
    "evidence_ceiling": "EVC-3",
-   "at": "2026-07-28T00:24:51+00:00",
+   "at": "2026-07-28T06:07:42+00:00",
    "reviewed": false,
    "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
   },
@@ -128,7 +128,7 @@
    "kind": "claim",
    "payload_digest": "9dfbc8f09665cdc5",
    "evidence_ceiling": "EVC-3",
-   "at": "2026-07-28T00:24:51+00:00",
+   "at": "2026-07-28T06:07:42+00:00",
    "reviewed": false,
    "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
   },
@@ -139,7 +139,7 @@
    "kind": "claim",
    "payload_digest": "c9ad8b1780119297",
    "evidence_ceiling": "EVC-3",
-   "at": "2026-07-28T00:24:51+00:00",
+   "at": "2026-07-28T06:07:42+00:00",
    "reviewed": false,
    "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
   },
@@ -150,7 +150,7 @@
    "kind": "claim",
    "payload_digest": "69141f4d20132759",
    "evidence_ceiling": "EVC-3",
-   "at": "2026-07-28T00:24:51+00:00",
+   "at": "2026-07-28T06:07:42+00:00",
    "reviewed": false,
    "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
   },
@@ -161,7 +161,7 @@
    "kind": "claim",
    "payload_digest": "2621217044f2e270",
    "evidence_ceiling": "EVC-3",
-   "at": "2026-07-28T00:24:51+00:00",
+   "at": "2026-07-28T06:07:42+00:00",
    "reviewed": false,
    "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
   },
@@ -172,7 +172,7 @@
    "kind": "claim",
    "payload_digest": "6faef9b2152910e6",
    "evidence_ceiling": "EVC-3",
-   "at": "2026-07-28T00:24:51+00:00",
+   "at": "2026-07-28T06:07:42+00:00",
    "reviewed": false,
    "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
   },
@@ -183,7 +183,7 @@
    "kind": "claim",
    "payload_digest": "6a8f11b21da3fa12",
    "evidence_ceiling": "EVC-3",
-   "at": "2026-07-28T00:24:51+00:00",
+   "at": "2026-07-28T06:07:42+00:00",
    "reviewed": false,
    "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
   },
@@ -194,7 +194,7 @@
    "kind": "claim",
    "payload_digest": "025f026d1f4ffd43",
    "evidence_ceiling": "EVC-3",
-   "at": "2026-07-28T00:24:51+00:00",
+   "at": "2026-07-28T06:07:42+00:00",
    "reviewed": false,
    "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
   },
@@ -205,7 +205,7 @@
    "kind": "claim",
    "payload_digest": "44c9da629b3782da",
    "evidence_ceiling": "EVC-3",
-   "at": "2026-07-28T00:24:51+00:00",
+   "at": "2026-07-28T06:07:42+00:00",
    "reviewed": false,
    "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
   },
@@ -216,7 +216,7 @@
    "kind": "claim",
    "payload_digest": "f3fcaecdc0079e24",
    "evidence_ceiling": "EVC-3",
-   "at": "2026-07-28T00:24:51+00:00",
+   "at": "2026-07-28T06:07:42+00:00",
    "reviewed": false,
    "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
   },
@@ -227,7 +227,7 @@
    "kind": "claim",
    "payload_digest": "a7a3e4970b9cb21a",
    "evidence_ceiling": "EVC-3",
-   "at": "2026-07-28T00:24:51+00:00",
+   "at": "2026-07-28T06:07:42+00:00",
    "reviewed": false,
    "statement": "Admitted without human review. This content is visible and queryable because absence would be its own distortion, but no domain expert has examined it and it is excluded from every reviewed-coverage figure."
   }

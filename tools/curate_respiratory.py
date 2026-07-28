@@ -58,6 +58,13 @@ WEST = {'citation': "West JB & Luks AM, West's Respiratory Physiology: The "
 OCHS = {'citation': 'Ochs M et al., The number of alveoli in the human lung, '
                     'Am J Respir Crit Care Med 169:120-124, 2004',
         'identifier': 'PMID:14512270', 'licence_tier': 'T2'}
+# Added after the verification pass (D-033). The only openly licensed source
+# here: CC BY 3.0, so a reader can actually open it and check. Guyton and West
+# are T2 reference-only — citable, but nobody can follow the citation.
+OPENSTAX = {'citation': 'OpenStax College, Anatomy & Physiology 1e, OpenStax '
+                        'CNX (CC BY 3.0)',
+            'identifier': 'https://github.com/philschatz/anatomy-book',
+            'licence_tier': 'T0'}
 GEHR = {'citation': 'Gehr P, Bachofen M, Weibel ER, The normal human lung: '
                     'ultrastructure and morphometric estimation of diffusion '
                     'capacity, Respir Physiol 32:121-140, 1978',
@@ -92,18 +99,22 @@ FINDINGS = [
      'here.', ()),
 
     ('CLM:lung-tidal-volume', LUNG, 'has_quantity', 500, 'mL',
-     'EVC-4', 'reference textbook', [GUYTON, WEST], ADULT,
+     'EVC-4', 'reference textbook', [OPENSTAX, GUYTON, WEST], ADULT,
      'A rounded reference value for quiet breathing. Tidal volume varies with '
      'body size, posture and metabolic demand; ~7 mL/kg is the size-scaled '
      'form and is not represented as a separate claim.', (),
      {'preparation': 'in vivo',
       'notes': 'quiet breathing, upright, breathing air at sea level'}),
 
-    ('CLM:lung-respiratory-rate', LUNG, 'has_quantity', 14, '/min',
-     'EVC-4', 'reference textbook', [GUYTON], ADULT,
-     'A midpoint of the commonly cited 12-16/min resting range. The range is '
-     'the honest form; the midpoint is recorded because the claim record holds '
-     'a single value, which is a limitation of the record, not of the biology.',
+    ('CLM:lung-respiratory-rate', LUNG, 'has_quantity', 15, '/min',
+     'EVC-4', 'reference textbook', [OPENSTAX, GUYTON], ADULT,
+     'Corrected by the verification pass (D-033). The first version recorded 14 '
+     'as "the midpoint of the commonly cited 12-16 range"; OpenStax states '
+     '"12 to 18 breaths per minute" for adults, so the range was wrong and the '
+     'midpoint with it. Sources genuinely differ on the upper bound — Guyton '
+     'gives 12-16, OpenStax 12-18 — and the recorded value is the midpoint of '
+     'the wider, openly checkable range. The range is the honest form; a single '
+     'value is a limitation of the claim record, not of the biology.',
      (),
      {'preparation': 'in vivo',
       'notes': 'awake, at rest, upright, normocapnic'}),
@@ -148,7 +159,7 @@ FINDINGS = [
 
     # The genuine conflict. Both retained, both EVC-7, each naming the other.
     ('CLM:lung-alveolar-surface-classic', LUNG, 'has_quantity', 70, 'm2',
-     'EVC-7', 'reference textbook', [WEST, GUYTON], ADULT,
+     'EVC-7', 'reference textbook', [OPENSTAX, WEST, GUYTON], ADULT,
      'The classic textbook estimate of the alveolar gas-exchange surface. '
      'Design-based stereology gives roughly twice this figure; the '
      'disagreement is methodological and unresolved, so both are retained.',
